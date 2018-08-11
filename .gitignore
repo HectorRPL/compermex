@@ -1,0 +1,60 @@
+logs
+target
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+/public
+
+#Archivos ignorados del front
+
+# compiled output
+/ui/dist
+/ui/dist-server
+/ui/tmp
+/ui/out-tsccd
+
+# dependencies
+/ui/node_modules
+
+# IDEs and editors
+app.web.ipr
+app.web.iws
+/app.web.ipr
+/app.web.iws
+/ui/.idea
+/ui/.project
+/ui/.classpath
+/ui/.c9/
+/ui/*.launch
+/ui/.settings/
+/ui/*.sublime-workspace
+
+# IDE - VSCode
+/ui/.vscode/*
+/ui/!.vscode/settings.json
+/ui/!.vscode/tasks.json
+/ui/!.vscode/launch.json
+/ui/!.vscode/extensions.json
+
+# misc
+/ui/.sass-cache
+/ui/connect.lock
+/ui/coverage
+/libpeerconnection.log
+/ui/npm-debug.log
+/ui/testem.log
+/ui/typings
+
+# e2e
+/ui/e2e/*.js
+/ui/e2e/*.map
+
+# System Files
+/ui/.DS_Store
+/ui/Thumbs.db
+
+/ui/package-lock.json
+
