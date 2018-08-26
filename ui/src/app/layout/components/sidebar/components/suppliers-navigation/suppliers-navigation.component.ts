@@ -1,34 +1,31 @@
-import {Component} from '@angular/core';
-import {Router, NavigationEnd} from '@angular/router';
-import {MenuSideBar} from "../../models/menu-side-bar.model";
+import { Component, OnInit } from '@angular/core';
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  selector: 'app-suppliers-navigation',
+  templateUrl: './suppliers-navigation.component.html',
+  styleUrls: ['./suppliers-navigation.component.css']
 })
-export class SidebarComponent {
+export class SuppliersNavigationComponent implements OnInit {
+
   isActive: boolean = false;
   showMenu: string = '';
   pushRightClass: string = 'push-right';
-  menu: MenuSideBar[];
 
   constructor(public router: Router) {
 
     this.router.events.subscribe(val => {
-      if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
+      if (
+        val instanceof NavigationEnd &&
+        window.innerWidth <= 992 &&
+        this.isToggled()
+      ) {
         this.toggleSidebar();
       }
     });
-
-    this.createMenu();
   }
 
-  createMenu() {
-    this.menu = [
-      {name: 'Compras', icon: 'fa fa-industry',     subMenu: [{subName: 'Lista', url: '/layout/compras/list'}]},
-      {name: 'Proveedores', icon: 'fa fa-industry', subMenu: [{subName: 'Forma', url: '/layout/suppliers/list'}]}
-    ];
+  ngOnInit() {
   }
 
   eventCalled() {
