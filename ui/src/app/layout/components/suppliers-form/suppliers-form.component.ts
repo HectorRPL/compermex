@@ -10,11 +10,12 @@ import {Supplier} from '../../models/supplier.model';
 })
 export class SuppliersFormComponent implements OnInit {
 
-  supplier: Supplier = new Supplier();
+  supplier: Supplier;
   suppliersForm: FormGroup;
   charactersMinimumRfc: number = 10;
 
   constructor(private formBuilder: FormBuilder) {
+    this.supplier = new Supplier();
   }
 
   ngOnInit(): void {
