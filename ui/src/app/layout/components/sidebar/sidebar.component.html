@@ -1,16 +1,20 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
-    <div class="list-group">
-        <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('pages')">
-                <span><i class="fa fa-industry"></i>&nbsp; Compras</span>
+  <div class="list-group">
+    <div class="nested-menu" *ngFor="let item of menu">
+      <a class="list-group-item" (click)="addExpandClass('pages')">
+        <span><i class="{{item.icon}}"></i> {{item.name}}</span>
+      </a>
+      <li class="nested" [class.expand]="showMenu === 'pages'">
+        <ul class="submenu">
+          <li *ngFor="let subItem of item.subMenu">
+            <a [routerLink]="subItem.url"
+               [routerLinkActive]="['router-link-active']"
+               class="list-group-item">
+              {{subItem.subName}}
             </a>
-            <li class="nested" [class.expand]="showMenu === 'pages'">
-                <ul class="submenu">
-                    <li>
-                        <a [routerLink]="['/layout/compras/list']" [routerLinkActive]="['router-link-active']" class="list-group-item">List</a>
-                    </li>
-                </ul>
-            </li>
-        </div>
+          </li>
+        </ul>
+      </li>
     </div>
+  </div>
 </nav>

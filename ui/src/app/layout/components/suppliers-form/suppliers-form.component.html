@@ -1,0 +1,25 @@
+<form novalidate
+      autocomplete="off"
+      [formGroup]="suppliersForm">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="rfcId">RFC</label>
+      <input type="email"
+             class="form-control"
+             id="rfcId"
+             placeholder="RFC"
+             [ngClass]="{'border border-danger danger-focus': rfc.invalid && (rfc.dirty || rfc.touched)}"
+             formControlName="rfc">
+      <div *ngIf="rfc.invalid && (rfc.dirty || rfc.touched)">
+        <div class="text-danger small" *ngIf="rfc.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="rfc.errors.minlength">Mínimo {{charactersMinimumRfc}} caracteres</div>
+      </div>
+    </div>
+  </div>
+  <button type="submit"
+          class="btn btn-primary"
+          [disabled]="suppliersForm.invalid"
+          (click)="next()">
+    Siguiente
+  </button>
+</form>

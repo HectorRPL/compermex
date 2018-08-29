@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Aplica para cuando el input es inválido, el focus se pone rojo
+.danger-focus:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
