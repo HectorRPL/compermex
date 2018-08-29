@@ -2,17 +2,20 @@
       autocomplete="off"
       [formGroup]="suppliersForm">
   <div class="form-row">
+    <!--NOMBRE DE EMPRESA-->
     <div class="form-group col-md-6">
-      <label for="rfcId">RFC</label>
-      <input type="email"
+      <label for="nameId">Nombre</label>
+      <input type="text"
              class="form-control"
-             id="rfcId"
-             placeholder="RFC"
-             [ngClass]="{'border border-danger danger-focus': rfc.invalid && (rfc.dirty || rfc.touched)}"
-             formControlName="rfc">
-      <div *ngIf="rfc.invalid && (rfc.dirty || rfc.touched)">
-        <div class="text-danger small" *ngIf="rfc.errors.required">Requerido</div>
-        <div class="text-danger small" *ngIf="rfc.errors.minlength">Mínimo {{charactersMinimumRfc}} caracteres</div>
+             id="nameId"
+             placeholder="Nombre"
+             [ngClass]="{'border border-danger danger-focus': name.invalid && (name.dirty || name.touched)}"
+             formControlName="name">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)">
+        <div class="text-danger small" *ngIf="name.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="name.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="name.errors.minlength">Mínimo {{charactersMinName}} caracteres</div>
+        <div class="text-danger small" *ngIf="name.errors.maxlength">Máximo {{charactersMaxName}} caracteres</div>
       </div>
     </div>
   </div>

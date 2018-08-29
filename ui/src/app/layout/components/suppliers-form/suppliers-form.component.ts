@@ -12,7 +12,8 @@ export class SuppliersFormComponent implements OnInit {
 
   supplier: Supplier;
   suppliersForm: FormGroup;
-  charactersMinimumRfc: number = 10;
+  charactersMinName: number = 2;
+  charactersMaxName: number = 50;
 
   constructor(private formBuilder: FormBuilder) {
     this.supplier = new Supplier();
@@ -26,15 +27,17 @@ export class SuppliersFormComponent implements OnInit {
 
   createSuppliersForm() {
     this.suppliersForm = this.formBuilder.group({
-      'rfc': new FormControl(this.supplier.rfc, [
+      'name': new FormControl(this.supplier.name, [
         Validators.required,
-        Validators.minLength(this.charactersMinimumRfc)
+        Validators.pattern(/^[ñÑ\s\w]+$/),
+        Validators.minLength(this.charactersMinName),
+        Validators.maxLength(this.charactersMaxName),
       ])
     });
   }
 
-  get rfc() {
-    return this.suppliersForm.get('rfc');
+  get name() {
+    return this.suppliersForm.get('name');
   }
 
   next() {

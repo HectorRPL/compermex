@@ -1,3 +1,3 @@
 export class Supplier {
-  rfc: string;
+  name: string;
 }
