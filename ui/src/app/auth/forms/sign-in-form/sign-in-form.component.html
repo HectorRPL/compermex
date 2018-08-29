@@ -1,0 +1,65 @@
+<p>
+  sign-in-form works!
+</p>
+<form [formGroup]="signInForm" (ngSubmit)="signIn()" novalidate class="property-submit-form">
+  <!--FIRST NAME-->
+  <div class="col-sm-12 mb-3">
+    <input id="firstNameId"
+           type="text"
+           name="firstName"
+           placeholder="Nombre(s)"
+           class="form-control"
+           [ngClass]="{'is-invalid': signInForm.get('firstName').invalid
+           && !signInForm.get('firstName').pristine}"
+           formControlName="firstName">
+    <div class="invalid-feedback"
+         *ngIf="signInForm.get('firstName').errors?.required">
+      required
+    </div>
+  </div>
+  <!--LAST NAME-->
+  <div class="col-sm-12 mb-3">
+    <input id="lastNameId"
+           type="text"
+           name="lastName"
+           placeholder="Apellido(s)"
+           class="form-control"
+           [ngClass]="{'is-invalid': signInForm.get('lastName').invalid
+           && !signInForm.get('lastName').pristine}"
+           formControlName="lastName">
+    <div class="invalid-feedback"
+         *ngIf="signInForm.get('lastName').errors?.required">
+      required
+    </div>
+  </div>
+  <!--EMAIL-->
+  <div class="col-sm-12 mb-3">
+    <input id="emailId"
+           type="email"
+           name="email"
+           placeholder="Email"
+           class="form-control"
+           [ngClass]="{'is-invalid': signInForm.get('email').invalid && !signInForm.get('email').pristine}"
+           formControlName="email">
+    <div class="invalid-feedback"
+         *ngIf="signInForm.get('email').errors?.required">
+      required
+    </div>
+    <div class="invalid-feedback"
+         *ngIf="signInForm.get('email').errors?.email">
+      Invalid
+    </div>
+  </div>
+  <!--ALERT-->
+  <div class="col-sm-12 mb-3">
+    <!-- app-messages></app-messages -->
+  </div>
+  <!--BUTTON-->
+  <div class="col-sm-12 mb-3">
+    <button type="submit"
+            class="btn btn-primary form-control"
+            [disabled]="signInForm.invalid">
+      Login
+    </button>
+  </div>
+</form>
