@@ -12,10 +12,16 @@ export class SuppliersFormComponent implements OnInit {
 
   public supplier: Supplier;
   suppliersForm: FormGroup;
+
+  // VALIDACIONES PARA EL INPUT NOMBRE
   charactersMinName: number = 2;
   charactersMaxName: number = 50;
+  // VALIDACIONES PARA EL INPUT EMAIL
   charactersMinEmail: number = 5;
   charactersMaxEmail: number = 50;
+  // VALIDACIONES PARA EL INPUT TELÉFONO
+  charactersMinPhone: number = 8;
+  charactersMaxPhone: number = 10;
 
   constructor(private formBuilder: FormBuilder) {
     this.supplier = new Supplier();
@@ -40,6 +46,12 @@ export class SuppliersFormComponent implements OnInit {
         Validators.email,
         Validators.minLength(this.charactersMinEmail),
         Validators.maxLength(this.charactersMaxEmail)
+      ]),
+      'phone': new FormControl(this.supplier.phone, [
+        Validators.required,
+        Validators.pattern(/^[0-9]*$/),
+        Validators.minLength(this.charactersMinPhone),
+        Validators.maxLength(this.charactersMaxPhone)
       ])
     });
   }
@@ -50,6 +62,10 @@ export class SuppliersFormComponent implements OnInit {
 
   get email() {
     return this.suppliersForm.get('email');
+  }
+
+  get phone() {
+    return this.suppliersForm.get('phone');
   }
 
   next() {
