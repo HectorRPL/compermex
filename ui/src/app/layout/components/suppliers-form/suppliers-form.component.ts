@@ -10,10 +10,12 @@ import {Supplier} from '../../models/supplier.model';
 })
 export class SuppliersFormComponent implements OnInit {
 
-  supplier: Supplier;
+  public supplier: Supplier;
   suppliersForm: FormGroup;
   charactersMinName: number = 2;
   charactersMaxName: number = 50;
+  charactersMinEmail: number = 5;
+  charactersMaxEmail: number = 50;
 
   constructor(private formBuilder: FormBuilder) {
     this.supplier = new Supplier();
@@ -31,13 +33,23 @@ export class SuppliersFormComponent implements OnInit {
         Validators.required,
         Validators.pattern(/^[ñÑ\s\w]+$/),
         Validators.minLength(this.charactersMinName),
-        Validators.maxLength(this.charactersMaxName),
+        Validators.maxLength(this.charactersMaxName)
+      ]),
+      'email': new FormControl(this.supplier.email, [
+        Validators.required,
+        Validators.email,
+        Validators.minLength(this.charactersMinEmail),
+        Validators.maxLength(this.charactersMaxEmail)
       ])
     });
   }
 
   get name() {
     return this.suppliersForm.get('name');
+  }
+
+  get email() {
+    return this.suppliersForm.get('email');
   }
 
   next() {
