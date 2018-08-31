@@ -8,22 +8,23 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class SignUpFormComponent implements OnInit {
 
-  loginForm: FormGroup;
+  signUpForm: FormGroup;
 
   constructor(private frmBuild: FormBuilder) {
   }
 
   ngOnInit() {
-    this.crearLoginFrm();
+    this.createSignUpFrm();
   }
 
-  crearLoginFrm() {
-    this.loginForm = this.frmBuild.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(8)]]
-    });
+  createSignUpFrm() {
+     this.signUpForm = this.frmBuild.group({
+          firstName: ['', [Validators.required, Validators.email]],
+          lastName: ['', [Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(8)]],
+          email: ['', [Validators.required, Validators.email]]
+        });
   }
 
   signUp() {

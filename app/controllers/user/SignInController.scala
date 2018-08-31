@@ -13,8 +13,9 @@ import play.api.Configuration
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
-import services.user.UserService
+import myservices.user.UserService
 import utils.auth.DefaultEnv
+import net.ceedubs.ficus.Ficus._
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.concurrent.duration.FiniteDuration

@@ -1,11 +1,12 @@
-package services.user
+package myservices.user
 
 import java.util.UUID
 
 import models.user.AuthToken
 
 import scala.concurrent.Future
-import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
+import scala.language.postfixOps
 
 trait AuthTokenService {
 

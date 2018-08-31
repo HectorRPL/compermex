@@ -3,8 +3,7 @@ package modules
 import com.google.inject.AbstractModule
 import net.codingwell.scalaguice.ScalaModule
 import repositories.user.{AuthTokenRepo, AuthTokenRepoImpl}
-import services.user.{AuthTokenService, AuthTokenServiceImpl}
-import services.user.user.AuthTokenService
+import myservices.user.{AuthTokenService, AuthTokenServiceImpl}
 
 /**
  * The base Guice module.

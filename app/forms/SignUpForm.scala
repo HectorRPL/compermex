@@ -17,11 +17,11 @@ object SignUpForm {
   )
 
   case class Data(
-                         firstName: String,
-                         lastName: String,
-                         email: String,
-                         password: String
-                       )
+                   firstName: String,
+                   lastName: String,
+                   email: String,
+                   password: String
+                 )
 
   object Data {
 

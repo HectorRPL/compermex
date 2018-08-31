@@ -2,10 +2,10 @@ package controllers.user
 
 import java.util.UUID
 
+import com.mohiva.play.silhouette.api.{LoginInfo, SignUpEvent, Silhouette}
 import com.mohiva.play.silhouette.api.repositories.AuthInfoRepository
 import com.mohiva.play.silhouette.api.services.AvatarService
 import com.mohiva.play.silhouette.api.util.PasswordHasher
-import com.mohiva.play.silhouette.api._
 import com.mohiva.play.silhouette.impl.providers.CredentialsProvider
 import forms.SignUpForm
 import javax.inject.Inject
@@ -13,7 +13,7 @@ import models.user.User
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
-import services.user.{UserService, AuthTokenService}
+import myservices.user.{AuthTokenService, UserService}
 import utils.auth.DefaultEnv
 
 import scala.concurrent.{ExecutionContext, Future}

@@ -1,4 +1,4 @@
-package services.user
+package myservices.user
 
 import java.util.UUID
 

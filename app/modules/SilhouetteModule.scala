@@ -19,14 +19,16 @@ import com.mohiva.play.silhouette.impl.util._
 import com.mohiva.play.silhouette.password.BCryptPasswordHasher
 import com.mohiva.play.silhouette.persistence.daos.{DelegableAuthInfoDAO, InMemoryAuthInfoDAO}
 import com.mohiva.play.silhouette.persistence.repositories.DelegableAuthInfoRepository
+import myservices.user.{UserService, UserServiceImpl}
+import repositories.user.{UserRepo, UserRepoImpl}
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
 import net.ceedubs.ficus.readers.EnumerationReader._
+import net.ceedubs.ficus.readers.ValueReader
 import net.codingwell.scalaguice.ScalaModule
 import play.api.Configuration
 import play.api.libs.ws.WSClient
-import repositories.user.{UserRepo, UserRepoImpl}
-import services.user.{UserService, UserServiceImpl}
+import play.api.mvc.Cookie
 import utils.auth.DefaultEnv
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -88,32 +90,6 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
     )
   }
 
-  /**
-   * Provides the social provider registry.
-   *
-   * @param facebookProvider The Facebook provider implementation.
-   * @param googleProvider The Google provider implementation.
-   * @param vkProvider The VK provider implementation.
-   * @param twitterProvider The Twitter provider implementation.
-   * @param xingProvider The Xing provider implementation.
-   * @return The Silhouette environment.
-   */
-  @Provides
-  def provideSocialProviderRegistry(
-    facebookProvider: FacebookProvider,
-    googleProvider: GoogleProvider,
-    vkProvider: VKProvider,
-    twitterProvider: TwitterProvider,
-    xingProvider: XingProvider): SocialProviderRegistry = {
-
-    SocialProviderRegistry(Seq(
-      googleProvider,
-      facebookProvider,
-      twitterProvider,
-      vkProvider,
-      xingProvider
-    ))
-  }
 
   /**
    * Provides the signer for the OAuth1 token secret provider.
@@ -288,7 +264,8 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
 
 
 
-
+  implicit val sameSiteReader: ValueReader[Option[Cookie.SameSite]] =
+    ValueReader.relative(cfg => Cookie.SameSite.parse(cfg.as[String]))
 
 
 

@@ -1,4 +1,4 @@
-package services.user
+package myservices.user
 
 import java.util.UUID
 
@@ -10,7 +10,7 @@ import play.api.libs.concurrent.Execution.Implicits._
 import repositories.user.AuthTokenRepo
 
 import scala.concurrent.Future
-import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
 
 class AuthTokenServiceImpl @Inject()(
                                       authTokenRepo: AuthTokenRepo,

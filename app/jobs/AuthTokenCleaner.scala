@@ -4,7 +4,7 @@ import javax.inject.Inject
 import akka.actor._
 import com.mohiva.play.silhouette.api.util.Clock
 import jobs.AuthTokenCleaner.Clean
-import services.user.AuthTokenService
+import myservices.user.AuthTokenService
 import utils.Logger
 
 import scala.concurrent.ExecutionContext.Implicits.global

@@ -18,13 +18,12 @@ export class SignInFormComponent implements OnInit {
   }
 
   createSignInFrm() {
-    this.signInForm = this.frmBuild.group({
-      firstName: ['', [Validators.required, Validators.email]],
-      lastName: ['', [Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(8)]],
-      email: ['', [Validators.required, Validators.email]]
-    });
+   this.signInForm = this.frmBuild.group({
+         email: ['', [Validators.required, Validators.email]],
+         password: ['', [Validators.required,
+           Validators.minLength(6),
+           Validators.maxLength(8)]]
+       });
   }
 
   signIn() {
