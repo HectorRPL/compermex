@@ -7,11 +7,14 @@ import {SuppliersSearchComponent} from '../components/searches/suppliers-search/
 import {MaterialsSearchComponent} from '../components/searches/materials-search/materials-search.component';
 import {ClientsSearchComponent} from '../components/searches/clients-search/clients-search.component';
 import {OrderHeaderComponent} from '../components/searches/order-header/order-header.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { ModalTemporalComponent } from './components/modal-temporal/modal-temporal.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    OrdersRoutingModule
+    OrdersRoutingModule,
+    NgbModule
   ],
   declarations: [
     OrdersComponent,
@@ -19,8 +22,12 @@ import {OrderHeaderComponent} from '../components/searches/order-header/order-he
     SuppliersSearchComponent,
     MaterialsSearchComponent,
     ClientsSearchComponent,
-    OrderHeaderComponent
-  ]
+    OrderHeaderComponent,
+    ModalTemporalComponent
+  ],
+  entryComponents: [
+    ModalTemporalComponent
+  ],
 })
 export class OrdersModule {
 }
