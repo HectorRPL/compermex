@@ -9,12 +9,16 @@ import {ClientsSearchComponent} from '../components/searches/clients-search/clie
 import {OrderHeaderComponent} from '../components/searches/order-header/order-header.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ModalTemporalComponent } from './components/modal-temporal/modal-temporal.component';
+import {SuppliersFormComponent} from "../components/suppliers-form/suppliers-form.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
     OrdersRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     OrdersComponent,
@@ -23,7 +27,8 @@ import { ModalTemporalComponent } from './components/modal-temporal/modal-tempor
     MaterialsSearchComponent,
     ClientsSearchComponent,
     OrderHeaderComponent,
-    ModalTemporalComponent
+    ModalTemporalComponent,
+    SuppliersFormComponent
   ],
   entryComponents: [
     ModalTemporalComponent
