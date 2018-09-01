@@ -6,6 +6,7 @@ import {OrdersRoutingModule} from './orders-routing.module';
 import {SuppliersSearchComponent} from '../components/searches/suppliers-search/suppliers-search.component';
 import {MaterialsSearchComponent} from '../components/searches/materials-search/materials-search.component';
 import {ClientsSearchComponent} from '../components/searches/clients-search/clients-search.component';
+import {OrderHeaderComponent} from '../components/searches/order-header/order-header.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {ClientsSearchComponent} from '../components/searches/clients-search/clie
     CreateOrderComponent,
     SuppliersSearchComponent,
     MaterialsSearchComponent,
-    ClientsSearchComponent
+    ClientsSearchComponent,
+    OrderHeaderComponent
   ]
 })
 export class OrdersModule {
