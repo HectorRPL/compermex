@@ -4,6 +4,8 @@ import {OrdersComponent} from './orders.component';
 import {CreateOrderComponent} from './components/create-order/create-order.component';
 import {OrdersRoutingModule} from './orders-routing.module';
 import {SuppliersSearchComponent} from '../components/searches/suppliers-search/suppliers-search.component';
+import {MaterialsSearchComponent} from '../components/searches/materials-search/materials-search.component';
+import {ClientsSearchComponent} from '../components/searches/clients-search/clients-search.component';
 
 @NgModule({
   imports: [
@@ -13,7 +15,9 @@ import {SuppliersSearchComponent} from '../components/searches/suppliers-search/
   declarations: [
     OrdersComponent,
     CreateOrderComponent,
-    SuppliersSearchComponent
+    SuppliersSearchComponent,
+    MaterialsSearchComponent,
+    ClientsSearchComponent
   ]
 })
 export class OrdersModule {
