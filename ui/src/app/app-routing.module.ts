@@ -4,7 +4,7 @@ import {Routes, RouterModule} from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/layout',
+    redirectTo: '/auth/signUp',
     pathMatch: 'full'
   },
   {
@@ -12,6 +12,11 @@ const routes: Routes = [
     loadChildren: './layout/layout.module#LayoutModule',
     data: {preload: false}
   },
+  {
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthModule',
+    data: {preload: false}
+  }
   // {path: '**', redirectTo: 'not-found'}
 ];
 

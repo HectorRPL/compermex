@@ -12,17 +12,17 @@ import models.CountryJsonFormat._
 import scala.concurrent.{ExecutionContext, Future}
 
 class CountriesRepo @Inject()(
-                              implicit ec: ExecutionContext,
-                              reactiveMongoApi: ReactiveMongoApi
-                            ) {
+                               implicit ec: ExecutionContext,
+                               reactiveMongoApi: ReactiveMongoApi
+                             ) {
 
-  def countriesCollec : Future[JSONCollection] =
+  def collection: Future[JSONCollection] =
     reactiveMongoApi.database.map(_.collection("countries"))
 
-  def getCountries(): Future[Seq[Country]] ={
+  def getCountries(): Future[Seq[Country]] = {
 
     val query = BSONDocument()
-    countriesCollec.flatMap(_.find(query)
+    collection.flatMap(_.find(query)
       .cursor[Country](ReadPreference.primary)
       .collect[Seq](10, Cursor.FailOnError[Seq[Country]]())
     )
@@ -30,7 +30,7 @@ class CountriesRepo @Inject()(
 
   def getCountrie(id: BSONObjectID): Future[Option[Country]] = {
     val query = BSONDocument("_id" -> id)
-    countriesCollec.flatMap(_.find(query).one[Country])
+    collection.flatMap(_.find(query).one[Country])
   }
 
 }
