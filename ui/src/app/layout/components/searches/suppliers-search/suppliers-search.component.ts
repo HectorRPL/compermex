@@ -22,7 +22,7 @@ export class SuppliersSearchComponent implements OnInit {
 
 
   search(text$: Observable<string>) {
-    text$.pipe(
+    /*text$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
       tap(() => this.searching = true),
@@ -35,7 +35,7 @@ export class SuppliersSearchComponent implements OnInit {
           }))
       ),
       tap(() => this.searching = false)
-    )
+    )*/
   }
 
 
