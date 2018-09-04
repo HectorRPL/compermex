@@ -7,10 +7,10 @@ import {SuppliersSearchComponent} from '../components/searches/suppliers-search/
 import {MaterialsSearchComponent} from '../components/searches/materials-search/materials-search.component';
 import {ClientsSearchComponent} from '../components/searches/clients-search/clients-search.component';
 import {OrderHeaderComponent} from '../components/searches/order-header/order-header.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { ModalTemporalComponent } from './components/modal-temporal/modal-temporal.component';
-import {SuppliersFormComponent} from "../components/suppliers-form/suppliers-form.component";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {SuppliersFormComponent} from '../components/suppliers-form/suppliers-form.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ModalOrderComponent} from './components/modal-order/modal-order.component';
 
 @NgModule({
   imports: [
@@ -27,11 +27,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MaterialsSearchComponent,
     ClientsSearchComponent,
     OrderHeaderComponent,
-    ModalTemporalComponent,
-    SuppliersFormComponent
+    SuppliersFormComponent,
+    ModalOrderComponent
   ],
   entryComponents: [
-    ModalTemporalComponent
+    ModalOrderComponent
   ],
 })
 export class OrdersModule {

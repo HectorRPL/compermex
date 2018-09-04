@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalTemporalComponent } from './modal-temporal.component';
+import { ModalOrderComponent } from './modal-order.component';
 
-describe('ModalTemporalComponent', () => {
-  let component: ModalTemporalComponent;
-  let fixture: ComponentFixture<ModalTemporalComponent>;
+describe('ModalOrderComponent', () => {
+  let component: ModalOrderComponent;
+  let fixture: ComponentFixture<ModalOrderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalTemporalComponent ]
+      declarations: [ ModalOrderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalTemporalComponent);
+    fixture = TestBed.createComponent(ModalOrderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

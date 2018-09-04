@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalTemporalComponent} from '../modal-temporal/modal-temporal.component';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModalOrderComponent} from "../modal-order/modal-order.component";
 
 @Component({
   selector: 'app-create-order',
@@ -15,8 +15,8 @@ export class CreateOrderComponent implements OnInit {
   ngOnInit() {
   }
 
-  modalAltaCompraFactura() {
-    const modalRef = this.modalService.open(ModalTemporalComponent,
+  openModalOrder() {
+    const modalRef = this.modalService.open(ModalOrderComponent,
       {
         size: 'lg',
         backdrop: 'static',
