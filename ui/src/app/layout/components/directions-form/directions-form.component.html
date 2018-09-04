@@ -1,3 +1,61 @@
-<p>
-  directions-form works!
-</p>
+<form novalidate
+      autocomplete="off"
+      [formGroup]="directionsForm">
+  <div class="form-row">
+    <!--CALLE / STREET-->
+    <div class="form-group col-md-6">
+      <label for="streetId">Calle</label>
+      <input type="text"
+             class="form-control"
+             id="streetId"
+             placeholder="Calle"
+             [ngClass]="{'border border-danger danger-focus': street.invalid && (street.dirty || street.touched)}"
+             formControlName="street">
+      <div *ngIf="street.invalid && (street.dirty || street.touched)">
+        <div class="text-danger small" *ngIf="street.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="street.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="street.errors.minlength">Mínimo {{charactersMinStreet}} caracteres.</div>
+        <div class="text-danger small" *ngIf="street.errors.maxlength">Máximo {{charactersMaxStreet}} caracteres.</div>
+      </div>
+    </div>
+    <!--NÚMERO EXTERIOR / EXTERIOR NUMER-->
+    <div class="form-group col-md-6">
+      <label for="exteriorNumberId">Número exterior</label>
+      <input type="text"
+             class="form-control"
+             id="exteriorNumberId"
+             placeholder="Número exterior"
+             [ngClass]="{'border border-danger danger-focus': exteriorNumber.invalid && (exteriorNumber.dirty || exteriorNumber.touched)}"
+             formControlName="exteriorNumber">
+      <div *ngIf="exteriorNumber.invalid && (exteriorNumber.dirty || exteriorNumber.touched)">
+        <div class="text-danger small" *ngIf="exteriorNumber.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="exteriorNumber.errors.exteriorNumber">Inválido.</div>
+        <div class="text-danger small" *ngIf="exteriorNumber.errors.minlength">Mínimo {{charactersMinExteriorNumber}} caracteres.</div>
+        <div class="text-danger small" *ngIf="exteriorNumber.errors.maxlength">Máximo {{charactersMaxExteriorNumber}} caracteres.</div>
+      </div>
+    </div>
+    <!--NÚMERO INTERIOR / INTERIOR NUMER-->
+    <div class="form-group col-md-6">
+      <label for="interiorNumberId">Número interior</label>
+      <input type="text"
+             class="form-control"
+             id="interiorNumberId"
+             placeholder="Número interior"
+             [ngClass]="{'border border-danger danger-focus': interiorNumber.invalid && (interiorNumber.dirty || interiorNumber.touched)}"
+             formControlName="interiorNumber">
+      <div *ngIf="interiorNumber.invalid && (interiorNumber.dirty || interiorNumber.touched)">
+        <div class="text-danger small" *ngIf="interiorNumber.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="interiorNumber.errors.interiorNumber">Inválido.</div>
+        <div class="text-danger small" *ngIf="interiorNumber.errors.minlength">Mínimo {{charactersMinInteriorNumber}} caracteres.</div>
+        <div class="text-danger small" *ngIf="interiorNumber.errors.maxlength">Máximo {{charactersMaxInteriorNumber}} caracteres.</div>
+      </div>
+    </div>
+  </div>
+  <button type="submit"
+          class="btn btn-primary"
+          [disabled]="directionsForm.invalid"
+          (click)="directionAction()">
+    Siguiente
+  </button>
+</form>
+<!--<pre *ngIf="directionsForm">{{directionsForm|json}}</pre>-->

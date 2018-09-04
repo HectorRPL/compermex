@@ -24,7 +24,9 @@ export class SuppliersFormComponent implements OnInit {
   charactersMaxPhone: number = 10;
 
   constructor(private formBuilder: FormBuilder) {
+
     this.supplier = new Supplier();
+
   }
 
   ngOnInit(): void {
@@ -68,7 +70,7 @@ export class SuppliersFormComponent implements OnInit {
     return this.suppliersForm.get('phone');
   }
 
-  next() {
+  supplierAction() {
     console.log(this.suppliersForm);
   }
 
