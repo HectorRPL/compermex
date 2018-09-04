@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-modal-order',
-  templateUrl: './modal-order.component.html',
-  styleUrls: ['./modal-order.component.css']
+  selector: 'app-modal-direction',
+  templateUrl: './modal-direction.component.html',
+  styleUrls: ['./modal-direction.component.css']
 })
-export class ModalOrderComponent implements OnInit {
+export class ModalDirectionComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal) { }
 

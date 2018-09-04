@@ -8,9 +8,11 @@ import {MaterialsSearchComponent} from '../components/searches/materials-search/
 import {ClientsSearchComponent} from '../components/searches/clients-search/clients-search.component';
 import {OrderHeaderComponent} from '../components/searches/order-header/order-header.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {SuppliersFormComponent} from '../components/suppliers-form/suppliers-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SuppliersFormComponent} from '../components/suppliers-form/suppliers-form.component';
+import {DirectionsFormComponent} from '../components/directions-form/directions-form.component';
 import {ModalOrderComponent} from './components/modal-order/modal-order.component';
+import {ModalDirectionComponent} from './components/modal-direction/modal-direction.component';
 
 @NgModule({
   imports: [
@@ -28,10 +30,13 @@ import {ModalOrderComponent} from './components/modal-order/modal-order.componen
     ClientsSearchComponent,
     OrderHeaderComponent,
     SuppliersFormComponent,
-    ModalOrderComponent
+    DirectionsFormComponent,
+    ModalOrderComponent,
+    ModalDirectionComponent
   ],
   entryComponents: [
-    ModalOrderComponent
+    ModalOrderComponent,
+    ModalDirectionComponent
   ],
 })
 export class OrdersModule {

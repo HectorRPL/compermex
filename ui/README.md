@@ -10,7 +10,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component layout/orders/components/modalTemporal` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-EJEMPLO: ng generate component layout/orders/components/modalOrder
+EJEMPLO: ng generate component layout/orders/components/modalDirection
 
 ## Build
 
