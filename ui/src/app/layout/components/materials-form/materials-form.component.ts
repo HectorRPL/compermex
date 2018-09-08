@@ -31,6 +31,12 @@ export class MaterialsFormComponent implements OnInit {
 
   createMaterialsForm() {
     this.materialsForm = this.formBuilder.group({
+      // PANEL ARTÍCULO
+      'key': new FormControl(this.material.key, [
+        Validators.required,
+      ]),
+
+      // <!--PANEL MEDIDAS-->
       'long': new FormControl(this.material.long, [
         Validators.required,
         Validators.min(this.minSize),
@@ -54,6 +60,12 @@ export class MaterialsFormComponent implements OnInit {
     });
   }
 
+  // PANEL ARTÍCULO
+  get key() {
+    return this.materialsForm.get('key');
+  }
+
+  // PANEL MEDIDAS
   get long() {
     return this.materialsForm.get('long');
   }

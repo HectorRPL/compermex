@@ -1,6 +1,38 @@
 <form novalidate
       autocomplete="off"
       [formGroup]="materialsForm">
+
+  <!--PANEL ARTÍCULO-->
+  <div class="form row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">Artículo</div>
+        <div class="card-body">
+          <div class="row">
+            <!--CLAVE  KEY-->
+            <div class="form-group col-sm-3">
+              <label for="keyId">Clave</label>
+              <input type="text"
+                     class="form-control form-control-sm"
+                     id="keyId"
+                     placeholder="Clave"
+                     [ngClass]="{'border border-danger danger-focus': key.invalid && (key.dirty || key.touched)}"
+                     formControlName="key">
+              <div *ngIf="key.invalid && (key.dirty || key.touched)">
+                <div class="text-danger small" *ngIf="key.errors.required">Requerido.</div>
+                <div class="text-danger small" *ngIf="key.errors.pattern">No caracteres especiales</div>
+                <div class="text-danger small" *ngIf="key.errors.minlength">Mínimo {{charactersMinName}} caracteres.</div>
+                <div class="text-danger small" *ngIf="key.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <!--PANEL MEDIDAS Y ESPEFÍFICACIONES DE MATERIAL-->
   <div class="form-row">
     <div class="col-sm-6">
       <div class="card">
@@ -162,7 +194,20 @@
         </div>
       </div>
     </div>
+    <!--ESPEFIFICACIONES DE MATERIAL-->
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">Espefificaciones de material</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid, aperiam dignissimos dolor error facere fuga harum hic illum laboriosam maiores nesciunt perferendis quaerat quisquam ratione rerum tenetur velit voluptates!</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!--BOTTON-->
   <br>
   <button type="submit"
           class="btn btn-primary btn-sm"
@@ -170,5 +215,6 @@
           (click)="materialAction()">
     Siguiente
   </button>
+
 </form>
 <!--<pre *ngIf="materialsForm">{{materialsForm|json}}</pre>-->
