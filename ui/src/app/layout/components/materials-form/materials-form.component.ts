@@ -32,6 +32,9 @@ export class MaterialsFormComponent implements OnInit {
   createMaterialsForm() {
     this.materialsForm = this.formBuilder.group({
       // PANEL ARTÍCULO
+      'cia': new FormControl(this.material.cia, [
+        Validators.required
+      ]),
       'key': new FormControl(this.material.key, [
         Validators.required
       ]),
@@ -67,6 +70,10 @@ export class MaterialsFormComponent implements OnInit {
   }
 
   // PANEL ARTÍCULO
+  get cia() {
+    return this.materialsForm.get('cia');
+  }
+
   get key() {
     return this.materialsForm.get('key');
   }

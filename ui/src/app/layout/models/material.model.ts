@@ -3,6 +3,7 @@ export class Material {
   key: string;
   ourKey: string;
   type: number;
+  cia: number;
 
   // <!--PANEL MEDIDAS-->
   long: number; // Largo
