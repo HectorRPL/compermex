@@ -73,7 +73,7 @@
               <label for="clientId">Cliente</label>
               <select class="form-control custom-select custom-select-sm"
                       id="clientId"
-                      ngbTooltip="Creo que esto depende si es update o create, así como el select cliente"
+                      ngbTooltip="Esto depende si es update o create, así como el 'select cliente' y podría se un autocomplete"
                       [ngClass]="{'border border-danger danger-focus': client.invalid && (client.dirty || client.touched)}"
                       formControlName="client">
                 <option value="1">ejemplo cliente 1</option>
@@ -262,7 +262,21 @@
         <div class="card-header">Espefificaciones de material</div>
         <div class="card-body">
           <div class="row">
-            <div class="col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid, aperiam dignissimos dolor error facere fuga harum hic illum laboriosam maiores nesciunt perferendis quaerat quisquam ratione rerum tenetur velit voluptates!</div>
+            <!--TIPO / TYPE-->
+            <div class="form-group col-sm-6">
+              <label for="purchaseId">Compra</label>
+              <select class="form-control custom-select custom-select-sm"
+                      id="purchaseId"
+                      [ngClass]="{'border border-danger danger-focus': purchase.invalid && (purchase.dirty || purchase.touched)}"
+                      formControlName="purchase">
+                <option value="1">ejemplo KRAFT no sé qué 1</option>
+                <option value="2">ejemplo KRAFT no sé qué 2</option>
+                <option value="3">ejemplo KRAFT no sé qué 3</option>
+              </select>
+              <div *ngIf="purchase.invalid && (purchase.dirty || purchase.touched)">
+                <div class="text-danger small" *ngIf="purchase.errors.required">Requerido.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

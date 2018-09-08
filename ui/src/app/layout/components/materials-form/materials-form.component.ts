@@ -68,6 +68,11 @@ export class MaterialsFormComponent implements OnInit {
         Validators.required,
         Validators.min(this.minSize),
         Validators.max(this.maxSize)
+      ]),
+
+      // <!--PANEL MEDIDAS-->
+      'purchase': new FormControl(this.material.purchase, [
+        Validators.required
       ])
     });
   }
@@ -108,6 +113,11 @@ export class MaterialsFormComponent implements OnInit {
 
   get slots() {
     return this.materialsForm.get('slots');
+  }
+
+  // PANEL MEDIDAS
+  get purchase() {
+    return this.materialsForm.get('purchase');
   }
 
   materialAction() {

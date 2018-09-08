@@ -11,4 +11,7 @@ export class Material {
   width: number; // Ancho
   height: number; // Alto
   slots: number; // Ranuras
+
+  // <!--PANEL MEDIDAS-->
+  purchase: number;
 }
