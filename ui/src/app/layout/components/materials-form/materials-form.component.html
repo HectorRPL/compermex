@@ -1,0 +1,113 @@
+<form novalidate
+      autocomplete="off"
+      [formGroup]="materialsForm">
+  <div class="form-row">
+    <!--[TÍTULO] SECCIÓN MEDIDAS DE CAJA-->
+    <div class="col-md-12">
+      <h6 class="text-center">Medidas de Caja</h6>
+    </div>
+    <!--LARGO / LONG-->
+    <div class="form-group col-md-4">
+      <label for="longId">Largo</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="longId"
+             placeholder="Largo"
+             [ngClass]="{'border border-danger danger-focus': long.invalid && (long.dirty || long.touched)}"
+             formControlName="long">
+      <div *ngIf="long.invalid && (long.dirty || long.touched)">
+        <div class="text-danger small" *ngIf="long.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="long.errors.max">máximo {{maxSize}} cm.</div>
+      </div>
+    </div>
+    <!--ANCHO / WIDTH-->
+    <div class="form-group col-md-4">
+      <label for="widthId">Ancho</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="widthId"
+             placeholder="Ancho"
+             [ngClass]="{'border border-danger danger-focus': width.invalid && (width.dirty || width.touched)}"
+             formControlName="width">
+      <div *ngIf="width.invalid && (width.dirty || width.touched)">
+        <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="width.errors.min">mínimo {{minSize}} cm.</div>
+        <div class="text-danger small" *ngIf="width.errors.max">máximo {{maxSize}} cm.</div>
+      </div>
+    </div>
+    <!--ALTO / height-->
+    <div class="form-group col-md-4">
+      <label for="heightId">Alto</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="heightId"
+             placeholder="Alto"
+             [ngClass]="{'border border-danger danger-focus': height.invalid && (height.dirty || height.touched)}"
+             formControlName="height">
+      <div *ngIf="height.invalid && (height.dirty || height.touched)">
+        <div class="text-danger small" *ngIf="height.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="height.errors.min">mínimo {{minSize}} cm.</div>
+        <div class="text-danger small" *ngIf="height.errors.max">máximo {{maxSize}} cm.</div>
+      </div>
+    </div>
+
+
+    <!--[TÍTULO] DIVISIÓN LARGA-->
+    <div class="col-md-12">
+      <h6 class="text-center">División Larga</h6>
+    </div>
+    <!--LARGO / LONG-->
+    <div class="form-group col-md-4">
+      <label for="longId">Largo</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="longId"
+             placeholder="Largo"
+             [ngClass]="{'border border-danger danger-focus': long.invalid && (long.dirty || long.touched)}"
+             formControlName="long">
+      <div *ngIf="long.invalid && (long.dirty || long.touched)">
+        <div class="text-danger small" *ngIf="long.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="long.errors.max">máximo {{maxSize}} cm.</div>
+      </div>
+    </div>
+    <!--ANCHO / WIDTH-->
+    <div class="form-group col-md-4">
+      <label for="widthId">Ancho</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="widthId"
+             placeholder="Ancho"
+             [ngClass]="{'border border-danger danger-focus': width.invalid && (width.dirty || width.touched)}"
+             formControlName="width">
+      <div *ngIf="width.invalid && (width.dirty || width.touched)">
+        <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="width.errors.min">mínimo {{minSize}} cm.</div>
+        <div class="text-danger small" *ngIf="width.errors.max">máximo {{maxSize}} cm.</div>
+      </div>
+    </div>
+    <!--RANURAS / SLOTS-->
+    <div class="form-group col-md-4">
+      <label for="slotsId">Ranuras</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="slotsId"
+             placeholder="Ranuras"
+             [ngClass]="{'border border-danger danger-focus': slots.invalid && (slots.dirty || slots.touched)}"
+             formControlName="slots">
+      <div *ngIf="slots.invalid && (slots.dirty || slots.touched)">
+        <div class="text-danger small" *ngIf="slots.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="slots.errors.min">mínimo {{minSize}} cm.</div>
+        <div class="text-danger small" *ngIf="slots.errors.max">máximo {{maxSize}} cm.</div>
+      </div>
+    </div>
+
+
+  </div>
+  <button type="submit"
+          class="btn btn-primary"
+          [disabled]="materialsForm.invalid"
+          (click)="materialAction()">
+    Siguiente
+  </button>
+</form>
+<!--<pre *ngIf="materialsForm">{{materialsForm|json}}</pre>-->

@@ -11,8 +11,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SuppliersFormComponent} from '../components/suppliers-form/suppliers-form.component';
 import {DirectionsFormComponent} from '../components/directions-form/directions-form.component';
+import {MaterialsFormComponent} from "../components/materials-form/materials-form.component";
 import {ModalOrderComponent} from './components/modal-order/modal-order.component';
 import {ModalDirectionComponent} from './components/modal-direction/modal-direction.component';
+import {ModalMaterialsComponent} from './components/modal-materials/modal-materials.component';
 
 @NgModule({
   imports: [
@@ -31,12 +33,15 @@ import {ModalDirectionComponent} from './components/modal-direction/modal-direct
     OrderHeaderComponent,
     SuppliersFormComponent,
     DirectionsFormComponent,
+    MaterialsFormComponent,
     ModalOrderComponent,
-    ModalDirectionComponent
+    ModalDirectionComponent,
+    ModalMaterialsComponent
   ],
   entryComponents: [
     ModalOrderComponent,
-    ModalDirectionComponent
+    ModalDirectionComponent,
+    ModalMaterialsComponent
   ],
 })
 export class OrdersModule {

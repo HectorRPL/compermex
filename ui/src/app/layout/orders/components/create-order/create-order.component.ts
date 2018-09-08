@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalOrderComponent} from '../modal-order/modal-order.component';
 import {ModalDirectionComponent} from '../modal-direction/modal-direction.component';
+import {ModalMaterialsComponent} from '../modal-materials/modal-materials.component';
 
 @Component({
   selector: 'app-create-order',
@@ -30,6 +31,17 @@ export class CreateOrderComponent implements OnInit {
 
   openModalDirection() {
     const modalRef = this.modalService.open(ModalDirectionComponent,
+      {
+        size: 'lg',
+        backdrop: 'static',
+        keyboard: false
+      }
+    );
+    // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
+  }
+
+  openModalMaterials() {
+    const modalRef = this.modalService.open(ModalMaterialsComponent,
       {
         size: 'lg',
         backdrop: 'static',

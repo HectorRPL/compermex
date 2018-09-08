@@ -26,13 +26,13 @@ A typeahead example that gets values from the
 
 <div class="form-group">
   <label for="typeahead-http">Search for a wiki page:</label>
-  <input id="typeahead-http"
+  <!--<input id="typeahead-http"
          type="text" class="form-control"
          [class.is-invalid]="searchFailed"
          [(ngModel)]="model"
          [ngbTypeahead]="search"
          placeholder="Wikipedia search" />
-  <span *ngIf="searching">searching...</span>
+  <span *ngIf="searching">searching...</span>-->
   <div class="invalid-feedback" *ngIf="searchFailed">
     Sorry, suggestions could not be loaded.
   </div>
