@@ -38,6 +38,9 @@ export class MaterialsFormComponent implements OnInit {
       'ourKey': new FormControl(this.material.ourKey, [
         Validators.required
       ]),
+      'type': new FormControl(this.material.type, [
+        Validators.required
+      ]),
 
       // <!--PANEL MEDIDAS-->
       'long': new FormControl(this.material.long, [
@@ -70,6 +73,10 @@ export class MaterialsFormComponent implements OnInit {
 
   get ourKey() {
     return this.materialsForm.get('ourKey');
+  }
+
+  get type() {
+    return this.materialsForm.get('type');
   }
 
   // PANEL MEDIDAS
