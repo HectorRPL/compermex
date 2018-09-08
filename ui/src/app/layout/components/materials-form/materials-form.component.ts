@@ -70,8 +70,14 @@ export class MaterialsFormComponent implements OnInit {
         Validators.max(this.maxSize)
       ]),
 
-      // <!--PANEL MEDIDAS-->
+      // <!--PANEL ESPEFIFICACIONES DE MATERIAL-->
       'purchase': new FormControl(this.material.purchase, [
+        Validators.required
+      ]),
+      'sale': new FormControl(this.material.sale, [
+        Validators.required
+      ]),
+      'sellerPrice': new FormControl(this.material.sellerPrice, [
         Validators.required
       ])
     });
@@ -115,9 +121,17 @@ export class MaterialsFormComponent implements OnInit {
     return this.materialsForm.get('slots');
   }
 
-  // PANEL MEDIDAS
+  // PANEL ESPEFIFICACIÓN DE MATERIAL
   get purchase() {
     return this.materialsForm.get('purchase');
+  }
+
+  get sale() {
+    return this.materialsForm.get('sale');
+  }
+
+  get sellerPrice() {
+    return this.materialsForm.get('sellerPrice');
   }
 
   materialAction() {

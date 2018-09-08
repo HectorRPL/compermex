@@ -12,6 +12,8 @@ export class Material {
   height: number; // Alto
   slots: number; // Ranuras
 
-  // <!--PANEL MEDIDAS-->
+  // <!--PANEL ESPEFIFICACIONES DE MATERIAL-->
   purchase: number;
+  sale: number;
+  sellerPrice: number;
 }

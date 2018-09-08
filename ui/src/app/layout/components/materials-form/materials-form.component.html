@@ -262,7 +262,7 @@
         <div class="card-header">Espefificaciones de material</div>
         <div class="card-body">
           <div class="row">
-            <!--TIPO / TYPE-->
+            <!--COMPRA / PURCHASE-->
             <div class="form-group col-sm-6">
               <label for="purchaseId">Compra</label>
               <select class="form-control custom-select custom-select-sm"
@@ -275,6 +275,36 @@
               </select>
               <div *ngIf="purchase.invalid && (purchase.dirty || purchase.touched)">
                 <div class="text-danger small" *ngIf="purchase.errors.required">Requerido.</div>
+              </div>
+            </div>
+            <!--VENTA / SALE-->
+            <div class="form-group col-sm-6">
+              <label for="saleId">Venta</label>
+              <select class="form-control custom-select custom-select-sm"
+                      id="saleId"
+                      [ngClass]="{'border border-danger danger-focus': sale.invalid && (sale.dirty || sale.touched)}"
+                      formControlName="sale">
+                <option value="1">ejemplo KRAFT no sé qué 1</option>
+                <option value="2">ejemplo KRAFT no sé qué 2</option>
+                <option value="3">ejemplo KRAFT no sé qué 3</option>
+              </select>
+              <div *ngIf="sale.invalid && (sale.dirty || sale.touched)">
+                <div class="text-danger small" *ngIf="sale.errors.required">Requerido.</div>
+              </div>
+            </div>
+            <!--LARGO / LONG-->
+            <div class="form-group col-md-12">
+              <label for="sellerPriceId">Precio del vendedor</label>
+              <input type="number"
+                     class="form-control form-control-sm"
+                     id="sellerPriceId"
+                     placeholder="Precio del vendedor"
+                     [ngClass]="{'border border-danger danger-focus': sellerPrice.invalid && (sellerPrice.dirty || sellerPrice.touched)}"
+                     formControlName="sellerPrice">
+              <div *ngIf="sellerPrice.invalid && (sellerPrice.dirty || sellerPrice.touched)">
+                <div class="text-danger small" *ngIf="sellerPrice.errors.required">Requerido.</div>
+                <div class="text-danger small" *ngIf="sellerPrice.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="sellerPrice.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
           </div>
