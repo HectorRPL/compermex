@@ -33,7 +33,10 @@ export class MaterialsFormComponent implements OnInit {
     this.materialsForm = this.formBuilder.group({
       // PANEL ARTÍCULO
       'key': new FormControl(this.material.key, [
-        Validators.required,
+        Validators.required
+      ]),
+      'ourKey': new FormControl(this.material.ourKey, [
+        Validators.required
       ]),
 
       // <!--PANEL MEDIDAS-->
@@ -63,6 +66,10 @@ export class MaterialsFormComponent implements OnInit {
   // PANEL ARTÍCULO
   get key() {
     return this.materialsForm.get('key');
+  }
+
+  get ourKey() {
+    return this.materialsForm.get('ourKey');
   }
 
   // PANEL MEDIDAS

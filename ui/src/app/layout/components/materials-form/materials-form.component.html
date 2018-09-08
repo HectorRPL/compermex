@@ -9,7 +9,7 @@
         <div class="card-header">Artículo</div>
         <div class="card-body">
           <div class="row">
-            <!--CLAVE  KEY-->
+            <!--CLAVE / KEY-->
             <div class="form-group col-sm-3">
               <label for="keyId">Clave</label>
               <input type="text"
@@ -25,10 +25,25 @@
                 <div class="text-danger small" *ngIf="key.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
               </div>
             </div>
+            <!--NUESTRA CLAVE / OUR KEY -->
+            <div class="form-group col-sm-3">
+              <label for="ourKeyId">Nuestra Clave</label>
+              <input type="text"
+                     class="form-control form-control-sm"
+                     id="ourKeyId"
+                     placeholder="Nuestra Clave"
+                     [ngClass]="{'border border-danger danger-focus': ourKey.invalid && (ourKey.dirty || ourKey.touched)}"
+                     formControlName="ourKey">
+              <div *ngIf="ourKey.invalid && (ourKey.dirty || ourKey.touched)">
+                <div class="text-danger small" *ngIf="ourKey.errors.required">Requerido.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <!--NUESTRA CLAVE-->
+
   </div>
   <br>
 
@@ -56,7 +71,8 @@
                      formControlName="long">
               <div *ngIf="long.invalid && (long.dirty || long.touched)">
                 <div class="text-danger small" *ngIf="long.errors.required">Requerido.</div>
-                <div class="text-danger small" *ngIf="long.errors.max">máximo {{maxSize}} cm.</div>
+                <div class="text-danger small" *ngIf="long.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="long.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
             <!--ANCHO / WIDTH-->
@@ -70,8 +86,8 @@
                      formControlName="width">
               <div *ngIf="width.invalid && (width.dirty || width.touched)">
                 <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
-                <div class="text-danger small" *ngIf="width.errors.min">mínimo {{minSize}} cm.</div>
-                <div class="text-danger small" *ngIf="width.errors.max">máximo {{maxSize}} cm.</div>
+                <div class="text-danger small" *ngIf="width.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="width.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
             <!--ALTO / height-->
@@ -85,8 +101,8 @@
                      formControlName="height">
               <div *ngIf="height.invalid && (height.dirty || height.touched)">
                 <div class="text-danger small" *ngIf="height.errors.required">Requerido.</div>
-                <div class="text-danger small" *ngIf="height.errors.min">mínimo {{minSize}} cm.</div>
-                <div class="text-danger small" *ngIf="height.errors.max">máximo {{maxSize}} cm.</div>
+                <div class="text-danger small" *ngIf="height.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="height.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
 
@@ -106,7 +122,8 @@
                      formControlName="long">
               <div *ngIf="long.invalid && (long.dirty || long.touched)">
                 <div class="text-danger small" *ngIf="long.errors.required">Requerido.</div>
-                <div class="text-danger small" *ngIf="long.errors.max">máximo {{maxSize}} cm.</div>
+                <div class="text-danger small" *ngIf="long.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="long.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
             <!--ANCHO / WIDTH-->
@@ -120,8 +137,8 @@
                      formControlName="width">
               <div *ngIf="width.invalid && (width.dirty || width.touched)">
                 <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
-                <div class="text-danger small" *ngIf="width.errors.min">mínimo {{minSize}} cm.</div>
-                <div class="text-danger small" *ngIf="width.errors.max">máximo {{maxSize}} cm.</div>
+                <div class="text-danger small" *ngIf="width.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="width.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
             <!--RANURAS / SLOTS-->
@@ -135,8 +152,8 @@
                      formControlName="slots">
               <div *ngIf="slots.invalid && (slots.dirty || slots.touched)">
                 <div class="text-danger small" *ngIf="slots.errors.required">Requerido.</div>
-                <div class="text-danger small" *ngIf="slots.errors.min">mínimo {{minSize}} cm.</div>
-                <div class="text-danger small" *ngIf="slots.errors.max">máximo {{maxSize}} cm.</div>
+                <div class="text-danger small" *ngIf="slots.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="slots.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
 
@@ -156,7 +173,8 @@
                      formControlName="long">
               <div *ngIf="long.invalid && (long.dirty || long.touched)">
                 <div class="text-danger small" *ngIf="long.errors.required">Requerido.</div>
-                <div class="text-danger small" *ngIf="long.errors.max">máximo {{maxSize}} cm.</div>
+                <div class="text-danger small" *ngIf="long.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="long.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
             <!--ANCHO / WIDTH-->
@@ -170,8 +188,8 @@
                      formControlName="width">
               <div *ngIf="width.invalid && (width.dirty || width.touched)">
                 <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
-                <div class="text-danger small" *ngIf="width.errors.min">mínimo {{minSize}} cm.</div>
-                <div class="text-danger small" *ngIf="width.errors.max">máximo {{maxSize}} cm.</div>
+                <div class="text-danger small" *ngIf="width.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="width.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
             <!--RANURAS / SLOTS-->
@@ -185,8 +203,8 @@
                      formControlName="slots">
               <div *ngIf="slots.invalid && (slots.dirty || slots.touched)">
                 <div class="text-danger small" *ngIf="slots.errors.required">Requerido.</div>
-                <div class="text-danger small" *ngIf="slots.errors.min">mínimo {{minSize}} cm.</div>
-                <div class="text-danger small" *ngIf="slots.errors.max">máximo {{maxSize}} cm.</div>
+                <div class="text-danger small" *ngIf="slots.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="slots.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
           </div>
