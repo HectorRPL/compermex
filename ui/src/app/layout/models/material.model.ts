@@ -4,6 +4,7 @@ export class Material {
   ourKey: string;
   type: number;
   cia: number;
+  client: number;
 
   // <!--PANEL MEDIDAS-->
   long: number; // Largo

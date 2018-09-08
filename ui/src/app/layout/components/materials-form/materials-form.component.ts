@@ -44,6 +44,9 @@ export class MaterialsFormComponent implements OnInit {
       'type': new FormControl(this.material.type, [
         Validators.required
       ]),
+      'client': new FormControl(this.material.client, [
+        Validators.required
+      ]),
 
       // <!--PANEL MEDIDAS-->
       'long': new FormControl(this.material.long, [
@@ -84,6 +87,10 @@ export class MaterialsFormComponent implements OnInit {
 
   get type() {
     return this.materialsForm.get('type');
+  }
+
+  get client() {
+    return this.materialsForm.get('client');
   }
 
   // PANEL MEDIDAS
