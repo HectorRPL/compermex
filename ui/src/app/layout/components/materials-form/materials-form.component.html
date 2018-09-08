@@ -73,6 +73,7 @@
               <label for="clientId">Cliente</label>
               <select class="form-control custom-select custom-select-sm"
                       id="clientId"
+                      ngbTooltip="Creo que esto depende si es update o create, así como el select cliente"
                       [ngClass]="{'border border-danger danger-focus': client.invalid && (client.dirty || client.touched)}"
                       formControlName="client">
                 <option value="1">ejemplo cliente 1</option>
