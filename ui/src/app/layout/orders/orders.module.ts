@@ -7,10 +7,14 @@ import {SuppliersSearchComponent} from '../components/searches/suppliers-search/
 import {MaterialsSearchComponent} from '../components/searches/materials-search/materials-search.component';
 import {ClientsSearchComponent} from '../components/searches/clients-search/clients-search.component';
 import {OrderHeaderComponent} from '../components/searches/order-header/order-header.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { ModalTemporalComponent } from './components/modal-temporal/modal-temporal.component';
-import {SuppliersFormComponent} from "../components/suppliers-form/suppliers-form.component";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SuppliersFormComponent} from '../components/suppliers-form/suppliers-form.component';
+import {DirectionsFormComponent} from '../components/directions-form/directions-form.component';
+import {MaterialsFormComponent} from "../components/materials-form/materials-form.component";
+import {ModalOrderComponent} from './components/modal-order/modal-order.component';
+import {ModalDirectionComponent} from './components/modal-direction/modal-direction.component';
+import {ModalMaterialsComponent} from './components/modal-materials/modal-materials.component';
 
 @NgModule({
   imports: [
@@ -27,11 +31,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MaterialsSearchComponent,
     ClientsSearchComponent,
     OrderHeaderComponent,
-    ModalTemporalComponent,
-    SuppliersFormComponent
+    SuppliersFormComponent,
+    DirectionsFormComponent,
+    MaterialsFormComponent,
+    ModalOrderComponent,
+    ModalDirectionComponent,
+    ModalMaterialsComponent
   ],
   entryComponents: [
-    ModalTemporalComponent
+    ModalOrderComponent,
+    ModalDirectionComponent,
+    ModalMaterialsComponent
   ],
 })
 export class OrdersModule {

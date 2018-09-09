@@ -6,7 +6,7 @@
     <div class="form-group col-md-6">
       <label for="nameId">Nombre</label>
       <input type="text"
-             class="form-control"
+             class="form-control form-control-sm"
              id="nameId"
              placeholder="Nombre"
              [ngClass]="{'border border-danger danger-focus': name.invalid && (name.dirty || name.touched)}"
@@ -22,7 +22,7 @@
     <div class="form-group col-md-6">
       <label for="emailId">Email</label>
       <input type="email"
-             class="form-control"
+             class="form-control form-control-sm"
              id="emailId"
              placeholder="Email"
              [ngClass]="{'border border-danger danger-focus': email.invalid && (email.dirty || email.touched)}"
@@ -38,7 +38,7 @@
     <div class="form-group col-md-6">
       <label for="phoneId">Teléfono</label>
       <input type="text"
-             class="form-control"
+             class="form-control form-control-sm"
              id="phoneId"
              placeholder="Teléfono"
              [ngClass]="{'border border-danger danger-focus': phone.invalid && (phone.dirty || phone.touched)}"
@@ -54,7 +54,7 @@
   <button type="submit"
           class="btn btn-primary"
           [disabled]="suppliersForm.invalid"
-          (click)="next()">
+          (click)="supplierAction()">
     Siguiente
   </button>
 </form>

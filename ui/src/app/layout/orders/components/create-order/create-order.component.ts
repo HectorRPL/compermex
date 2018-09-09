@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalTemporalComponent} from '../modal-temporal/modal-temporal.component';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ModalOrderComponent} from '../modal-order/modal-order.component';
+import {ModalDirectionComponent} from '../modal-direction/modal-direction.component';
+import {ModalMaterialsComponent} from '../modal-materials/modal-materials.component';
 
 @Component({
   selector: 'app-create-order',
@@ -15,8 +17,8 @@ export class CreateOrderComponent implements OnInit {
   ngOnInit() {
   }
 
-  modalAltaCompraFactura() {
-    const modalRef = this.modalService.open(ModalTemporalComponent,
+  openModalOrder() {
+    const modalRef = this.modalService.open(ModalOrderComponent,
       {
         size: 'lg',
         backdrop: 'static',
@@ -25,6 +27,28 @@ export class CreateOrderComponent implements OnInit {
     );
     // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
 
+  }
+
+  openModalDirection() {
+    const modalRef = this.modalService.open(ModalDirectionComponent,
+      {
+        size: 'lg',
+        backdrop: 'static',
+        keyboard: false
+      }
+    );
+    // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
+  }
+
+  openModalMaterials() {
+    const modalRef = this.modalService.open(ModalMaterialsComponent,
+      {
+        size: 'lg',
+        backdrop: 'static',
+        keyboard: false
+      }
+    );
+    // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
   }
 
 }
