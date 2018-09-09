@@ -1,0 +1,21 @@
+package db.dao.suppliers
+
+import models.supplier.Supplier
+import reactivemongo.bson.BSONObjectID
+
+import scala.concurrent.Future
+
+trait SuppliersDAO {
+
+
+  def all(): Future[Seq[Supplier]]
+
+  def one(id: BSONObjectID): Future[Option[Supplier]]
+
+  def save(): Future[Supplier]
+
+  def remove(): Future[Unit]
+
+  def update(): Future[Unit]
+
+}

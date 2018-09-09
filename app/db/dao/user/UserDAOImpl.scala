@@ -1,4 +1,4 @@
-package repositories.user
+package db.dao.user
 
 import java.util.UUID
 
@@ -14,7 +14,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 
-class UserRepoImpl @Inject() (val reactiveMongoApi: ReactiveMongoApi) extends UserRepo {
+class UserDAOImpl @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends UserDAO {
 
   def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("silhouette.user"))
 

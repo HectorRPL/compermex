@@ -3,17 +3,17 @@ package myservices.user
 import java.util.UUID
 
 import com.mohiva.play.silhouette.api.util.Clock
+import db.dao.user.AuthTokenDAO
 import javax.inject.Inject
 import models.user.AuthToken
 import org.joda.time.DateTimeZone
 import play.api.libs.concurrent.Execution.Implicits._
-import repositories.user.AuthTokenRepo
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
 class AuthTokenServiceImpl @Inject()(
-                                      authTokenRepo: AuthTokenRepo,
+                                      authTokenRepo: AuthTokenDAO,
                                       clock: Clock)
   extends AuthTokenService {
   /**

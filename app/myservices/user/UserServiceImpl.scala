@@ -4,15 +4,15 @@ import java.util.UUID
 
 import com.mohiva.play.silhouette.api.LoginInfo
 import com.mohiva.play.silhouette.impl.providers.CommonSocialProfile
+import db.dao.user.UserDAO
 import javax.inject.Inject
 import models.user.User
-import repositories.user.UserRepo
 
 import scala.concurrent.{ExecutionContext, Future}
 
 class UserServiceImpl @Inject()(
                                  implicit ec: ExecutionContext,
-                                 userRepo: UserRepo
+                                 userRepo: UserDAO
                                ) extends UserService {
   /**
     * Retrieves a user that matches the specified ID.

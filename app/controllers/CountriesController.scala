@@ -23,7 +23,6 @@ class CountriesController @Inject()(
   def list() = Action.async{
 
 
-
     contriesRepo.getCountries().map { countries =>
       Ok(Json.toJson(countries))
     }

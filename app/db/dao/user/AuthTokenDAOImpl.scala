@@ -1,4 +1,4 @@
-package repositories.user
+package db.dao.user
 
 import java.util.UUID
 
@@ -6,18 +6,18 @@ import javax.inject._
 import models.user.AuthToken
 import org.joda.time.DateTime
 import play.api.libs.json._
+import play.modules.reactivemongo._
+import play.modules.reactivemongo.json._
+import reactivemongo.api._
+import reactivemongo.play.json.collection.JSONCollection
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import reactivemongo.api._
-import play.modules.reactivemongo.json._
-import play.modules.reactivemongo._
-import reactivemongo.play.json.collection.JSONCollection
 
-class AuthTokenRepoImpl @Inject()(
+class AuthTokenDAOImpl @Inject()(
                                    val reactiveMongoApi: ReactiveMongoApi
                                  )
-  extends AuthTokenRepo {
+  extends AuthTokenDAO {
 
   def collection: Future[JSONCollection] =
     reactiveMongoApi.database.map(_.collection("silhouette.token"))

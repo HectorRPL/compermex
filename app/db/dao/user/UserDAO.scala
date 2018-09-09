@@ -1,4 +1,4 @@
-package repositories.user
+package db.dao.user
 
 import java.util.UUID
 
@@ -7,7 +7,7 @@ import models.user.User
 
 import scala.concurrent.Future
 
-trait UserRepo {
+trait UserDAO {
 
   /**
     * Finds a user by its login info.

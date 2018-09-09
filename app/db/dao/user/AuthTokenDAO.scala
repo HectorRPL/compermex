@@ -1,4 +1,4 @@
-package repositories.user
+package db.dao.user
 
 import java.util.UUID
 
@@ -7,7 +7,7 @@ import org.joda.time.DateTime
 
 import scala.concurrent.Future
 
-trait AuthTokenRepo {
+trait AuthTokenDAO {
 
   /**
     * Finds a token by its ID.

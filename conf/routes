@@ -8,8 +8,10 @@ GET     /                           controllers.FrontendController.index()
 # An example route (Prefix all API routes with apiPrefix defined in application.conf)
 GET     /api/summary                controllers.HomeController.appSummary
 
-POST    /auth/signIn                     controllers.user.SignInController.authenticate
-POST    /auth/signUp                     controllers.user.SignUpController.signUp
+POST    /auth/signIn                controllers.user.SignInController.authenticate
+POST    /auth/signUp                controllers.user.SignUpController.signUp
+
+GET     /supplier/list              controllers.supplier.SuppliersController.list
 
 # Serve static assets under public directory
 GET     /*file                      controllers.FrontendController.assetOrDefault(file)
