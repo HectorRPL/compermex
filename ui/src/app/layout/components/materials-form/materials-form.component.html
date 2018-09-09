@@ -309,11 +309,11 @@
             </div>
             <!--PORCENTAJE MÁXIMO / MAX PERCENTAGE-->
             <div class="form-group col-md-6">
-              <label for="maxPercentageId">% máximo</label>
+              <label for="maxPercentageId">% Máximo</label>
               <input type="number"
                      class="form-control form-control-sm"
                      id="maxPercentageId"
-                     placeholder="% máximo"
+                     placeholder="% Máximo"
                      [ngClass]="{'border border-danger danger-focus': maxPercentage.invalid && (maxPercentage.dirty || maxPercentage.touched)}"
                      formControlName="maxPercentage">
               <div *ngIf="maxPercentage.invalid && (maxPercentage.dirty || maxPercentage.touched)">
@@ -324,17 +324,45 @@
             </div>
             <!--PORCENTAJE MÍNIMO / MIN PERCENTAGE-->
             <div class="form-group col-md-6">
-              <label for="minPercentageId">% mínimo</label>
+              <label for="minPercentageId">% Mínimo</label>
               <input type="number"
                      class="form-control form-control-sm"
                      id="minPercentageId"
-                     placeholder="% mínimo"
+                     placeholder="% Mínimo"
                      [ngClass]="{'border border-danger danger-focus': minPercentage.invalid && (minPercentage.dirty || minPercentage.touched)}"
                      formControlName="minPercentage">
               <div *ngIf="minPercentage.invalid && (minPercentage.dirty || minPercentage.touched)">
                 <div class="text-danger small" *ngIf="minPercentage.errors.required">Requerido.</div>
                 <div class="text-danger small" *ngIf="minPercentage.errors.min">mín {{minSize}} cm.</div>
                 <div class="text-danger small" *ngIf="minPercentage.errors.max">max {{maxSize}} cm.</div>
+              </div>
+            </div>
+            <!--CERTIFICATE / CERTIFICADO-->
+            <div class="form-group col-sm-6">
+              <label for="certificateId">Certificado</label>
+              <select class="form-control custom-select custom-select-sm"
+                      id="certificateId"
+                      [ngClass]="{'border border-danger danger-focus': certificate.invalid && (certificate.dirty || certificate.touched)}"
+                      formControlName="certificate">
+                <option value="1">ejemplo 1</option>
+                <option value="2">ejemplo 2</option>
+              </select>
+              <div *ngIf="certificate.invalid && (certificate.dirty || certificate.touched)">
+                <div class="text-danger small" *ngIf="certificate.errors.required">Requerido.</div>
+              </div>
+            </div>
+            <!--PLANO / FLAT-->
+            <div class="form-group col-sm-6">
+              <label for="flatId">Plano</label>
+              <select class="form-control custom-select custom-select-sm"
+                      id="flatId"
+                      [ngClass]="{'border border-danger danger-focus': flat.invalid && (flat.dirty || flat.touched)}"
+                      formControlName="flat">
+                <option value="1">ejemplo 1</option>
+                <option value="2">ejemplo 2</option>
+              </select>
+              <div *ngIf="flat.invalid && (flat.dirty || flat.touched)">
+                <div class="text-danger small" *ngIf="flat.errors.required">Requerido.</div>
               </div>
             </div>
           </div>

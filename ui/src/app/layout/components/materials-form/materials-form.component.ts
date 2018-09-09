@@ -85,6 +85,12 @@ export class MaterialsFormComponent implements OnInit {
       ]),
       'minPercentage': new FormControl(this.material.minPercentage, [
         Validators.required
+      ]),
+      'certificate': new FormControl(this.material.certificate, [
+        Validators.required
+      ]),
+      'flat': new FormControl(this.material.flat, [
+        Validators.required
       ])
     });
   }
@@ -135,6 +141,12 @@ export class MaterialsFormComponent implements OnInit {
   }
   get minPercentage() {
     return this.materialsForm.get('minPercentage');
+  }
+  get certificate() {
+    return this.materialsForm.get('certificate');
+  }
+  get flat() {
+    return this.materialsForm.get('flat');
   }
 
   materialAction() {
