@@ -16,4 +16,8 @@ export class Material {
   purchase: number;
   sale: number;
   sellerPrice: number;
+  maxPercentage: number;
+  minPercentage: number;
+  certificate: number;
+  flat: number;
 }

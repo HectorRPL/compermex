@@ -79,6 +79,12 @@ export class MaterialsFormComponent implements OnInit {
       ]),
       'sellerPrice': new FormControl(this.material.sellerPrice, [
         Validators.required
+      ]),
+      'maxPercentage': new FormControl(this.material.maxPercentage, [
+        Validators.required
+      ]),
+      'minPercentage': new FormControl(this.material.minPercentage, [
+        Validators.required
       ])
     });
   }
@@ -87,19 +93,15 @@ export class MaterialsFormComponent implements OnInit {
   get cia() {
     return this.materialsForm.get('cia');
   }
-
   get key() {
     return this.materialsForm.get('key');
   }
-
   get ourKey() {
     return this.materialsForm.get('ourKey');
   }
-
   get type() {
     return this.materialsForm.get('type');
   }
-
   get client() {
     return this.materialsForm.get('client');
   }
@@ -108,15 +110,12 @@ export class MaterialsFormComponent implements OnInit {
   get long() {
     return this.materialsForm.get('long');
   }
-
   get width() {
     return this.materialsForm.get('width');
   }
-
   get height() {
     return this.materialsForm.get('height');
   }
-
   get slots() {
     return this.materialsForm.get('slots');
   }
@@ -125,13 +124,17 @@ export class MaterialsFormComponent implements OnInit {
   get purchase() {
     return this.materialsForm.get('purchase');
   }
-
   get sale() {
     return this.materialsForm.get('sale');
   }
-
   get sellerPrice() {
     return this.materialsForm.get('sellerPrice');
+  }
+  get maxPercentage() {
+    return this.materialsForm.get('maxPercentage');
+  }
+  get minPercentage() {
+    return this.materialsForm.get('minPercentage');
   }
 
   materialAction() {

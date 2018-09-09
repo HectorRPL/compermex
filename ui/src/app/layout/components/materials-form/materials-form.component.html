@@ -292,7 +292,7 @@
                 <div class="text-danger small" *ngIf="sale.errors.required">Requerido.</div>
               </div>
             </div>
-            <!--LARGO / LONG-->
+            <!--PRECIO DEL VENDEDOR / SELLER PRICE-->
             <div class="form-group col-md-12">
               <label for="sellerPriceId">Precio del vendedor</label>
               <input type="number"
@@ -305,6 +305,36 @@
                 <div class="text-danger small" *ngIf="sellerPrice.errors.required">Requerido.</div>
                 <div class="text-danger small" *ngIf="sellerPrice.errors.min">mín {{minSize}} cm.</div>
                 <div class="text-danger small" *ngIf="sellerPrice.errors.max">max {{maxSize}} cm.</div>
+              </div>
+            </div>
+            <!--PORCENTAJE MÁXIMO / MAX PERCENTAGE-->
+            <div class="form-group col-md-6">
+              <label for="maxPercentageId">% máximo</label>
+              <input type="number"
+                     class="form-control form-control-sm"
+                     id="maxPercentageId"
+                     placeholder="% máximo"
+                     [ngClass]="{'border border-danger danger-focus': maxPercentage.invalid && (maxPercentage.dirty || maxPercentage.touched)}"
+                     formControlName="maxPercentage">
+              <div *ngIf="maxPercentage.invalid && (maxPercentage.dirty || maxPercentage.touched)">
+                <div class="text-danger small" *ngIf="maxPercentage.errors.required">Requerido.</div>
+                <div class="text-danger small" *ngIf="maxPercentage.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="maxPercentage.errors.max">max {{maxSize}} cm.</div>
+              </div>
+            </div>
+            <!--PORCENTAJE MÍNIMO / MIN PERCENTAGE-->
+            <div class="form-group col-md-6">
+              <label for="minPercentageId">% mínimo</label>
+              <input type="number"
+                     class="form-control form-control-sm"
+                     id="minPercentageId"
+                     placeholder="% mínimo"
+                     [ngClass]="{'border border-danger danger-focus': minPercentage.invalid && (minPercentage.dirty || minPercentage.touched)}"
+                     formControlName="minPercentage">
+              <div *ngIf="minPercentage.invalid && (minPercentage.dirty || minPercentage.touched)">
+                <div class="text-danger small" *ngIf="minPercentage.errors.required">Requerido.</div>
+                <div class="text-danger small" *ngIf="minPercentage.errors.min">mín {{minSize}} cm.</div>
+                <div class="text-danger small" *ngIf="minPercentage.errors.max">max {{maxSize}} cm.</div>
               </div>
             </div>
           </div>
