@@ -31,7 +31,9 @@ class SuppliersDAOImpl @Inject()(
     collection.flatMap(_.find(query).one[Supplier])
   }
 
-  def save(): Future[Supplier] = ???
+  def save(supplier: Supplier): Future[Supplier] = {
+    collection.flatMap(_.insert(supplier))
+  }
 
   def remove(): Future[Unit] = ???
 

@@ -12,7 +12,7 @@ trait SuppliersDAO {
 
   def one(id: BSONObjectID): Future[Option[Supplier]]
 
-  def save(): Future[Supplier]
+  def save(supplier: Supplier): Future[Supplier]
 
   def remove(): Future[Unit]
 

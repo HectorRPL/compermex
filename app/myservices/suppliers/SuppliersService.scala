@@ -8,4 +8,7 @@ trait SuppliersService {
 
   def getAll(): Future[Seq[Supplier]]
 
+
+  def save(supplier: Supplier): Future[Supplier]
+
 }
