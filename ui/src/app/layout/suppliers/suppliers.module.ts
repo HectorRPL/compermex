@@ -17,6 +17,9 @@ import {SuppliersListComponent} from './views/suppliers-list/suppliers-list.comp
     SuppliersComponent,
     SuppliersFormComponent,
     SuppliersListComponent
+  ],
+  providers:[
+
   ]
 })
 export class SuppliersModule {
