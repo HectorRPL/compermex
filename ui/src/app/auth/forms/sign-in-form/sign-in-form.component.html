@@ -1,14 +1,11 @@
-<p>
-  sign-in-form works!
-</p>
-<form [formGroup]="signInForm" (ngSubmit)="signUp()" novalidate class="property-submit-form">
+<form [formGroup]="signInForm" novalidate class="property-submit-form" autocomplete="off">
   <div class="form-row">
     <div class="col-sm-12 mb-3">
       <input id="emailId"
              type="email"
              name="email"
              placeholder="Email"
-             class="form-control"
+             class="form-control custom-select custom-select-sm"
              [ngClass]="{'is-invalid': signInForm.get('email').invalid && !signInForm.get('email').pristine}"
              formControlName="email">
       <div class="invalid-feedback"
@@ -26,7 +23,7 @@
              type="password"
              name="password"
              placeholder="Password"
-             class="form-control"
+             class="form-control custom-select custom-select-sm"
              [ngClass]="{'is-invalid': signInForm.get('password').invalid && !signInForm.get('password').pristine}"
              formControlName="password">
       <div class="invalid-feedback"
@@ -41,8 +38,8 @@
     <!--BUTTON-->
     <div class="col-sm-12 mb-3">
       <button type="submit"
-              class="btn btn-primary form-control"
-              [disabled]="signInForm.invalid">
+              routerLink="/layout/orders/create"
+              class="btn btn-primary btn-sm">
         Login
       </button>
     </div>

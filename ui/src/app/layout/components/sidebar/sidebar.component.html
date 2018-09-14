@@ -1,10 +1,10 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
   <div class="list-group">
     <div class="nested-menu" *ngFor="let item of menu">
-      <a class="list-group-item" (click)="addExpandClass('pages')">
+      <a class="list-group-item" (click)="addExpandClass(item.name)">
         <span><i class="{{item.icon}}"></i> {{item.name}}</span>
       </a>
-      <li class="nested" [class.expand]="showMenu === 'pages'">
+      <li class="nested" [class.expand]="showMenu === item.name">
         <ul class="submenu">
           <li *ngFor="let subItem of item.subMenu">
             <a [routerLink]="subItem.url"

@@ -1,4 +1,23 @@
-<p>
-  auth works!
-</p>
-<router-outlet></router-outlet>
+<section class="main-container">
+  <div class="row">
+    <div class="offset-sm-4 col-sm-4">
+      <br><br><br>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../assets/logo.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center">COMPERMEX</h5>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  .card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+  }
+</style>
