@@ -26,8 +26,4 @@ export class SignInFormComponent implements OnInit {
        });
   }
 
-  signIn() {
-
-  }
-
 }
