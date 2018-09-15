@@ -11,10 +11,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SuppliersFormComponent} from '../components/suppliers-form/suppliers-form.component';
 import {DirectionsFormComponent} from '../components/directions-form/directions-form.component';
-import {MaterialsFormComponent} from "../components/materials-form/materials-form.component";
+import {MaterialsFormComponent} from '../components/materials-form/materials-form.component';
 import {ModalOrderComponent} from './components/modal-order/modal-order.component';
 import {ModalDirectionComponent} from './components/modal-direction/modal-direction.component';
 import {ModalMaterialsComponent} from './components/modal-materials/modal-materials.component';
+import {FiscalDataFormComponent} from '../components/fiscal-data-form/fiscal-data-form.component';
+import {ModalFiscalDataComponent} from './components/modal-fiscal-data/modal-fiscal-data.component';
 
 @NgModule({
   imports: [
@@ -36,12 +38,15 @@ import {ModalMaterialsComponent} from './components/modal-materials/modal-materi
     MaterialsFormComponent,
     ModalOrderComponent,
     ModalDirectionComponent,
-    ModalMaterialsComponent
+    ModalMaterialsComponent,
+    FiscalDataFormComponent,
+    ModalFiscalDataComponent
   ],
   entryComponents: [
     ModalOrderComponent,
     ModalDirectionComponent,
-    ModalMaterialsComponent
+    ModalMaterialsComponent,
+    ModalFiscalDataComponent
   ],
 })
 export class OrdersModule {
