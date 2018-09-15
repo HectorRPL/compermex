@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Supplier} from '../../models/supplier.model';
+import {SupplierService} from "../../../services/suppliers/supplier.service";
 
 
 @Component({
@@ -23,7 +24,8 @@ export class SuppliersFormComponent implements OnInit {
   charactersMinPhone: number = 8;
   charactersMaxPhone: number = 10;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private supplierServ: SupplierService) {
 
     this.supplier = new Supplier();
 
@@ -70,8 +72,26 @@ export class SuppliersFormComponent implements OnInit {
     return this.suppliersForm.get('phone');
   }
 
-  supplierAction() {
-    console.log(this.suppliersForm);
+  add() {
+    this.supplierServ.addSupplier(this.fillSupplier())
+      .subscribe(result =>{
+        console.log(result);
+      } );
   }
+
+  fillSupplier(): Supplier {
+
+    const formModel = this.suppliersForm.value;
+    const supplier: Supplier = {
+      name: formModel.name,
+      email: formModel.email,
+      phone: formModel.phone
+    } as Supplier;
+
+    console.log(supplier);
+
+    return supplier;
+  }
+
 
 }

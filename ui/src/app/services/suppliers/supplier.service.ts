@@ -23,5 +23,12 @@ export class SupplierService {
       );
   }
 
+  addSupplier(supplier: Supplier): Observable<Supplier> {
+    console.log('Dentro del servicio ', supplier);
+    return this.http.post<Supplier>('/supplier/create', supplier)
+      .pipe(
+        catchError(this.handleError('addSupplier', supplier))
+      );
+  }
 
 }

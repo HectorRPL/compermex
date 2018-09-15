@@ -39,7 +39,7 @@ class MatchesRepo @Inject()(
 
   def getEndMatches(): Future[Seq[Matches]] = {
 
-    val dateTime = Calendar.getInstance().getTimeInMillis();
+    val dateTime = Calendar.getInstance().getTimeInMillis()
     val query = BSONDocument("" -> BSONDocument("$lte" -> BSONDateTime(dateTime)))
     matchesCollec.flatMap(_.find(query)
       .cursor[Matches](ReadPreference.primary)

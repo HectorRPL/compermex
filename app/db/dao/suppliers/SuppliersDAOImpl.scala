@@ -4,6 +4,7 @@ import javax.inject.Inject
 import models.supplier.Supplier
 import play.api.libs.json._
 import play.modules.reactivemongo.ReactiveMongoApi
+import reactivemongo.api.commands.WriteResult
 import reactivemongo.api.{Cursor, ReadPreference}
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import reactivemongo.play.json._
@@ -32,7 +33,10 @@ class SuppliersDAOImpl @Inject()(
   }
 
   def save(supplier: Supplier): Future[Supplier] = {
-    collection.flatMap(_.insert(supplier))
+    val doc = supplier.copy(_id = Some(BSONObjectID.generate()))
+    collection.flatMap(_.insert(doc))
+    Future.successful(doc)
+
   }
 
   def remove(): Future[Unit] = ???

@@ -2,6 +2,7 @@ package myservices.suppliers
 import db.dao.suppliers.SuppliersDAO
 import javax.inject.Inject
 import models.supplier.Supplier
+import reactivemongo.api.commands.WriteResult
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -12,5 +13,9 @@ class SuppliersServiceImpl @Inject()(
 
   def getAll(): Future[Seq[Supplier]] = {
     supplierDAO.all()
+  }
+
+  def save(supplier: Supplier): Future[Supplier] = {
+    supplierDAO.save(supplier)
   }
 }
