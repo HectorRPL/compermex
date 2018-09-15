@@ -1,3 +1,3 @@
 export class ObjectId {
-  _id: string;
+  $oid: string;
 }
