@@ -3,18 +3,19 @@
       [formGroup]="fiscalDataForm">
   <div class="form-row">
     <!--ELEGIR PERSONA FÍSICA/MORAL-->
-    <div class="col-md-12">
-      <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioBasic" formControlName="taxRegime">
-        <label ngbButtonLabel class="btn-light btn-sm">
-          <input ngbButton type="radio" value="PF">Persona física
+    <div class="form-group col-sm-3">
+      <label>Persona</label>
+      <div class="btn-group btn-group-toggle d-flex" ngbRadioGroup name="radioBasic" formControlName="taxRegime">
+        <label ngbButtonLabel class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="PF">Física
         </label>
-        <label ngbButtonLabel class="btn-light btn-sm">
-          <input ngbButton type="radio" value="PM">Persona moral
+        <label ngbButtonLabel class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="PM">Moral
         </label>
       </div>
     </div>
     <!--RFC-->
-    <div class="form-group col-md-3">
+    <div class="form-group col-sm-3">
       <label for="rfcId">RFC</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -25,6 +26,20 @@
       <div *ngIf="rfc.invalid && (rfc.dirty || rfc.touched)">
         <div class="text-danger small" *ngIf="rfc.errors.required">Requerido.</div>
         <div class="text-danger small" *ngIf="rfc.errors.pattern">Inválido.</div>
+      </div>
+    </div>
+    <!--BUSINESS NAME = RAZÓN SOCIAL-->
+    <div class="form-group col-sm-6">
+      <label for="businessNameId">Razón social</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="businessNameId"
+             placeholder="Razón Social"
+             [ngClass]="{'is-invalid': businessName.invalid && (businessName.dirty || businessName.touched)}"
+             formControlName="businessName">
+      <div *ngIf="businessName.invalid && (businessName.dirty || businessName.touched)">
+        <div class="text-danger small" *ngIf="businessName.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="businessName.errors.pattern">Inválido.</div>
       </div>
     </div>
   </div>

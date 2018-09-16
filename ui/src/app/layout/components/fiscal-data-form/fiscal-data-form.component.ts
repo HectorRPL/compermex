@@ -32,6 +32,10 @@ export class FiscalDataFormComponent implements OnInit {
       'rfc': new FormControl(this.dataFiscal.rfc, [
         Validators.required,
         Validators.pattern(/^([A-ZÑ&]{4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/)
+      ]),
+      'businessName': new FormControl(this.dataFiscal.businessName, [
+        Validators.required,
+        Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ&_.\s\d]+$/)
       ])
     });
 
@@ -43,6 +47,10 @@ export class FiscalDataFormComponent implements OnInit {
 
   get rfc() {
     return this.fiscalDataForm.get('rfc');
+  }
+
+  get businessName() {
+    return this.fiscalDataForm.get('businessName');
   }
 
   fiscalDataAction() {
