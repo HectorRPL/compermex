@@ -1,3 +1,29 @@
-<p>
-  fiscal-data-form works!
-</p>
+<form novalidate
+      autocomplete="off"
+      [formGroup]="fiscalDataForm">
+  <div class="form-row">
+    <div class="col-md-12">
+      <label>Persona</label>
+      <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioBasic" formControlName="taxRegime">
+        <label ngbButtonLabel class="btn-light btn-sm">
+          <input ngbButton type="radio" value="PF">Persona física
+        </label>
+        <label ngbButtonLabel class="btn-light btn-sm">
+          <input ngbButton type="radio" value="PM">Persona moral
+        </label>
+      </div>
+    </div>
+  </div>
+  <button type="submit"
+          class="btn btn-primary btn-sm"
+          [disabled]="fiscalDataForm.invalid"
+          (click)="fiscalDataAction()">
+    Siguiente
+  </button>
+</form>
+<!--
+<pre *ngIf="fiscalDataForm">{{fiscalDataForm|json}}</pre>
+
+[fiscalDataForm.value['taxRegime']] <br>
+<pre>{{fiscalDataForm.value['taxRegime']}}</pre>
+-->

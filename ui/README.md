@@ -14,7 +14,7 @@ Run `ng generate component layout/orders/components/modalTemporal` to generate a
 `ng generate component layout/orders/components/modalFiscalData`
 
 ### Ejemplo: `model`
-`ng generate class layout/models/material -type model`
+`ng generate class layout/models/fiscalData -type model`
 
 
 ## Build
