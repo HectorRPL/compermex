@@ -28,6 +28,10 @@ export class FiscalDataFormComponent implements OnInit {
     this.fiscalDataForm = this.formBuilder.group({
       'taxRegime': new FormControl(this.dataFiscal.taxRegime, [
         Validators.required
+      ]),
+      'rfc': new FormControl(this.dataFiscal.rfc, [
+        Validators.required,
+        Validators.pattern(/^([A-ZÑ&]{4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/)
       ])
     });
 
@@ -35,6 +39,10 @@ export class FiscalDataFormComponent implements OnInit {
 
   get taxRegime() {
     return this.fiscalDataForm.get('taxRegime');
+  }
+
+  get rfc() {
+    return this.fiscalDataForm.get('rfc');
   }
 
   fiscalDataAction() {

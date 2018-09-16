@@ -15,7 +15,7 @@
               <select class="form-control custom-select custom-select-sm"
                       id="ciaId"
                       ngbTooltip="Podríamos colocar esta opción 'papá' antes de abrir el modal, y así ahorramos espacio"
-                      [ngClass]="{'border border-danger danger-focus': cia.invalid && (cia.dirty || cia.touched)}"
+                      [ngClass]="{'is-invalid': cia.invalid && (cia.dirty || cia.touched)}"
                       formControlName="cia">
                 <option value="1">ejemplo 1</option>
                 <option value="2">ejemplo 2</option>
@@ -31,7 +31,7 @@
                      class="form-control form-control-sm"
                      id="keyId"
                      placeholder="Clave"
-                     [ngClass]="{'border border-danger danger-focus': key.invalid && (key.dirty || key.touched)}"
+                     [ngClass]="{'is-invalid': key.invalid && (key.dirty || key.touched)}"
                      formControlName="key">
               <div *ngIf="key.invalid && (key.dirty || key.touched)">
                 <div class="text-danger small" *ngIf="key.errors.required">Requerido.</div>
@@ -47,7 +47,7 @@
                      class="form-control form-control-sm"
                      id="ourKeyId"
                      placeholder="Nuestra Clave"
-                     [ngClass]="{'border border-danger danger-focus': ourKey.invalid && (ourKey.dirty || ourKey.touched)}"
+                     [ngClass]="{'is-invalid': ourKey.invalid && (ourKey.dirty || ourKey.touched)}"
                      formControlName="ourKey">
               <div *ngIf="ourKey.invalid && (ourKey.dirty || ourKey.touched)">
                 <div class="text-danger small" *ngIf="ourKey.errors.required">Requerido.</div>
@@ -58,7 +58,7 @@
               <label for="typeId">Tipo</label>
               <select class="form-control custom-select custom-select-sm"
                       id="typeId"
-                      [ngClass]="{'border border-danger danger-focus': type.invalid && (type.dirty || type.touched)}"
+                      [ngClass]="{'is-invalid': type.invalid && (type.dirty || type.touched)}"
                       formControlName="type">
                 <option value="1">ejemplo 1</option>
                 <option value="2">ejemplo 2</option>
@@ -74,7 +74,7 @@
               <select class="form-control custom-select custom-select-sm"
                       id="clientId"
                       ngbTooltip="Esto depende si es update o create, así como el 'select cliente' y podría se un autocomplete"
-                      [ngClass]="{'border border-danger danger-focus': client.invalid && (client.dirty || client.touched)}"
+                      [ngClass]="{'is-invalid': client.invalid && (client.dirty || client.touched)}"
                       formControlName="client">
                 <option value="1">ejemplo cliente 1</option>
                 <option value="2">ejemplo cliente 2</option>
@@ -111,7 +111,7 @@
                      class="form-control form-control-sm"
                      id="longId"
                      placeholder="Largo"
-                     [ngClass]="{'border border-danger danger-focus': long.invalid && (long.dirty || long.touched)}"
+                     [ngClass]="{'is-invalid': long.invalid && (long.dirty || long.touched)}"
                      formControlName="long">
               <div *ngIf="long.invalid && (long.dirty || long.touched)">
                 <div class="text-danger small" *ngIf="long.errors.required">Requerido.</div>
@@ -126,7 +126,7 @@
                      class="form-control form-control-sm"
                      id="widthId"
                      placeholder="Ancho"
-                     [ngClass]="{'border border-danger danger-focus': width.invalid && (width.dirty || width.touched)}"
+                     [ngClass]="{'is-invalid': width.invalid && (width.dirty || width.touched)}"
                      formControlName="width">
               <div *ngIf="width.invalid && (width.dirty || width.touched)">
                 <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
@@ -141,7 +141,7 @@
                      class="form-control form-control-sm"
                      id="heightId"
                      placeholder="Alto"
-                     [ngClass]="{'border border-danger danger-focus': height.invalid && (height.dirty || height.touched)}"
+                     [ngClass]="{'is-invalid': height.invalid && (height.dirty || height.touched)}"
                      formControlName="height">
               <div *ngIf="height.invalid && (height.dirty || height.touched)">
                 <div class="text-danger small" *ngIf="height.errors.required">Requerido.</div>
@@ -162,7 +162,7 @@
                      class="form-control form-control-sm"
                      id="longId"
                      placeholder="Largo"
-                     [ngClass]="{'border border-danger danger-focus': long.invalid && (long.dirty || long.touched)}"
+                     [ngClass]="{'is-invalid': long.invalid && (long.dirty || long.touched)}"
                      formControlName="long">
               <div *ngIf="long.invalid && (long.dirty || long.touched)">
                 <div class="text-danger small" *ngIf="long.errors.required">Requerido.</div>
@@ -177,7 +177,7 @@
                      class="form-control form-control-sm"
                      id="widthId"
                      placeholder="Ancho"
-                     [ngClass]="{'border border-danger danger-focus': width.invalid && (width.dirty || width.touched)}"
+                     [ngClass]="{'is-invalid': width.invalid && (width.dirty || width.touched)}"
                      formControlName="width">
               <div *ngIf="width.invalid && (width.dirty || width.touched)">
                 <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
@@ -192,7 +192,7 @@
                      class="form-control form-control-sm"
                      id="slotsId"
                      placeholder="Ranuras"
-                     [ngClass]="{'border border-danger danger-focus': slots.invalid && (slots.dirty || slots.touched)}"
+                     [ngClass]="{'is-invalid': slots.invalid && (slots.dirty || slots.touched)}"
                      formControlName="slots">
               <div *ngIf="slots.invalid && (slots.dirty || slots.touched)">
                 <div class="text-danger small" *ngIf="slots.errors.required">Requerido.</div>
@@ -213,7 +213,7 @@
                      class="form-control form-control-sm"
                      id="longId"
                      placeholder="Largo"
-                     [ngClass]="{'border border-danger danger-focus': long.invalid && (long.dirty || long.touched)}"
+                     [ngClass]="{'is-invalid': long.invalid && (long.dirty || long.touched)}"
                      formControlName="long">
               <div *ngIf="long.invalid && (long.dirty || long.touched)">
                 <div class="text-danger small" *ngIf="long.errors.required">Requerido.</div>
@@ -228,7 +228,7 @@
                      class="form-control form-control-sm"
                      id="widthId"
                      placeholder="Ancho"
-                     [ngClass]="{'border border-danger danger-focus': width.invalid && (width.dirty || width.touched)}"
+                     [ngClass]="{'is-invalid': width.invalid && (width.dirty || width.touched)}"
                      formControlName="width">
               <div *ngIf="width.invalid && (width.dirty || width.touched)">
                 <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
@@ -243,7 +243,7 @@
                      class="form-control form-control-sm"
                      id="slotsShortDivisionId"
                      placeholder="Ranuras"
-                     [ngClass]="{'border border-danger danger-focus': slots.invalid && (slots.dirty || slots.touched)}"
+                     [ngClass]="{'is-invalid': slots.invalid && (slots.dirty || slots.touched)}"
                      formControlName="slots">
               <div *ngIf="slots.invalid && (slots.dirty || slots.touched)">
                 <div class="text-danger small" *ngIf="slots.errors.required">Requerido.</div>
@@ -267,7 +267,7 @@
               <label for="purchaseId">Compra</label>
               <select class="form-control custom-select custom-select-sm"
                       id="purchaseId"
-                      [ngClass]="{'border border-danger danger-focus': purchase.invalid && (purchase.dirty || purchase.touched)}"
+                      [ngClass]="{'is-invalid': purchase.invalid && (purchase.dirty || purchase.touched)}"
                       formControlName="purchase">
                 <option value="1">ejemplo KRAFT no sé qué 1</option>
                 <option value="2">ejemplo KRAFT no sé qué 2</option>
@@ -282,7 +282,7 @@
               <label for="saleId">Venta</label>
               <select class="form-control custom-select custom-select-sm"
                       id="saleId"
-                      [ngClass]="{'border border-danger danger-focus': sale.invalid && (sale.dirty || sale.touched)}"
+                      [ngClass]="{'is-invalid': sale.invalid && (sale.dirty || sale.touched)}"
                       formControlName="sale">
                 <option value="1">ejemplo KRAFT no sé qué 1</option>
                 <option value="2">ejemplo KRAFT no sé qué 2</option>
@@ -299,7 +299,7 @@
                      class="form-control form-control-sm"
                      id="sellerPriceId"
                      placeholder="Precio del vendedor"
-                     [ngClass]="{'border border-danger danger-focus': sellerPrice.invalid && (sellerPrice.dirty || sellerPrice.touched)}"
+                     [ngClass]="{'is-invalid': sellerPrice.invalid && (sellerPrice.dirty || sellerPrice.touched)}"
                      formControlName="sellerPrice">
               <div *ngIf="sellerPrice.invalid && (sellerPrice.dirty || sellerPrice.touched)">
                 <div class="text-danger small" *ngIf="sellerPrice.errors.required">Requerido.</div>
@@ -314,7 +314,7 @@
                      class="form-control form-control-sm"
                      id="maxPercentageId"
                      placeholder="% Máximo"
-                     [ngClass]="{'border border-danger danger-focus': maxPercentage.invalid && (maxPercentage.dirty || maxPercentage.touched)}"
+                     [ngClass]="{'is-invalid': maxPercentage.invalid && (maxPercentage.dirty || maxPercentage.touched)}"
                      formControlName="maxPercentage">
               <div *ngIf="maxPercentage.invalid && (maxPercentage.dirty || maxPercentage.touched)">
                 <div class="text-danger small" *ngIf="maxPercentage.errors.required">Requerido.</div>
@@ -329,7 +329,7 @@
                      class="form-control form-control-sm"
                      id="minPercentageId"
                      placeholder="% Mínimo"
-                     [ngClass]="{'border border-danger danger-focus': minPercentage.invalid && (minPercentage.dirty || minPercentage.touched)}"
+                     [ngClass]="{'is-invalid': minPercentage.invalid && (minPercentage.dirty || minPercentage.touched)}"
                      formControlName="minPercentage">
               <div *ngIf="minPercentage.invalid && (minPercentage.dirty || minPercentage.touched)">
                 <div class="text-danger small" *ngIf="minPercentage.errors.required">Requerido.</div>
@@ -342,7 +342,7 @@
               <label for="certificateId">Certificado</label>
               <select class="form-control custom-select custom-select-sm"
                       id="certificateId"
-                      [ngClass]="{'border border-danger danger-focus': certificate.invalid && (certificate.dirty || certificate.touched)}"
+                      [ngClass]="{'is-invalid': certificate.invalid && (certificate.dirty || certificate.touched)}"
                       formControlName="certificate">
                 <option value="1">ejemplo 1</option>
                 <option value="2">ejemplo 2</option>
@@ -356,7 +356,7 @@
               <label for="flatId">Plano</label>
               <select class="form-control custom-select custom-select-sm"
                       id="flatId"
-                      [ngClass]="{'border border-danger danger-focus': flat.invalid && (flat.dirty || flat.touched)}"
+                      [ngClass]="{'is-invalid': flat.invalid && (flat.dirty || flat.touched)}"
                       formControlName="flat">
                 <option value="1">ejemplo 1</option>
                 <option value="2">ejemplo 2</option>

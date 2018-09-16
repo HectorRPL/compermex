@@ -2,8 +2,8 @@
       autocomplete="off"
       [formGroup]="fiscalDataForm">
   <div class="form-row">
+    <!--ELEGIR PERSONA FÍSICA/MORAL-->
     <div class="col-md-12">
-      <label>Persona</label>
       <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioBasic" formControlName="taxRegime">
         <label ngbButtonLabel class="btn-light btn-sm">
           <input ngbButton type="radio" value="PF">Persona física
@@ -11,6 +11,20 @@
         <label ngbButtonLabel class="btn-light btn-sm">
           <input ngbButton type="radio" value="PM">Persona moral
         </label>
+      </div>
+    </div>
+    <!--RFC-->
+    <div class="form-group col-md-3">
+      <label for="rfcId">RFC</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="rfcId"
+             placeholder="RFC"
+             [ngClass]="{'is-invalid': rfc.invalid && (rfc.dirty || rfc.touched)}"
+             formControlName="rfc">
+      <div *ngIf="rfc.invalid && (rfc.dirty || rfc.touched)">
+        <div class="text-danger small" *ngIf="rfc.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="rfc.errors.pattern">Inválido.</div>
       </div>
     </div>
   </div>
@@ -26,4 +40,7 @@
 
 [fiscalDataForm.value['taxRegime']] <br>
 <pre>{{fiscalDataForm.value['taxRegime']}}</pre>
+
+[fiscalDataForm.value['rfc']] <br>
+<pre>{{fiscalDataForm.value['rfc']}}</pre>
 -->

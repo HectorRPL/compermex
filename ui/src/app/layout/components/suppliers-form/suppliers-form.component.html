@@ -9,7 +9,7 @@
              class="form-control form-control-sm"
              id="nameId"
              placeholder="Nombre"
-             [ngClass]="{'border border-danger danger-focus': name.invalid && (name.dirty || name.touched)}"
+             [ngClass]="{'is-invalid': name.invalid && (name.dirty || name.touched)}"
              formControlName="name">
       <div *ngIf="name.invalid && (name.dirty || name.touched)">
         <div class="text-danger small" *ngIf="name.errors.required">Requerido.</div>
@@ -25,7 +25,7 @@
              class="form-control form-control-sm"
              id="emailId"
              placeholder="Email"
-             [ngClass]="{'border border-danger danger-focus': email.invalid && (email.dirty || email.touched)}"
+             [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
              formControlName="email">
       <div *ngIf="email.invalid && (email.dirty || email.touched)">
         <div class="text-danger small" *ngIf="email.errors.required">Requerido.</div>
@@ -41,7 +41,7 @@
              class="form-control form-control-sm"
              id="phoneId"
              placeholder="Teléfono"
-             [ngClass]="{'border border-danger danger-focus': phone.invalid && (phone.dirty || phone.touched)}"
+             [ngClass]="{'is-invalid': phone.invalid && (phone.dirty || phone.touched)}"
              formControlName="phone">
       <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
         <div class="text-danger small" *ngIf="phone.errors.required">Requerido.</div>

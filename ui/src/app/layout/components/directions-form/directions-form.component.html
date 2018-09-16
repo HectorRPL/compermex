@@ -9,7 +9,7 @@
              class="form-control form-control-sm"
              id="streetId"
              placeholder="Calle"
-             [ngClass]="{'border border-danger danger-focus': street.invalid && (street.dirty || street.touched)}"
+             [ngClass]="{'is-invalid': street.invalid && (street.dirty || street.touched)}"
              formControlName="street">
       <div *ngIf="street.invalid && (street.dirty || street.touched)">
         <div class="text-danger small" *ngIf="street.errors.required">Requerido.</div>
@@ -25,7 +25,7 @@
              class="form-control form-control-sm"
              id="exteriorNumberId"
              placeholder="Número exterior"
-             [ngClass]="{'border border-danger danger-focus': exteriorNumber.invalid && (exteriorNumber.dirty || exteriorNumber.touched)}"
+             [ngClass]="{'is-invalid': exteriorNumber.invalid && (exteriorNumber.dirty || exteriorNumber.touched)}"
              formControlName="exteriorNumber">
       <div *ngIf="exteriorNumber.invalid && (exteriorNumber.dirty || exteriorNumber.touched)">
         <div class="text-danger small" *ngIf="exteriorNumber.errors.required">Requerido.</div>
@@ -41,7 +41,7 @@
              class="form-control form-control-sm"
              id="interiorNumberId"
              placeholder="Número interior"
-             [ngClass]="{'border border-danger danger-focus': interiorNumber.invalid && (interiorNumber.dirty || interiorNumber.touched)}"
+             [ngClass]="{'is-invalid': interiorNumber.invalid && (interiorNumber.dirty || interiorNumber.touched)}"
              formControlName="interiorNumber">
       <div *ngIf="interiorNumber.invalid && (interiorNumber.dirty || interiorNumber.touched)">
         <div class="text-danger small" *ngIf="interiorNumber.errors.required">Requerido.</div>
