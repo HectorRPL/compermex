@@ -4,16 +4,18 @@ import db.dao.suppliers.SuppliersDAO
 import javax.inject.Inject
 import models.supplier.Supplier
 import myservices.suppliers.SuppliersService
+import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
 
-import scala.concurrent.ExecutionContext
+import scala.concurrent.{ExecutionContext, Future}
 
 class SuppliersController @Inject()(
                                      cc: ControllerComponents,
                                      suppliersServ: SuppliersService
                                    )(implicit ec: ExecutionContext)
-  extends AbstractController(cc) {
+  extends AbstractController(cc)
+    with I18nSupport {
 
   def list() = Action.async {
     suppliersServ.getAll().map { suppliers =>
@@ -23,13 +25,15 @@ class SuppliersController @Inject()(
 
   }
 
-  def save() = Action.async (parse.json){implicit request =>
+  def save() = Action.async(parse.json) { implicit request =>
     request.body.validate[Supplier].map { data =>
-      suppliersServ.save(data).map{ result =>
-        OK(Json.toJson(result))
+      suppliersServ.save(data).map { result =>
+        Ok(Json.toJson(result))
       }
-    }.getOrElse()
-
+    }.recoverTotal {
+      case error =>
+        Future.successful(Unauthorized(Json.obj("message" -> Messages("invalid.data"))))
+    }
   }
 
 }

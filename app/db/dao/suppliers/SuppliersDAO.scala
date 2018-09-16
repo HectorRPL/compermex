@@ -1,6 +1,7 @@
 package db.dao.suppliers
 
 import models.supplier.Supplier
+import reactivemongo.api.commands.WriteResult
 import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.Future

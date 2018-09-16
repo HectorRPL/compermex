@@ -1,6 +1,7 @@
 package myservices.suppliers
 
 import models.supplier.Supplier
+import reactivemongo.api.commands.WriteResult
 
 import scala.concurrent.Future
 
