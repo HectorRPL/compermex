@@ -47,6 +47,12 @@ export class MaterialsFormComponent implements OnInit {
       'client': new FormControl(this.material.client, [
         Validators.required
       ]),
+      'businessName': new FormControl(this.material.businessName, [
+        Validators.required
+      ]),
+      'seller': new FormControl(this.material.seller, [
+        Validators.required
+      ]),
 
       // <!--PANEL MEDIDAS-->
       'long': new FormControl(this.material.long, [
@@ -91,6 +97,12 @@ export class MaterialsFormComponent implements OnInit {
       ]),
       'flat': new FormControl(this.material.flat, [
         Validators.required
+      ]),
+      'observations': new FormControl(this.material.observations, [
+        Validators.required
+      ]),
+      'company': new FormControl(this.material.company, [
+        Validators.required
       ])
     });
   }
@@ -110,6 +122,15 @@ export class MaterialsFormComponent implements OnInit {
   }
   get client() {
     return this.materialsForm.get('client');
+  }
+  get businessName() {
+    return this.materialsForm.get('businessName');
+  }
+  get seller() {
+    return this.materialsForm.get('seller');
+  }
+  get company() {
+    return this.materialsForm.get('company');
   }
 
   // PANEL MEDIDAS
@@ -147,6 +168,9 @@ export class MaterialsFormComponent implements OnInit {
   }
   get flat() {
     return this.materialsForm.get('flat');
+  }
+  get observations() {
+    return this.materialsForm.get('observations');
   }
 
   materialAction() {

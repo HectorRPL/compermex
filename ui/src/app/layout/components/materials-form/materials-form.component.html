@@ -84,6 +84,45 @@
                 <div class="text-danger small" *ngIf="client.errors.required">Requerido.</div>
               </div>
             </div>
+            <!-- RAZÓN SOCIAL / BUSINESS NAME-->
+            <div class="form-group col-sm-3">
+              <label for="businessNameId">Razón social</label>
+              <input type="text"
+                     class="form-control form-control-sm"
+                     id="businessNameId"
+                     placeholder="Razón social"
+                     [ngClass]="{'is-invalid': businessName.invalid && (businessName.dirty || businessName.touched)}"
+                     formControlName="businessName">
+              <div *ngIf="businessName.invalid && (businessName.dirty || businessName.touched)">
+                <div class="text-danger small" *ngIf="businessName.errors.required">Requerido.</div>
+              </div>
+            </div>
+            <!-- VENDEDOR / SELLER-->
+            <div class="form-group col-sm-3">
+              <label for="sellerId">Vendedor</label>
+              <input type="text"
+                     class="form-control form-control-sm"
+                     id="sellerId"
+                     placeholder="Vendedor"
+                     [ngClass]="{'is-invalid': seller.invalid && (seller.dirty || seller.touched)}"
+                     formControlName="seller">
+              <div *ngIf="seller.invalid && (seller.dirty || seller.touched)">
+                <div class="text-danger small" *ngIf="seller.errors.required">Requerido.</div>
+              </div>
+            </div>
+            <!-- COMAÑIA / COMPANY-->
+            <div class="form-group col-sm-3">
+              <label for="companyId">Compañía</label>
+              <input type="text"
+                     class="form-control form-control-sm"
+                     id="companyId"
+                     placeholder="Compañía"
+                     [ngClass]="{'is-invalid': company.invalid && (company.dirty || company.touched)}"
+                     formControlName="company">
+              <div *ngIf="company.invalid && (company.dirty || company.touched)">
+                <div class="text-danger small" *ngIf="company.errors.required">Requerido.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -363,6 +402,23 @@
               </select>
               <div *ngIf="flat.invalid && (flat.dirty || flat.touched)">
                 <div class="text-danger small" *ngIf="flat.errors.required">Requerido.</div>
+              </div>
+            </div>
+            <!--OBSERVACIONES / OBSERVATIONS-->
+            <div class="form-group col-sm-12">
+              <label for="observationsId">Observaciones</label>
+              <textarea class="form-control form-control-sm"
+                        id="observationsId"
+                        rows="3"
+                        placeholder="Observaciones"
+                        [ngClass]="{'is-invalid': observations.invalid && (observations.dirty || observations.touched)}"
+                        formControlName="observations">
+              </textarea>
+              <div *ngIf="observations.invalid && (observations.dirty || observations.touched)">
+                <div class="text-danger small" *ngIf="observations.errors.required">Requerido.</div>
+                <div class="text-danger small" *ngIf="observations.errors.pattern">No caracteres especiales</div>
+                <div class="text-danger small" *ngIf="observations.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
+                <div class="text-danger small" *ngIf="observations.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
               </div>
             </div>
           </div>

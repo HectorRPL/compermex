@@ -5,6 +5,11 @@ export class Material {
   type: number;
   cia: number;
   client: number;
+  businessName: string;
+  seller: string;
+  company: string;
+
+
 
   // <!--PANEL MEDIDAS-->
   long: number; // Largo
@@ -20,4 +25,5 @@ export class Material {
   minPercentage: number;
   certificate: number;
   flat: number;
+  observations: string;
 }
