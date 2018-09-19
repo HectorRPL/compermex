@@ -16,9 +16,9 @@ export class DirectionsFormComponent implements OnInit {
   FORMA VALIDACIONES
   ******************************/
 
-  // INPUT NOMBRE DE CALLE
-  charactersMinStreet: number = 2;
-  charactersMaxStreet: number = 50;
+  // Caractéres máximos y minimos
+  charactersMin: number = 2;
+  charactersMax: number = 50;
   // INPUT NÚMERO EXTERIOR
   charactersMinExteriorNumber: number = 5;
   charactersMaxExteriorNumber: number = 50;
@@ -43,8 +43,8 @@ export class DirectionsFormComponent implements OnInit {
       'street': new FormControl(this.direction.street, [
         Validators.required,
         Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMinStreet),
-        Validators.maxLength(this.charactersMaxStreet)
+        Validators.minLength(this.charactersMin),
+        Validators.maxLength(this.charactersMax)
       ]),
       'exteriorNumber': new FormControl(this.direction.exteriorNumber, [
         Validators.required,
@@ -56,6 +56,30 @@ export class DirectionsFormComponent implements OnInit {
         Validators.pattern(/^[0-9]*$/),
         Validators.minLength(this.charactersMinInteriorNumber),
         Validators.maxLength(this.charactersMaxInteriorNumber)
+      ]),
+      'postalCode': new FormControl(this.direction.postalCode, [
+        Validators.required,
+        Validators.pattern(/^[ñÑ\s\w]+$/),
+        Validators.minLength(this.charactersMin),
+        Validators.maxLength(this.charactersMax)
+      ]),
+      'suburb': new FormControl(this.direction.suburb, [
+        Validators.required,
+        Validators.pattern(/^[ñÑ\s\w]+$/),
+        Validators.minLength(this.charactersMin),
+        Validators.maxLength(this.charactersMax)
+      ]),
+      'state': new FormControl(this.direction.state, [
+        Validators.required,
+        Validators.pattern(/^[ñÑ\s\w]+$/),
+        Validators.minLength(this.charactersMin),
+        Validators.maxLength(this.charactersMax)
+      ]),
+      'town': new FormControl(this.direction.town, [
+        Validators.required,
+        Validators.pattern(/^[ñÑ\s\w]+$/),
+        Validators.minLength(this.charactersMin),
+        Validators.maxLength(this.charactersMax)
       ])
     });
   }
@@ -70,6 +94,22 @@ export class DirectionsFormComponent implements OnInit {
 
   get interiorNumber() {
     return this.directionsForm.get('interiorNumber');
+  }
+
+  get postalCode() {
+    return this.directionsForm.get('postalCode');
+  }
+
+  get suburb() {
+    return this.directionsForm.get('suburb');
+  }
+
+  get state() {
+    return this.directionsForm.get('state');
+  }
+
+  get town() {
+    return this.directionsForm.get('town');
   }
 
   directionAction() {
