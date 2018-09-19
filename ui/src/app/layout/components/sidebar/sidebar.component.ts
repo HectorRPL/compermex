@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router, NavigationEnd} from '@angular/router';
+import {Router} from '@angular/router';
 import {MenuSideBar} from "../../models/menu-side-bar.model";
 
 @Component({
