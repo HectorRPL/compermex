@@ -17,17 +17,17 @@ export class SupplierService {
 
 
   searchSuppliers(name: String): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>('/supplier/create')
+    return this.http.get<Supplier[]>('/suppliers/list')
       .pipe(
-        catchError(this.handleError('searchSuppliers', []))
+        catchError(this.handleError('search', []))
       );
   }
 
   addSupplier(supplier: Supplier): Observable<Supplier> {
     console.log('Dentro del servicio ', supplier);
-    return this.http.post<Supplier>('/supplier/create', supplier)
+    return this.http.post<Supplier>('/suppliers/create', supplier)
       .pipe(
-        catchError(this.handleError('addSupplier', supplier))
+        catchError(this.handleError('add', supplier))
       );
   }
 

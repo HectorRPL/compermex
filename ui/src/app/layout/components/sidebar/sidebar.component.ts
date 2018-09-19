@@ -18,9 +18,33 @@ export class SidebarComponent {
 
   createMenu() {
     this.menu = [
-      {name: 'Compras', icon: 'fas fa-stroopwafel',     subMenu: [{subName: 'Lista', url: '/layout/compras/list'}]},
-      {name: 'Proveedores', icon: 'fas fa-stroopwafel', subMenu: [{subName: 'Forma', url: '/layout/suppliers/list'}]},
-      {name: 'Alta Orden', icon: 'fas fa-stroopwafel', subMenu: [{subName: 'Alta', url: '/layout/orders/create'}]}
+      {
+        name: 'Compras', icon: 'fas fa-stroopwafel',
+        subMenu: [
+          {
+            subName: 'Lista',
+            url: '/layout/compras/list'
+          }
+        ]
+      },
+      {
+        name: 'Proveedores', icon: 'fas fa-stroopwafel',
+        subMenu: [
+          {
+            subName: 'Lista',
+            url: '/layout/suppliers/list'
+          }
+        ]
+      },
+      {
+        name: 'Alta Orden', icon: 'fas fa-stroopwafel',
+        subMenu: [
+          {
+            subName: 'Alta',
+            url: '/layout/orders/create'
+          }
+        ]
+      }
     ];
   }
 

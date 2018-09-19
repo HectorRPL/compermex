@@ -11,8 +11,8 @@ GET     /api/summary                controllers.HomeController.appSummary
 POST    /auth/signIn                controllers.user.SignInController.authenticate
 POST    /auth/signUp                controllers.user.SignUpController.signUp
 
-GET     /supplier/list              controllers.supplier.SuppliersController.list
-POST    /supplier/create           controllers.supplier.SuppliersController.save
+GET     /suppliers/list              controllers.supplier.SuppliersController.list
+POST    /suppliers/create           controllers.supplier.SuppliersController.save
 
 # Serve static assets under public directory
 GET     /*file                      controllers.FrontendController.assetOrDefault(file)

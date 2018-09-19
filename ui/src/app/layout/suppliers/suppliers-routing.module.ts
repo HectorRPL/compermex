@@ -9,10 +9,7 @@ const routes: Routes = [
     component: SuppliersComponent,
     children: [
       {
-        path: '',
-        children: [
-          {path: 'list', component: SuppliersListComponent},
-        ]
+        path: 'list', component: SuppliersListComponent
       }
     ]
   }

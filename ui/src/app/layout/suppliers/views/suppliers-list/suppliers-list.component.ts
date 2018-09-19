@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Supplier} from '../../../models/supplier.model';
+import {SupplierService} from "../../../../services/suppliers/supplier.service";
 
 @Component({
   selector: 'app-suppliers-list',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuppliersListComponent implements OnInit {
 
-  constructor() { }
+  suppliers$: Observable<Supplier[]>;
+
+  constructor(private supplierServ: SupplierService) {
+  }
 
   ngOnInit() {
+    this.suppliers$ = this.supplierServ.searchSuppliers('adasd');
+
   }
 
 }
