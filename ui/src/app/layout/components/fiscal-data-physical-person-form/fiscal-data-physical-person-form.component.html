@@ -1,0 +1,68 @@
+<form novalidate
+      autocomplete="off"
+      [formGroup]="fiscalDataPhysicalPersonForm">
+  <div class="form-row">
+    <!--ELEGIR PERSONA FÍSICA/MORAL-->
+    <div class="form-group col-sm-3">
+      <label>Persona</label>
+      <div class="btn-group btn-group-toggle d-flex" ngbRadioGroup name="radioBasic" formControlName="taxRegime">
+        <label ngbButtonLabel class="btn-light btn-sm w-100">
+          <input ngbButton
+                 type="radio"
+                 value="FP">
+          Física
+        </label>
+        <label ngbButtonLabel class="btn-light btn-sm w-100">
+          <input ngbButton
+                 type="radio"
+                 value="MP"
+                 disabled>
+          Moral
+        </label>
+      </div>
+    </div>
+    <!--RFC-->
+    <div class="form-group col-sm-3">
+      <label for="rfcId">RFC</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="rfcId"
+             placeholder="RFC"
+             [ngClass]="{'is-invalid': rfc.invalid && (rfc.dirty || rfc.touched)}"
+             formControlName="rfc">
+      <div *ngIf="rfc.invalid && (rfc.dirty || rfc.touched)">
+        <div class="text-danger small" *ngIf="rfc.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="rfc.errors.pattern">Inválido.</div>
+      </div>
+    </div>
+    <!--BUSINESS NAME = RAZÓN SOCIAL-->
+    <div class="form-group col-sm-6">
+      <label for="businessNameId">Razón social</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="businessNameId"
+             placeholder="Razón Social"
+             [ngClass]="{'is-invalid': businessName.invalid && (businessName.dirty || businessName.touched)}"
+             formControlName="businessName">
+      <div *ngIf="businessName.invalid && (businessName.dirty || businessName.touched)">
+        <div class="text-danger small" *ngIf="businessName.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="businessName.errors.pattern">Inválido.</div>
+      </div>
+    </div>
+  </div>
+  <button type="submit"
+          class="btn btn-primary btn-sm"
+          [disabled]="fiscalDataPhysicalPersonForm.invalid"
+          (click)="fiscalDataAction()">
+    Siguiente
+  </button>
+</form>
+<!--
+<pre *ngIf="fiscalDataPhysicalPersonForm">{{fiscalDataPhysicalPersonForm|json}}</pre>
+
+[fiscalDataPhysicalPersonForm.value['taxRegime']] <br>
+<pre>{{fiscalDataPhysicalPersonForm.value['taxRegime']}}</pre>
+
+[fiscalDataPhysicalPersonForm.value['rfc']] <br>
+<pre>{{fiscalDataPhysicalPersonForm.value['rfc']}}</pre>
+-->

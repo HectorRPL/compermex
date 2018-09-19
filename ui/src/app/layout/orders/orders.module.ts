@@ -16,7 +16,10 @@ import {ModalOrderComponent} from './components/modal-order/modal-order.componen
 import {ModalDirectionComponent} from './components/modal-direction/modal-direction.component';
 import {ModalMaterialsComponent} from './components/modal-materials/modal-materials.component';
 import {FiscalDataFormComponent} from '../components/fiscal-data-form/fiscal-data-form.component';
-import {ModalFiscalDataComponent} from './components/modal-fiscal-data/modal-fiscal-data.component';
+import {FiscalDataPhysicalPersonFormComponent} from '../components/fiscal-data-physical-person-form/fiscal-data-physical-person-form.component';
+import {FiscalDataMoralPersonFormComponent} from '../components/fiscal-data-moral-person-form/fiscal-data-moral-person-form.component';
+import {ModalFiscalDataPhysicalPersonComponent} from './components/modal-fiscal-data-physical-person/modal-fiscal-data-physical-person.component';
+import {ModalFiscalDataMoralPersonComponent} from './components/modal-fiscal-data-moral-person/modal-fiscal-data-moral-person.component';
 
 @NgModule({
   imports: [
@@ -40,13 +43,17 @@ import {ModalFiscalDataComponent} from './components/modal-fiscal-data/modal-fis
     ModalDirectionComponent,
     ModalMaterialsComponent,
     FiscalDataFormComponent,
-    ModalFiscalDataComponent
+    FiscalDataPhysicalPersonFormComponent,
+    FiscalDataMoralPersonFormComponent,
+    ModalFiscalDataPhysicalPersonComponent,
+    ModalFiscalDataMoralPersonComponent
   ],
   entryComponents: [
     ModalOrderComponent,
     ModalDirectionComponent,
     ModalMaterialsComponent,
-    ModalFiscalDataComponent
+    ModalFiscalDataPhysicalPersonComponent,
+    ModalFiscalDataMoralPersonComponent
   ],
 })
 export class OrdersModule {
