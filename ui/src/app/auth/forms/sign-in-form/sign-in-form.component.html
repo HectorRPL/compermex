@@ -1,47 +1,49 @@
-<form [formGroup]="signInForm" novalidate class="property-submit-form" autocomplete="off">
+<form novalidate
+      autocomplete="off"
+      [formGroup]="signInForm">
   <div class="form-row">
-    <div class="col-sm-12 mb-3">
-      <input id="emailId"
-             type="email"
-             name="email"
+    <!--EMAIL-->
+    <div class="form-group col-md-12">
+      <label for="emailId">Email</label>
+      <input type="email"
+             class="form-control form-control-sm"
+             id="emailId"
              placeholder="Email"
-             class="form-control custom-select custom-select-sm"
-             [ngClass]="{'is-invalid': signInForm.get('email').invalid && !signInForm.get('email').pristine}"
+             [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
              formControlName="email">
-      <div class="invalid-feedback"
-           *ngIf="signInForm.get('email').errors?.required">
-        required
-      </div>
-      <div class="invalid-feedback"
-           *ngIf="signInForm.get('email').errors?.email">
-        Invalid
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div class="text-danger small" *ngIf="email.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="email.errors.email">Inválido</div>
       </div>
     </div>
     <!--PASSWORD-->
-    <div class="col-sm-12 mb-3">
-      <input id="passwordId"
-             type="password"
-             name="password"
+    <div class="form-group col-md-12">
+      <label for="passwordId">Password</label>
+      <input type="password"
+             class="form-control form-control-sm"
+             id="passwordId"
              placeholder="Password"
-             class="form-control custom-select custom-select-sm"
-             [ngClass]="{'is-invalid': signInForm.get('password').invalid && !signInForm.get('password').pristine}"
+             [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched)}"
              formControlName="password">
-      <div class="invalid-feedback"
-           *ngIf="signInForm.get('password').errors?.required">
-        required
+      <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div class="text-danger small" *ngIf="password.errors.required">Requerido.</div>
       </div>
     </div>
-    <!--ALERT-->
-    <div class="col-sm-12 mb-3">
-      <!-- app-messages></app-messages -->
-    </div>
-    <!--BUTTON-->
-    <div class="col-sm-12 mb-3">
-      <button type="submit"
-              routerLink="/layout/orders/create"
-              class="btn btn-primary btn-sm">
-        Login
-      </button>
-    </div>
   </div>
+  <!--
+  <div class="form-group col-sm-6">
+    <app-messages></app-messages>
+  </div>
+  -->
+  <button type="submit"
+          class="btn btn-primary btn-sm"
+          routerLink="/layout/orders/create"
+          [disabled]="signInForm.invalid"
+          (click)="signInAction()">
+    Siguiente
+  </button>
 </form>
+<!--
+<pre *ngIf="signInForm">{{signInForm|json}}</pre>
+-->
+
