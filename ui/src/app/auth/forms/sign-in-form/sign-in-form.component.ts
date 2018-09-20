@@ -12,6 +12,9 @@ export class SignInFormComponent implements OnInit {
   public signIn: SignIn;
   signInForm: FormGroup;
 
+  charactersMin: number = 2;
+  charactersMax: number = 50;
+
   constructor(private formBuilder: FormBuilder) {
 
     this.signIn = new SignIn();
@@ -28,10 +31,15 @@ export class SignInFormComponent implements OnInit {
     this.signInForm = this.formBuilder.group({
       'email': new FormControl(this.signIn.email, [
         Validators.required,
-        Validators.email
+        Validators.email,
+        Validators.minLength(this.charactersMin),
+        Validators.maxLength(this.charactersMax)
       ]),
       'password': new FormControl(this.signIn.password, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^[ñÑ\s\w]+$/),
+        Validators.minLength(this.charactersMin),
+        Validators.maxLength(this.charactersMax)
       ])
     });
   }

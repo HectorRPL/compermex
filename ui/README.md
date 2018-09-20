@@ -15,7 +15,7 @@ Run `ng generate component layout/orders/components/modalTemporal` to generate a
 `ng generate component layout/orders/components/modalFiscalDataMoralPerson`
 
 ### Ejemplo: `model`
-`ng generate class layout/models/signIn -type model`
+`ng generate class layout/models/signUp -type model`
 
 
 ## Build

@@ -14,6 +14,8 @@
       <div *ngIf="email.invalid && (email.dirty || email.touched)">
         <div class="text-danger small" *ngIf="email.errors.required">Requerido.</div>
         <div class="text-danger small" *ngIf="email.errors.email">Inválido</div>
+        <div class="text-danger small" *ngIf="email.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
+        <div class="text-danger small" *ngIf="email.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
       </div>
     </div>
     <!--PASSWORD-->
@@ -27,6 +29,9 @@
              formControlName="password">
       <div *ngIf="password.invalid && (password.dirty || password.touched)">
         <div class="text-danger small" *ngIf="password.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="password.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="password.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
+        <div class="text-danger small" *ngIf="password.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
       </div>
     </div>
   </div>

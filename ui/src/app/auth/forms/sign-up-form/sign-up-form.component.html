@@ -1,65 +1,85 @@
-<p>
-  sign-up-form works!
-</p>
-<form [formGroup]="signUpForm" (ngSubmit)="signIn()" novalidate class="property-submit-form">
-  <!--FIRST NAME-->
-  <div class="col-sm-12 mb-3">
-    <input id="firstNameId"
-           type="text"
-           name="firstName"
-           placeholder="Nombre(s)"
-           class="form-control"
-           [ngClass]="{'is-invalid': signUpForm.get('firstName').invalid
-           && !signUpForm.get('firstName').pristine}"
-           formControlName="firstName">
-    <div class="invalid-feedback"
-         *ngIf="signUpForm.get('firstName').errors?.required">
-      required
+<form novalidate
+      autocomplete="off"
+      [formGroup]="signUpForm">
+  <div class="form-row">
+    <!--NOMBRE / FIRST NAME-->
+    <div class="form-group col-md-12">
+      <label for="firstNameId">Nombre(s)</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="firstNameId"
+             placeholder="Nombre(s)"
+             [ngClass]="{'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched)}"
+             formControlName="firstName">
+      <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+        <div class="text-danger small" *ngIf="firstName.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="firstName.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="firstName.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
+        <div class="text-danger small" *ngIf="firstName.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
+      </div>
+    </div>
+    <!--APELLIDOS / LAST NAME-->
+    <div class="form-group col-md-12">
+      <label for="lastNameId">Apellido(s)</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="lastNameId"
+             placeholder="Apellido(s)"
+             [ngClass]="{'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched)}"
+             formControlName="lastName">
+      <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+        <div class="text-danger small" *ngIf="lastName.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="lastName.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="lastName.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
+        <div class="text-danger small" *ngIf="lastName.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
+      </div>
+    </div>
+    <!--EMAIL-->
+    <div class="form-group col-md-12">
+      <label for="emailId">Email</label>
+      <input type="email"
+             class="form-control form-control-sm"
+             id="emailId"
+             placeholder="Email"
+             [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
+             formControlName="email">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div class="text-danger small" *ngIf="email.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="email.errors.email">Inválido</div>
+        <div class="text-danger small" *ngIf="email.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
+        <div class="text-danger small" *ngIf="email.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
+      </div>
+    </div>
+    <!--PASSWORD-->
+    <div class="form-group col-md-12">
+      <label for="passwordId">Password</label>
+      <input type="password"
+             class="form-control form-control-sm"
+             id="passwordId"
+             placeholder="Password"
+             [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched)}"
+             formControlName="password">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div class="text-danger small" *ngIf="password.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="password.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="password.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
+        <div class="text-danger small" *ngIf="password.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
+      </div>
     </div>
   </div>
-  <!--LAST NAME-->
-  <div class="col-sm-12 mb-3">
-    <input id="lastNameId"
-           type="text"
-           name="lastName"
-           placeholder="Apellido(s)"
-           class="form-control"
-           [ngClass]="{'is-invalid': signUpForm.get('lastName').invalid
-           && !signUpForm.get('lastName').pristine}"
-           formControlName="lastName">
-    <div class="invalid-feedback"
-         *ngIf="signUpForm.get('lastName').errors?.required">
-      required
-    </div>
+  <!--
+  <div class="form-group col-sm-12">
+    <app-messages></app-messages>
   </div>
-  <!--EMAIL-->
-  <div class="col-sm-12 mb-3">
-    <input id="emailId"
-           type="email"
-           name="email"
-           placeholder="Email"
-           class="form-control"
-           [ngClass]="{'is-invalid': signUpForm.get('email').invalid && !signUpForm.get('email').pristine}"
-           formControlName="email">
-    <div class="invalid-feedback"
-         *ngIf="signUpForm.get('email').errors?.required">
-      required
-    </div>
-    <div class="invalid-feedback"
-         *ngIf="signUpForm.get('email').errors?.email">
-      Invalid
-    </div>
-  </div>
-  <!--ALERT-->
-  <div class="col-sm-12 mb-3">
-    <!-- app-messages></app-messages -->
-  </div>
-  <!--BUTTON-->
-  <div class="col-sm-12 mb-3">
-    <button type="submit"
-            class="btn btn-primary form-control"
-            [disabled]="signUpForm.invalid">
-      Login
-    </button>
-  </div>
+  -->
+  <button type="submit"
+          class="btn btn-primary btn-sm"
+          routerLink="/layout/orders/create"
+          [disabled]="signUpForm.invalid"
+          (click)="signInAction()">
+    Siguiente
+  </button>
 </form>
+<!--
+<pre *ngIf="signUpForm">{{signUpForm|json}}</pre>
+-->
