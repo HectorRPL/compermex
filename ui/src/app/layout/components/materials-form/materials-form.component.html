@@ -1,10 +1,9 @@
 <form novalidate
       autocomplete="off"
       [formGroup]="materialsForm">
-
-  <!--PANEL ARTÍCULO-->
   <div class="form row">
-    <div class="col-sm-12">
+    <!--PANEL ARTÍCULO-->
+    <div class="col-sm-12 mb-3">
       <div class="card">
         <div class="card-header">Artículo</div>
         <div class="card-body">
@@ -127,12 +126,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <br>
-
-  <!--PANEL MEDIDAS Y ESPEFÍFICACIONES DE MATERIAL-->
-  <div class="form-row">
-    <div class="col-sm-6">
+    <!--PANEL MEDIDAS-->
+    <div class="col-sm-6 mb-3">
       <div class="card">
         <div class="card-header">Medidas</div>
         <div class="card-body">
@@ -295,8 +290,8 @@
         </div>
       </div>
     </div>
-    <!--ESPEFIFICACIONES DE MATERIAL-->
-    <div class="col-sm-6">
+    <!--PANEL ESPECIFICACIONES DE MATERIAL-->
+    <div class="col-sm-6 mb-3">
       <div class="card">
         <div class="card-header">Espefificaciones de material</div>
         <div class="card-body">
@@ -426,15 +421,12 @@
       </div>
     </div>
   </div>
-
   <!--BOTTON-->
-  <br>
   <button type="submit"
           class="btn btn-primary btn-sm"
           [disabled]="materialsForm.invalid"
           (click)="materialAction()">
     Siguiente
   </button>
-
 </form>
 <!--<pre *ngIf="materialsForm">{{materialsForm|json}}</pre>-->
