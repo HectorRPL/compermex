@@ -31,7 +31,7 @@ class SuppliersController @Inject()(
       }
     }.recoverTotal {
       case error =>
-        Future.successful(Unauthorized(Json.obj("message" -> Messages("invalid.data"))))
+        Future.successful(BadRequest(Json.obj("message" -> Messages("invalid.data"))))
     }
   }
 

@@ -1,7 +1,7 @@
 package models.supplier
 
 import play.api.libs.json._
-import play.data.validation.Constraints.EmailValidator
+import play.api.libs.functional.syntax._
 import reactivemongo.bson.BSONObjectID
 import reactivemongo.play.json._
 
@@ -21,6 +21,22 @@ case class Supplier(
                    )
 
 object Supplier {
+
+  /*implicit val supplierReads: Reads[Supplier] = (
+    (JsPath \ "_id").readNullable[BSONObjectID] and
+      (JsPath \ "name").read[String] and
+      (JsPath \ "email").read[String] and
+      (JsPath \ "phone").readNullable[Int]
+    ) (Supplier.apply _)
+
+  implicit val supplierWrites: Writes[Supplier] = (
+    (JsPath \ "_id").writeNullable[BSONObjectID] and
+    (JsPath \ "name").write[String] and
+      (JsPath \ "email").write[String] and
+      (JsPath \ "phone").writeNullable[Int]
+    )(unlift(Supplier.unapply))
+
+  implicit val supplierFormat: OFormat[Supplier] = Json.format[Supplier]*/
 
 
   implicit object SupplierReaders extends Reads[Supplier] {
@@ -50,6 +66,5 @@ object Supplier {
       "email" -> supplier.email,
       "phone" -> supplier.phone)
   }
-
 
 }
