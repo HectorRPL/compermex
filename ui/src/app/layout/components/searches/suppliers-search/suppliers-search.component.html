@@ -1,5 +1,5 @@
 <div class="form-group">
-  <label for="typeahead">Search for a wiki page:</label>
+  <label for="typeahead">Buscar proveedor:</label>
   <input id="typeahead"
          type="text"
          class="form-control"
@@ -9,12 +9,9 @@
          placeholder="Wikipedia search"
          [resultFormatter]="resFormatter"
          [inputFormatter]="inFormatter"/>
-  <span *ngIf="searching">searching...</span>
+  <span *ngIf="searching">Buscando...</span>
   <div class="invalid-feedback" *ngIf="searchFailed">
-    Sorry, suggestions could not be loaded.
+    No existe ningun proveedor con ese nombre.
   </div>
 </div>
-
-<hr>
-<pre>Model: {{ model | json }}</pre>
 
