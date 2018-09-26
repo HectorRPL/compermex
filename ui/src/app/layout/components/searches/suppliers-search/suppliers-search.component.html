@@ -1,12 +1,14 @@
-<!--
 <div class="form-group">
   <label for="typeahead">Search for a wiki page:</label>
   <input id="typeahead"
          type="text"
          class="form-control"
+         [class.is-invalid]="searchFailed"
          [(ngModel)]="model"
          [ngbTypeahead]="search"
-         placeholder="Wikipedia search" />
+         placeholder="Wikipedia search"
+         [resultFormatter]="resFormatter"
+         [inputFormatter]="inFormatter"/>
   <span *ngIf="searching">searching...</span>
   <div class="invalid-feedback" *ngIf="searchFailed">
     Sorry, suggestions could not be loaded.
@@ -15,4 +17,4 @@
 
 <hr>
 <pre>Model: {{ model | json }}</pre>
--->
+

@@ -1,6 +1,7 @@
 package models.supplier
 
 import play.api.libs.json._
+import play.data.validation.Constraints.EmailValidator
 import reactivemongo.bson.BSONObjectID
 import reactivemongo.play.json._
 
@@ -21,7 +22,9 @@ case class Supplier(
 
 object Supplier {
 
+
   implicit object SupplierReaders extends Reads[Supplier] {
+
     def reads(json: JsValue): JsResult[Supplier] = json match {
       case obj: JsObject => try {
         val id = (obj \ "_id").asOpt[BSONObjectID]

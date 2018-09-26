@@ -19,7 +19,6 @@ class SuppliersController @Inject()(
 
   def list() = Action.async {
     suppliersServ.getAll().map { suppliers =>
-      println(suppliers)
       Ok(Json.toJson(suppliers))
     }
 
