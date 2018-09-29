@@ -8,7 +8,8 @@ import {COMPANY} from "../../models/company/company.mock";
 export class InMemoryCompanyService implements InMemoryDbService {
 
   createDb() {
-    return {COMPANY};
+    let companies = COMPANY;
+    return {companies};
   }
 
   constructor() { }
