@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import {SupplierService} from '../../../../services/suppliers/supplier.service';
+import {Supplier} from '../../../models/supplier.model';
 
 
 @Component({
@@ -10,35 +11,34 @@ import {SupplierService} from '../../../../services/suppliers/supplier.service';
   templateUrl: './suppliers-search.component.html',
   styleUrls: ['./suppliers-search.component.css']
 })
-export class SuppliersSearchComponent implements OnInit {
+export class SuppliersSearchComponent {
 
   model: any;
   searching = false;
   searchFailed = false;
 
-  constructor(private supplierServ: SupplierService) { }
+  constructor(private supplierServ: SupplierService) {
 
-  ngOnInit() {
   }
 
 
-  search(text$: Observable<string>) {
-    text$.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      tap(() => this.searching = true),
-      switchMap(term =>
-        this.supplierServ.searchSuppliers(term).pipe(
-          tap(() => this.searchFailed = false),
-          catchError(() => {
-            this.searchFailed = true;
-            return of([]);
-          }))
-      ),
-      tap(() => this.searching = false)
-    )
-  }
+  search = (text$: Observable<string>) =>
+      text$.pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        tap(() => this.searching = true),
+        switchMap(term =>
+          this.supplierServ.getSuppliers().pipe(
+              tap(() => this.searchFailed = false),
+              catchError(() => {
+                this.searchFailed = true;
+                return of([]);
+              }))
+        ),
+        tap(() => this.searching = false)
+      );
 
-
+  resFormatter = (x: Supplier) => x.name;
+  inFormatter = (result: Supplier) => result.name;
 
 }
