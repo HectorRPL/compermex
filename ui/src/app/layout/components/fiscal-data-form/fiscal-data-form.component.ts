@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {FiscalData} from '../../models/fiscal-data.model';
+import {FiscalData} from '../../../models/fiscal-data.model';
 
 @Component({
   selector: 'app-fiscal-data-form',

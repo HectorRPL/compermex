@@ -20,6 +20,45 @@
                 <div class="text-danger small" *ngIf="quotation.errors.required">Requerido.</div>
               </div>
             </div>
+            <!--CONSECUTIVO / CONSECUTIVE-->
+            <div class="form-group col-sm-4">
+              <label for="consecutiveId">Consecutivo</label>
+              <input type="number"
+                     class="form-control form-control-sm"
+                     id="consecutiveId"
+                     placeholder="Consecutivo"
+                     [ngClass]="{'is-invalid': consecutive.invalid && (consecutive.dirty || consecutive.touched)}"
+                     formControlName="consecutive">
+              <div *ngIf="consecutive.invalid && (consecutive.dirty || consecutive.touched)">
+                <div class="text-danger small" *ngIf="consecutive.errors.required">Requerido.</div>
+              </div>
+            </div>
+            <!--COMPAÑÍA / COMPANY -->
+            <div class="form-group col-sm-3">
+              <label for="companyId">Compañía</label>
+              <input type="text"
+                     class="form-control form-control-sm"
+                     id="companyId"
+                     placeholder="Compañía"
+                     [ngClass]="{'is-invalid': company.invalid && (company.dirty || company.touched)}"
+                     formControlName="company">
+              <div *ngIf="company.invalid && (company.dirty || company.touched)">
+                <div class="text-danger small" *ngIf="company.errors.required">Requerido.</div>
+              </div>
+            </div>
+            <!--PEDIDO CTE / CUSTOMER ORDER -->
+            <div class="form-group col-sm-3">
+              <label for="customerOrderId">Pedido cte</label>
+              <input type="text"
+                     class="form-control form-control-sm"
+                     id="customerOrderId"
+                     placeholder="Pedido cte"
+                     [ngClass]="{'is-invalid': customerOrder.invalid && (customerOrder.dirty || customerOrder.touched)}"
+                     formControlName="customerOrder">
+              <div *ngIf="customerOrder.invalid && (customerOrder.dirty || customerOrder.touched)">
+                <div class="text-danger small" *ngIf="customerOrder.errors.required">Requerido.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

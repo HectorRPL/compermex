@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FiscalData} from '../../models/fiscal-data.model';
+import {FiscalData} from '../../../models/fiscal-data.model';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Supplier} from '../../../models/supplier.model';
+import {Supplier} from '../../../../models/supplier.model';
 import {SupplierService} from "../../../../services/suppliers/supplier.service";
 
 @Component({

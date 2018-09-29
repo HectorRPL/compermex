@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Order} from "../../models/order";
+import {Order} from "../../../models/order";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({

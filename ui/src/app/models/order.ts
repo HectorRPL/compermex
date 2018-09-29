@@ -2,7 +2,7 @@ export class Order {
   // [ini] Encabezado
   quotation:            number; // cotización al parecer son números seriados
   consecutive:          number; // consecutivo al parecer son números seriados
-  company:              number; // compañía => podría ser companyId? es que es un select que pinta otros campos => Debe ser un autocomplete
+  company:              string; // compañía => Debe ser un autocomplete
   customerOrder?:       string; // pedido cte TODO => no se sabe de donde viene
   saleOrder:            string; // nta. orden, String (cotización, consecutivo, compañia, proveedor)
   providerKey01:        number; // cve. de proveedor => va a ser un autocomplete

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {MenuSideBar} from "../../models/menu-side-bar.model";
+import {MenuSideBar} from "../../../models/menu-side-bar.model";
 
 @Component({
   selector: 'app-sidebar',

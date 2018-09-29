@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Direction} from '../../models/direction.model';
+import {Direction} from '../../../models/direction.model';
 
 @Component({
   selector: 'app-directions-form',

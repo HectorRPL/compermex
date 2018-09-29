@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import {SupplierService} from '../../../../services/suppliers/supplier.service';
-import {Supplier} from '../../../models/supplier.model';
+import {Supplier} from '../../../../models/supplier.model';
 
 
 @Component({
