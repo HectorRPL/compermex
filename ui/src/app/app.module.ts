@@ -7,6 +7,8 @@ import {ModalComponent} from './components/modal/modal.component';
 import {MessagesService} from './services/messages.service';
 import {HttpErrorHandlerService} from './services/http-error-handler.service';
 import {HttpClientModule} from '@angular/common/http';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryCompanyService} from './services/company/in-memory-company.service';
 
 
 @NgModule({
@@ -16,6 +18,9 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryCompanyService, { dataEncapsulation: false }
+    ),
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot()

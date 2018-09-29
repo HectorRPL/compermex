@@ -7,6 +7,7 @@ import {LayoutComponent} from './layout.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {HeaderComponent} from './components/header/header.component';
 import {SupplierService} from '../services/suppliers/supplier.service';
+import {CompanyService} from '../services/company/company.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {SupplierService} from '../services/suppliers/supplier.service';
     HeaderComponent
   ],
   providers: [
-    SupplierService
+    SupplierService,
+    CompanyService
   ]
 })
 export class LayoutModule {

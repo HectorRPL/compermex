@@ -35,16 +35,7 @@
             </div>
             <!--COMPAÑÍA / COMPANY -->
             <div class="form-group col-sm-3">
-              <label for="companyId">Compañía</label>
-              <input type="text"
-                     class="form-control form-control-sm"
-                     id="companyId"
-                     placeholder="Compañía"
-                     [ngClass]="{'is-invalid': company.invalid && (company.dirty || company.touched)}"
-                     formControlName="company">
-              <div *ngIf="company.invalid && (company.dirty || company.touched)">
-                <div class="text-danger small" *ngIf="company.errors.required">Requerido.</div>
-              </div>
+              <app-company-search></app-company-search>
             </div>
             <!--PEDIDO CTE / CUSTOMER ORDER -->
             <div class="form-group col-sm-3">

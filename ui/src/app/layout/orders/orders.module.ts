@@ -21,6 +21,8 @@ import {FiscalDataMoralPersonFormComponent} from '../components/fiscal-data-mora
 import {ModalFiscalDataPhysicalPersonComponent} from './components/modal-fiscal-data-physical-person/modal-fiscal-data-physical-person.component';
 import {ModalFiscalDataMoralPersonComponent} from './components/modal-fiscal-data-moral-person/modal-fiscal-data-moral-person.component';
 import {OrderFormComponent} from '../components/order-form/order-form.component';
+import {CompanySearchComponent} from '../components/searches/company-search/company-search.component';
+import {HeaderComponent} from "../components/header/header.component";
 
 @NgModule({
   imports: [
@@ -48,7 +50,8 @@ import {OrderFormComponent} from '../components/order-form/order-form.component'
     FiscalDataMoralPersonFormComponent,
     ModalFiscalDataPhysicalPersonComponent,
     ModalFiscalDataMoralPersonComponent,
-    OrderFormComponent
+    OrderFormComponent,
+    CompanySearchComponent
   ],
   entryComponents: [
     ModalOrderComponent,

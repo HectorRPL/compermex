@@ -1,0 +1,16 @@
+<label for="companySearchId">Buscar compañía:</label>
+<input id="companySearchId"
+       type="text"
+       class="form-control"
+       [class.is-invalid]="searchFailed1"
+       [(ngModel)]="model"
+       [ngbTypeahead]="search"
+       placeholder="Buscar compañía"
+       [resultFormatter]="resFormatter"
+       [inputFormatter]="inFormatter"/>
+<span *ngIf="searching">Buscando...</span>
+<div class="invalid-feedback" *ngIf="searchFailed1">
+  No existe ninguna compañía con ese nombre.
+</div>
+
+
