@@ -22,7 +22,6 @@ import {ModalFiscalDataPhysicalPersonComponent} from './components/modal-fiscal-
 import {ModalFiscalDataMoralPersonComponent} from './components/modal-fiscal-data-moral-person/modal-fiscal-data-moral-person.component';
 import {OrderFormComponent} from '../components/order-form/order-form.component';
 import {CompanySearchComponent} from '../components/searches/company-search/company-search.component';
-import {HeaderComponent} from "../components/header/header.component";
 
 @NgModule({
   imports: [
