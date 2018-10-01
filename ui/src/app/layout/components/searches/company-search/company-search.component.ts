@@ -37,4 +37,8 @@ export class CompanySearchComponent {
   resFormatter = (x: Company) => x.name;
   inFormatter = (result: Company) => result.name;
 
+  selectedItem($event) {
+    console.log($event);
+  }
+
 }

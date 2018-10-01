@@ -7,6 +7,10 @@
         <div class="card-header">Encabezado</div>
         <div class="card-body">
           <div class="row">
+            <!--COMPAÑÍA / COMPANY -->
+            <div class="form-group col-sm-3">
+              <app-company-search></app-company-search>
+            </div>
             <!--COTIZACIÓN / QUOTATION-->
             <div class="form-group col-sm-4">
               <label for="quotationId">Cotización</label>
@@ -32,10 +36,6 @@
               <div *ngIf="consecutive.invalid && (consecutive.dirty || consecutive.touched)">
                 <div class="text-danger small" *ngIf="consecutive.errors.required">Requerido.</div>
               </div>
-            </div>
-            <!--COMPAÑÍA / COMPANY -->
-            <div class="form-group col-sm-3">
-              <app-company-search></app-company-search>
             </div>
             <!--PEDIDO CTE / CUSTOMER ORDER -->
             <div class="form-group col-sm-3">

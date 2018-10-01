@@ -33,7 +33,7 @@ export class OrderFormComponent implements OnInit {
       'consecutive': new FormControl(this.order.consecutive, [
         Validators.required
       ]),
-      'company': new FormControl(this.order.company, [
+      'companyId': new FormControl(this.order.company, [
         Validators.required
       ]),
       'customerOrder': new FormControl(this.order.customerOrder, [
