@@ -50,7 +50,8 @@ import {CompanySearchComponent} from '../components/searches/company-search/comp
     ModalFiscalDataPhysicalPersonComponent,
     ModalFiscalDataMoralPersonComponent,
     OrderFormComponent,
-    CompanySearchComponent
+    CompanySearchComponent,
+    ClientsSearchComponent
   ],
   entryComponents: [
     ModalOrderComponent,
