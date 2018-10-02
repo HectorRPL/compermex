@@ -61,7 +61,7 @@
                      [ngClass]="{'is-invalid': deliverDate.invalid &&
                       (deliverDate.dirty || deliverDate.touched)}"
                      formControlName="consecutive">
-              <div *ngIf="deliverDate.invalid && (orderDdeliverDateate.dirty || deliverDate.touched)">
+              <div *ngIf="deliverDate.invalid && (deliverDate.dirty || deliverDate.touched)">
                 <div class="text-danger small" *ngIf="deliverDate.errors.required">Requerido.</div>
               </div>
             </div>
