@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsSearchComponent implements OnInit {
 
+  model: any;
+  searching = false;
+  searchFailed1 = false;
+
   constructor() { }
 
   ngOnInit() {

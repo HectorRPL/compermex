@@ -8,7 +8,6 @@ import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {HeaderComponent} from './components/header/header.component';
 import {SupplierService} from '../services/suppliers/supplier.service';
 import {CompanyService} from '../services/company/company.service';
-import { ClientsSearchComponent } from './components/search/clients-search/clients-search.component';
 
 @NgModule({
   imports: [
@@ -19,8 +18,7 @@ import { ClientsSearchComponent } from './components/search/clients-search/clien
   declarations: [
     LayoutComponent,
     SidebarComponent,
-    HeaderComponent,
-    ClientsSearchComponent
+    HeaderComponent
   ],
   providers: [
     SupplierService,
