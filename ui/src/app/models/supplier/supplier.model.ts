@@ -1,4 +1,4 @@
-import {ObjectId} from "./object-id.model";
+import {ObjectId} from "../object-id.model";
 
 export class Supplier {
   _id: ObjectId;

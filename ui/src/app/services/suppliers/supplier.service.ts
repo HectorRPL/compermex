@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Supplier} from '../../models/supplier.model';
+import {Supplier} from '../../models/supplier/supplier.model';
 import {HttpClient} from '@angular/common/http';
 import {HandleError, HttpErrorHandlerService} from '../http-error-handler.service';
 import {catchError} from 'rxjs/operators';
@@ -17,7 +17,7 @@ export class SupplierService {
 
 
   searchSuppliers(name: String): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>('/suppliers/list')
+    return this.http.get<Supplier[]>('api/suppliers')
       .pipe(
         catchError(this.handleError('search', []))
       );
@@ -32,9 +32,9 @@ export class SupplierService {
   }
 
   getSuppliers(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>('/suppliers/list')
+    return this.http.get<Supplier[]>('api/suppliers')
       .pipe(
-        catchError(this.handleError('search', []))
+        catchError(this.handleError('getSuppliers', []))
       );
   }
 

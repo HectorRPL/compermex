@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {InMemoryDbService} from "angular-in-memory-web-api";
-import {CLIENT} from "../../models/client/client.mock";
+import {CLIENTS_MOCK} from "../../models/client/client.mock";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import {CLIENT} from "../../models/client/client.mock";
 export class InMemoryClientService implements InMemoryDbService{
 
   createDb(){
-    let clients = CLIENT;
+    let clients = CLIENTS_MOCK;
     return {clients}
   }
 

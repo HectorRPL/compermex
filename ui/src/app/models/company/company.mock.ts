@@ -1,6 +1,6 @@
 import {Company} from './company.model';
 
-export const COMPANY: Company[] = [
+export const COMPANIES_MOCK: Company[] = [
   {
     "_id": {$oid: "5b9423b29823b52e3232a7b4"},
     "name": "Peruga",

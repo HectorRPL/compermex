@@ -1,6 +1,6 @@
 import {Client} from "./client.model";
 
-export const CLIENT: Client[] = [
+export const CLIENTS_MOCK: Client[] = [
   {
     "_id": {$oid: "5b9423b29823b52e3232a7w1"},
     "name": "Cliente 1",

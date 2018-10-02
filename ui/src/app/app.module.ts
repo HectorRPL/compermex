@@ -8,8 +8,7 @@ import {MessagesService} from './services/messages.service';
 import {HttpErrorHandlerService} from './services/http-error-handler.service';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {InMemoryCompanyService} from './services/company/in-memory-company.service';
-import {InMemoryClientService} from './services/client/in-memory-client.service';
+import {InMemoryDataService} from './services/in-memory-data.service';
 
 
 @NgModule({
@@ -20,10 +19,7 @@ import {InMemoryClientService} from './services/client/in-memory-client.service'
   imports: [
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryCompanyService, { dataEncapsulation: false }
-    ),
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryClientService, { dataEncapsulation: false }
+      InMemoryDataService, { dataEncapsulation: false }
     ),
     BrowserModule,
     AppRoutingModule,
