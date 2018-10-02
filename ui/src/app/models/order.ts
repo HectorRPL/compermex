@@ -13,6 +13,13 @@ export class Order {
   providerKey02:        number; // clave prov.
   // [end] Encabezado
 
+  // [ini] seccción de tres selects para elegir el material
+  type:                 string;
+  color:                string;
+  strength:             string; // resistencia => podría ser strengthId? TODO => tentativo no va en éste model
+  // [end] seccción de tres selects para elegir el material
+
+
   // PROVEEDOR
   ourKey:               string; // nuestra clave.
   customer:             string;  // cliente => podría ser customerId?
@@ -23,8 +30,7 @@ export class Order {
   certificate:          boolean; // certificado
 
   //
-  strength:             string; // resistencia => podría ser strengthId? TODO => tentativo no va en este model
   corrugatedType:       string; // material (1, 2 ó 3) sencillo, doble, micro => podría ser corrugatedTypeId?
-  type:                 string; // No es claro de dónde o qué es ésta propiedad
+
 
 }

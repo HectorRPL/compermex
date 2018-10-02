@@ -61,6 +61,18 @@ export class OrderFormComponent implements OnInit {
         Validators.required
       ]),
       // [end] Encabezado
+
+      // [ini] los tres selects del material
+      'type': new FormControl(this.order.type, [
+        Validators.required
+      ]),
+      'color': new FormControl(this.order.color, [
+        Validators.required
+      ]),
+      'strength': new FormControl(this.order.strength, [
+        Validators.required
+      ])
+      // [end] los tres selects del material
     });
   }
 
@@ -108,7 +120,20 @@ export class OrderFormComponent implements OnInit {
   get providerKey02() {
     return this.orderForm.get('providerKey02');
   }
-
   // [end] Encabezado
+
+  // [ini] los tres selects del material
+  get type() {
+    return this.orderForm.get('type');
+  }
+
+  get color() {
+    return this.orderForm.get('color');
+  }
+
+  get strength() {
+    return this.orderForm.get('strength');
+  }
+  // [end] los tres selects del material
 
 }
