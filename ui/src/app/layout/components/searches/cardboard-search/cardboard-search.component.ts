@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {CardboardService} from "../../../../services/cardboard/cardboard.service";
 import {Cardboard} from "../../../../models/cardboard/cardboard.model";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
@@ -10,6 +10,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class CardboardSearchComponent implements OnInit {
 
+  @Output() public hijoDisparaEvento = new EventEmitter();
+
   public cardboard: Cardboard;
   cardboardForm: FormGroup;
 
@@ -18,6 +20,10 @@ export class CardboardSearchComponent implements OnInit {
 
     this.cardboard = new Cardboard();
 
+  }
+
+  emiterDePrueba() {
+    this.hijoDisparaEvento.emit('le mandas parametro para que el papá los cache');
   }
 
   ngOnInit() {

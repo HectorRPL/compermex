@@ -7,7 +7,9 @@
         <div class="card-header">Nota Orden:&nbsp;&nbsp;</div>
         <div class="card-body">
           <!--[ini]-->
-          <app-cardboard-search></app-cardboard-search>
+          <app-cardboard-search
+            (hijoDisparaEvento)="padreCachaDisparoDelHijo($event)">
+          </app-cardboard-search>
           <!--[end]-->
           <div class="row">
 
