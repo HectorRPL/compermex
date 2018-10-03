@@ -1,13 +1,14 @@
-import {Company} from "./company.model";
+import {Company} from './company.model';
 
-export const COMPANY: Company[] = [
+export const COMPANIES_MOCK: Company[] = [
   {
     "_id": {$oid: "5b9423b29823b52e3232a7b4"},
     "name": "Peruga",
     "email": "peruga@mail.com",
     "phone": 1231231234,
     "quotation": 1,
-    "consecutive": 1
+    "consecutive": 1,
+    "identifier": "E"
   },
   {
     "_id": {$oid: "5b99e0882ecc6be4c89cb978"},
@@ -15,7 +16,8 @@ export const COMPANY: Company[] = [
     "email": "compermex@mail.com",
     "phone": 1231231234,
     "quotation": 2,
-    "consecutive": 2
+    "consecutive": 2,
+    "identifier": "A"
   },
   {
     "_id": {$oid: "5b9d958c550000dac4a15ac6"},
@@ -23,7 +25,8 @@ export const COMPANY: Company[] = [
     "email": "eder@mail.com",
     "phone": 12312312,
     "quotation": 3,
-    "consecutive": 3
+    "consecutive": 3,
+    "identifier": "C"
   },
   {
     "_id": {$oid: "5b9d95b5550000dac4a15ac7"},
@@ -31,6 +34,7 @@ export const COMPANY: Company[] = [
     "email": "xxxxxx@mail.com",
     "phone": 12312312,
     "quotation": 4,
-    "consecutive": 4
+    "consecutive": 4,
+    "identifier": "X"
   }
 ];
