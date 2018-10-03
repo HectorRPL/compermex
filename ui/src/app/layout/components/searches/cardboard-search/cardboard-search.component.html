@@ -1,27 +1,9 @@
-<!--
-<label for="cardboardSearchId">XXXXXXXX:</label>
-<input id="cardboardSearchId"
-       type="text"
-       class="form-control form-control-sm"
-       [class.is-invalid]="searchFailed1"
-       [(ngModel)]="model"
-       [ngbTypeahead]="search"
-       placeholder="XXXXXXXX"
-       [resultFormatter]="resFormatter"
-       [inputFormatter]="inFormatter"
-       (selectItem)="selectedItem($event)"/>
-<span *ngIf="searching">Buscando...</span>
-<div class="invalid-feedback" *ngIf="searchFailed1">
-  No existe ninguna XXXX con ese XXXX.
-</div>
--->
-
 <form novalidate
       autocomplete="off"
       [formGroup]="cardboardForm">
   <div class="row">
     <!--SELECT: TYPE / TIPO-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-4">
       <label for="typeId">Tipo</label>
       <select class="form-control custom-select custom-select-sm"
               id="typeId"
@@ -37,7 +19,7 @@
       </div>
     </div>
     <!--SELECT: COLOR / COLOR-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-4" *ngIf="!type.invalid">
       <label for="colorId">Color</label>
       <select class="form-control custom-select custom-select-sm"
               id="colorId"
@@ -52,7 +34,7 @@
       </div>
     </div>
     <!--SELECT: STRENGTH / RESISTENCIA-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-4"  *ngIf="!color.invalid && !type.invalid">
       <label for="strengthId">Resistencia</label>
       <select class="form-control custom-select custom-select-sm"
               id="strengthId"
@@ -71,5 +53,3 @@
     </div>
   </div>
 </form>
-
-

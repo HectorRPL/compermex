@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {CardboardService} from "../../../../services/cardboard/cardboard.service";
 import {Cardboard} from "../../../../models/cardboard/cardboard.model";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
@@ -14,10 +12,6 @@ export class CardboardSearchComponent implements OnInit {
 
   public cardboard: Cardboard;
   cardboardForm: FormGroup;
-
-  model: any;
-  searching = false;
-  searchFailed1 = false;
 
   constructor(private cardboardService: CardboardService,
               private formBuilder: FormBuilder) {
@@ -46,8 +40,6 @@ export class CardboardSearchComponent implements OnInit {
     });
   }
 
-
-
   get type() {
     return this.cardboardForm.get('type');
   }
@@ -58,29 +50,6 @@ export class CardboardSearchComponent implements OnInit {
 
   get strength() {
     return this.cardboardForm.get('strength');
-  }
-
-  search = (text$: Observable<string>) =>
-    text$.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      tap(() => this.searching = true),
-      switchMap(term =>
-        this.cardboardService.getCardboards().pipe(
-          tap(() => this.searchFailed1 = false),
-          catchError(() => {
-            this.searchFailed1 = true;
-            return of([]);
-          }))
-      ),
-      tap(() => this.searching = false)
-    );
-
-  resFormatter = (x: Cardboard) => x.strength;
-  inFormatter = (result: Cardboard) => result.strength;
-
-  selectedItem($event) {
-    console.log($event);
   }
 
 }
