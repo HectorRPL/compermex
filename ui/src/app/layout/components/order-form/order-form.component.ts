@@ -122,18 +122,4 @@ export class OrderFormComponent implements OnInit {
   }
   // [end] Encabezado
 
-  // [ini] los tres selects del material
-  get type() {
-    return this.orderForm.get('type');
-  }
-
-  get color() {
-    return this.orderForm.get('color');
-  }
-
-  get strength() {
-    return this.orderForm.get('strength');
-  }
-  // [end] los tres selects del material
-
 }
