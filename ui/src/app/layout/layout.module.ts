@@ -8,6 +8,7 @@ import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {HeaderComponent} from './components/header/header.component';
 import {SupplierService} from '../services/suppliers/supplier.service';
 import {CompanyService} from '../services/company/company.service';
+import {CardboardService} from '../services/cardboard/cardboard.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {CompanyService} from '../services/company/company.service';
   ],
   providers: [
     SupplierService,
-    CompanyService
+    CompanyService,
+    CardboardService
   ]
 })
 export class LayoutModule {

@@ -1,0 +1,17 @@
+<label for="cardboardSearchId">XXXXXXXX:</label>
+<input id="cardboardSearchId"
+       type="text"
+       class="form-control form-control-sm"
+       [class.is-invalid]="searchFailed1"
+       [(ngModel)]="model"
+       [ngbTypeahead]="search"
+       placeholder="XXXXXXXX"
+       [resultFormatter]="resFormatter"
+       [inputFormatter]="inFormatter"
+       (selectItem)="selectedItem($event)"/>
+<span *ngIf="searching">Buscando...</span>
+<div class="invalid-feedback" *ngIf="searchFailed1">
+  No existe ninguna XXXX con ese XXXX.
+</div>
+
+

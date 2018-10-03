@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import {Injectable} from '@angular/core';
+import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {COMPANIES_MOCK} from '../models/company/company.mock';
 import {CLIENTS_MOCK} from '../models/client/client.mock';
 import {SUPPLIERS_MOCK} from '../models/supplier/supplier.mock';
+import {CARDBOARDS_MOCK} from '../models/cardboard/cardboard.mock';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,14 @@ import {SUPPLIERS_MOCK} from '../models/supplier/supplier.mock';
 export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
-    let companies = COMPANIES_MOCK;
-    let clients = CLIENTS_MOCK;
-    let suppliers = SUPPLIERS_MOCK;
-    return {companies, clients, suppliers};
+    return {
+      companies: COMPANIES_MOCK,
+      clients: CLIENTS_MOCK,
+      suppliers: SUPPLIERS_MOCK,
+      cardboard: CARDBOARDS_MOCK
+    };
   }
 
-  constructor() { }
+  constructor() {
+  }
 }

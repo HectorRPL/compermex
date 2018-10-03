@@ -1,6 +1,6 @@
 import {Cardboard} from "./cardboard.model";
 
-export const CARDBOARDS: Cardboard[] = [
+export const CARDBOARDS_MOCK: Cardboard[] = [
   {
     "_id": {$oid: "5b9423b29823b52e3232a7b1"},
     "type": "Corrugado Sencillo",

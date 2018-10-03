@@ -22,6 +22,7 @@ import {ModalFiscalDataPhysicalPersonComponent} from './components/modal-fiscal-
 import {ModalFiscalDataMoralPersonComponent} from './components/modal-fiscal-data-moral-person/modal-fiscal-data-moral-person.component';
 import {OrderFormComponent} from '../components/order-form/order-form.component';
 import {CompanySearchComponent} from '../components/searches/company-search/company-search.component';
+import {CardboardSearchComponent} from '../components/searches/cardboard-search/cardboard-search.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,6 @@ import {CompanySearchComponent} from '../components/searches/company-search/comp
     CreateOrderComponent,
     SuppliersSearchComponent,
     MaterialsSearchComponent,
-    ClientsSearchComponent,
     OrderHeaderComponent,
     SuppliersFormComponent,
     DirectionsFormComponent,
@@ -51,7 +51,8 @@ import {CompanySearchComponent} from '../components/searches/company-search/comp
     ModalFiscalDataMoralPersonComponent,
     OrderFormComponent,
     CompanySearchComponent,
-    ClientsSearchComponent
+    ClientsSearchComponent,
+    CardboardSearchComponent
   ],
   entryComponents: [
     ModalOrderComponent,
