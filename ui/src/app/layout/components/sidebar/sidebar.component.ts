@@ -56,4 +56,8 @@ export class SidebarComponent {
     }
   }
 
+  abreModalAltaMateriales() {
+    console.log('que onda weeeee');
+  }
+
 }
