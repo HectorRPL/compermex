@@ -11,10 +11,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SuppliersFormComponent} from '../components/suppliers-form/suppliers-form.component';
 import {DirectionsFormComponent} from '../components/directions-form/directions-form.component';
-import {MaterialsFormComponent} from '../components/materials-form/materials-form.component';
 import {ModalOrderComponent} from './components/modal-order/modal-order.component';
 import {ModalDirectionComponent} from './components/modal-direction/modal-direction.component';
-import {ModalMaterialsComponent} from './components/modal-materials/modal-materials.component';
 import {FiscalDataFormComponent} from '../components/fiscal-data-form/fiscal-data-form.component';
 import {FiscalDataPhysicalPersonFormComponent} from '../components/fiscal-data-physical-person-form/fiscal-data-physical-person-form.component';
 import {FiscalDataMoralPersonFormComponent} from '../components/fiscal-data-moral-person-form/fiscal-data-moral-person-form.component';
@@ -40,10 +38,8 @@ import {CardboardSearchComponent} from '../components/searches/cardboard-search/
     OrderHeaderComponent,
     SuppliersFormComponent,
     DirectionsFormComponent,
-    MaterialsFormComponent,
     ModalOrderComponent,
     ModalDirectionComponent,
-    ModalMaterialsComponent,
     FiscalDataFormComponent,
     FiscalDataPhysicalPersonFormComponent,
     FiscalDataMoralPersonFormComponent,
@@ -57,7 +53,6 @@ import {CardboardSearchComponent} from '../components/searches/cardboard-search/
   entryComponents: [
     ModalOrderComponent,
     ModalDirectionComponent,
-    ModalMaterialsComponent,
     ModalFiscalDataPhysicalPersonComponent,
     ModalFiscalDataMoralPersonComponent
   ],
