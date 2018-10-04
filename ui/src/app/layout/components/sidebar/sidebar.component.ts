@@ -44,6 +44,15 @@ export class SidebarComponent {
             url: '/layout/orders/create'
           }
         ]
+      },
+      {
+        name: 'Maestro materiales', icon: 'fas fa-box-open',
+        subMenu: [
+          {
+            subName: 'Alta',
+            url: '/layout/materials/create'
+          }
+        ]
       }
     ];
   }
