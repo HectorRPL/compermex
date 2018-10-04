@@ -19,7 +19,7 @@ export class SidebarComponent {
   createMenu() {
     this.menu = [
       {
-        name: 'Compras', icon: 'fas fa-stroopwafel',
+        name: 'Compras', icon: 'far fa-handshake',
         subMenu: [
           {
             subName: 'Lista',
@@ -28,7 +28,7 @@ export class SidebarComponent {
         ]
       },
       {
-        name: 'Proveedores', icon: 'fas fa-stroopwafel',
+        name: 'Proveedores', icon: 'fas fa-industry',
         subMenu: [
           {
             subName: 'Lista',
@@ -37,7 +37,7 @@ export class SidebarComponent {
         ]
       },
       {
-        name: 'Alta Orden', icon: 'fas fa-stroopwafel',
+        name: 'Alta Orden', icon: 'fas fa-file-invoice-dollar',
         subMenu: [
           {
             subName: 'Alta',
