@@ -1,4 +1,6 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+  <br>
+  <img class="card-img-top" src="../../../../assets/logo-sidebar.jpg" alt="Card image cap">
   <div class="list-group">
     <div class="nested-menu" *ngFor="let item of menu">
       <a class="list-group-item" (click)="addExpandClass(item.name)">
