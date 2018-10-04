@@ -28,12 +28,6 @@ export class OrderFormComponent implements OnInit {
   createOrderForm() {
     this.orderForm = this.formBuilder.group({
       // [ini] Encabezado
-      'quotation': new FormControl(this.order.quotation, [
-        Validators.required
-      ]),
-      'consecutive': new FormControl(this.order.consecutive, [
-        Validators.required
-      ]),
       'companyId': new FormControl(this.order.company, [
         Validators.required
       ]),
@@ -78,13 +72,6 @@ export class OrderFormComponent implements OnInit {
   }
 
   // [ini] Encabezado
-  get quotation() {
-    return this.orderForm.get('quotation');
-  }
-
-  get consecutive() {
-    return this.orderForm.get('consecutive');
-  }
 
   get company() {
     return this.orderForm.get('company');

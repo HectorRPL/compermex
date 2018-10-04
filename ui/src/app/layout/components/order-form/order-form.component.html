@@ -2,49 +2,20 @@
       autocomplete="off"
       [formGroup]="orderForm">
   <div class="form row">
-    <div class="col-sm-12 mb-3">
+    <div class="col-sm-6 mb-3">
       <div class="card">
-        <div class="card-header">Nota Orden:&nbsp;&nbsp;</div>
+        <div class="card-header">
+          <span class="font-weight-bold">Nota Orden:&nbsp;&nbsp;0123PRG82</span>
+        </div>
         <div class="card-body">
-          <!--[ini]-->
-          <app-cardboard-search
-            (hijoDisparaEvento)="padreCachaDisparoDelHijo($event)">
-          </app-cardboard-search>
           <!--[end]-->
           <div class="row">
-
             <!-- AUTOCOMPLETE: Buscar compañia-->
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-6">
               <app-company-search></app-company-search>
             </div>
-            <!--COTIZACIÓN / QUOTATION-->
-            <div class="form-group col-sm-1">
-              <label for="quotationId">Cotización</label>
-              <input type="number"
-                     class="form-control form-control-sm"
-                     id="quotationId"
-                     placeholder="Cotización"
-                     [ngClass]="{'is-invalid': quotation.invalid && (quotation.dirty || quotation.touched)}"
-                     formControlName="quotation">
-              <div *ngIf="quotation.invalid && (quotation.dirty || quotation.touched)">
-                <div class="text-danger small" *ngIf="quotation.errors.required">Requerido.</div>
-              </div>
-            </div>
-            <!--CONSECUTIVO / CONSECUTIVE-->
-            <div class="form-group col-sm-1">
-              <label for="consecutiveId">Consecutivo</label>
-              <input type="number"
-                     class="form-control form-control-sm"
-                     id="consecutiveId"
-                     placeholder="Consecutivo"
-                     [ngClass]="{'is-invalid': consecutive.invalid && (consecutive.dirty || consecutive.touched)}"
-                     formControlName="consecutive">
-              <div *ngIf="consecutive.invalid && (consecutive.dirty || consecutive.touched)">
-                <div class="text-danger small" *ngIf="consecutive.errors.required">Requerido.</div>
-              </div>
-            </div>
             <!-- FECHA ORDEN-->
-            <div class="form-group col-sm-2">
+            <div class="form-group col-sm-6">
               <label for="orderDateId">Fecha Orden</label>
               <input type="date"
                      class="form-control form-control-sm"
@@ -52,13 +23,13 @@
                      placeholder="Fecha Orden"
                      [ngClass]="{'is-invalid': orderDate.invalid &&
                       (orderDate.dirty || orderDate.touched)}"
-                     formControlName="consecutive">
+                     formControlName="orderDate">
               <div *ngIf="orderDate.invalid && (orderDate.dirty || orderDate.touched)">
                 <div class="text-danger small" *ngIf="orderDate.errors.required">Requerido.</div>
               </div>
             </div>
             <!-- FECHA ENTREGA-->
-            <div class="form-group col-sm-2">
+            <div class="form-group col-sm-6">
               <label for="deliverDateId">Fecha Entrega</label>
               <input type="date"
                      class="form-control form-control-sm"
@@ -66,13 +37,13 @@
                      placeholder="Fecha Orden"
                      [ngClass]="{'is-invalid': deliverDate.invalid &&
                       (deliverDate.dirty || deliverDate.touched)}"
-                     formControlName="consecutive">
+                     formControlName="deliverDate">
               <div *ngIf="deliverDate.invalid && (deliverDate.dirty || deliverDate.touched)">
                 <div class="text-danger small" *ngIf="deliverDate.errors.required">Requerido.</div>
               </div>
             </div>
             <!-- FECHA CTE:-->
-            <div class="form-group col-sm-2">
+            <div class="form-group col-sm-6">
               <label for="customerDateId">Fecha Cte.</label>
               <input type="date"
                      class="form-control form-control-sm"
@@ -80,25 +51,28 @@
                      placeholder="Fecha Orden"
                      [ngClass]="{'is-invalid': customerDate.invalid &&
                       (customerDate.dirty || customerDate.touched)}"
-                     formControlName="consecutive">
+                     formControlName="customerDate">
               <div *ngIf="deliverDate.invalid &&
                (customerDate.dirty || customerDate.touched)">
                 <div class="text-danger small" *ngIf="customerDate.errors.required">Requerido.</div>
               </div>
             </div>
             <!-- AUTOCOMPLETE PROVEEDORES-->
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-6">
               <app-suppliers-search></app-suppliers-search>
             </div>
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-6">
               <label for="customerOrderId">Condiciones de Pago</label>
               <input type="text"
                      class="form-control form-control-sm"
                      disabled="true"
                      id="condPagoId">
             </div>
+            <div class="form-group col-sm-6">
+              <app-clients-search></app-clients-search>
+            </div>
             <!--PEDIDO CTE / CUSTOMER ORDER -->
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-6">
               <label for="customerOrderId">Pedido cte</label>
               <input type="text"
                      class="form-control form-control-sm"
@@ -110,10 +84,19 @@
                 <div class="text-danger small" *ngIf="customerOrder.errors.required">Requerido.</div>
               </div>
             </div>
-            <div class="form-group col-sm-3">
-              <app-clients-search></app-clients-search>
-            </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+      <div class="card">
+        <div class="card-header">
+          Resistencia Orden de compra
+        </div>
+        <div class="card-body">
+          <app-cardboard-search
+            (hijoDisparaEvento)="padreCachaDisparoDelHijo($event)">
+          </app-cardboard-search>
         </div>
       </div>
     </div>
