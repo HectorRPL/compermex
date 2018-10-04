@@ -21,6 +21,11 @@ const routes: Routes = [
         path: 'orders',
         loadChildren: './orders/orders.module#OrdersModule',
         data: {preload: false}
+      },
+      {
+        path: 'materials',
+        loadChildren: './materials/materials.module#MaterialsModule',
+        data: {preload: false}
       }
     ]
   }

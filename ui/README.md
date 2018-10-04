@@ -13,8 +13,16 @@ Run `ng generate component layout/orders/components/modalTemporal` to generate a
 ### Ejemplo: `componente`
 `ng generate component layout/components/orderForm`
 `ng generate component layout/orders/components/modalFiscalDataMoralPerson`
-`ng generate service services/cardboard/cardboard`
 `ng generate component layout/components/searches/cardboardSearch`
+
+`ng generate component layout/materials`
+`ng generate service layout/materials/materials`
+`ng generate module layout/materials`
+
+`ng generate component layout/materials/components/createMaterial`
+
+
+`ng generate service services/cardboard/cardboard`
 
 ### Ejemplo: `model`
 `ng generate class layout/models/order -type model`
