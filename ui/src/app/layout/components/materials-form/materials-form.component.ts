@@ -19,7 +19,7 @@ export class MaterialsFormComponent implements OnInit {
 
     this.material = new Material();
     this.minSize = 1;
-    this.maxSize = 100;
+    this.maxSize = 10;
 
   }
 
@@ -99,10 +99,14 @@ export class MaterialsFormComponent implements OnInit {
         Validators.required
       ]),
       'observations': new FormControl(this.material.observations, [
-        Validators.required
+        Validators.required,
+        Validators.minLength(this.minSize),
+        Validators.maxLength(this.maxSize)
       ]),
       'company': new FormControl(this.material.company, [
-        Validators.required
+        Validators.required,
+        Validators.minLength(this.minSize),
+        Validators.maxLength(this.maxSize)
       ])
     });
   }
