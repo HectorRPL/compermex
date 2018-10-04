@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialsRoutingModule} from './materials-routing.module';
 import {CreateMaterialComponent} from './components/create-material/create-material.component';
 import {MaterialsComponent} from './materials.component';
+import {MaterialsFormComponent} from '../components/materials-form/materials-form.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {MaterialsComponent} from './materials.component';
   ],
   declarations: [
     MaterialsComponent,
-    CreateMaterialComponent
+    CreateMaterialComponent,
+    MaterialsFormComponent
   ]
 })
 export class MaterialsModule {
