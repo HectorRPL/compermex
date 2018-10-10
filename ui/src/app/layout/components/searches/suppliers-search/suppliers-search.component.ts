@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import {SupplierService} from '../../../../services/suppliers/supplier.service';
 import {Supplier} from '../../../../models/supplier/supplier.model';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModalSuppliersComponent} from "../../../orders/components/modal-suppliers/modal-suppliers.component";
 
 
 @Component({
@@ -17,8 +19,20 @@ export class SuppliersSearchComponent {
   searching = false;
   searchFailed = false;
 
-  constructor(private supplierServ: SupplierService) {
+  constructor(private supplierServ: SupplierService,
+              private modalService: NgbModal) {
 
+  }
+
+  addSupplierModal() {
+    const modalRef = this.modalService.open(ModalSuppliersComponent,
+      {
+        size: 'lg',
+        backdrop: 'static',
+        keyboard: false
+      }
+    );
+    // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
   }
 
 

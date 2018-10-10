@@ -11,7 +11,9 @@
            [resultFormatter]="resFormatter"
            [inputFormatter]="inFormatter">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary btn-sm" type="button">
+      <button type="button"
+              class="btn btn-outline-secondary btn-sm"
+              (click)="addSupplierModal()">
         <i class="fas fa-plus"
            ngbTooltip="Añadir proveedor"></i>
       </button>
