@@ -53,7 +53,7 @@ export class SignInFormComponent implements OnInit {
   }
 
   signInAction() {
-    console.log(this.signInForm);
+
   }
 
 }
