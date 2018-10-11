@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SignIn} from '../../../models/sign-in';
+import {AuthService} from 'ng2-ui-auth';
+import {LoginData} from '../../../models/auth/login-data';
+import {Router} from '@angular/router';
+import {UserService} from '../../../services/auth/user.service';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -15,7 +19,10 @@ export class SignInFormComponent implements OnInit {
   charactersMin: number = 2;
   charactersMax: number = 50;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private auth: AuthService,
+              private router: Router,
+              private userService: UserService) {
 
     this.signIn = new SignIn();
 
@@ -53,7 +60,30 @@ export class SignInFormComponent implements OnInit {
   }
 
   signInAction() {
+    const data = this.fillLoginData();
 
+    this.auth.login(data).subscribe({
+      next:(result)=> {
+        console.log('RESULT', result);
+        this.userService.renewUser();
+        this.router.navigateByUrl('/layout/create/order');
+      },
+      error: (err: any) => {
+        console.log('Error', err);
+      }
+
+    });
+
+  }
+
+  fillLoginData():LoginData{
+    const formModel = this.signInForm.value;
+    const login = {
+      email: formModel.email,
+      password: formModel.password
+    };
+
+    return login;
   }
 
 }

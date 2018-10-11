@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {TokenUser} from '../../models/token/token-user';
+import {TokenUser} from '../../models/auth/token-user';
 import {Observable, Subject} from 'rxjs';
 import {AuthService} from 'ng2-ui-auth';
 import {Router} from '@angular/router';
