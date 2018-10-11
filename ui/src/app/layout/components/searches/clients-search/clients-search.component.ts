@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {ClientService} from "../../../../services/client/client.service";
-import {Observable, of} from "rxjs";
-import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from "rxjs/operators";
-import {Company} from "../../../../models/company/company.model";
+import {Component} from '@angular/core';
+import {ClientService} from '../../../../services/client/client.service';
+import {Observable, of} from 'rxjs';
+import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
+import {Company} from '../../../../models/company/company.model';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ModalClientsComponent} from '../../../orders/components/modal-clients/modal-clients.component';
 
 @Component({
   selector: 'app-clients-search',
@@ -13,12 +15,21 @@ export class ClientsSearchComponent {
 
   model: any;
   searching = false;
-  searchFailed1 = false;
+  searchFailed = false;
 
-  constructor(private clientService: ClientService) {
+  constructor(private clientService: ClientService,
+              private modalService: NgbModal) {
   }
 
-  ngOnInit() {
+  addClientModal() {
+    const modalRef = this.modalService.open(ModalClientsComponent,
+      {
+        size: 'lg',
+        backdrop: 'static',
+        keyboard: false
+      }
+    );
+    // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
   }
 
   search = (text$: Observable<string>) =>
@@ -28,9 +39,9 @@ export class ClientsSearchComponent {
       tap(() => this.searching = true),
       switchMap(term =>
         this.clientService.getClients().pipe(
-          tap(() => this.searchFailed1 = false),
+          tap(() => this.searchFailed = false),
           catchError(() => {
-            this.searchFailed1 = true;
+            this.searchFailed = true;
             return of([]);
           }))
       ),

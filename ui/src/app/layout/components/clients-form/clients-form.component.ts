@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
+import {Client} from '../../../models/client/client.model';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Supplier} from '../../../models/supplier/supplier.model';
-import {SupplierService} from "../../../services/suppliers/supplier.service";
+import {ClientService} from '../../../services/client/client.service';
 
 
 @Component({
-  selector: 'app-suppliers-form',
-  templateUrl: './suppliers-form.component.html',
-  styleUrls: ['./suppliers-form.component.css']
+  selector: 'app-clients-form',
+  templateUrl: './clients-form.component.html',
+  styleUrls: ['./clients-form.component.css']
 })
-export class SuppliersFormComponent implements OnInit {
+export class ClientsFormComponent implements OnInit {
 
-  public supplier: Supplier;
-  suppliersForm: FormGroup;
+  public client: Client;
+  clientsForm: FormGroup;
 
   // VALIDACIONES PARA EL INPUT NOMBRE
   charactersMinName: number = 2;
@@ -25,33 +25,33 @@ export class SuppliersFormComponent implements OnInit {
   charactersMaxPhone: number = 10;
 
   constructor(private formBuilder: FormBuilder,
-              private supplierServ: SupplierService) {
+              private clientServ: ClientService) {
 
-    this.supplier = new Supplier();
+    this.client = new Client();
 
   }
 
   ngOnInit(): void {
 
-    this.createSuppliersForm();
+    this.createClientsForm();
 
   }
 
-  createSuppliersForm() {
-    this.suppliersForm = this.formBuilder.group({
-      'name': new FormControl(this.supplier.name, [
+  createClientsForm() {
+    this.clientsForm = this.formBuilder.group({
+      'name': new FormControl(this.client.name, [
         Validators.required,
         Validators.pattern(/^[ñÑ\s\w]+$/),
         Validators.minLength(this.charactersMinName),
         Validators.maxLength(this.charactersMaxName)
       ]),
-      'email': new FormControl(this.supplier.email, [
+      'email': new FormControl(this.client.email, [
         Validators.required,
         Validators.email,
         Validators.minLength(this.charactersMinEmail),
         Validators.maxLength(this.charactersMaxEmail)
       ]),
-      'phone': new FormControl(this.supplier.phone, [
+      'phone': new FormControl(this.client.phone, [
         Validators.required,
         Validators.pattern(/^[0-9]*$/),
         Validators.minLength(this.charactersMinPhone),
@@ -61,37 +61,40 @@ export class SuppliersFormComponent implements OnInit {
   }
 
   get name() {
-    return this.suppliersForm.get('name');
+    return this.clientsForm.get('name');
   }
 
   get email() {
-    return this.suppliersForm.get('email');
+    return this.clientsForm.get('email');
   }
 
   get phone() {
-    return this.suppliersForm.get('phone');
+    return this.clientsForm.get('phone');
   }
 
+  /*
   add() {
-    this.supplierServ.addSupplier(this.fillSupplier())
+    this.clientServ.addClient(this.fillClient())
       .subscribe(result => {
         console.log(result);
       });
   }
+  */
 
-  fillSupplier(): Supplier {
+  /*
+  fillClient(): Client {
 
-    const formModel = this.suppliersForm.value;
-    const supplier: Supplier = {
+    const formModel = this.clientsForm.value;
+    const client: Client = {
       name: formModel.name,
       email: formModel.email,
       phone: formModel.phone
-    } as Supplier;
+    } as Client;
 
-    console.log(supplier);
+    console.log(client);
 
-    return supplier;
+    return client;
   }
-
+  */
 
 }

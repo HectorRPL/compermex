@@ -22,6 +22,8 @@ import {OrderFormComponent} from '../components/order-form/order-form.component'
 import {CompanySearchComponent} from '../components/searches/company-search/company-search.component';
 import {CardboardSearchComponent} from '../components/searches/cardboard-search/cardboard-search.component';
 import {ModalSuppliersComponent} from './components/modal-suppliers/modal-suppliers.component';
+import {ModalClientsComponent} from './components/modal-clients/modal-clients.component';
+import {ClientsFormComponent} from '../components/clients-form/clients-form.component';
 
 @NgModule({
   imports: [
@@ -50,14 +52,17 @@ import {ModalSuppliersComponent} from './components/modal-suppliers/modal-suppli
     CompanySearchComponent,
     ClientsSearchComponent,
     CardboardSearchComponent,
-    ModalSuppliersComponent
+    ModalSuppliersComponent,
+    ClientsFormComponent,
+    ModalClientsComponent
   ],
   entryComponents: [
     ModalOrderComponent,
     ModalDirectionComponent,
     ModalFiscalDataPhysicalPersonComponent,
     ModalFiscalDataMoralPersonComponent,
-    ModalSuppliersComponent
+    ModalSuppliersComponent,
+    ModalClientsComponent
   ],
 })
 export class OrdersModule {
