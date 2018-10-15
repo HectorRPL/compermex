@@ -26,6 +26,11 @@ const routes: Routes = [
         path: 'materials',
         loadChildren: './materials/materials.module#MaterialsModule',
         data: {preload: false}
+      },
+      {
+        path: 'employees',
+        loadChildren: './employees/employees.module#EmployeesModule',
+        data: {preload: false}
       }
     ]
   }

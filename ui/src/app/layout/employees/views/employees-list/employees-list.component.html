@@ -1,0 +1,5 @@
+<li>
+  <ul *ngFor="let employee of employees$ | async">
+    {{employee.name}}&nbsp;{{employee._id.$oid}}
+  </ul>
+</li>
