@@ -13,7 +13,7 @@ import scala.concurrent.Future
 import scala.concurrent.duration._
 
 class AuthTokenServiceImpl @Inject()(
-                                      authTokenRepo: AuthTokenDAO,
+                                      authTokenDAO: AuthTokenDAO,
                                       clock: Clock)
   extends AuthTokenService {
   /**
@@ -28,7 +28,7 @@ class AuthTokenServiceImpl @Inject()(
       DateTimeZone.UTC).plusSeconds(expiry.toSeconds.toInt)
     )
 
-    authTokenRepo.save(token)
+    authTokenDAO.save(token)
 
   }
 
@@ -38,16 +38,16 @@ class AuthTokenServiceImpl @Inject()(
     * @param id The token ID to validate.
     * @return The token if it's valid, None otherwise.
     */
-  def validate(id: UUID): Future[Option[AuthToken]] = authTokenRepo.findOne(id)
+  def validate(_id: UUID): Future[Option[AuthToken]] = authTokenDAO.findOne(_id)
 
   /**
     * Cleans expired tokens.
     *
     * @return The list of deleted tokens.
     */
-  def clean: Future[Seq[AuthToken]] =  authTokenRepo.findExpired(clock.now.withZone(DateTimeZone.UTC)).flatMap { tokens =>
+  def clean: Future[Seq[AuthToken]] =  authTokenDAO.findExpired(clock.now.withZone(DateTimeZone.UTC)).flatMap { tokens =>
     Future.sequence(tokens.map { token =>
-      authTokenRepo.remove(token.id).map(_ => token)
+      authTokenDAO.remove(token._id).map(_ => token)
     })
   }
 }

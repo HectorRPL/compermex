@@ -32,7 +32,7 @@ class SignInController @Inject()(
   extends AbstractController(cc)
     with I18nSupport {
 
-  def authenticate() = Action.async(parse.json) { implicit request =>
+  def signIn() = Action.async(parse.json) { implicit request =>
     request.body.validate[SignInForm.Data].map { data =>
       val credentials = Credentials(data.email, data.password)
       credentialsProvider.authenticate(credentials).flatMap { loginInfo =>
