@@ -1,6 +1,7 @@
 <form novalidate
       autocomplete="off"
-      [formGroup]="signUpForm">
+      [formGroup]="signUpForm"
+      (ngSubmit)="register()">
   <div class="form-row">
     <!--NOMBRE / FIRST NAME-->
     <div class="form-group col-md-12">
@@ -74,9 +75,7 @@
   -->
   <button type="submit"
           class="btn btn-primary btn-sm"
-          routerLink="/layout/orders/create"
-          [disabled]="signUpForm.invalid"
-          (click)="signInAction()">
+          [disabled]="signUpForm.invalid">
     Siguiente
   </button>
 </form>

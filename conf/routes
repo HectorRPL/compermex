@@ -8,7 +8,9 @@ GET     /                           controllers.FrontendController.index()
 # An example route (Prefix all API routes with apiPrefix defined in application.conf)
 GET     /api/summary                controllers.HomeController.appSummary
 
++ nocsrf
 POST    /auth/signIn                controllers.user.SignInController.authenticate
++ nocsrf
 POST    /auth/signUp                controllers.user.SignUpController.signUp
 
 GET     /suppliers/list              controllers.supplier.SuppliersController.list

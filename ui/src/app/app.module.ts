@@ -24,16 +24,13 @@ import {Ng2UiAuthModule, StorageType} from 'ng2-ui-auth';
     CookieModule.forRoot(),
     Ng2UiAuthModule.forRoot({
       baseUrl: '/',
-      loginUrl: '/signIn',
-      signupUrl: '/signUp',
+      loginUrl: '/auth/signIn',
+      signupUrl: '/auth/signUp',
       tokenName: 'token',
       tokenPrefix: 'ng2-ui-auth',
       authHeader: 'X-Auth-Token',
       storageType: 'cookie' as StorageType.COOKIE
     }),
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot()
