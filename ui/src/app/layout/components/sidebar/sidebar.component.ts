@@ -37,6 +37,15 @@ export class SidebarComponent {
         ]
       },
       {
+        name: 'Empleados', icon: 'fas fa-users',
+        subMenu: [
+          {
+            subName: 'Lista',
+            url: '/layout/employees/list'
+          }
+        ]
+      },
+      {
         name: 'Alta Orden', icon: 'fas fa-file-invoice-dollar',
         subMenu: [
           {

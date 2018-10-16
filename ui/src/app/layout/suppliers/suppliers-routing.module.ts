@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {SuppliersComponent} from "./suppliers.component";
-import {SuppliersListComponent} from "./views/suppliers-list/suppliers-list.component";
+import {SuppliersComponent} from './suppliers.component';
+import {SuppliersListComponent} from './views/suppliers-list/suppliers-list.component';
+
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
     ]
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -8,9 +8,9 @@ import {SuppliersListComponent} from './views/suppliers-list/suppliers-list.comp
 @NgModule({
   imports: [
     CommonModule,
-    SuppliersRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SuppliersRoutingModule
   ],
   declarations: [
     SuppliersComponent,
