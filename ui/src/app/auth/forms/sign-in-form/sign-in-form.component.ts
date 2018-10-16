@@ -63,7 +63,7 @@ export class SignInFormComponent implements OnInit {
     const data = this.fillLoginData();
 
     this.auth.login(data).subscribe({
-      next:(result)=> {
+      next: (result) => {
         console.log('RESULT', result);
         this.userService.renewUser();
         this.router.navigateByUrl('/layout/create/order');
@@ -76,7 +76,7 @@ export class SignInFormComponent implements OnInit {
 
   }
 
-  fillLoginData():LoginData{
+  fillLoginData(): LoginData {
     const formModel = this.signInForm.value;
     const login = {
       email: formModel.email,

@@ -7,7 +7,7 @@ import play.api.libs.json._
 
 /**
   *
-  * @param userID
+  * @param _id
   * @param loginInfo
   * @param firstName
   * @param lastName
@@ -17,7 +17,7 @@ import play.api.libs.json._
   * @param activated
   */
 case class User(
-                 userID: UUID,
+                 _id: UUID,
                  loginInfo: LoginInfo,
                  firstName: Option[String],
                  lastName: Option[String],

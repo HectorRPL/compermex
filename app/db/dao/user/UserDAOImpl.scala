@@ -16,7 +16,7 @@ import scala.concurrent.Future
 
 class UserDAOImpl @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends UserDAO {
 
-  def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("silhouette.user"))
+  def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("users"))
 
   /**
     * Finds a user by its login info.
@@ -36,7 +36,7 @@ class UserDAOImpl @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends User
     * @return The found user or None if no user for the given ID could be found.
     */
   def findOne(userID: UUID): Future[Option[User]] = {
-    val query = Json.obj("userID" -> userID)
+    val query = Json.obj("_id" -> userID)
     collection.flatMap(_.find(query).one[User])
   }
 
@@ -47,7 +47,7 @@ class UserDAOImpl @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends User
     * @return The saved user.
     */
   def save(user: User): Future[User] = {
-    val query = Json.obj("userID" -> user.userID)
+    val query = Json.obj("_id" -> user._id)
     collection.flatMap(_.update(query, user, upsert = true))
     Future.successful(user)
   }
