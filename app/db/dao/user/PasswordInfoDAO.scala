@@ -7,6 +7,7 @@ import javax.inject.Inject
 import models.user.PersistentPasswordInfo
 import play.api.libs.json._
 import play.modules.reactivemongo.ReactiveMongoApi
+import play.modules.reactivemongo.json._
 import reactivemongo.play.json.collection.JSONCollection
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -34,9 +35,9 @@ class PasswordInfoDAO @Inject()(
     */
   def find(loginInfo: LoginInfo) = {
 
-    //var query = Json.toJson("loginInfo"->loginInfo)
+    val query = Json.obj("loginInfo" -> loginInfo)
     val passwordInfo: Future[Option[PersistentPasswordInfo]] =
-      collection.flatMap(_.find(loginInfo).one[PersistentPasswordInfo])
+      collection.flatMap(_.find(query).one[PersistentPasswordInfo])
 
 
     passwordInfo.flatMap {

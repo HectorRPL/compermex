@@ -14,9 +14,11 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 
-class UserDAOImpl @Inject()(val reactiveMongoApi: ReactiveMongoApi) extends UserDAO {
+class UserDAOImpl @Inject()(val reactiveMongoApi: ReactiveMongoApi)
+  extends UserDAO {
 
-  def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("users"))
+  def collection: Future[JSONCollection] =
+    reactiveMongoApi.database.map(_.collection("users"))
 
   /**
     * Finds a user by its login info.
