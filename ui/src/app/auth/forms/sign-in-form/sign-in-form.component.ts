@@ -80,7 +80,8 @@ export class SignInFormComponent implements OnInit {
     const formModel = this.signInForm.value;
     const login = {
       email: formModel.email,
-      password: formModel.password
+      password: formModel.password,
+      rememberMe: false
     };
 
     return login;

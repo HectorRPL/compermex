@@ -19,8 +19,7 @@ import com.mohiva.play.silhouette.impl.util._
 import com.mohiva.play.silhouette.password.BCryptPasswordHasher
 import com.mohiva.play.silhouette.persistence.daos.{DelegableAuthInfoDAO, InMemoryAuthInfoDAO}
 import com.mohiva.play.silhouette.persistence.repositories.DelegableAuthInfoRepository
-import db.dao.user.UserDAOImpl
-import db.dao.user.{UserDAO, UserDAOImpl}
+import db.dao.user.{PasswordInfoDAO, UserDAO, UserDAOImpl}
 import myservices.user.{UserService, UserServiceImpl}
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
@@ -54,7 +53,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
     bind[Clock].toInstance(Clock())
 
     // Replace this with the bindings to your concrete DAOs
-    bind[DelegableAuthInfoDAO[PasswordInfo]].toInstance(new InMemoryAuthInfoDAO[PasswordInfo])
+    bind[DelegableAuthInfoDAO[PasswordInfo]].to[PasswordInfoDAO]
   }
 
   /**

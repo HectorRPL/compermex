@@ -54,7 +54,7 @@ class SignUpController @Inject()(
           for {
             avatar <- avatarService.retrieveURL(data.email)
             user <- userService.save(user.copy(avatarURL = avatar))
-            _ <- authInfoRepository.add(loginInfo, authInfo)
+            authInfo <- authInfoRepository.add(loginInfo, authInfo)
             authenticator <- silhouette.env.authenticatorService.create(loginInfo)
             token <- silhouette.env.authenticatorService.init(authenticator)
           } yield {
