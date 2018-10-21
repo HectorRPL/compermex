@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SignUp} from '../../../models/sign-up';
+import {AuthService} from 'ng2-ui-auth';
+import {UserService} from "../../../services/auth/user.service";
 
 @Component({
   selector: 'app-sign-up-form',
@@ -15,7 +17,9 @@ export class SignUpFormComponent implements OnInit {
   charactersMin: number = 2;
   charactersMax: number = 50;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private auth: AuthService,
+              private userService: UserService) {
 
     this.signUp = new SignUp();
 
@@ -72,8 +76,29 @@ export class SignUpFormComponent implements OnInit {
     return this.signUpForm.get('password');
   }
 
-  signInAction() {
-    console.log(this.signUpForm);
+  register() {
+    const result = this.fillSignUpFrm();
+    this.auth.signup(result).subscribe({
+      next: (response)=>{
+        console.log(response);
+        this.auth.setToken(response);
+        this.userService.renewUser();
+      },
+      error:(e)=> console.log(e),
+      complete: () => console.log('complete')
+    })
+  }
+
+  fillSignUpFrm(){
+
+    const formModel = this.signUpForm.value;
+    const signUp = {
+      firstName: formModel.firstName,
+      lastName: formModel.lastName,
+      email: formModel.email,
+      password: formModel.password
+    };
+    return signUp;
   }
 
 }

@@ -8,7 +8,7 @@ import play.api.libs.json.JodaWrites._
 import play.api.libs.json.JodaReads._
 
 case class AuthToken(
-                      id: UUID,
+                      _id: UUID,
                       userId: UUID,
                       expiry: DateTime
                     ) {

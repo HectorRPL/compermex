@@ -12,7 +12,7 @@ import scala.concurrent.{ExecutionContext, Future}
 
 class UserServiceImpl @Inject()(
                                  implicit ec: ExecutionContext,
-                                 userRepo: UserDAO
+                                 userDao: UserDAO
                                ) extends UserService {
   /**
     * Retrieves a user that matches the specified ID.
@@ -20,7 +20,7 @@ class UserServiceImpl @Inject()(
     * @param id The ID to retrieve a user.
     * @return The retrieved user or None if no user could be retrieved for the given ID.
     */
-  def retrieve(id: UUID): Future[Option[User]] = userRepo.findOne(id)
+  def retrieve(id: UUID): Future[Option[User]] = userDao.findOne(id)
 
   /**
     * Saves a user.
@@ -28,7 +28,7 @@ class UserServiceImpl @Inject()(
     * @param user The user to save.
     * @return The saved user.
     */
-  def save(user: User): Future[User] = userRepo.save(user)
+  def save(user: User): Future[User] = userDao.save(user)
 
   /**
     * Saves the social profile for a user.
@@ -40,9 +40,9 @@ class UserServiceImpl @Inject()(
     */
   def save(profile: CommonSocialProfile): Future[User] = {
 
-    userRepo.find(profile.loginInfo).flatMap {
+    userDao.find(profile.loginInfo).flatMap {
       case Some(user) => // Update user with profile
-        userRepo.save(user.copy(
+        userDao.save(user.copy(
           firstName = profile.firstName,
           lastName = profile.lastName,
           fullName = profile.fullName,
@@ -50,8 +50,8 @@ class UserServiceImpl @Inject()(
           avatarURL = profile.avatarURL
         ))
       case None => // Insert a new user
-        userRepo.save(User(
-          userID = UUID.randomUUID(),
+        userDao.save(User(
+          _id = UUID.randomUUID(),
           loginInfo = profile.loginInfo,
           firstName = profile.firstName,
           lastName = profile.lastName,
@@ -64,5 +64,5 @@ class UserServiceImpl @Inject()(
 
   }
 
-  def retrieve(loginInfo: LoginInfo): Future[Option[User]] = userRepo.find(loginInfo)
+  def retrieve(loginInfo: LoginInfo): Future[Option[User]] = userDao.find(loginInfo)
 }

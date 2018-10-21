@@ -34,7 +34,8 @@ export class UserService {
 
   renewUser(): Promise<TokenUser> {
     this.expiration = this.auth.getExpirationDate();
-    this.secret = this.http.get('/secret').pipe(map(response => response));
+    this.secret = this.http.get('/secret').
+    pipe(map(response => response));
 
     return this.http.get('/api/user')
       .toPromise()

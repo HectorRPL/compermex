@@ -10,7 +10,7 @@ import play.api.mvc.{AbstractController, ControllerComponents}
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class SuppliersController @Inject()(
+class SupplierController @Inject()(
                                      cc: ControllerComponents,
                                      suppliersServ: SuppliersService
                                    )(implicit ec: ExecutionContext)

@@ -20,7 +20,7 @@ class AuthTokenDAOImpl @Inject()(
   extends AuthTokenDAO {
 
   def collection: Future[JSONCollection] =
-    reactiveMongoApi.database.map(_.collection("silhouette.token"))
+    reactiveMongoApi.database.map(_.collection("token"))
 
   /**
     * Finds a token by its ID.

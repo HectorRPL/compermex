@@ -2,7 +2,7 @@ package controllers.user
 
 import java.util.UUID
 
-import com.mohiva.play.silhouette.api.{LoginInfo, SignUpEvent, Silhouette}
+import com.mohiva.play.silhouette.api.{LoginEvent, LoginInfo, SignUpEvent, Silhouette}
 import com.mohiva.play.silhouette.api.repositories.AuthInfoRepository
 import com.mohiva.play.silhouette.api.services.AvatarService
 import com.mohiva.play.silhouette.api.util.PasswordHasher
@@ -42,24 +42,24 @@ class SignUpController @Inject()(
         case None =>
           val authInfo = passwordHasher.hash(data.password)
           val user = User(
-            userID = UUID.randomUUID(),
+            _id = UUID.randomUUID(),
             loginInfo = loginInfo,
             firstName = Some(data.firstName),
             lastName = Some(data.lastName),
             fullName = Some(data.firstName + " " + data.lastName),
             email = Some(data.email),
-            activated = false,
+            activated = true,
             avatarURL = None
           )
           for {
             avatar <- avatarService.retrieveURL(data.email)
             user <- userService.save(user.copy(avatarURL = avatar))
-            _ <- authInfoRepository.add(loginInfo, authInfo)
+            authInfo <- authInfoRepository.add(loginInfo, authInfo)
             authenticator <- silhouette.env.authenticatorService.create(loginInfo)
             token <- silhouette.env.authenticatorService.init(authenticator)
           } yield {
             silhouette.env.eventBus.publish(SignUpEvent(user, request))
-            //silhouette.env.eventBus.publish(LoginEvent(user, request))
+            silhouette.env.eventBus.publish(LoginEvent(user, request))
             Ok(Json.obj("token" -> token))
           }
       }
