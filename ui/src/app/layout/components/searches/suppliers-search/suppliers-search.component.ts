@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {SupplierService} from '../../../../services/suppliers/supplier.service';
 import {Supplier} from '../../../../models/supplier/supplier.model';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ModalSuppliersComponent} from "../../../orders/components/modal-suppliers/modal-suppliers.component";
 
 
@@ -37,20 +37,20 @@ export class SuppliersSearchComponent {
 
 
   search = (text$: Observable<string>) =>
-      text$.pipe(
-        debounceTime(300),
-        distinctUntilChanged(),
-        tap(() => this.searching = true),
-        switchMap(term =>
-          this.supplierServ.getSuppliers().pipe(
-              tap(() => this.searchFailed = false),
-              catchError(() => {
-                this.searchFailed = true;
-                return of([]);
-              }))
-        ),
-        tap(() => this.searching = false)
-      );
+    text$.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      tap(() => this.searching = true),
+      switchMap(term =>
+        this.supplierServ.getSuppliers().pipe(
+          tap(() => this.searchFailed = false),
+          catchError(() => {
+            this.searchFailed = true;
+            return of([]);
+          }))
+      ),
+      tap(() => this.searching = false)
+    );
 
   resFormatter = (x: Supplier) => x.name;
   inFormatter = (result: Supplier) => result.name;

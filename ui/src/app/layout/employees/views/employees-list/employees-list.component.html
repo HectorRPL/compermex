@@ -1,5 +1,24 @@
-<li>
-  <ul *ngFor="let employee of employees$ | async">
-    {{employee.name}}&nbsp;{{employee._id.$oid}}
-  </ul>
-</li>
+<app-employeess-search></app-employeess-search>
+
+<div class="table-responsive">
+  <table class="table table-sm table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Teléfono</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees$ | async">
+      <th scope="row">1</th>
+      <td>{{employee._id.$oid}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.phone}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

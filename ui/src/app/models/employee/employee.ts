@@ -5,4 +5,7 @@ export class Employee {
   name: string;
   email?: string;
   phone: number;
+  sex: string;
+  birdDate: Date;
+  jobPosition: string;
 }
