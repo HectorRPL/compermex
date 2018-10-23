@@ -2,6 +2,37 @@
       autocomplete="off"
       [formGroup]="employeesForm">
   <div class="form-row">
+    <!--POSICIÓN DE TRABAJO / JOBPOSITION-->
+    <div class="form-group col-sm-4">
+      <label for="departmentId">Puesto</label>
+      <select class="form-control custom-select custom-select-sm"
+              id="departmentId"
+              [ngClass]="{'is-invalid': departmentId.invalid && (departmentId.dirty || departmentId.touched)}"
+              formControlName="departmentId">
+        <option value="1">Ventas</option>
+        <option value="2">Caja</option>
+        <option value="3">Supervisor</option>
+        <option value="3">Gerente</option>
+      </select>
+      <div *ngIf="departmentId.invalid && (departmentId.dirty || departmentId.touched)">
+        <div class="text-danger small" *ngIf="departmentId.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--TIENDA-->
+    <div class="form-group col-sm-4">
+      <label for="storeId">Compañía</label>
+      <select class="form-control custom-select custom-select-sm"
+              id="storeId"
+              [ngClass]="{'is-invalid': storeId.invalid && (storeId.dirty || storeId.touched)}"
+              formControlName="storeId">
+        <option value="1">Compañía A</option>
+        <option value="2">Compañía B</option>
+        <option value="3">Compañia C</option>
+      </select>
+      <div *ngIf="storeId.invalid && (storeId.dirty || storeId.touched)">
+        <div class="text-danger small" *ngIf="storeId.errors.required">Requerido.</div>
+      </div>
+    </div>
     <!--ELEGIR SEXO -->
     <div class="form-group col-sm-4">
       <label>Sexo</label>
@@ -16,18 +47,34 @@
     </div>
     <!--NOMBRE DE EMPLEADO-->
     <div class="form-group col-sm-4">
-      <label for="nameId">Nombre</label>
+      <label for="namesId">Nombre</label>
       <input type="text"
              class="form-control form-control-sm"
-             id="nameId"
+             id="namesId"
              placeholder="Nombre"
-             [ngClass]="{'is-invalid': name.invalid && (name.dirty || name.touched)}"
-             formControlName="name">
-      <div *ngIf="name.invalid && (name.dirty || name.touched)">
-        <div class="text-danger small" *ngIf="name.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="name.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="name.errors.minlength">Mínimo {{charactersMinName}} caracteres.</div>
-        <div class="text-danger small" *ngIf="name.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
+             [ngClass]="{'is-invalid': names.invalid && (names.dirty || names.touched)}"
+             formControlName="names">
+      <div *ngIf="names.invalid && (names.dirty || names.touched)">
+        <div class="text-danger small" *ngIf="names.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="names.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="names.errors.minlength">Mínimo {{charactersMinName}} caracteres.</div>
+        <div class="text-danger small" *ngIf="names.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
+      </div>
+    </div>
+    <!--APELLIDOS DE EMPLEADO-->
+    <div class="form-group col-sm-4">
+      <label for="lastNamesId">Apellidos</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="lastNamesId"
+             placeholder="Apellidos"
+             [ngClass]="{'is-invalid': lastNames.invalid && (lastNames.dirty || lastNames.touched)}"
+             formControlName="lastNames">
+      <div *ngIf="lastNames.invalid && (lastNames.dirty || lastNames.touched)">
+        <div class="text-danger small" *ngIf="lastNames.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="lastNames.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="lastNames.errors.minlength">Mínimo {{charactersMinName}} caracteres.</div>
+        <div class="text-danger small" *ngIf="lastNames.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
       </div>
     </div>
     <!-- FECHA DE NACIMIENTO-->
@@ -75,28 +122,27 @@
         <div class="text-danger small" *ngIf="phone.errors.maxlength">Máximo {{charactersMaxPhone}} dígitos.</div>
       </div>
     </div>
-    <!--POSICIÓN DE TRABAJO / JOBPOSITION-->
-    <div class="form-group col-sm-4">
-      <label for="jobPositionId">Puesto</label>
-      <select class="form-control custom-select custom-select-sm"
-              id="jobPositionId"
-              [ngClass]="{'is-invalid': jobPosition.invalid && (jobPosition.dirty || jobPosition.touched)}"
-              formControlName="jobPosition">
-        <option value="1">Ventas</option>
-        <option value="2">Caja</option>
-        <option value="3">Supervisor</option>
-        <option value="3">Gerente</option>
-      </select>
-      <div *ngIf="jobPosition.invalid && (jobPosition.dirty || jobPosition.touched)">
-        <div class="text-danger small" *ngIf="jobPosition.errors.required">Requerido.</div>
-      </div>
-    </div>
   </div>
   <button type="submit"
           class="btn btn-primary btn-sm"
           [disabled]="employeesForm.invalid"
-          (click)="add()">
+          (click)="addEmployee()">
     Siguiente
   </button>
 </form>
 <!--<pre *ngIf="employeesForm">{{employeesForm|json}}</pre>-->
+<div class="row">
+  <div class="col-sm-4">
+    [employeesForm.status] <br>
+    <pre>{{employeesForm.status|json}}</pre>
+  </div>
+  <div class="col-sm-4">
+    [employeesForm.value] <br>
+    <pre>{{employeesForm.value|json}}</pre>
+  </div>
+  <div class="col-sm-4">
+    [employeesForm.valid] <br>
+    <pre>{{employeesForm.valid|json}}</pre>
+  </div>
+</div>
+

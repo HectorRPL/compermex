@@ -37,9 +37,27 @@ export class EmployeesFormComponent implements OnInit {
 
   }
 
+  addEmployee() {
+
+    console.log(this.employeesForm.value);
+
+  }
+
   createEmployeesForm() {
     this.employeesForm = this.formBuilder.group({
-      'name': new FormControl(this.employee.name, [
+      'departmentId': new FormControl(this.employee.departmentId, [
+        Validators.required
+      ]),
+      'storeId': new FormControl(this.employee.storeId, [
+        Validators.required
+      ]),
+      'names': new FormControl(this.employee.names, [
+        Validators.required,
+        Validators.pattern(/^[ñÑ\s\w]+$/),
+        Validators.minLength(this.charactersMinName),
+        Validators.maxLength(this.charactersMaxName)
+      ]),
+      'lastNames': new FormControl(this.employee.lastNames, [
         Validators.required,
         Validators.pattern(/^[ñÑ\s\w]+$/),
         Validators.minLength(this.charactersMinName),
@@ -51,34 +69,39 @@ export class EmployeesFormComponent implements OnInit {
         Validators.minLength(this.charactersMinEmail),
         Validators.maxLength(this.charactersMaxEmail)
       ]),
-      'phone': new FormControl(this.employee.phone, [
-        Validators.required,
-        Validators.pattern(/^[0-9]*$/),
-        Validators.minLength(this.charactersMinPhone),
-        Validators.maxLength(this.charactersMaxPhone)
-      ]),
       'sex': new FormControl(this.employee.sex, [
         Validators.required
       ]),
       'birdDate': new FormControl(this.employee.birdDate, [
         Validators.required
       ]),
-      'jobPosition': new FormControl(this.employee.jobPosition, [
-        Validators.required
+      'phone': new FormControl(this.employee.phone, [
+        Validators.required,
+        Validators.pattern(/^[0-9]*$/),
+        Validators.minLength(this.charactersMinPhone),
+        Validators.maxLength(this.charactersMaxPhone)
       ])
     });
   }
 
-  get name() {
-    return this.employeesForm.get('name');
+  get departmentId() {
+    return this.employeesForm.get('departmentId');
+  }
+
+  get storeId() {
+    return this.employeesForm.get('storeId');
+  }
+
+  get names() {
+    return this.employeesForm.get('names');
+  }
+
+  get lastNames() {
+    return this.employeesForm.get('lastNames');
   }
 
   get email() {
     return this.employeesForm.get('email');
-  }
-
-  get phone() {
-    return this.employeesForm.get('phone');
   }
 
   get sex() {
@@ -89,8 +112,8 @@ export class EmployeesFormComponent implements OnInit {
     return this.employeesForm.get('birdDate');
   }
 
-  get jobPosition() {
-    return this.employeesForm.get('jobPosition');
+  get phone() {
+    return this.employeesForm.get('phone');
   }
 
 }

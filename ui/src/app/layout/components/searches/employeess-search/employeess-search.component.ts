@@ -52,7 +52,7 @@ export class EmployeessSearchComponent {
       tap(() => this.searching = false)
     );
 
-  resFormatter = (x: Employee) => x.name;
-  inFormatter = (result: Employee) => result.name;
+  resFormatter = (x: Employee) => x.names;
+  inFormatter = (result: Employee) => result.names;
 
 }
