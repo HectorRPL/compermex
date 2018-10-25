@@ -1,4 +1,4 @@
-package models.Box
+package models.box
 
 import play.api.libs.json._
 import reactivemongo.bson.BSONObjectID
@@ -49,17 +49,17 @@ object Box {
 
 
   implicit object BoxWriter extends OWrites[Box] {
-    def writes(employe: Box): JsObject = Json.obj(
-      "_id" -> employe._id,
-      "prov" -> employe.prov,
-      "description" -> employe.description,
-      "large" -> employe.large,
-      "width" -> employe.width,
-      "high" -> employe.high,
-      "companyId" -> employe.companyId,
-      "materialId" -> employe.materialId,
-      "resistanceId" -> employe.resistanceId,
-      "clientId" -> employe.clientId
+    def writes(box: Box): JsObject = Json.obj(
+      "_id" -> box._id,
+      "prov" -> box.prov,
+      "description" -> box.description,
+      "large" -> box.large,
+      "width" -> box.width,
+      "high" -> box.high,
+      "companyId" -> box.companyId,
+      "materialId" -> box.materialId,
+      "resistanceId" -> box.resistanceId,
+      "clientId" -> box.clientId
     )
   }
 
