@@ -1,19 +1,22 @@
 package db.dao.addresses
 
+import models.Pagination
 import models.address.Address
+import play.api.libs.json.JsObject
 import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.Future
 
 trait AddressesDAO {
 
-  def all(): Future[Seq[Address]]
+  def getList(query: Option[JsObject], sort: Option[JsObject],
+              pag: Pagination): Future[Seq[Address]]
 
-  def one(id: BSONObjectID): Future[Option[Address]]
+  def getOne(_id: BSONObjectID): Future[Option[Address]]
 
-  def save(supplier: Address): Future[Address]
+  def save(address: Address): Future[Address]
 
-  def remove(): Future[Unit]
+  def remove(_id: BSONObjectID): Future[Unit]
 
-  def update(): Future[Unit]
+  def update(query: JsObject, data: Object): Future[Unit]
 }

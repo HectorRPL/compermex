@@ -1,8 +1,8 @@
-package db.dao.addresses
+package db.dao.boxes
 
 import javax.inject.Inject
 import models.Pagination
-import models.address.Address
+import models.box.Box
 import play.api.libs.json.{JsObject, Json}
 import play.modules.reactivemongo.ReactiveMongoApi
 import reactivemongo.api.{Cursor, ReadPreference}
@@ -13,35 +13,36 @@ import reactivemongo.play.json.collection.JSONCollection
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
-class AddressesImplDAO @Inject()(
-                                  val reactiveMongoApi: ReactiveMongoApi
-                                ) extends AddressesDAO {
-  def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("addresses"))
+class BoxesDAOImpl @Inject()(
+                              val reactiveMongoApi: ReactiveMongoApi
+                            ) extends BoxesDAO {
+
+  def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("boxes"))
 
   def getList(query: Option[JsObject], sort: Option[JsObject],
-              pag: Pagination): Future[Seq[Address]] = {
+              pag: Pagination): Future[Seq[Box]] = {
     val query = Json.obj()
     val sort = Json.obj()
     collection.flatMap(_.find(query)
       .skip(pag.skip)
       .sort(sort)
-      .cursor[Address](ReadPreference.primary)
-      .collect[Seq](pag.limit, Cursor.FailOnError[Seq[Address]]())
+      .cursor[Box](ReadPreference.primary)
+      .collect[Seq](pag.limit, Cursor.FailOnError[Seq[Box]]())
     )
   }
 
-  def getOne(_id: BSONObjectID): Future[Option[Address]] = {
+  def getOne(_id: BSONObjectID): Future[Option[Box]] = {
     val query = BSONDocument("_id" -> _id)
-    collection.flatMap(_.find(query).one[Address])
+    collection.flatMap(_.find(query).one[Box])
   }
 
-  def save(address: Address): Future[Address] = {
-    val doc = address.copy(_id = Some(BSONObjectID.generate()))
+  def save(box: Box): Future[Box] = {
+    val doc = box.copy(_id = Some(BSONObjectID.generate()))
     collection.flatMap(_.insert(doc))
     Future.successful(doc)
   }
 
   def remove(_id: BSONObjectID): Future[Unit] = ???
 
-  def update(query: JsObject, data: Object): Future[Unit] = ???
+  def update(query: JsObject, data: JsObject): Future[Unit] = ???
 }
