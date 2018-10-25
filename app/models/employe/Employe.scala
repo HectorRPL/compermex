@@ -19,8 +19,6 @@ case class Employe (
                      mobil: String,
                      active: Boolean
                    )
-
-
 object Employe {
 
   implicit object EmployesReaders extends Reads[Employe] {
