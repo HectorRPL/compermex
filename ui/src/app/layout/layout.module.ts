@@ -9,6 +9,10 @@ import {HeaderComponent} from './components/header/header.component';
 import {SupplierService} from '../services/suppliers/supplier.service';
 import {CompanyService} from '../services/company/company.service';
 import {CardboardService} from '../services/cardboard/cardboard.service';
+import {FooterComponent} from "./components/footer/footer.component";
+import {TopNavbarComponent} from "./components/topnavbar/topnavbar.component";
+import {NavigationComponent} from "./components/navigation/navigation.component";
+import {TopNavigationNavbarComponent} from "./components/topnavbar/topnavigationnavbar.component";
 
 @NgModule({
   imports: [
@@ -18,8 +22,16 @@ import {CardboardService} from '../services/cardboard/cardboard.service';
   ],
   declarations: [
     LayoutComponent,
-    SidebarComponent,
-    HeaderComponent
+    FooterComponent,
+    TopNavbarComponent,
+    NavigationComponent,
+    TopNavigationNavbarComponent
+  ],
+   exports: [
+    FooterComponent,
+    TopNavbarComponent,
+    NavigationComponent,
+     TopNavigationNavbarComponent
   ],
   providers: [
     SupplierService,
