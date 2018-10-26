@@ -1,6 +1,5 @@
 package controllers.supplier
 
-import db.dao.suppliers.SuppliersDAO
 import javax.inject.Inject
 import models.supplier.Supplier
 import myservices.suppliers.SuppliersService

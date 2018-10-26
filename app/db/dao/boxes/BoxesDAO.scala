@@ -1,21 +1,20 @@
-package db.dao.suppliers
+package db.dao.boxes
 
 import models.Pagination
-import models.supplier.Supplier
+import models.box.Box
 import play.api.libs.json.JsObject
 import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.Future
 
-trait SuppliersDAO {
-
+trait BoxesDAO {
 
   def getList(query: Option[JsObject], sort: Option[JsObject],
-              pag: Pagination): Future[Seq[Supplier]]
+              pag: Pagination): Future[Seq[Box]]
 
-  def getOne(_id: BSONObjectID): Future[Option[Supplier]]
+  def getOne(_id: BSONObjectID): Future[Option[Box]]
 
-  def save(supplier: Supplier): Future[Supplier]
+  def save(box: Box): Future[Box]
 
   def remove(_id: BSONObjectID): Future[Unit]
 

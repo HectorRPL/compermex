@@ -1,5 +1,3 @@
 package models.product
 
-class Product {
-
-}
+case class Product ()
