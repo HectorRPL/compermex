@@ -2,8 +2,9 @@
   <div class="sidebar-collapse">
     <ul class="nav metismenu" id="side-menu">
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
-        <a href="#"><i class="far fa-handshake"></i> <span class="nav-label">Compras</span> <span
-          class="fa arrow"></span> </a>
+        <a href="#"><i class="far fa-handshake"></i>
+          <span class="nav-label">Compras</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span> </a>
         <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
           <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
             <a [routerLink]="['/layout/compras/list']">Lista</a>
@@ -11,7 +12,9 @@
         </ul>
       </li>
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
-        <a href="#"><i class="fas fa-users"></i> <span class="nav-label">Empleados</span> <span class="fa arrow"></span></a>
+        <a href="#"><i class="fas fa-users"></i>
+          <span class="nav-label">Empleados</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span></a>
         <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
           <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
             <a [routerLink]="['/layout/employees/list']">Lista</a>
@@ -19,8 +22,9 @@
         </ul>
       </li>
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
-        <a href="#"><i class="fas fa-users"></i> <span class="nav-label">Proveedores</span> <span
-          class="fa arrow"></span> </a>
+        <a href="#"><i class="fas fa-industry"></i>
+          <span class="nav-label">Proveedores</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span> </a>
         <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
           <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
             <a [routerLink]="['/layout/suppliers/list']">Lista</a>
@@ -28,8 +32,9 @@
         </ul>
       </li>
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
-        <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span class="nav-label">Alta Orden</span> <span
-          class="fa arrow"></span> </a>
+        <a href="#"><i class="fas fa-file-invoice-dollar"></i>
+          <span class="nav-label">Alta Orden</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span> </a>
         <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
           <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
             <a [routerLink]="['/layout/orders/create']">Lista</a>
@@ -37,8 +42,9 @@
         </ul>
       </li>
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
-        <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span class="nav-label">Maestro materiales</span> <span
-          class="fa arrow"></span> </a>
+        <a href="#"><i class="fas fa-file-invoice-dollar"></i>
+          <span class="nav-label">Maestro materiales</span> &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span> </a>
         <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
           <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
             <a [routerLink]="['/layout/materials/create']">Lista</a>
@@ -55,6 +61,7 @@
     background-color: transparent !important;
     padding: 0px;
   }
+
   li.side-bar-by-hector {
     background-color: transparent !important;
   }
@@ -77,7 +84,6 @@
     border-left: 4px solid #19aa8d;
     /*background: transparent !important;*/
   }
-
 
 
 </style>

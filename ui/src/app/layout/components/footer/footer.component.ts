@@ -4,4 +4,11 @@ import { Component } from '@angular/core';
   selector: 'footer',
   templateUrl: 'footer.template.html'
 })
-export class FooterComponent { }
+export class FooterComponent {
+
+  anio: number;
+
+  constructor() {
+    this.anio = new Date().getFullYear();
+  }
+}
