@@ -16,16 +16,16 @@ case class BoxSize (
 
 object BoxSize {
 
-  implicit object BoxTypeReaders extends Reads[BoxSize]{
+  implicit object BoxSizeReaders extends Reads[BoxSize]{
 
     def reads(json: JsValue): JsResult[BoxSize] = json match {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
         val boxId = (obj \ "_id").as[BSONObjectID]
         val size = (obj \ "size").as[String]
-        val large = (obj \ "large").as[Double]
-        val width = (obj \ "width").as[Double]
-        val high = (obj \ "high").as[Double]
+        val large = (obj \ "large").asOpt[Double]
+        val width = (obj \ "width").asOpt[Double]
+        val high = (obj \ "high").asOpt[Double]
 
         JsSuccess(BoxSize(_id, boxId, size, large, width, high))
 

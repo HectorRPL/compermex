@@ -6,9 +6,12 @@ import play.api.mvc.{AbstractController, ControllerComponents}
 
 import scala.concurrent.ExecutionContext
 
-class Employees  @Inject()(
+class EmployeesController  @Inject()(
                             cc: ControllerComponents
                           )(implicit ec: ExecutionContext)
   extends AbstractController(cc)
     with I18nSupport {
+
+
+
 }

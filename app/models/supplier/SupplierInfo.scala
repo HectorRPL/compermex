@@ -21,12 +21,12 @@ object SupplierInfo {
 
   implicit object SupplierInfoReaders extends Reads[SupplierInfo] {
 
-    def reads(json: JsValue): JsResult[Supplier] = json match {
+    def reads(json: JsValue): JsResult[SupplierInfo] = json match {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
         val supplierId = (obj \ "supplierId").as[BSONObjectID]
         val creditDays = (obj \ "creditDays").asOpt[String]
-        val qualityCertificate = (obj \ "qualityCertificate").as[Boolean]
+        val qualityCertificate = (obj \ "qualityCertificate").asOpt[Boolean]
         val price = (obj \ "price").asOpt[Double]
         val minLong = (obj \ "minLong").asOpt[Double]
         val maxLong = (obj \ "maxLong").asOpt[Double]
