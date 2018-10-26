@@ -6,7 +6,7 @@ import scala.concurrent.Future
 
 trait AddressesService {
 
-  def getAll(): Future[Seq[Address]]
+  def getList(): Future[Seq[Address]]
 
   def save(supplier: Address): Future[Address]
 }

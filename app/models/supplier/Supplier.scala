@@ -6,23 +6,17 @@ import reactivemongo.bson.BSONObjectID
 import reactivemongo.play.json._
 
 
-/**
-  *
-  * @param _id
-  * @param name
-  * @param email
-  * @param phone
-  */
+
 case class Supplier(
                      _id: Option[BSONObjectID],
                      addressId: BSONObjectID,
-                     cve: Option[String],
+                     code: Option[String],
                      name: String,
                      email: Option[String],
                      phone: Option[String],
                      fax: Option[String],
                      contact: Option[String],
-                     alias: String,
+                     alias: Option[String],
                      active: Boolean
                    )
 
@@ -35,17 +29,17 @@ object Supplier {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
         val addressId = (obj \ "addressId").as[BSONObjectID]
-        val cve = (obj \ "cve").asOpt[String]
+        val code = (obj \ "code").asOpt[String]
         val name = (obj \ "name").as[String]
         val email = (obj \ "email").asOpt[String]
         val phone = (obj \ "phone").asOpt[String]
         val fax = (obj \ "fax").asOpt[String]
         val contact = (obj \ "contact").asOpt[String]
-        val alias = (obj \ "alias").as[String]
+        val alias = (obj \ "alias").asOpt[String]
         val active = (obj \ "active").as[Boolean]
 
 
-        JsSuccess(Supplier(_id, addressId, cve, name, email,
+        JsSuccess(Supplier(_id, addressId, code, name, email,
           phone, fax, contact, alias, active))
 
       } catch {
@@ -60,7 +54,7 @@ object Supplier {
     def writes(supplier: Supplier): JsObject = Json.obj(
       "_id" -> supplier._id,
       "addressId" -> supplier.addressId,
-      "cve" -> supplier.cve,
+      "code" -> supplier.code,
       "name" -> supplier.name,
       "email" -> supplier.email,
       "phone" -> supplier.phone,
