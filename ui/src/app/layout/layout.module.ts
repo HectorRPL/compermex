@@ -27,11 +27,11 @@ import {TopNavigationNavbarComponent} from "./components/topnavbar/topnavigation
     NavigationComponent,
     TopNavigationNavbarComponent
   ],
-   exports: [
+  exports: [
     FooterComponent,
     TopNavbarComponent,
     NavigationComponent,
-     TopNavigationNavbarComponent
+    TopNavigationNavbarComponent
   ],
   providers: [
     SupplierService,

@@ -1,48 +1,83 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
   <div class="sidebar-collapse">
     <ul class="nav metismenu" id="side-menu">
-      <!--<li class="side-bar-by-hector" class="nav-header">
-        <div class="profile-element" dropdown>
-          <img alt="image" class="img-circle" src="assets/images/profile_small.jpg">
-          <a dropdownToggle>
-            <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong> </span>
-            <span class="text-muted text-xs block">Art Director <b class="caret"></b> </span>
-          </a>
-          <ul class="animated fadeInRight dropdown-menu" *dropdownMenu>
-            <li>class="side-bar-by-hector" <a href="#">Profile</a></li>
-            <li>class="side-bar-by-hector" <a href="#">Contacts</a></li>
-            <li>class="side-bar-by-hector" <a href="#">Mailbox</a></li>
-            <li class="side-bar-by-hector" class="divider"></li>
-            <li>class="side-bar-by-hector" <a href="#">Logout</a></li>
-          </ul>
-        </div>
-        <div class="logo-element">
-          IN+
-        </div>
-      </li>-->
-      <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('starter')}">
-        <a [routerLink]="['/starterview']"><i class="fa fa-th-large"></i> <span class="nav-label">Starter view</span></a>
-      </li>
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
-        <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard examples</span> <span class="fa arrow"></span> </a>
+        <a href="#"><i class="far fa-handshake"></i> <span class="nav-label">Compras</span> <span
+          class="fa arrow"></span> </a>
         <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
-          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}"><a [routerLink]="['/dashboards/dashboard1']">Dashboard v.1</a></li>
-          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard2')}"><a [routerLink]="['/dashboards/dashboard2']">Dashboard v.2</a></li>
-          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard3')}"><a [routerLink]="['/dashboards/dashboard3']">Dashboard v.3</a></li>
-          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard4')}"><a [routerLink]="['/dashboards/dashboard4']">Dashboard v.4</a></li>
-          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard5')}"><a [routerLink]="['/dashboards/dashboard5']">Dashboard v.5</a></li>
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/compras/list']">Lista</a>
+          </li>
         </ul>
       </li>
-      <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('login')}">
-        <a [routerLink]="['/login']"><i class="fa fa-th-large"></i> <span class="nav-label">Login example</span></a>
+      <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+        <a href="#"><i class="fas fa-users"></i> <span class="nav-label">Empleados</span> <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/employees/list']">Lista</a>
+          </li>
+        </ul>
+      </li>
+      <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+        <a href="#"><i class="fas fa-users"></i> <span class="nav-label">Proveedores</span> <span
+          class="fa arrow"></span> </a>
+        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/suppliers/list']">Lista</a>
+          </li>
+        </ul>
+      </li>
+      <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+        <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span class="nav-label">Alta Orden</span> <span
+          class="fa arrow"></span> </a>
+        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/orders/create']">Lista</a>
+          </li>
+        </ul>
+      </li>
+      <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+        <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span class="nav-label">Maestro materiales</span> <span
+          class="fa arrow"></span> </a>
+        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/materials/create']">Lista</a>
+          </li>
+        </ul>
       </li>
     </ul>
-
   </div>
 </nav>
 
 <style>
   .side-bar-by-hector {
     margin-top: 25px; /* TODO => Estilo temporal que aliviana al sidebar*/
+    background-color: transparent !important;
+    padding: 0px;
   }
+  li.side-bar-by-hector {
+    background-color: transparent !important;
+  }
+
+  .side-bar-by-hector:active {
+    background-color: transparent !important;
+  }
+
+  a:hover {
+    opacity: 100;
+    background-color: transparent !important;
+  }
+
+  a:active {
+    opacity: 100 !important;
+    background-color: transparent !important;
+  }
+
+  .nav > li.active {
+    border-left: 4px solid #19aa8d;
+    /*background: transparent !important;*/
+  }
+
+
+
 </style>
