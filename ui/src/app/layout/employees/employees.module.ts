@@ -1,31 +1,28 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {EmployeesRoutingModule} from './employees-routing.module';
-import {EmployeesComponent} from './employees.component';
-import {EmployeesListComponent} from './views/employees-list/employees-list.component';
-import {EmployeessSearchComponent} from '../components/searches/employeess-search/employeess-search.component';
-import {ModalEmployeesComponent} from './components/modal-employees/modal-employees.component';
-import {EmployeesFormComponent} from '../components/employees-form/employees-form.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {CommonModule} from '@angular/common';
+import {EmployeesRoutingModule} from './employees-routing.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {EmployeesComponent} from './employees.component';
+import {ListEmployeesComponent} from "./views/list-employees/list-employees.component";
+import {AddEmployeeComponent} from "./views/add-employee/add-employee.component";
+import {EmployeesFormComponent} from '../components/employees-form/employees-form.component';
+import {EmployeessSearchComponent} from './components/employeess-search/employeess-search.component';
 
 @NgModule({
   imports: [
+    NgbModule,
     CommonModule,
     EmployeesRoutingModule,
-    NgbModule,
     FormsModule,
     ReactiveFormsModule
   ],
   declarations: [
     EmployeesComponent,
-    EmployeesListComponent,
-    EmployeessSearchComponent,
-    ModalEmployeesComponent,
-    EmployeesFormComponent
-  ],
-  entryComponents: [
-    ModalEmployeesComponent
+    ListEmployeesComponent,
+    AddEmployeeComponent,
+    EmployeesFormComponent,
+    EmployeessSearchComponent
   ]
 })
 export class EmployeesModule {

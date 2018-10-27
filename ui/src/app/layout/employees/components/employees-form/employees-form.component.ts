@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Employee} from "../../../models/employee/employee";
-import {EmployeesService} from "../../employees/employees.service";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Employee} from '../../../../models/employee/employee';
+import {EmployeesService} from '../../employees.service';
 
 
 @Component({

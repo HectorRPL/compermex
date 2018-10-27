@@ -2,10 +2,8 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {EmployeesService} from '../../../../services/employees/employees.service';
+import {EmployeesService} from '../../employees.service';
 import {Employee} from '../../../../models/employee/employee';
-import {ModalEmployeesComponent} from '../../../employees/components/modal-employees/modal-employees.component';
 
 
 @Component({
@@ -19,22 +17,9 @@ export class EmployeessSearchComponent {
   searching = false;
   searchFailed = false;
 
-  constructor(private employeesService: EmployeesService,
-              private modalService: NgbModal) {
+  constructor(private employeesService: EmployeesService) {
 
   }
-
-  addEmployeeModal() {
-    const modalRef = this.modalService.open(ModalEmployeesComponent,
-      {
-        size: 'lg',
-        backdrop: 'static',
-        keyboard: false
-      }
-    );
-    // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
-  }
-
 
   search = (text$: Observable<string>) =>
     text$.pipe(
@@ -54,5 +39,9 @@ export class EmployeessSearchComponent {
 
   resFormatter = (x: Employee) => x.names;
   inFormatter = (result: Employee) => result.names;
+
+  selectedItem($event) {
+    console.log($event);
+  }
 
 }

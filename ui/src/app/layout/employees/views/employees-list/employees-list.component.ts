@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ModalEmployeesComponent} from '../../components/modal-employees/modal-employees.component';
 import {Observable} from 'rxjs';
 import {Employee} from '../../../../models/employee/employee';
-import {EmployeesService} from '../../../../services/employees/employees.service';
+import {EmployeesService} from '../../employees.service';
 
 @Component({
   selector: 'app-employees-list',
@@ -20,20 +19,6 @@ export class EmployeesListComponent implements OnInit {
 
   ngOnInit() {
     this.employees$ = this.employeesService.searchEmployees('searchEmployees');
-  }
-
-
-
-  order() {
-    const modalRef = this.modalService.open(ModalEmployeesComponent,
-      {
-        size: 'lg',
-        backdrop: 'static',
-        keyboard: false
-      }
-    );
-    // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
-
   }
 
 }

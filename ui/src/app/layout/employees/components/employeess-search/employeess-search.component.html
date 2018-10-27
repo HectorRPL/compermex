@@ -14,7 +14,7 @@
     <div class="input-group-append">
       <button type="button"
               class="btn btn-outline-secondary btn-sm"
-              (click)="addEmployeeModal()">
+              [routerLink]="['/layout/employees/add']">
         <i class="fas fa-plus" ngbTooltip="Añadir empleado"></i>
       </button>
     </div>

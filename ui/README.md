@@ -18,10 +18,10 @@ Run `ng generate component layout/orders/components/modalTemporal` to generate a
 `ng generate module layout/employees`
 `ng generate service services/employees/employees`
 `ng generate component layout/employees`
-`ng generate component layout/employees/views/employeesList`
-`ng generate component layout/employees/components/modalEmployees`
-`ng generate component layout/components/employeesForm`
-`ng generate component layout/components/searches/employeessSearch`
+`ng generate component layout/employees/views/listEmployees`
+`ng generate component layout/employees/views/addEmployee`
+`ng generate component layout/employees/components/employeesForm`
+`ng generate component layout/employees/components/employeessSearch`
 `ng generate class models/employee/employee -type model`
 
 
