@@ -14,9 +14,10 @@ Run `ng generate component layout/orders/components/modalTemporal` to generate a
 
 ### models
 
-`ng generate component layout/employees`
+CREACION DE UN MODULO: EMPLEADOS
+`ng generate component layout/employees/components/employees`
 `ng generate module layout/employees`
-`ng generate service services/employees/employees`
+`ng generate service layout/employees`
 `ng generate component layout/employees`
 `ng generate component layout/employees/views/listEmployees`
 `ng generate component layout/employees/views/addEmployee`
@@ -25,6 +26,16 @@ Run `ng generate component layout/orders/components/modalTemporal` to generate a
 `ng generate class models/employee/employee -type model`
 
 
+CREACION DE UN MODULO: SUPPLIERS
+`ng generate component layout/suppliers`
+`ng generate module layout/suppliers`
+`ng generate service layout/suppliers`
+`ng generate component layout/suppliers`
+`ng generate component layout/suppliers/views/listSuppliers`
+`ng generate component layout/suppliers/views/addSupplier`
+`ng generate component layout/suppliers/components/suppliersForm`
+`ng generate component layout/suppliers/components/supplierssSearch`
+`ng generate class layout/suppliers/models/employee -type model`
 
 
 

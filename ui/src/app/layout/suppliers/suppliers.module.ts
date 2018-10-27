@@ -3,7 +3,8 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SuppliersRoutingModule} from './suppliers-routing.module';
 import {SuppliersComponent} from './suppliers.component';
-import {SuppliersListComponent} from './views/suppliers-list/suppliers-list.component';
+import {ListSuppliersComponent} from './views/list-suppliers/list-suppliers.component';
+import { AddSupplierComponent } from './views/add-supplier/add-supplier.component';
 
 @NgModule({
   imports: [
@@ -14,11 +15,10 @@ import {SuppliersListComponent} from './views/suppliers-list/suppliers-list.comp
   ],
   declarations: [
     SuppliersComponent,
-    SuppliersListComponent
+    ListSuppliersComponent,
+    AddSupplierComponent
   ],
-  providers:[
-
-  ]
+  providers: []
 })
 export class SuppliersModule {
 }

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Supplier} from '../../models/supplier/supplier.model';
 import {HttpClient} from '@angular/common/http';
-import {HandleError, HttpErrorHandlerService} from '../http-error-handler.service';
+import {HandleError, HttpErrorHandlerService} from '../../services/http-error-handler.service';
 import {catchError} from 'rxjs/operators';
 
 @Injectable()

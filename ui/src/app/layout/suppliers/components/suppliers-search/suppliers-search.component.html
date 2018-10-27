@@ -9,11 +9,12 @@
            [(ngModel)]="model"
            [ngbTypeahead]="search"
            [resultFormatter]="resFormatter"
-           [inputFormatter]="inFormatter">
+           [inputFormatter]="inFormatter"
+           (selectItem)="selectedItem($event)">
     <div class="input-group-append">
       <button type="button"
               class="btn btn-outline-secondary btn-sm"
-              (click)="addSupplierModal()">
+              [routerLink]="['/layout/employees/add']">
         <i class="fas fa-plus"
            ngbTooltip="Añadir proveedor"></i>
       </button>

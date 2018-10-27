@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {SupplierService} from '../../../../services/suppliers/supplier.service';
+import {SupplierService} from '../../supplier.service';
 import {Supplier} from '../../../../models/supplier/supplier.model';
 import {ModalSuppliersComponent} from "../../../orders/components/modal-suppliers/modal-suppliers.component";
 
@@ -54,5 +54,9 @@ export class SuppliersSearchComponent {
 
   resFormatter = (x: Supplier) => x.name;
   inFormatter = (result: Supplier) => result.name;
+
+  selectedItem($event) {
+    console.log($event);
+  }
 
 }

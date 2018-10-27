@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {SuppliersComponent} from './suppliers.component';
-import {SuppliersListComponent} from './views/suppliers-list/suppliers-list.component';
+import {ListSuppliersComponent} from './views/list-suppliers/list-suppliers.component';
 
 
 const routes: Routes = [
@@ -10,7 +10,7 @@ const routes: Routes = [
     component: SuppliersComponent,
     children: [
       {
-        path: 'list', component: SuppliersListComponent
+        path: 'list', component: ListSuppliersComponent
       }
     ]
   }
