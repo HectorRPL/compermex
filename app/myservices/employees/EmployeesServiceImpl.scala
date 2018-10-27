@@ -15,8 +15,8 @@ class EmployeesServiceImpl @Inject()(
 
   def getAll(): Future[Seq[Employe]] = {
     val pag = Pagination(50, 1)
-    val query = Some(Json.obj())
-    val sort = Some(Json.obj())
+    val query = Json.obj()
+    val sort = Json.obj()
 
     employeesDAO.getList(query, sort, pag)
   }

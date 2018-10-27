@@ -1,34 +1,54 @@
 package forms
 
-import play.api.data.Form
-import play.api.data.Forms._
-import play.api.libs.json.Json
+import java.util.Date
+
+
+import play.api.libs.json._
+import reactivemongo.play.json._
+import reactivemongo.bson.BSONObjectID
 
 object SignUpForm {
 
 
-  val form = Form(
-    mapping(
-      "firstName" -> nonEmptyText,
-      "lastName" -> nonEmptyText,
-      "email" -> email,
-      "password" -> nonEmptyText
-    )(Data.apply)(Data.unapply)
-  )
-
-  case class Data(
-                   firstName: String,
-                   lastName: String,
-                   email: String,
-                   password: String
+  case class SignUpForm(
+                         areaId: BSONObjectID,
+                         names: String,
+                         lastName: String,
+                         username: String,
+                         birthDate: Date,
+                         password: String,
+                         sex: String,
+                         mobile: String
                  )
 
-  object Data {
+  object SignUpForm {
 
-    /**
-      * Converts the [Date] object to Json and vice versa.
-      */
-    implicit val jsonFormat = Json.format[Data]
+    implicit object SignUpFormReaders extends Reads[SignUpForm] {
+
+      def reads(json: JsValue): JsResult[SignUpForm] = json match {
+        case obj: JsObject => try {
+          val areaId = (obj \ "_id").as[BSONObjectID]
+          val names = (obj \ "names").as[String]
+          val lastName = (obj \ "lastName").as[String]
+          val username = (obj \ "username").as[String]
+          val birthDate = (obj \ "birthDate").as[Date]
+          val password = (obj \ "password").as[String]
+          val sex = (obj \ "sex").as[String]
+          val mobile = (obj \ "mobile").as[String]
+
+
+          JsSuccess(SignUpForm(areaId, names, lastName,
+            username, birthDate, password, sex, mobile))
+
+        } catch {
+          case cause: Throwable => JsError(cause.getMessage)
+        }
+
+        case _ => JsError("expected.jsobject")
+      }
+
+    }
+
   }
 
 }

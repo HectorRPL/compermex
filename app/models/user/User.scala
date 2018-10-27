@@ -19,10 +19,7 @@ import play.api.libs.json._
 case class User(
                  _id: UUID,
                  loginInfo: LoginInfo,
-                 firstName: Option[String],
-                 lastName: Option[String],
-                 fullName: Option[String],
-                 email: Option[String],
+                 username: Option[String],
                  avatarURL: Option[String],
                  activated: Boolean
                ) extends Identity {

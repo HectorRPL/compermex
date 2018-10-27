@@ -20,10 +20,9 @@ class AreasDAOImpl @Inject()(
 
   def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("areas"))
 
-  def getList(query: Option[JsObject], sort: Option[JsObject],
+  def getList(query: JsObject, sort: JsObject,
               pag: Pagination): Future[Seq[Area]] = {
-    val query = Json.obj()
-    val sort = Json.obj()
+
     collection.flatMap(_.find(query)
       .skip(pag.skip)
       .sort(sort)
