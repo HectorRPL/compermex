@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
-import {EmployeesService} from '../../employees.service';
+import {EmployeesService} from '../../service/employees.service';
 import {Employee} from '../../../../models/employee/employee';
 
 

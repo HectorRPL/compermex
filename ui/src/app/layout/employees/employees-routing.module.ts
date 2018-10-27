@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {EmployeesComponent} from './employees.component';
+import {EmployeesComponent} from "./components/employees/employees.component";
 import {AddEmployeeComponent} from './views/add-employee/add-employee.component';
 import {ListEmployeesComponent} from "./views/list-employees/list-employees.component";
 
