@@ -4,7 +4,6 @@ import javax.inject.Inject
 import models.Pagination
 import models.supplier.Supplier
 import play.api.libs.json.Json
-import reactivemongo.api.commands.WriteResult
 
 import scala.concurrent.{ExecutionContext, Future}
 

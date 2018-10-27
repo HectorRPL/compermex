@@ -1,12 +1,13 @@
 package myservices.employees
 
-import models.supplier.Supplier
+
+import models.employe.Employe
 
 import scala.concurrent.Future
 
 trait EmployeesService {
 
-  def getAll(): Future[Seq[Supplier]]
+  def getAll(): Future[Seq[Employe]]
 
-  def save(supplier: Supplier): Future[Supplier]
+  def save(employe: Employe): Future[Employe]
 }
