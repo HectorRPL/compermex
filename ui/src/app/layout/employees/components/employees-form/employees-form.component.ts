@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Employee} from '../../../../models/employee/employee';
+import {Employee} from '../../models/employee/employee';
 import {EmployeesService} from '../../service/employees.service';
 
 
@@ -15,14 +15,11 @@ export class EmployeesFormComponent implements OnInit {
   employeesForm: FormGroup;
 
   // VALIDACIONES PARA EL INPUT NOMBRE
-  charactersMinName: number = 2;
-  charactersMaxName: number = 50;
-  // VALIDACIONES PARA EL INPUT EMAIL
-  charactersMinEmail: number = 5;
-  charactersMaxEmail: number = 50;
+  minCharacters: number = 2;
+  maxCharacters: number = 50;
   // VALIDACIONES PARA EL INPUT TELÉFONO
-  charactersMinPhone: number = 8;
-  charactersMaxPhone: number = 10;
+  minPhoneCharacters: number = 8;
+  manPhoneCharacters: number = 10;
 
   constructor(private formBuilder: FormBuilder,
               private employeesService: EmployeesService) {
@@ -54,20 +51,24 @@ export class EmployeesFormComponent implements OnInit {
       'names': new FormControl(this.employee.names, [
         Validators.required,
         Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMinName),
-        Validators.maxLength(this.charactersMaxName)
+        Validators.minLength(this.minCharacters),
+        Validators.maxLength(this.maxCharacters)
       ]),
       'lastNames': new FormControl(this.employee.lastNames, [
         Validators.required,
         Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMinName),
-        Validators.maxLength(this.charactersMaxName)
+        Validators.minLength(this.minCharacters),
+        Validators.maxLength(this.maxCharacters)
       ]),
-      'email': new FormControl(this.employee.email, [
+      'username': new FormControl(this.employee.username, [
         Validators.required,
-        Validators.email,
-        Validators.minLength(this.charactersMinEmail),
-        Validators.maxLength(this.charactersMaxEmail)
+        Validators.minLength(this.minCharacters),
+        Validators.maxLength(this.maxCharacters)
+      ]),
+      'password': new FormControl(this.employee.password, [
+        Validators.required,
+        Validators.minLength(this.minCharacters),
+        Validators.maxLength(this.maxCharacters)
       ]),
       'sex': new FormControl(this.employee.sex, [
         Validators.required
@@ -78,8 +79,8 @@ export class EmployeesFormComponent implements OnInit {
       'phone': new FormControl(this.employee.phone, [
         Validators.required,
         Validators.pattern(/^[0-9]*$/),
-        Validators.minLength(this.charactersMinPhone),
-        Validators.maxLength(this.charactersMaxPhone)
+        Validators.minLength(this.minPhoneCharacters),
+        Validators.maxLength(this.manPhoneCharacters)
       ])
     });
   }
@@ -100,8 +101,12 @@ export class EmployeesFormComponent implements OnInit {
     return this.employeesForm.get('lastNames');
   }
 
-  get email() {
-    return this.employeesForm.get('email');
+  get username() {
+    return this.employeesForm.get('username');
+  }
+
+  get password() {
+    return this.employeesForm.get('password');
   }
 
   get sex() {

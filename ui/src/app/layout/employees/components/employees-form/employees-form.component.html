@@ -57,8 +57,8 @@
       <div *ngIf="names.invalid && (names.dirty || names.touched)">
         <div class="text-danger small" *ngIf="names.errors.required">Requerido.</div>
         <div class="text-danger small" *ngIf="names.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="names.errors.minlength">Mínimo {{charactersMinName}} caracteres.</div>
-        <div class="text-danger small" *ngIf="names.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
+        <div class="text-danger small" *ngIf="names.errors.minlength">Mínimo {{minCharacters}} caracteres.</div>
+        <div class="text-danger small" *ngIf="names.errors.maxlength">Máximo {{maxCharacters}} caracteres.</div>
       </div>
     </div>
     <!--APELLIDOS DE EMPLEADO-->
@@ -73,8 +73,8 @@
       <div *ngIf="lastNames.invalid && (lastNames.dirty || lastNames.touched)">
         <div class="text-danger small" *ngIf="lastNames.errors.required">Requerido.</div>
         <div class="text-danger small" *ngIf="lastNames.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="lastNames.errors.minlength">Mínimo {{charactersMinName}} caracteres.</div>
-        <div class="text-danger small" *ngIf="lastNames.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
+        <div class="text-danger small" *ngIf="lastNames.errors.minlength">Mínimo {{minCharacters}} caracteres.</div>
+        <div class="text-danger small" *ngIf="lastNames.errors.maxlength">Máximo {{maxCharacters}} caracteres.</div>
       </div>
     </div>
     <!-- FECHA DE NACIMIENTO-->
@@ -90,20 +90,35 @@
         <div class="text-danger small" *ngIf="birdDate.errors.required">Requerido.</div>
       </div>
     </div>
-    <!--EMAIL-->
+    <!--USERNAME-->
     <div class="form-group col-sm-4">
-      <label for="emailId">Email</label>
-      <input type="email"
+      <label for="usernameId">Nombre de usuario</label>
+      <input type="username"
              class="form-control form-control-sm"
-             id="emailId"
-             placeholder="Email"
-             [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
-             formControlName="email">
-      <div *ngIf="email.invalid && (email.dirty || email.touched)">
-        <div class="text-danger small" *ngIf="email.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="email.errors.email">Inválido.</div>
-        <div class="text-danger small" *ngIf="email.errors.minlength">Mínimo {{charactersMinEmail}} caracteres.</div>
-        <div class="text-danger small" *ngIf="email.errors.maxlength">Máximo {{charactersMaxEmail}} caracteres.</div>
+             id="usernameId"
+             placeholder="Nombre de usuario"
+             [ngClass]="{'is-invalid': username.invalid && (username.dirty || username.touched)}"
+             formControlName="username">
+      <div *ngIf="username.invalid && (username.dirty || username.touched)">
+        <div class="text-danger small" *ngIf="username.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="username.errors.minlength">Mínimo {{minCharacters}} caracteres.</div>
+        <div class="text-danger small" *ngIf="username.errors.maxlength">Máximo {{maxCharacters}} caracteres.</div>
+      </div>
+    </div>
+    <!--PASSWORD-->
+    <div class="form-group col-sm-4">
+      <label for="passwordId">Contraseña</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="passwordId"
+             placeholder="Contraseña"
+             [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched)}"
+             formControlName="password">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div class="text-danger small" *ngIf="password.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="password.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="password.errors.minlength">Mínimo {{minCharacters}} caracteres.</div>
+        <div class="text-danger small" *ngIf="password.errors.maxlength">Máximo {{maxCharacters}} caracteres.</div>
       </div>
     </div>
     <!--TELËFONO-->
@@ -118,8 +133,8 @@
       <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
         <div class="text-danger small" *ngIf="phone.errors.required">Requerido.</div>
         <div class="text-danger small" *ngIf="phone.errors.pattern">Sólo números.</div>
-        <div class="text-danger small" *ngIf="phone.errors.minlength">Mínimo {{charactersMinPhone}} dígitos.</div>
-        <div class="text-danger small" *ngIf="phone.errors.maxlength">Máximo {{charactersMaxPhone}} dígitos.</div>
+        <div class="text-danger small" *ngIf="phone.errors.minlength">Mínimo {{minPhoneCharacters}} dígitos.</div>
+        <div class="text-danger small" *ngIf="phone.errors.maxlength">Máximo {{manPhoneCharacters}} dígitos.</div>
       </div>
     </div>
   </div>

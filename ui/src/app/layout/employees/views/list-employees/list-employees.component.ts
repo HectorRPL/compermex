@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {EmployeesService} from "../../service/employees.service";
-import {Employee} from "../../../../models/employee/employee";
+import {Employee} from "../../models/employee/employee";
 import {Observable} from "rxjs/index";
 
 @Component({

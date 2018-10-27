@@ -4,7 +4,7 @@ import {COMPANIES_MOCK} from '../models/company/company.mock';
 import {CLIENTS_MOCK} from '../models/client/client.mock';
 import {SUPPLIERS_MOCK} from '../models/supplier/supplier.mock';
 import {CARDBOARDS_MOCK} from '../models/cardboard/cardboard.mock';
-import {EMPLOYEES_MOCK} from '../models/employee/employee.mock';
+import {EMPLOYEES_MOCK} from '../layout/employees/models/employee/employee.mock';
 
 @Injectable({
   providedIn: 'root'
