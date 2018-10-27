@@ -18,7 +18,7 @@ class AreasDAOImpl @Inject()(
                             ) extends AreasDAO{
 
 
-  def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("Areases"))
+  def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("areas"))
 
   def getList(query: Option[JsObject], sort: Option[JsObject],
               pag: Pagination): Future[Seq[Area]] = {
