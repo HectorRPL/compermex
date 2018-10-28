@@ -3,7 +3,8 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {HandleError, HttpErrorHandlerService} from '../../../services/http-error-handler.service';
 import {catchError} from 'rxjs/operators';
-import {Employee} from "../models/employee/employee";
+import {Employee} from '../models/employee/employee';
+import {Area} from '../../../models/area/client.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,13 @@ export class EmployeesService {
     return this.http.get<Employee[]>('api/employees')
       .pipe(
         catchError(this.handleError('getEmployees', []))
+      );
+  }
+
+  getAreas(): Observable<Area[]> {
+    return this.http.get<Area[]>('api/areas')
+      .pipe(
+        catchError(this.handleError('getAreas', []))
       );
   }
 

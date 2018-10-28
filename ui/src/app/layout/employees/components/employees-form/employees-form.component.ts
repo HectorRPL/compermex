@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {SignUp} from "../../../../auth/models/signUp/signUp";
+import {SignUp} from '../../../../auth/models/signUp/signUp';
+import {Area} from '../../../../models/area/client.model';
+import {EmployeesService} from '../../service/employees.service';
+import {Observable} from "rxjs/Observable";
 
 
 @Component({
@@ -11,19 +14,23 @@ import {SignUp} from "../../../../auth/models/signUp/signUp";
 export class EmployeesFormComponent implements OnInit {
 
   public employee: SignUp;
+  public areas$: Observable<Area[]>;
   public employeesForm: FormGroup;
   public minCharacters: number = 2;
   public maxCharacters: number = 50;
   public minPhoneCharacters: number = 8;
   public manPhoneCharacters: number = 10;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private employeesService: EmployeesService) {
 
     this.employee = new SignUp();
 
   }
 
   ngOnInit(): void {
+
+    this.getAreas();
 
     this.createEmployeesForm();
 
@@ -101,6 +108,11 @@ export class EmployeesFormComponent implements OnInit {
 
   get mobile() {
     return this.employeesForm.get('mobile');
+  }
+
+  getAreas() {
+    this.areas$ = this.employeesService.getAreas();
+    console.log(this.areas$);
   }
 
 }
