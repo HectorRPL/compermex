@@ -1,15 +1,12 @@
 import {ObjectId} from "../../../../models/object-id.model";
 
 export class Employee {
-  _id?: ObjectId;         // _id
-  ownerId: ObjectId;      // propietarioId
-  departmentId: ObjectId; // departamentoId
-  storeId: ObjectId;      // tiendaId => compañíaId
-  names: string;          // nombres
-  lastNames: string;      // apellidos
-  username?: string;      // nombre de usuario
-  password: string;       // contraseña
-  sex: string;            // HOMBRE / MUJER
-  birdDate: Date;         // nacimiento
-  phone: number;          // Teléfono
+  _id: ObjectId;
+  areaId: ObjectId;
+  username: string;
+  lastName: string;
+  password: string;
+  sex: string;
+  birdDate: Date;
+  mobile: number;
 }

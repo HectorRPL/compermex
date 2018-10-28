@@ -1,3 +1,23 @@
-<p>
-  list-suppliers works!
-</p>
+<app-suppliers-search></app-suppliers-search>
+
+<div class="table-responsive">
+  <table class="table table-sm table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Teléfono</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let supplier of suppliers$ | async">
+      <th scope="row">1</th>
+      <td>{{supplier._id.$oid}}</td>
+      <td>{{supplier.username}}</td>
+      <td>{{supplier.phone}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

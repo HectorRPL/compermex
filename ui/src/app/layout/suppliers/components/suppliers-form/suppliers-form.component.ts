@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Supplier} from '../../../../models/supplier/supplier.model';
+import {Supplier} from '../../models/supplier/supplier.model';
 import {SupplierService} from "../../service/supplier.service";
 
 

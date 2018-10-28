@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {COMPANIES_MOCK} from '../models/company/company.mock';
 import {CLIENTS_MOCK} from '../models/client/client.mock';
-import {SUPPLIERS_MOCK} from '../models/supplier/supplier.mock';
+import {SUPPLIERS_MOCK} from '../layout/suppliers/models/supplier/supplier.mock';
 import {CARDBOARDS_MOCK} from '../models/cardboard/cardboard.mock';
 import {EMPLOYEES_MOCK} from '../layout/employees/models/employee/employee.mock';
 

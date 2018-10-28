@@ -4,7 +4,7 @@ import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rx
 import {of} from 'rxjs/observable/of';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {SupplierService} from '../../service/supplier.service';
-import {Supplier} from '../../../../models/supplier/supplier.model';
+import {Supplier} from '../../models/supplier/supplier.model';
 import {ModalSuppliersComponent} from "../../../orders/components/modal-suppliers/modal-suppliers.component";
 
 
