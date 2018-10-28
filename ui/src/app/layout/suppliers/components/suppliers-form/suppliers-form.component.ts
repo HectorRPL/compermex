@@ -39,7 +39,7 @@ export class SuppliersFormComponent implements OnInit {
 
   createSuppliersForm() {
     this.suppliersForm = this.formBuilder.group({
-      'name': new FormControl(this.supplier.name, [
+      'name': new FormControl(this.supplier.username, [
         Validators.required,
         Validators.pattern(/^[ñÑ\s\w]+$/),
         Validators.minLength(this.charactersMinName),
@@ -83,7 +83,7 @@ export class SuppliersFormComponent implements OnInit {
 
     const formModel = this.suppliersForm.value;
     const supplier: Supplier = {
-      name: formModel.name,
+      username: formModel.username,
       email: formModel.email,
       phone: formModel.phone
     } as Supplier;

@@ -14,9 +14,9 @@
     <tr *ngFor="let employee of employees$ | async">
       <th scope="row">1</th>
       <td>{{employee._id.$oid}}</td>
-      <td>{{employee.username}}</td>
-      <td>{{employee.lastNames}}</td>
-      <td>{{employee.lastNames}}</td>
+      <td>{{employee.names}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.mobile}}</td>
     </tr>
     </tbody>
   </table>
