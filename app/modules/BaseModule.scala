@@ -1,9 +1,11 @@
 package modules
 
 import com.google.inject.AbstractModule
+import db.dao.areas.{AreasDAO, AreasDAOImpl}
 import db.dao.employees.{EmployeesDAO, EmployeesDAOImpl}
 import db.dao.suppliers.{SuppliersDAO, SuppliersDAOImpl}
 import db.dao.user.{AuthTokenDAO, AuthTokenDAOImpl}
+import myservices.areas.{AreasService, AreasServiceImpl}
 import myservices.employees.{EmployeesService, EmployeesServiceImpl}
 import myservices.suppliers.{SuppliersService, SuppliersServiceImpl}
 import net.codingwell.scalaguice.ScalaModule
@@ -26,6 +28,10 @@ class BaseModule extends AbstractModule with ScalaModule {
     //DI for employees
     bind[EmployeesService].to[EmployeesServiceImpl]
     bind[EmployeesDAO].to[EmployeesDAOImpl]
+
+    //DI for Areas
+    bind[AreasService].to[AreasServiceImpl]
+    bind[AreasDAO].to[AreasDAOImpl]
 
   }
 }
