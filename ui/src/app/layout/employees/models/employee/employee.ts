@@ -2,10 +2,10 @@ import {ObjectId} from "../../../../models/object-id.model";
 
 export class Employee {
   _id: ObjectId;
+  userId: String;
   areaId: ObjectId;
-  username: string;
+  names: string;
   lastName: string;
-  password: string;
   sex: string;
   birdDate: Date;
   mobile: number;
