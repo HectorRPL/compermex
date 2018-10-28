@@ -10,13 +10,14 @@
               [ngClass]="{'is-invalid': areaId.invalid && (areaId.dirty || areaId.touched)}"
               formControlName="areaId">
         <option *ngFor="let area of areas$ | async" [value]="area._id.$oid">
-          {{area.descripcion}}
+          {{area.description}}
         </option>
       </select>
       <div *ngIf="areaId.invalid && (areaId.dirty || areaId.touched)">
         <div class="text-danger small" *ngIf="areaId.errors.required">Requerido.</div>
       </div>
     </div>
+    <pre>{{areas$}}</pre>
     <!--ELEGIR SEXO -->
     <div class="form-group col-sm-4">
       <label>Sexo</label>
