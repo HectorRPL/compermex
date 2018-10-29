@@ -37,7 +37,16 @@ CREACION DE UN MODULO: SUPPLIERS
 `ng generate component layout/suppliers/components/supplierssSearch`
 `ng generate class layout/suppliers/models/employee -type model`
 
-
+CREACION DE UN MODULO: MATERIALES
+`ng generate module layout/orders`
+`ng generate component layout/orders/components/orders`
+`ng generate service layout//orders/service/orders`
+`ng generate component layout/orders`
+`ng generate component layout/orders/views/addOrder`
+`ng generate component layout/orders/views/addSupplier`
+`ng generate component layout/orders/components/ordersForm`
+`ng generate component layout/orders/components/orderssSearch`
+`ng generate class layout/orders/models/employee -type model`
 
 ## Build
 

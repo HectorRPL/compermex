@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {OrdersComponent} from './orders.component';
+import {OrdersComponent} from './components/orders/orders.component';
 import {CreateOrderComponent} from './components/create-order/create-order.component';
+import {ListOrdersComponent} from './views/list-orders/list-orders.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,9 @@ const routes: Routes = [
     children: [
       {
         path: 'create', component: CreateOrderComponent
+      },
+      {
+        path: 'list', component: ListOrdersComponent
       }
     ]
   }

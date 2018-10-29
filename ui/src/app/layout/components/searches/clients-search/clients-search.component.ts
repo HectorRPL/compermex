@@ -4,7 +4,6 @@ import {Observable, of} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {Company} from '../../../../models/company/company.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ModalClientsComponent} from '../../../orders/components/modal-clients/modal-clients.component';
 
 @Component({
   selector: 'app-clients-search',
@@ -19,17 +18,6 @@ export class ClientsSearchComponent {
 
   constructor(private clientService: ClientService,
               private modalService: NgbModal) {
-  }
-
-  addClientModal() {
-    const modalRef = this.modalService.open(ModalClientsComponent,
-      {
-        size: 'lg',
-        backdrop: 'static',
-        keyboard: false
-      }
-    );
-    // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
   }
 
   search = (text$: Observable<string>) =>

@@ -5,7 +5,6 @@ import {of} from 'rxjs/observable/of';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {SupplierService} from '../../service/supplier.service';
 import {Supplier} from '../../models/supplier/supplier.model';
-import {ModalSuppliersComponent} from "../../../orders/components/modal-suppliers/modal-suppliers.component";
 
 
 @Component({
@@ -19,22 +18,9 @@ export class SuppliersSearchComponent {
   searching = false;
   searchFailed = false;
 
-  constructor(private supplierServ: SupplierService,
-              private modalService: NgbModal) {
+  constructor(private supplierServ: SupplierService) {
 
   }
-
-  addSupplierModal() {
-    const modalRef = this.modalService.open(ModalSuppliersComponent,
-      {
-        size: 'lg',
-        backdrop: 'static',
-        keyboard: false
-      }
-    );
-    // modalRef.componentInstance.compraPartidaOrden = compraPartidaOrden;
-  }
-
 
   search = (text$: Observable<string>) =>
     text$.pipe(
