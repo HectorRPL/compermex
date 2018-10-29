@@ -1,5 +1,5 @@
 export class LoginData {
-  email: string;
+  username: string;
   password: string;
   rememberMe: boolean;
 }

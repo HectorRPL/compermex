@@ -36,9 +36,8 @@ export class SignInFormComponent implements OnInit {
 
   createSignInForm() {
     this.signInForm = this.formBuilder.group({
-      'email': new FormControl(this.signIn.email, [
+      'username': new FormControl(this.signIn.email, [
         Validators.required,
-        Validators.email,
         Validators.minLength(this.charactersMin),
         Validators.maxLength(this.charactersMax)
       ]),
@@ -51,8 +50,8 @@ export class SignInFormComponent implements OnInit {
     });
   }
 
-  get email() {
-    return this.signInForm.get('email');
+  get username() {
+    return this.signInForm.get('username');
   }
 
   get password() {
@@ -66,7 +65,7 @@ export class SignInFormComponent implements OnInit {
       next: (result) => {
         console.log('RESULT', result);
         this.userService.renewUser();
-        this.router.navigateByUrl('/layout/create/order');
+        this.router.navigateByUrl('/layout/orders/create');
       },
       error: (err: any) => {
         console.log('Error', err);
@@ -79,7 +78,7 @@ export class SignInFormComponent implements OnInit {
   fillLoginData(): LoginData {
     const formModel = this.signInForm.value;
     const login = {
-      email: formModel.email,
+      username: formModel.username,
       password: formModel.password,
       rememberMe: false
     };

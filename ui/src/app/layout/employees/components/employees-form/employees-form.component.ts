@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {SignUp} from '../../../../auth/models/signUp/signUp';
 import {Area} from '../../../../models/area/client.model';
 import {EmployeesService} from '../../service/employees.service';
 import {Observable} from "rxjs/Observable";
+import {SignUpData} from "../../../../auth/models/signUp/signUp";
+import {ObjectId} from "../../../../models/object-id.model";
+import {AuthService} from "ng2-ui-auth";
 
 
 @Component({
@@ -13,7 +15,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class EmployeesFormComponent implements OnInit {
 
-  public employee: SignUp;
+  public employee: SignUpData;
   public areas$: Observable<Area[]>;
   public employeesForm: FormGroup;
   public minCharacters: number = 2;
@@ -22,9 +24,10 @@ export class EmployeesFormComponent implements OnInit {
   public manPhoneCharacters: number = 10;
 
   constructor(private formBuilder: FormBuilder,
-              private employeesService: EmployeesService) {
+              private employeesService: EmployeesService,
+              private auth: AuthService) {
 
-    this.employee = new SignUp();
+    this.employee = new SignUpData();
 
   }
 
@@ -38,7 +41,15 @@ export class EmployeesFormComponent implements OnInit {
 
   addEmployee() {
 
-    console.log(this.employeesForm.value);
+    const dataFrm = this.fillEmployee();
+    this.auth.signup(dataFrm).subscribe({
+      next: (response)=>{
+        console.log(response);
+      },
+      error:(e)=> console.log(e),
+      complete: () => console.log('complete')
+
+      })
 
   }
 
@@ -50,6 +61,11 @@ export class EmployeesFormComponent implements OnInit {
       'lastName': new FormControl(this.employee.lastName, [
         Validators.required,
         Validators.pattern(/^[ñÑ\s\w]+$/),
+        Validators.minLength(this.minCharacters),
+        Validators.maxLength(this.maxCharacters)
+      ]),
+      'names': new FormControl(this.employee.username, [
+        Validators.required,
         Validators.minLength(this.minCharacters),
         Validators.maxLength(this.maxCharacters)
       ]),
@@ -66,7 +82,7 @@ export class EmployeesFormComponent implements OnInit {
       'sex': new FormControl(this.employee.sex, [
         Validators.required
       ]),
-      'birdDate': new FormControl(this.employee.birdDate, [
+      'birthdate': new FormControl(this.employee.birthdate, [
         Validators.required
       ]),
       'mobile': new FormControl(this.employee.mobile, [
@@ -102,8 +118,8 @@ export class EmployeesFormComponent implements OnInit {
     return this.employeesForm.get('sex');
   }
 
-  get birdDate() {
-    return this.employeesForm.get('birdDate');
+  get birthdate() {
+    return this.employeesForm.get('birthdate');
   }
 
   get mobile() {
@@ -112,7 +128,26 @@ export class EmployeesFormComponent implements OnInit {
 
   getAreas() {
     this.areas$ = this.employeesService.getAreas();
-    console.log(this.areas$);
+  }
+
+  fillEmployee(): SignUpData {
+
+    const formModel = this.employeesForm.value;
+
+    const signUpData: SignUpData = {
+      areaId: new ObjectId (formModel.areaId),
+      names: formModel.names,
+      lastName: formModel.lastName,
+      username: formModel.username,
+      password: formModel.password,
+      sex: formModel.sex,
+      birthdate: new Date(formModel.birthdate),
+      mobile: formModel.mobile,
+    } as SignUpData;
+
+    console.log(signUpData);
+
+    return signUpData;
   }
 
 }

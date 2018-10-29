@@ -1,6 +1,6 @@
 package controllers.user
 
-import java.util.UUID
+import java.util.{Date, UUID}
 
 import akka.japi.Option
 import com.mohiva.play.silhouette.api.{LoginEvent, LoginInfo, SignUpEvent, Silhouette}
@@ -36,6 +36,7 @@ class SignUpController @Inject()(
 
   def signUp() = Action.async(parse.json) { implicit request =>
 
+    print(request)
     request.body.validate[SignUpForm].map { signUpData =>
       val loginInfo = LoginInfo(CredentialsProvider.ID, signUpData.username)
       userService.retrieve(loginInfo).flatMap {
@@ -60,7 +61,7 @@ class SignUpController @Inject()(
             names = signUpData.names,
             lastName = signUpData.lastName,
             fullName = Some(signUpData.names + " " + signUpData.lastName),
-            birthDate = signUpData.birthDate,
+            birthdate = signUpData.birthdate,
             sex = signUpData.sex,
             mobile = signUpData.mobile,
             active = true

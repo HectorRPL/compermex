@@ -20,7 +20,7 @@ GET     /suppliers              controllers.supplier.SupplierController.list
 POST    /add/supplier           controllers.supplier.SupplierController.save
 
 #ROUTES FOR AREAS
-GET     /areas                  controllers.areas.AreasController.list
+GET     /api/areas                  controllers.areas.AreasController.list
 
 # Serve static assets under public directory
 GET     /*file                      controllers.FrontendController.assetOrDefault(file)

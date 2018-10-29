@@ -13,7 +13,7 @@ case class Employe (
                      names: String,
                      lastName: String,
                      fullName: Option[String],
-                     birthDate: Date,
+                     birthdate: Date,
                      sex: String,
                      mobile: String,
                      active: Boolean
@@ -30,14 +30,14 @@ object Employe {
         val names = (obj \ "names").as[String]
         val lastName = (obj \ "lastName").as[String]
         val fullName = (obj \ "fullName").asOpt[String]
-        val birthDate = (obj \ "birthDate").as[Date]
+        val birthdate = (obj \ "birthdate").as[Date]
         val sex = (obj \ "sex").as[String]
         val mobile = (obj \ "mobile").as[String]
         val active = (obj \ "active").as[Boolean]
 
 
         JsSuccess(Employe(_id, userId, areaId, names, lastName,
-          fullName, birthDate, sex, mobile, active))
+          fullName, birthdate, sex, mobile, active))
 
       } catch {
         case cause: Throwable => JsError(cause.getMessage)
@@ -57,7 +57,7 @@ object Employe {
       "names" -> employe.names,
       "lastNames" -> employe.lastName,
       "fullName" -> employe.lastName,
-      "birthDate" -> employe.birthDate,
+      "birthDate" -> employe.birthdate,
       "sex" -> employe.sex,
       "mobil" -> employe.mobile,
       "active" -> employe.active
