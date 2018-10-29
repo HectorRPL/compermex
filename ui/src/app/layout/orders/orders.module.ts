@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {CreateOrderComponent} from './components/create-order/create-order.component';
 import {OrdersRoutingModule} from './orders-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -11,12 +10,13 @@ import {ListOrdersComponent} from './views/list-orders/list-orders.component';
 import {AddOrderComponent} from './views/add-order/add-order.component';
 import {OrdersComponent} from './components/orders/orders.component';
 import {MaterialsSearchComponent} from '../components/searches/materials-search/materials-search.component';
-import {OrderHeaderComponent} from '../components/searches/order-header/order-header.component';
 import {DirectionsFormComponent} from './components/directions-form/directions-form.component';
 import {FiscalDataFormComponent} from './components/fiscal-data-form/fiscal-data-form.component';
 import {FiscalDataPhysicalPersonFormComponent} from './components/fiscal-data-physical-person-form/fiscal-data-physical-person-form.component';
 import {FiscalDataMoralPersonFormComponent} from './components/fiscal-data-moral-person-form/fiscal-data-moral-person-form.component';
 import {OrderFormComponent} from './components/order-form/order-form.component';
+import {OrdersSearchComponent} from './components/orders-search/orders-search.component';
+
 // import {ClientsSearchComponent} from '../components/searches/clients-search/clients-search.component';
 
 @NgModule({
@@ -29,9 +29,7 @@ import {OrderFormComponent} from './components/order-form/order-form.component';
   ],
   declarations: [
     OrdersComponent,
-    CreateOrderComponent,
     MaterialsSearchComponent,
-    OrderHeaderComponent,
     DirectionsFormComponent,
     FiscalDataFormComponent,
     FiscalDataPhysicalPersonFormComponent,
@@ -42,7 +40,8 @@ import {OrderFormComponent} from './components/order-form/order-form.component';
     CardboardSearchComponent,
     ClientsFormComponent,
     ListOrdersComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    OrdersSearchComponent
   ]
 })
 export class OrdersModule {
