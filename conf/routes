@@ -31,7 +31,10 @@ GET     /materials/types        controllers.materials.MaterialsController.listTy
 GET     /materials/strengths    controllers.materials.MaterialsController.listStrengths
 
 #ROUTES FOR AREAS
-GET     /api/areas                  controllers.areas.AreasController.list
+GET     /api/areas              controllers.areas.AreasController.list
+
+#ROUTES FOR ZIPCODES
+GET     /zipCodes/:code         controllers.zipCodes.ZipCodesController.neighborhoods(code: String)
 
 # Serve static assets under public directory
-GET     /*file                      controllers.FrontendController.assetOrDefault(file)
+GET     /*file                  controllers.FrontendController.assetOrDefault(file)
