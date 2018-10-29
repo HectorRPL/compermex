@@ -13,15 +13,14 @@ import reactivemongo.play.json.collection.JSONCollection
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
-class ZipCodesImplDAO@Inject()(
+class ZipCodesImplDAO @Inject()(
                                 val reactiveMongoApi: ReactiveMongoApi
                               ) extends ZipCodesDAO {
   def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("zipCodes"))
 
-  def getList(query: Option[JsObject], sort: Option[JsObject],
+  def getList(query: JsObject, sort: JsObject,
               pag: Pagination): Future[Seq[ZipCode]] = {
-    val query = Json.obj()
-    val sort = Json.obj()
+
     collection.flatMap(_.find(query)
       .skip(pag.skip)
       .sort(sort)

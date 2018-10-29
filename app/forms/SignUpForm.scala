@@ -1,7 +1,8 @@
 package forms
 
-import java.util.Date
 
+
+import java.util.Date
 
 import play.api.libs.json._
 import reactivemongo.play.json._
@@ -15,9 +16,9 @@ object SignUpForm {
                          names: String,
                          lastName: String,
                          username: String,
-                         birthDate: Date,
                          password: String,
                          sex: String,
+                         birthdate: Date,
                          mobile: String
                  )
 
@@ -27,18 +28,18 @@ object SignUpForm {
 
       def reads(json: JsValue): JsResult[SignUpForm] = json match {
         case obj: JsObject => try {
-          val areaId = (obj \ "_id").as[BSONObjectID]
+          val areaId = (obj \ "areaId").as[BSONObjectID]
           val names = (obj \ "names").as[String]
           val lastName = (obj \ "lastName").as[String]
           val username = (obj \ "username").as[String]
-          val birthDate = (obj \ "birthDate").as[Date]
           val password = (obj \ "password").as[String]
           val sex = (obj \ "sex").as[String]
+          val birthdate = (obj \ "birthdate").as[Date]
           val mobile = (obj \ "mobile").as[String]
 
 
           JsSuccess(SignUpForm(areaId, names, lastName,
-            username, birthDate, password, sex, mobile))
+            username, password, sex, birthdate, mobile))
 
         } catch {
           case cause: Throwable => JsError(cause.getMessage)

@@ -34,7 +34,7 @@ class SignInController @Inject()(
 
   def signIn() = Action.async(parse.json) { implicit request =>
     request.body.validate[SignInForm.Data].map { data =>
-      val credentials = Credentials(data.email, data.password)
+      val credentials = Credentials(data.username, data.password)
       credentialsProvider.authenticate(credentials).flatMap { loginInfo =>
         userService.retrieve(loginInfo).flatMap {
           case Some(user) => silhouette.env.authenticatorService.create(loginInfo).map {

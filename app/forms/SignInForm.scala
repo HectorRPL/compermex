@@ -8,14 +8,14 @@ object SignInForm {
 
   val form = Form(
     mapping(
-      "email" -> email,
+      "username" -> email,
       "password" -> nonEmptyText,
       "rememberMe" -> boolean
     )(Data.apply)(Data.unapply)
   )
 
   case class Data(
-                   email: String,
+                   username: String,
                    password: String,
                    rememberMe: Boolean
                  )

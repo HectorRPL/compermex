@@ -17,7 +17,6 @@
         <div class="text-danger small" *ngIf="areaId.errors.required">Requerido.</div>
       </div>
     </div>
-    <pre>{{areas$}}</pre>
     <!--ELEGIR SEXO -->
     <div class="form-group col-sm-4">
       <label>Sexo</label>
@@ -30,19 +29,19 @@
         </label>
       </div>
     </div>
-    <!--USERNAME-->
+    <!--NAMES-->
     <div class="form-group col-sm-4">
-      <label for="usernameId">Nombre de usuario</label>
-      <input type="username"
+      <label for="namesId">Nombre(s)</label>
+      <input type="names"
              class="form-control form-control-sm"
-             id="usernameId"
-             placeholder="Nombre de usuario"
-             [ngClass]="{'is-invalid': username.invalid && (username.dirty || username.touched)}"
-             formControlName="username">
-      <div *ngIf="username.invalid && (username.dirty || username.touched)">
-        <div class="text-danger small" *ngIf="username.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="username.errors.minlength">Mínimo {{minCharacters}} caracteres.</div>
-        <div class="text-danger small" *ngIf="username.errors.maxlength">Máximo {{maxCharacters}} caracteres.</div>
+             id="namesId"
+             placeholder="Nombre(s)"
+             [ngClass]="{'is-invalid': names.invalid && (names.dirty || names.touched)}"
+             formControlName="names">
+      <div *ngIf="names.invalid && (names.dirty || names.touched)">
+        <div class="text-danger small" *ngIf="names.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="names.errors.minlength">Mínimo {{minCharacters}} caracteres.</div>
+        <div class="text-danger small" *ngIf="names.errors.maxlength">Máximo {{maxCharacters}} caracteres.</div>
       </div>
     </div>
     <!--LASTNAMES / APELLIDOS DE EMPLEADO-->
@@ -61,10 +60,25 @@
         <div class="text-danger small" *ngIf="lastName.errors.maxlength">Máximo {{maxCharacters}} caracteres.</div>
       </div>
     </div>
+    <!--USERNAME-->
+    <div class="form-group col-sm-4">
+      <label for="usernameId">Nombre de usuario</label>
+      <input type="username"
+             class="form-control form-control-sm"
+             id="usernameId"
+             placeholder="Nombre de usuario"
+             [ngClass]="{'is-invalid': username.invalid && (username.dirty || username.touched)}"
+             formControlName="username">
+      <div *ngIf="username.invalid && (username.dirty || username.touched)">
+        <div class="text-danger small" *ngIf="username.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="username.errors.minlength">Mínimo {{minCharacters}} caracteres.</div>
+        <div class="text-danger small" *ngIf="username.errors.maxlength">Máximo {{maxCharacters}} caracteres.</div>
+      </div>
+    </div>
     <!--PASSWORD-->
     <div class="form-group col-sm-4">
       <label for="passwordId">Contraseña</label>
-      <input type="text"
+      <input type="password"
              class="form-control form-control-sm"
              id="passwordId"
              placeholder="Contraseña"
@@ -79,15 +93,15 @@
     </div>
     <!-- FECHA DE NACIMIENTO-->
     <div class="form-group col-sm-4">
-      <label for="birdDateId">Fecha de nacimiento</label>
+      <label for="birthdateId">Fecha de nacimiento</label>
       <input type="date"
              class="form-control form-control-sm"
-             id="birdDateId"
+             id="birthdateId"
              placeholder="Fecha de nacimiento"
-             [ngClass]="{'is-invalid': birdDate.invalid && (birdDate.dirty || birdDate.touched)}"
-             formControlName="birdDate">
-      <div *ngIf="birdDate.invalid && (birdDate.dirty || birdDate.touched)">
-        <div class="text-danger small" *ngIf="birdDate.errors.required">Requerido.</div>
+             [ngClass]="{'is-invalid': birthdate.invalid && (birthdate.dirty || birthdate.touched)}"
+             formControlName="birthdate">
+      <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)">
+        <div class="text-danger small" *ngIf="birthdate.errors.required">Requerido.</div>
       </div>
     </div>
     <!--MOBILE / TELËFONO-->
@@ -114,22 +128,4 @@
     Siguiente
   </button>
 </form>
-<!--<pre *ngIf="employeesForm">{{employeesForm|json}}</pre>-->
-<!--Descomentar las lineas siguientes pra inspeccionar forma-->
-<!--
-<div class="row">
-  <div class="col-sm-4">
-    [employeesForm.status] <br>
-    <pre>{{employeesForm.status|json}}</pre>
-  </div>
-  <div class="col-sm-4">
-    [employeesForm.value] <br>
-    <pre>{{employeesForm.value|json}}</pre>
-  </div>
-  <div class="col-sm-4">
-    [employeesForm.valid] <br>
-    <pre>{{employeesForm.valid|json}}</pre>
-  </div>
-</div>
--->
 
