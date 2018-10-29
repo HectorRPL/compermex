@@ -18,6 +18,17 @@ POST    /auth/signUp            controllers.user.SignUpController.signUp
 # ROUTES FOR SUPPLIERS
 GET     /suppliers              controllers.supplier.SupplierController.list
 POST    /add/supplier           controllers.supplier.SupplierController.save
+GET     /suppliers/search/:name controllers.supplier.SupplierController.search(name: String)
+
+# ROUTES FOR EMPLOYEES
+GET     /employees              controllers.employees.EmployeesController.list
+POST    /add/employe            controllers.employees.EmployeesController.save
+GET    /employees/search/:name  controllers.employees.EmployeesController.search
+
+# ROUTES FOR MATERIALS
+GET     /materials/colors       controllers.materials.MaterialsController.listColors
+GET     /materials/types        controllers.materials.MaterialsController.listTypes
+GET     /materials/strengths    controllers.materials.MaterialsController.listStrengths
 
 #ROUTES FOR AREAS
 GET     /api/areas                  controllers.areas.AreasController.list
