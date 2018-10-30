@@ -9,7 +9,7 @@ import scala.concurrent.Future
 
 trait EmployeesService {
 
-  def getAll(query: Option[JsObject], sort: Option[JsObject],
+  def getAll(query: JsObject, sort: JsObject,
              pag: Pagination): Future[Seq[Employe]]
 
   def save(employe: Employe): Future[Employe]

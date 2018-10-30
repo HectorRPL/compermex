@@ -18,10 +18,9 @@ class AddressesImplDAO @Inject()(
                                 ) extends AddressesDAO {
   def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("addresses"))
 
-  def getList(query: Option[JsObject], sort: Option[JsObject],
+  def getList(query: JsObject, sort: JsObject,
               pag: Pagination): Future[Seq[Address]] = {
-    val query = Json.obj()
-    val sort = Json.obj()
+
     collection.flatMap(_.find(query)
       .skip(pag.skip)
       .sort(sort)

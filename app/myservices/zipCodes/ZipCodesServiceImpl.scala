@@ -13,11 +13,9 @@ class ZipCodesServiceImpl @Inject()(
                                      zipCodesDAO: ZipCodesDAO
                                    ) extends ZipCodesService {
 
-  def getAll(query: Option[JsObject], sort: Option[JsObject],
+  def getAll(query: JsObject, sort: JsObject,
              pag: Pagination): Future[Seq[ZipCode]] = {
-    val pag = Pagination(50, 1)
-    val query =  query
-    val sort = sort
+
     zipCodesDAO.getList(query, sort, pag)
   }
 

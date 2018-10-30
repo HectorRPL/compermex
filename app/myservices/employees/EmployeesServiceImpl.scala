@@ -4,7 +4,7 @@ import db.dao.employees.EmployeesDAO
 import javax.inject.Inject
 import models.Pagination
 import models.employe.Employe
-import play.api.libs.json.Json
+import play.api.libs.json.{JsObject, Json}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -13,10 +13,8 @@ class EmployeesServiceImpl @Inject()(
                                       employeesDAO: EmployeesDAO
                                     ) extends EmployeesService {
 
-  def getAll(): Future[Seq[Employe]] = {
-    val pag = Pagination(50, 1)
-    val query = Json.obj()
-    val sort = Json.obj()
+  def getAll(query: JsObject, sort: JsObject,
+             pag: Pagination): Future[Seq[Employe]] = {
 
     employeesDAO.getList(query, sort, pag)
   }

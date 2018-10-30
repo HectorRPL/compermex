@@ -19,10 +19,9 @@ class BoxesDAOImpl @Inject()(
 
   def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("boxes"))
 
-  def getList(query: Option[JsObject], sort: Option[JsObject],
+  def getList(query: JsObject, sort: JsObject,
               pag: Pagination): Future[Seq[Box]] = {
-    val query = Json.obj()
-    val sort = Json.obj()
+
     collection.flatMap(_.find(query)
       .skip(pag.skip)
       .sort(sort)

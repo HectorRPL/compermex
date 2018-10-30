@@ -10,7 +10,7 @@ import scala.concurrent.Future
 trait SuppliersDAO {
 
 
-  def getList(query: Option[JsObject], sort: Option[JsObject],
+  def getList(query: JsObject, sort: JsObject,
               pag: Pagination): Future[Seq[Supplier]]
 
   def getOne(_id: BSONObjectID): Future[Option[Supplier]]
