@@ -56,7 +56,7 @@ object Employe {
       "areaId" -> employe.areaId,
       "names" -> employe.names,
       "lastName" -> employe.lastName,
-      "fullName" -> employe.lastName,
+      "fullName" -> employe.fullName,
       "birthdate" -> employe.birthdate,
       "sex" -> employe.sex,
       "mobile" -> employe.mobile,
