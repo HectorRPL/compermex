@@ -1,25 +1,41 @@
-<app-suppliers-search></app-suppliers-search>
-
-<div class="table-responsive">
-  <table class="table table-sm table-hover">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Teléfono</th>
-      <th scope="col">Fax</th>
-      <th scope="col">Alias</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let supplier of suppliers$ | async">
-      <th scope="row">{{supplier.code}}</th>
-      <td>{{supplier.name}}</td>
-      <td>{{supplier.fax}}</td>
-      <td>{{supplier.phone}}</td>
-      <td>{{supplier.alias}}</td>
-    </tr>
-    </tbody>
-  </table>
+<div class="card">
+  <div class="card-header">
+    Ordenes
+  </div>
+  <div class="card-body">
+    <app-suppliers-search></app-suppliers-search>
+    <div class="table-responsive">
+      <table class="table table-sm table-hover">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Fax</th>
+          <th scope="col">Alias</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let supplier of suppliers$ | async">
+          <th scope="row">{{supplier.code}}</th>
+          <td>{{supplier.name}}</td>
+          <td>{{supplier.fax}}</td>
+          <td>{{supplier.phone}}</td>
+          <td>{{supplier.alias}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 
