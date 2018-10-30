@@ -37,6 +37,13 @@
         <div class="text-danger small" *ngIf="password.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
       </div>
     </div>
+    <p *ngIf="loginIncorrecto">
+      <ngb-alert
+        [type]="'danger'"
+        [dismissible]="false">
+        <strong>¡Error!</strong> Usuario Y/o contraseña incorrecto.
+      </ngb-alert>
+    </p>
     <button type="submit"
             class="btn btn-primary block full-width m-b btn-sm"
             [disabled]="signInForm.invalid"

@@ -15,6 +15,7 @@ export class SignInFormComponent implements OnInit {
 
   public signIn: SignIn;
   signInForm: FormGroup;
+  loginIncorrecto: boolean
 
   charactersMin: number = 2;
   charactersMax: number = 50;
@@ -25,6 +26,7 @@ export class SignInFormComponent implements OnInit {
               private userService: UserService) {
 
     this.signIn = new SignIn();
+    this.loginIncorrecto = false;
 
   }
 
@@ -69,6 +71,7 @@ export class SignInFormComponent implements OnInit {
       },
       error: (err: any) => {
         console.log('Error', err);
+        this.loginIncorrecto = true;
       }
 
     });
