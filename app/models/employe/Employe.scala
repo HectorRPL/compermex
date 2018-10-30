@@ -55,11 +55,11 @@ object Employe {
       "userId" -> employe.userId,
       "areaId" -> employe.areaId,
       "names" -> employe.names,
-      "lastNames" -> employe.lastName,
+      "lastName" -> employe.lastName,
       "fullName" -> employe.lastName,
-      "birthDate" -> employe.birthdate,
+      "birthdate" -> employe.birthdate,
       "sex" -> employe.sex,
-      "mobil" -> employe.mobile,
+      "mobile" -> employe.mobile,
       "active" -> employe.active
     )
   }

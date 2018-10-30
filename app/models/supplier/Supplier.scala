@@ -9,15 +9,15 @@ import reactivemongo.play.json._
 
 case class Supplier(
                      _id: Option[BSONObjectID],
-                     addressId: BSONObjectID,
-                     code: Option[String],
+                     addressId: Option[BSONObjectID],
+                     code: Option[Int],
                      name: String,
                      email: Option[String],
                      phone: Option[String],
                      fax: Option[String],
                      contact: Option[String],
                      alias: Option[String],
-                     active: Boolean
+                     active: Option[Boolean]
                    )
 
 object Supplier {
@@ -28,15 +28,15 @@ object Supplier {
     def reads(json: JsValue): JsResult[Supplier] = json match {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
-        val addressId = (obj \ "addressId").as[BSONObjectID]
-        val code = (obj \ "code").asOpt[String]
+        val addressId = (obj \ "addressId").asOpt[BSONObjectID]
+        val code = (obj \ "code").asOpt[Int]
         val name = (obj \ "name").as[String]
         val email = (obj \ "email").asOpt[String]
         val phone = (obj \ "phone").asOpt[String]
         val fax = (obj \ "fax").asOpt[String]
         val contact = (obj \ "contact").asOpt[String]
         val alias = (obj \ "alias").asOpt[String]
-        val active = (obj \ "active").as[Boolean]
+        val active = (obj \ "active").asOpt[Boolean]
 
 
         JsSuccess(Supplier(_id, addressId, code, name, email,

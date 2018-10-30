@@ -16,7 +16,7 @@ export class ListSuppliersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.suppliers$ = this.supplierServ.searchSuppliers('adasd');
+    this.suppliers$ = this.supplierServ.getSuppliers();
 
   }
 

@@ -5,6 +5,8 @@ export class Employee {
   userId: ObjectId;
   areaId: ObjectId;
   names: string;
+  fullName: string;
+  emai: string;
   lastName: string;
   sex: string;
   birdDate: Date;

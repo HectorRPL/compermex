@@ -38,8 +38,8 @@ export class SuppliersSearchComponent {
       tap(() => this.searching = false)
     );
 
-  resFormatter = (x: Supplier) => x.username;
-  inFormatter = (result: Supplier) => result.username;
+  resFormatter = (x: Supplier) => x.name;
+  inFormatter = (result: Supplier) => result.name;
 
   selectedItem($event) {
     console.log($event);

@@ -18,7 +18,7 @@ class SupplierController @Inject()(
     with I18nSupport {
 
   def list() = Action.async {
-    val pag = Pagination(50, 1)
+    val pag = Pagination(50, 0)
     val query = Json.obj()
     val sort = Json.obj()
     suppliersServ.getAll(query, sort, pag).map { suppliers =>

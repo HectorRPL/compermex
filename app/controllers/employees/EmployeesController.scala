@@ -18,12 +18,11 @@ class EmployeesController @Inject()(
     with I18nSupport {
 
   def list() = Action.async {
-    val pag = Pagination(50, 1)
+    val pag = Pagination(50, 0)
     val query = Json.obj()
     val sort = Json.obj()
-    employeesService.getAll(query, sort, pag)
-      .map { addresses =>
-        Ok(Json.toJson(addresses))
+    employeesService.getAll(query, sort, pag).map { employees =>
+        Ok(Json.toJson(employees))
       }
   }
 

@@ -6,16 +6,18 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Email</th>
       <th scope="col">Teléfono</th>
+      <th scope="col">Fax</th>
+      <th scope="col">Alias</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let supplier of suppliers$ | async">
-      <th scope="row">1</th>
-      <td>{{supplier._id.$oid}}</td>
-      <td>{{supplier.username}}</td>
+      <th scope="row">{{supplier.code}}</th>
+      <td>{{supplier.name}}</td>
+      <td>{{supplier.fax}}</td>
       <td>{{supplier.phone}}</td>
+      <td>{{supplier.alias}}</td>
     </tr>
     </tbody>
   </table>

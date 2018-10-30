@@ -6,17 +6,18 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Email</th>
+      <th scope="col">Apellidos</th>
       <th scope="col">Teléfono</th>
+      <th scope="col">sexo</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let employee of employees$ | async">
       <th scope="row">1</th>
-      <td>{{employee._id.$oid}}</td>
       <td>{{employee.names}}</td>
       <td>{{employee.lastName}}</td>
       <td>{{employee.mobile}}</td>
+      <td>{{employee.sex}}</td>
     </tr>
     </tbody>
   </table>

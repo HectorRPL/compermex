@@ -34,7 +34,7 @@ export class EmployeesService {
   }
 
   getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>('api/employees')
+    return this.http.get<Employee[]>('/employees')
       .pipe(
         catchError(this.handleError('getEmployees', []))
       );

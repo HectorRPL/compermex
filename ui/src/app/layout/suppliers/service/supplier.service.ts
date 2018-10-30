@@ -17,7 +17,7 @@ export class SupplierService {
 
 
   searchSuppliers(name: String): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>('api/suppliers')
+    return this.http.get<Supplier[]>(`/suppliers/search/${name}`)
       .pipe(
         catchError(this.handleError('search', []))
       );
@@ -32,7 +32,7 @@ export class SupplierService {
   }
 
   getSuppliers(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>('api/suppliers')
+    return this.http.get<Supplier[]>('/suppliers')
       .pipe(
         catchError(this.handleError('getSuppliers', []))
       );

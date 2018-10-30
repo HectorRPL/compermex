@@ -13,7 +13,7 @@ class AddressesServiceImpl @Inject()(
                                     )  extends AddressesService {
 
   def getAll(): Future[Seq[Address]] = {
-    val pag = Pagination(50, 1)
+    val pag = Pagination(50, 0)
     val query = Json.obj()
     val sort = Json.obj()
 
