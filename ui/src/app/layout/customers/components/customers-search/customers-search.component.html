@@ -1,10 +1,10 @@
 <div class="form-group">
-  <label for="searchProviderId">Buscar proveedor</label>
+  <label for="searchCustomerId">Buscar cliente</label>
   <div class="input-group mb-3">
     <input type="text"
-           id="searchProviderId"
+           id="searchCustomerId"
            class="form-control form-control-sm"
-           placeholder="Buscar proveedor"
+           placeholder="Buscar cliente"
            [class.is-invalid]="searchFailed"
            [(ngModel)]="model"
            [ngbTypeahead]="search"
@@ -14,9 +14,8 @@
     <div class="input-group-append">
       <button type="button"
               class="btn btn-outline-secondary btn-sm"
-              [routerLink]="['/layout/suppliers/add']">
-        <i class="fas fa-plus"
-           ngbTooltip="Añadir proveedor"></i>
+              [routerLink]="['/layout/customers/add']">
+        <i class="fas fa-plus" ngbTooltip="Añadir cliente"></i>
       </button>
     </div>
   </div>

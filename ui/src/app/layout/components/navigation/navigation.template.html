@@ -38,6 +38,19 @@
         </ul>
       </li>
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+        <a href="#"><i class="fas fa-th"></i>
+          <span class="nav-label">Clientes</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span> </a>
+        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/customers/list']">Lista</a>
+          </li>
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/customers/add']">Agregar</a>
+          </li>
+        </ul>
+      </li>
+      <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-file-invoice-dollar"></i>
           <span class="nav-label">Órdenes</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>

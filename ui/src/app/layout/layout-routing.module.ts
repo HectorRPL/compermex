@@ -13,6 +13,11 @@ const routes: Routes = [
         data: {preload: false}
       },
       {
+        path: 'customers',
+        loadChildren: './customers/customers.module#CustomersModule',
+        data: {preload: false}
+      },
+      {
         path: 'suppliers',
         loadChildren: './suppliers/suppliers.module#SuppliersModule',
         data: {preload: false}
