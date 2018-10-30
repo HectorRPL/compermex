@@ -3,7 +3,7 @@ import db.dao.suppliers.SuppliersDAO
 import javax.inject.Inject
 import models.Pagination
 import models.supplier.Supplier
-import play.api.libs.json.Json
+import play.api.libs.json.{JsObject, Json}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -12,10 +12,8 @@ class SuppliersServiceImpl @Inject()(
                                       supplierDAO: SuppliersDAO
                                     ) extends SuppliersService {
 
-  def getAll(): Future[Seq[Supplier]] = {
-    val pag = Pagination(50, 1)
-    val query = Some(Json.obj())
-    val sort = Some(Json.obj())
+  def getAll(query: JsObject, sort: JsObject,
+             pag: Pagination): Future[Seq[Supplier]] = {
 
     supplierDAO.getList(query, sort, pag)
   }

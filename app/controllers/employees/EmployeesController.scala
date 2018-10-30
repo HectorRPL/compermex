@@ -19,8 +19,8 @@ class EmployeesController @Inject()(
 
   def list() = Action.async {
     val pag = Pagination(50, 1)
-    val query = Some(Json.obj())
-    val sort = Some(Json.obj())
+    val query = Json.obj()
+    val sort = Json.obj()
     employeesService.getAll(query, sort, pag)
       .map { addresses =>
         Ok(Json.toJson(addresses))
@@ -46,7 +46,7 @@ class EmployeesController @Inject()(
     val sort = Json.obj("fullName" -> -1)
     val pag = Pagination(20, 1)
 
-    employeesService.getAll(Some(query), Some(sort), pag).map { employees =>
+    employeesService.getAll(query, sort, pag).map { employees =>
       Ok(Json.toJson(employees))
     }
   }

@@ -9,7 +9,7 @@ import scala.concurrent.Future
 
 trait AddressesDAO {
 
-  def getList(query: Option[JsObject], sort: Option[JsObject],
+  def getList(query: JsObject, sort: JsObject,
               pag: Pagination): Future[Seq[Address]]
 
   def getOne(_id: BSONObjectID): Future[Option[Address]]

@@ -15,8 +15,8 @@ class BoxesServiceImpl  @Inject()(
 
   def getAll(): Future[Seq[Box]] = {
     val pag = Pagination(50, 1)
-    val query = Some(Json.obj())
-    val sort = Some(Json.obj())
+    val query = Json.obj()
+    val sort = Json.obj()
 
     boxesDAO.getList(query, sort, pag)
   }

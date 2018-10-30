@@ -8,7 +8,7 @@ import scala.concurrent.Future
 
 trait SuppliersService {
 
-  def getAll(query: Option[JsObject], sort: Option[JsObject],
+  def getAll(query: JsObject, sort: JsObject,
              pag: Pagination): Future[Seq[Supplier]]
 
   def save(supplier: Supplier): Future[Supplier]

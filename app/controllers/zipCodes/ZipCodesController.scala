@@ -21,7 +21,8 @@ class ZipCodesController @Inject()(
     val query = Json.obj("code" -> zipCode)
     val sort = Json.obj("colony" -> -1)
     val pag = Pagination(20, 1)
-    zipCodesService.getAll(Some(query), Some(sort), pag)
+    
+    zipCodesService.getAll(query, sort, pag)
       .map { neighbors =>
         Ok(Json.toJson(neighbors))
       }

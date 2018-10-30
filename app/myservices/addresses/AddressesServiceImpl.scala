@@ -14,8 +14,8 @@ class AddressesServiceImpl @Inject()(
 
   def getAll(): Future[Seq[Address]] = {
     val pag = Pagination(50, 1)
-    val query = Some(Json.obj())
-    val sort = Some(Json.obj())
+    val query = Json.obj()
+    val sort = Json.obj()
 
     addressesDAO.getList(query, sort, pag)
   }
