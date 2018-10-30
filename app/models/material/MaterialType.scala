@@ -7,7 +7,7 @@ import reactivemongo.play.json._
 
 case class MaterialType(
                   _id: Option[BSONObjectID],
-                  code: String,
+                  code: Int,
                   description: String
                   )
 
@@ -18,7 +18,7 @@ object MaterialType {
     def reads(json: JsValue): JsResult[MaterialType] = json match {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
-        val code = (obj \ "code").as[String]
+        val code = (obj \ "code").as[Int]
         val description = (obj \ "description").as[String]
 
 

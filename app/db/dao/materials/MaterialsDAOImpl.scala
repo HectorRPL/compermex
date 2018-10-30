@@ -15,7 +15,7 @@ class MaterialsDAOImpl @Inject()(
                                   val reactiveMongoApi: ReactiveMongoApi
                                 ) extends MaterialsDAO {
   def materStrength: Future[JSONCollection] =
-    reactiveMongoApi.database.map(_.collection("materialsStrength"))
+    reactiveMongoApi.database.map(_.collection("materialsStrengths"))
 
   def materTypes: Future[JSONCollection] =
     reactiveMongoApi.database.map(_.collection("materialsTypes"))
