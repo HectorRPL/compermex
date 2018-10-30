@@ -21,16 +21,6 @@
         </div>
       </li>
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
-        <a href="#"><i class="far fa-handshake"></i>
-          <span class="nav-label">Compras</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="fas fa-angle-right"></span> </a>
-        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
-          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
-            <a [routerLink]="['/layout/compras/list']">Lista</a>
-          </li>
-        </ul>
-      </li>
-      <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-users"></i>
           <span class="nav-label">Empleados</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span></a>
@@ -91,7 +81,7 @@
             <a [routerLink]="['/layout/materials/list']">Lista</a>
           </li>
           <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
-            <a [routerLink]="['/layout/materials/add']">Lista</a>
+            <a [routerLink]="['/layout/materials/add']">Crear</a>
           </li>
         </ul>
       </li>
