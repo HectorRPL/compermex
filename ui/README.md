@@ -60,6 +60,16 @@ CREACION DE UN MODULO: CUSTOMERS
 `ng generate component layout/customers/components/customersSearch`
 `ng generate class layout/customers/models/customer -type model`
 
+CREACION DE UN MODULO: MATERIALS
+`ng generate module layout/materials`
+`ng generate service layout/materials/service/materials`
+`ng generate component layout/materials/components/materials`
+`ng generate component layout/materials/views/addMaterial`
+`ng generate component layout/materials/views/listMaterials`
+`ng generate component layout/materials/components/materialsForm`
+`ng generate component layout/materials/components/materialsSearch`
+`ng generate class layout/materials/models/material -type model`
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.

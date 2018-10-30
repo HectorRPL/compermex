@@ -1,6 +1,25 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
   <div class="sidebar-collapse">
     <ul class="nav metismenu" id="side-menu">
+      <li class="nav-header">
+        <div class="profile-element" dropdown>
+          <img alt="image" class="img-circle" src="assets/images/profile_small.jpg">
+          <a dropdownToggle>
+            <span class="block m-t-xs"> <strong class="font-bold">COMPERMEX</strong> </span>
+            <span class="text-muted text-xs block">Compañía <b class="caret"></b> </span>
+          </a>
+          <ul class="animated fadeInRight dropdown-menu" *dropdownMenu>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">Mailbox</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+        <div class="logo-element">
+          IN+
+        </div>
+      </li>
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="far fa-handshake"></i>
           <span class="nav-label">Compras</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -69,7 +88,10 @@
           <span class="fas fa-angle-right"></span> </a>
         <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
           <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
-            <a [routerLink]="['/layout/materials/create']">Lista</a>
+            <a [routerLink]="['/layout/materials/list']">Lista</a>
+          </li>
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/materials/add']">Lista</a>
           </li>
         </ul>
       </li>

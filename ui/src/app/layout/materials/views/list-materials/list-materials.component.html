@@ -1,0 +1,19 @@
+<app-materials-search></app-materials-search>
+
+<div class="table-responsive">
+  <table class="table table-sm table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let material of materials$ | async">
+      <th scope="row">1</th>
+      <td scope="row">{{material}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
