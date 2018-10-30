@@ -36,7 +36,6 @@ class SignUpController @Inject()(
 
   def signUp() = Action.async(parse.json) { implicit request =>
 
-    print(request)
     request.body.validate[SignUpForm].map { signUpData =>
       val loginInfo = LoginInfo(CredentialsProvider.ID, signUpData.username)
       userService.retrieve(loginInfo).flatMap {
