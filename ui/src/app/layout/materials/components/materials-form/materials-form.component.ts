@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Material} from '../../../models/material.model';
+import {Material} from '../../models/material.model';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({

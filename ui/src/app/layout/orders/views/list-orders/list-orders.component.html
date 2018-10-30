@@ -1,21 +1,33 @@
-<app-orders-search></app-orders-search>
-
-<div class="table-responsive">
-  <table class="table table-sm table-hover">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Email</th>
-      <th scope="col">Teléfono</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let order of orders$ | async">
-      <th scope="row">1</th>
-      <td>{{order._id.$oid}}</td>
-    </tr>
-    </tbody>
-  </table>
+<div class="card">
+  <div class="card-header">
+    Ordenes
+  </div>
+  <div class="card-body">
+    <app-orders-search></app-orders-search>
+    <div class="table-responsive">
+      <table class="table table-sm table-hover">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Email</th>
+          <th scope="col">Teléfono</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of orders$ | async">
+          <th scope="row">1</th>
+          <td>{{order._id.$oid}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
 

@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {MaterialsComponent} from './materials.component';
-import {CreateMaterialComponent} from './components/create-material/create-material.component';
+import {MaterialsComponent} from './components/materials/materials.component';
+import {AddMaterialComponent} from './views/add-material/add-material.component';
+import {ListMaterialsComponent} from './views/list-materials/list-materials.component';
 
 
 const routes: Routes = [
@@ -10,7 +11,10 @@ const routes: Routes = [
     component: MaterialsComponent,
     children: [
       {
-        path: 'create', component: CreateMaterialComponent
+        path: 'list', component: ListMaterialsComponent
+      },
+      {
+        path: 'add', component: AddMaterialComponent
       }
     ]
   }

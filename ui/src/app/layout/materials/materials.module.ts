@@ -3,9 +3,11 @@ import {CommonModule} from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialsRoutingModule} from './materials-routing.module';
-import {CreateMaterialComponent} from './components/create-material/create-material.component';
-import {MaterialsComponent} from './materials.component';
-import {MaterialsFormComponent} from '../components/materials-form/materials-form.component';
+import {MaterialsComponent} from './components/materials/materials.component';
+import {MaterialsFormComponent} from './components/materials-form/materials-form.component';
+import {AddMaterialComponent} from './views/add-material/add-material.component';
+import {ListMaterialsComponent} from './views/list-materials/list-materials.component';
+import {MaterialsSearchComponent} from "./components/materials-search/materials-search.component";
 
 @NgModule({
   imports: [
@@ -17,8 +19,10 @@ import {MaterialsFormComponent} from '../components/materials-form/materials-for
   ],
   declarations: [
     MaterialsComponent,
-    CreateMaterialComponent,
-    MaterialsFormComponent
+    MaterialsFormComponent,
+    AddMaterialComponent,
+    ListMaterialsComponent,
+    MaterialsSearchComponent
   ]
 })
 export class MaterialsModule {
