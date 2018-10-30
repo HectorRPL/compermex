@@ -16,7 +16,7 @@ export class SuppliersSearchComponent {
 
   model: any;
   searching = false;
-  searchFailed = false;
+  searchFailed = false;gis
 
   constructor(private supplierServ: SupplierService) {
 
@@ -28,7 +28,7 @@ export class SuppliersSearchComponent {
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-        this.supplierServ.getSuppliers().pipe(
+        this.supplierServ.searchSuppliers(term.toUpperCase()).pipe(
           tap(() => this.searchFailed = false),
           catchError(() => {
             this.searchFailed = true;
