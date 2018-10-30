@@ -1,0 +1,61 @@
+<form novalidate
+      autocomplete="off"
+      [formGroup]="customersForm">
+  <div class="form-row">
+    <!--NOMBRE DE EMPRESA-->
+    <div class="form-group col-sm-6">
+      <label for="nameId">Nombre</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="nameId"
+             placeholder="Nombre"
+             [ngClass]="{'is-invalid': name.invalid && (name.dirty || name.touched)}"
+             formControlName="name">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)">
+        <div class="text-danger small" *ngIf="name.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="name.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="name.errors.minlength">Mínimo {{charactersMinName}} caracteres.</div>
+        <div class="text-danger small" *ngIf="name.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
+      </div>
+    </div>
+    <!--EMAIL-->
+    <div class="form-group col-sm-6">
+      <label for="emailId">Email</label>
+      <input type="email"
+             class="form-control form-control-sm"
+             id="emailId"
+             placeholder="Email"
+             [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
+             formControlName="email">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div class="text-danger small" *ngIf="email.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="email.errors.email">Inválido.</div>
+        <div class="text-danger small" *ngIf="email.errors.minlength">Mínimo {{charactersMinEmail}} caracteres.</div>
+        <div class="text-danger small" *ngIf="email.errors.maxlength">Máximo {{charactersMaxEmail}} caracteres.</div>
+      </div>
+    </div>
+    <!--TELËFONO-->
+    <div class="form-group col-sm-6">
+      <label for="phoneId">Teléfono</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="phoneId"
+             placeholder="Teléfono"
+             [ngClass]="{'is-invalid': phone.invalid && (phone.dirty || phone.touched)}"
+             formControlName="phone">
+      <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+        <div class="text-danger small" *ngIf="phone.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="phone.errors.pattern">Sólo números.</div>
+        <div class="text-danger small" *ngIf="phone.errors.minlength">Mínimo {{charactersMinPhone}} dígitos.</div>
+        <div class="text-danger small" *ngIf="phone.errors.maxlength">Máximo {{charactersMaxPhone}} dígitos.</div>
+      </div>
+    </div>
+  </div>
+  <button type="submit"
+          class="btn btn-primary btn-sm"
+          [disabled]="customersForm.invalid"
+          (click)="add()">
+    Siguiente
+  </button>
+</form>
+<!--<pre *ngIf="customersForm">{{customersForm|json}}</pre>-->

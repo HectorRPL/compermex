@@ -1,0 +1,21 @@
+<app-customers-search></app-customers-search>
+
+<div class="table-responsive">
+  <table class="table table-sm table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Teléfono</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customers$ | async">
+      <th scope="row">1</th>
+      <td>{{customer._id.$oid}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

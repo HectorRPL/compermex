@@ -5,7 +5,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CompanySearchComponent} from '../components/searches/company-search/company-search.component';
 import {CardboardSearchComponent} from '../components/searches/cardboard-search/cardboard-search.component';
-import {ClientsFormComponent} from '../suppliers/components/clients-form/clients-form.component';
 import {ListOrdersComponent} from './views/list-orders/list-orders.component';
 import {AddOrderComponent} from './views/add-order/add-order.component';
 import {OrdersComponent} from './components/orders/orders.component';
@@ -37,7 +36,6 @@ import { ClientsSearchCopyComponent } from './components/clients-search-copy/cli
     OrderFormComponent,
     CompanySearchComponent,
     CardboardSearchComponent,
-    ClientsFormComponent,
     ListOrdersComponent,
     AddOrderComponent,
     OrdersSearchComponent,
