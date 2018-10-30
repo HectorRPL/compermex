@@ -39,7 +39,13 @@ export class SuppliersFormComponent implements OnInit {
 
   createSuppliersForm() {
     this.suppliersForm = this.formBuilder.group({
-      'name': new FormControl(this.supplier.username, [
+      'code': new FormControl(this.supplier.code, [
+        Validators.required,
+        Validators.pattern(/^[ñÑ\s\w]+$/),
+        Validators.minLength(this.charactersMinName),
+        Validators.maxLength(this.charactersMaxName)
+      ]),
+      'name': new FormControl(this.supplier.name, [
         Validators.required,
         Validators.pattern(/^[ñÑ\s\w]+$/),
         Validators.minLength(this.charactersMinName),
@@ -56,8 +62,36 @@ export class SuppliersFormComponent implements OnInit {
         Validators.pattern(/^[0-9]*$/),
         Validators.minLength(this.charactersMinPhone),
         Validators.maxLength(this.charactersMaxPhone)
-      ])
+      ]),
+      'fax': new FormControl(this.supplier.fax, [
+        Validators.required,
+        Validators.pattern(/^[0-9]*$/),
+        Validators.minLength(this.charactersMinPhone),
+        Validators.maxLength(this.charactersMaxPhone)
+      ]),
+      'contact': new FormControl(this.supplier.contact, [
+        Validators.required,
+        Validators.pattern(/^[0-9]*$/),
+        Validators.minLength(this.charactersMinPhone),
+        Validators.maxLength(this.charactersMaxPhone)
+      ]),
+      'alias': new FormControl(this.supplier.alias, [
+        Validators.required,
+        Validators.pattern(/^[0-9]*$/),
+        Validators.minLength(this.charactersMinPhone),
+        Validators.maxLength(this.charactersMaxPhone)
+      ]),
+      'active': new FormControl(this.supplier.active, [
+        Validators.required,
+        Validators.pattern(/^[0-9]*$/),
+        Validators.minLength(this.charactersMinPhone),
+        Validators.maxLength(this.charactersMaxPhone)
+      ]),
     });
+  }
+
+  get code() {
+    return this.suppliersForm.get('code');
   }
 
   get name() {
@@ -72,6 +106,22 @@ export class SuppliersFormComponent implements OnInit {
     return this.suppliersForm.get('phone');
   }
 
+  get fax() {
+    return this.suppliersForm.get('fax');
+  }
+
+  get contact() {
+    return this.suppliersForm.get('contact');
+  }
+
+  get alias() {
+    return this.suppliersForm.get('contact');
+  }
+
+  get active() {
+    return this.suppliersForm.get('active');
+  }
+
   add() {
     this.supplierServ.addSupplier(this.fillSupplier())
       .subscribe(result => {
@@ -83,9 +133,14 @@ export class SuppliersFormComponent implements OnInit {
 
     const formModel = this.suppliersForm.value;
     const supplier: Supplier = {
-      username: formModel.username,
+      code: formModel.code,
+      name: formModel.name,
       email: formModel.email,
-      phone: formModel.phone
+      phone: formModel.phone,
+      fax: formModel.fax,
+      contact: formModel.contact,
+      alias: formModel.alias,
+      active: formModel.active
     } as Supplier;
 
     console.log(supplier);

@@ -18,6 +18,22 @@
         <div class="text-danger small" *ngIf="name.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
       </div>
     </div>
+    <!--CODE-->
+    <div class="form-group col-sm-6">
+      <label for="codeId">Código</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="codeId"
+             placeholder="Código"
+             [ngClass]="{'is-invalid': code.invalid && (code.dirty || code.touched)}"
+             formControlName="code">
+      <div *ngIf="code.invalid && (code.dirty || code.touched)">
+        <div class="text-danger small" *ngIf="code.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="code.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="code.errors.minlength">Mínimo {{charactersMinName}} caracteres.</div>
+        <div class="text-danger small" *ngIf="code.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
+      </div>
+    </div>
     <!--EMAIL-->
     <div class="form-group col-sm-6">
       <label for="emailId">Email</label>
@@ -48,6 +64,54 @@
         <div class="text-danger small" *ngIf="phone.errors.pattern">Sólo números.</div>
         <div class="text-danger small" *ngIf="phone.errors.minlength">Mínimo {{charactersMinPhone}} dígitos.</div>
         <div class="text-danger small" *ngIf="phone.errors.maxlength">Máximo {{charactersMaxPhone}} dígitos.</div>
+      </div>
+    </div>
+    <!--FAX-->
+    <div class="form-group col-sm-6">
+      <label for="faxId">Fax</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="faxId"
+             placeholder="Fax"
+             [ngClass]="{'is-invalid': fax.invalid && (fax.dirty || fax.touched)}"
+             formControlName="fax">
+      <div *ngIf="fax.invalid && (fax.dirty || fax.touched)">
+        <div class="text-danger small" *ngIf="fax.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="fax.errors.pattern">Sólo números.</div>
+        <div class="text-danger small" *ngIf="fax.errors.minlength">Mínimo {{charactersMinPhone}} dígitos.</div>
+        <div class="text-danger small" *ngIf="fax.errors.maxlength">Máximo {{charactersMaxPhone}} dígitos.</div>
+      </div>
+    </div>
+    <!--CONTACTO-->
+    <div class="form-group col-sm-6">
+      <label for="contactId">Contacto</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="contactId"
+             placeholder="Contacto"
+             [ngClass]="{'is-invalid': contact.invalid && (contact.dirty || contact.touched)}"
+             formControlName="contact">
+      <div *ngIf="contact.invalid && (contact.dirty || contact.touched)">
+        <div class="text-danger small" *ngIf="contact.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="contact.errors.pattern">Sólo números.</div>
+        <div class="text-danger small" *ngIf="contact.errors.minlength">Mínimo {{charactersMinPhone}} dígitos.</div>
+        <div class="text-danger small" *ngIf="contact.errors.maxlength">Máximo {{charactersMaxPhone}} dígitos.</div>
+      </div>
+    </div>
+    <!--Alias-->
+    <div class="form-group col-sm-6">
+      <label for="aliasId">Alias</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="aliasId"
+             placeholder="Alias"
+             [ngClass]="{'is-invalid': alias.invalid && (alias.dirty || alias.touched)}"
+             formControlName="alias">
+      <div *ngIf="alias.invalid && (alias.dirty || alias.touched)">
+        <div class="text-danger small" *ngIf="alias.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="alias.errors.pattern">Sólo números.</div>
+        <div class="text-danger small" *ngIf="alias.errors.minlength">Mínimo {{charactersMinPhone}} dígitos.</div>
+        <div class="text-danger small" *ngIf="alias.errors.maxlength">Máximo {{charactersMaxPhone}} dígitos.</div>
       </div>
     </div>
   </div>
