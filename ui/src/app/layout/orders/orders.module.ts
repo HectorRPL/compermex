@@ -17,6 +17,7 @@ import {FiscalDataMoralPersonFormComponent} from './components/fiscal-data-moral
 import {OrderFormComponent} from './components/order-form/order-form.component';
 import {OrdersSearchComponent} from './components/orders-search/orders-search.component';
 import {SuppliersSearchCopyComponent} from './components/suppliers-search-copy/suppliers-search-copy.component';
+import { ClientsSearchCopyComponent } from './components/clients-search-copy/clients-search-copy.component';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import {SuppliersSearchCopyComponent} from './components/suppliers-search-copy/s
     ListOrdersComponent,
     AddOrderComponent,
     OrdersSearchComponent,
-    SuppliersSearchCopyComponent
+    SuppliersSearchCopyComponent,
+    ClientsSearchCopyComponent
   ]
 })
 export class OrdersModule {

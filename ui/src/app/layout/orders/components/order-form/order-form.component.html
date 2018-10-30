@@ -10,10 +10,6 @@
         <div class="card-body">
           <!--[end]-->
           <div class="row">
-            <!-- AUTOCOMPLETE: Buscar compañia-->
-            <div class="form-group col-sm-6">
-              <app-company-search></app-company-search>
-            </div>
             <!-- FECHA ORDEN-->
             <div class="form-group col-sm-6">
               <label for="orderDateId">Fecha Orden</label>
@@ -69,11 +65,13 @@
                      disabled="true"
                      id="condPagoId">
             </div>
+            <!-- AUTOCOMPLETE CLIENTES-->
             <div class="form-group col-sm-6">
-              <!--
-              TODO
-              <app-clients-search></app-clients-search>
-              -->
+              <app-clients-search-copy></app-clients-search-copy>
+            </div>
+            <!-- AUTOCOMPLETE: Buscar compañia-->
+            <div class="form-group col-sm-6">
+              <app-company-search></app-company-search>
             </div>
             <!--PEDIDO CTE / CUSTOMER ORDER -->
             <div class="form-group col-sm-6">

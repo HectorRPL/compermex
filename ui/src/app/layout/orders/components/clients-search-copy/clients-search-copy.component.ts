@@ -1,15 +1,15 @@
 import {Component} from '@angular/core';
 import {ClientService} from '../../../../services/client/client.service';
-import {Observable, of} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {Company} from '../../../../models/company/company.model';
+import {Observable, of} from 'rxjs/index';
 
 @Component({
-  selector: 'app-clients-search',
-  templateUrl: './clients-search.component.html',
-  styleUrls: ['./clients-search.component.css']
+  selector: 'app-clients-search-copy',
+  templateUrl: './clients-search-copy.component.html',
+  styleUrls: ['./clients-search-copy.component.css']
 })
-export class ClientsSearchComponent {
+export class ClientsSearchCopyComponent {
 
   model: any;
   searching = false;
