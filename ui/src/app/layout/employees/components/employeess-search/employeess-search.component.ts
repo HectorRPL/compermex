@@ -27,7 +27,7 @@ export class EmployeessSearchComponent {
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-        this.employeesService.getEmployees().pipe(
+        this.employeesService.searchEmployees(term).pipe(
           tap(() => this.searchFailed = false),
           catchError(() => {
             this.searchFailed = true;
@@ -37,8 +37,8 @@ export class EmployeessSearchComponent {
       tap(() => this.searching = false)
     );
 
-  resFormatter = (x: Employee) => x.names;
-  inFormatter = (result: Employee) => result.names;
+  resFormatter = (x: Employee) => x.fullName;
+  inFormatter = (result: Employee) => result.fullName;
 
   selectedItem($event) {
     console.log($event);
