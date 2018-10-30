@@ -65,7 +65,7 @@ export class SignInFormComponent implements OnInit {
       next: (result) => {
         console.log('RESULT', result);
         this.userService.renewUser();
-        this.router.navigateByUrl('/layout/orders/create');
+        this.router.navigateByUrl('/layout/orders/add');
       },
       error: (err: any) => {
         console.log('Error', err);
