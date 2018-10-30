@@ -46,6 +46,7 @@ CREACION DE UN MODULO: MATERIALES
 `ng generate component layout/orders/views/addSupplier`
 `ng generate component layout/orders/components/ordersForm`
 `ng generate component layout/orders/components/ordersSearch`
+`ng generate component layout/orders/components/suppliersSearchCopy`
 `ng generate class layout/orders/models/employee -type model`
 
 ## Build
