@@ -68,6 +68,7 @@ CREACION DE UN MODULO: MATERIALS
 `ng generate component layout/materials/views/listMaterials`
 `ng generate component layout/materials/components/materialsForm`
 `ng generate component layout/materials/components/materialsSearch`
+`ng generate component layout/materials/components/listMaterialSelected`
 `ng generate class layout/materials/models/material -type model`
 
 ## Build

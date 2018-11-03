@@ -1,46 +1,36 @@
-<div class="card">
-  <div class="card-header">
-    Materiales
-  </div>
-  <div class="card-body">
-
-    <!--
-    <div class="form-group col-sm-12">
-      <label for="materialId">Timpo material</label>
-      <select class="form-control custom-select custom-select-sm"
-              id="materialId"
-              [ngClass]="{'is-invalid': material.invalid && (material.dirty || material.touched)}"
-              formControlName="material">
-        <option value="">Selecciona</option>
-        <option value="1">Color</option>
-        <option value="2">Resistencia</option>
-        <option value="3">Tipo</option>
-      </select>
-      <div *ngIf="material.invalid && (material.dirty || material.touched)">
-        <div class="text-danger small" *ngIf="material.errors.required">Requerido.</div>
+<form novalidate
+      autocomplete="off"
+      [formGroup]="materialsForm">
+  <div class="form row">
+    <!--PANEL ARTÍCULO-->
+    <div class="col-sm-12 mb-3">
+      <div class="card">
+        <div class="card-header">Artículo</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-sm-12">
+              <label for="descriptionId">Tipo de material</label>
+              <select class="form-control custom-select custom-select-sm"
+                      id="descriptionId"
+                      [ngClass]="{'is-invalid': description.invalid && (description.dirty || description.touched)}"
+                      (ngModelChange)="activarVista($event)"
+                      formControlName="description">
+                <option value="color">Color</option>
+                <option value="strengths">Resistencia</option>
+                <option value="type">Tipo</option>
+              </select>
+              <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                <div class="text-danger small" *ngIf="description.errors.required">Requerido.</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <app-materials-search></app-mate  rials-search>
-    <div class="table-responsive">
-      <table class="table table-sm table-hover">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let material of materials$ | async">
-          <th scope="row">1</th>
-          <td scope="row">{{material}}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    -->
   </div>
-</div>
+</form>
 
+<router-outlet></router-outlet>
 
 
 
