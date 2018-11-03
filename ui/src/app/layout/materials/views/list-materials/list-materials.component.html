@@ -3,7 +3,24 @@
     Materiales
   </div>
   <div class="card-body">
-    <app-materials-search></app-materials-search>
+
+    <!--
+    <div class="form-group col-sm-12">
+      <label for="materialId">Timpo material</label>
+      <select class="form-control custom-select custom-select-sm"
+              id="materialId"
+              [ngClass]="{'is-invalid': material.invalid && (material.dirty || material.touched)}"
+              formControlName="material">
+        <option value="">Selecciona</option>
+        <option value="1">Color</option>
+        <option value="2">Resistencia</option>
+        <option value="3">Tipo</option>
+      </select>
+      <div *ngIf="material.invalid && (material.dirty || material.touched)">
+        <div class="text-danger small" *ngIf="material.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <app-materials-search></app-mate  rials-search>
     <div class="table-responsive">
       <table class="table table-sm table-hover">
         <thead>
@@ -20,6 +37,7 @@
         </tbody>
       </table>
     </div>
+    -->
   </div>
 </div>
 

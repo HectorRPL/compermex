@@ -10,6 +10,8 @@ import {MaterialsService} from '../../service/materials.service';
 })
 export class ListMaterialsComponent {
 
+  public material: Material;
+
   materials$: Observable<Material[]>;
 
   constructor(private materialsService: MaterialsService) {
