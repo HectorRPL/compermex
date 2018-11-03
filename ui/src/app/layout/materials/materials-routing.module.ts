@@ -4,6 +4,7 @@ import {MaterialsComponent} from './components/materials/materials.component';
 import {AddMaterialComponent} from './views/add-material/add-material.component';
 import {ListMaterialsComponent} from './views/list-materials/list-materials.component';
 import {ListMaterialSelectedComponent} from './components/list-material-selected/list-material-selected.component';
+import {MaterialsFormComponent} from './components/materials-form/materials-form.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,13 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'add', component: AddMaterialComponent
+        path: 'add',
+        component: AddMaterialComponent,
+        children: [
+          {path: 'color', component: MaterialsFormComponent},
+          {path: 'strengths', component: MaterialsFormComponent},
+          {path: 'type', component: MaterialsFormComponent},
+        ]
       }
     ]
   }

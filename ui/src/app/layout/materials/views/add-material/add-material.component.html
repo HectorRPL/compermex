@@ -1,8 +1,34 @@
-<div class="card">
-  <div class="card-header">
-    Agregar un proveedor
+<form novalidate
+      autocomplete="off"
+      [formGroup]="materialsForm">
+  <div class="form row">
+    <!--PANEL ARTÍCULO-->
+    <div class="col-sm-12 mb-3">
+      <div class="card">
+        <div class="card-header">Agregar un material</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-sm-12">
+              <label for="descriptionId">Tipo de material</label>
+              <select class="form-control custom-select custom-select-sm"
+                      id="descriptionId"
+                      [ngClass]="{'is-invalid': description.invalid && (description.dirty || description.touched)}"
+                      (ngModelChange)="activarVista($event)"
+                      formControlName="description">
+                <option value="color">Color</option>
+                <option value="strengths">Resistencia</option>
+                <option value="type">Tipo</option>
+              </select>
+              <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                <div class="text-danger small" *ngIf="description.errors.required">Requerido.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 mb-3">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <div class="card-body">
-    <app-materials-form></app-materials-form>
-  </div>
-</div>
+</form>
