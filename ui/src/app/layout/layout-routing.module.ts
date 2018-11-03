@@ -31,6 +31,11 @@ const routes: Routes = [
         path: 'employees',
         loadChildren: './employees/employees.module#EmployeesModule',
         data: {preload: false}
+      },
+      {
+        path: 'cardboards',
+        loadChildren: './cardboards/cardboards.module#CardboardsModule',
+        data: {preload: false}
       }
     ]
   }
