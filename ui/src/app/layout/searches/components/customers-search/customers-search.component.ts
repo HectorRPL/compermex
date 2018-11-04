@@ -1,21 +1,21 @@
 import {Component} from '@angular/core';
-import {ClientService} from '../../../../services/client/client.service';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {Company} from '../../../../models/company/company.model';
 import {Observable, of} from 'rxjs/index';
+import {CustomersService} from '../../../customers/service/customers.service';
 
 @Component({
-  selector: 'app-clients-search-copy',
-  templateUrl: './clients-search-copy.component.html',
-  styleUrls: ['./clients-search-copy.component.css']
+  selector: 'app-customers-search',
+  templateUrl: './customers-search.component.html',
+  styleUrls: ['./customers-search.component.css']
 })
-export class ClientsSearchCopyComponent {
+export class CustomersSearchComponent {
 
   model: any;
   searching = false;
   searchFailed = false;
 
-  constructor(private clientService: ClientService) {
+  constructor(private customersService: CustomersService) {
   }
 
   search = (text$: Observable<string>) =>
@@ -24,7 +24,7 @@ export class ClientsSearchCopyComponent {
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-        this.clientService.getClients().pipe(
+        this.customersService.getCustomers().pipe(
           tap(() => this.searchFailed = false),
           catchError(() => {
             this.searchFailed = true;

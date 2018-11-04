@@ -7,7 +7,7 @@ import {SuppliersComponent} from './components/suppliers/suppliers.component';
 import {ListSuppliersComponent} from './views/list-suppliers/list-suppliers.component';
 import {AddSupplierComponent} from './views/add-supplier/add-supplier.component';
 import {SuppliersFormComponent} from './components/suppliers-form/suppliers-form.component';
-import {SuppliersSearchComponent} from './components/suppliers-search/suppliers-search.component';
+import {SearchesModule} from "../searches/searches.module";
 
 @NgModule({
   imports: [
@@ -15,14 +15,14 @@ import {SuppliersSearchComponent} from './components/suppliers-search/suppliers-
     CommonModule,
     SuppliersRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SearchesModule
   ],
   declarations: [
     SuppliersComponent,
     ListSuppliersComponent,
     AddSupplierComponent,
     SuppliersFormComponent,
-    SuppliersSearchComponent
   ]
 })
 export class SuppliersModule {

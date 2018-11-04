@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {OrdersRoutingModule} from './orders-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CompanySearchComponent} from '../components/searches/company-search/company-search.component';
 import {CardboardSearchComponent} from '../materials/components/cardboard-search/cardboard-search.component';
 import {ListOrdersComponent} from './views/list-orders/list-orders.component';
 import {AddOrderComponent} from './views/add-order/add-order.component';
@@ -14,8 +13,7 @@ import {FiscalDataPhysicalPersonFormComponent} from './components/fiscal-data-ph
 import {FiscalDataMoralPersonFormComponent} from './components/fiscal-data-moral-person-form/fiscal-data-moral-person-form.component';
 import {OrderFormComponent} from './components/order-form/order-form.component';
 import {OrdersSearchComponent} from './components/orders-search/orders-search.component';
-import {SuppliersSearchCopyComponent} from './components/suppliers-search-copy/suppliers-search-copy.component';
-import {ClientsSearchCopyComponent} from './components/clients-search-copy/clients-search-copy.component';
+import {SearchesModule} from '../searches/searches.module';
 
 @NgModule({
   imports: [
@@ -23,7 +21,8 @@ import {ClientsSearchCopyComponent} from './components/clients-search-copy/clien
     OrdersRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SearchesModule,
   ],
   declarations: [
     OrdersComponent,
@@ -32,13 +31,10 @@ import {ClientsSearchCopyComponent} from './components/clients-search-copy/clien
     FiscalDataPhysicalPersonFormComponent,
     FiscalDataMoralPersonFormComponent,
     OrderFormComponent,
-    CompanySearchComponent,
     CardboardSearchComponent,
     ListOrdersComponent,
     AddOrderComponent,
     OrdersSearchComponent,
-    SuppliersSearchCopyComponent,
-    ClientsSearchCopyComponent
   ]
 })
 export class OrdersModule {

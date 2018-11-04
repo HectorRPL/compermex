@@ -10,7 +10,8 @@ import {ListMaterialsComponent} from './views/list-materials/list-materials.comp
 import {MaterialsSearchComponent} from './components/materials-search/materials-search.component';
 import {ListMaterialSelectedComponent} from './components/list-material-selected/list-material-selected.component';
 import {MaterialsMastersMasterFormComponent} from './components/materials-master-form/materials-master-form.component';
-import { AddMaterialMasterComponent } from './views/add-material-master/add-material-master.component';
+import {AddMaterialMasterComponent} from './views/add-material-master/add-material-master.component';
+import {SearchesModule} from '../searches/searches.module';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { AddMaterialMasterComponent } from './views/add-material-master/add-mate
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialsRoutingModule
+    MaterialsRoutingModule,
+    SearchesModule
   ],
   declarations: [
     MaterialsComponent,

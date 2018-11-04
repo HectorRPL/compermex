@@ -10,17 +10,7 @@
           <div class="row">
             <!--CIA / COMPAÑÍA-->
             <div class="form-group col-sm-3">
-              <label for="ciaId">Compañía</label>
-              <select class="form-control custom-select custom-select-sm"
-                      id="ciaId"
-                      [ngClass]="{'is-invalid': cia.invalid && (cia.dirty || cia.touched)}"
-                      formControlName="cia">
-                <option value="1">ejemplo 1</option>
-                <option value="2">ejemplo 2</option>
-              </select>
-              <div *ngIf="cia.invalid && (cia.dirty || cia.touched)">
-                <div class="text-danger small" *ngIf="cia.errors.required">Requerido.</div>
-              </div>
+              <app-company-search></app-company-search>
             </div>
             <!--CLAVE / KEY-->
             <div class="form-group col-sm-3">

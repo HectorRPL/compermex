@@ -4,10 +4,10 @@ import {CommonModule} from '@angular/common';
 import {CustomersComponent} from './components/customers/customers.component';
 import {AddCustomerComponent} from './views/add-customer/add-customer.component';
 import {CustomersFormComponent} from './components/customers-form/customers-form.component';
-import {CustomersSearchComponent} from './components/customers-search/customers-search.component';
 import {ListCustomersComponent} from './views/list-customers/list-customers.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CustomersRoutingModule} from './customers-routing.module';
+import {SearchesModule} from "../searches/searches.module";
 
 
 @NgModule({
@@ -16,13 +16,13 @@ import {CustomersRoutingModule} from './customers-routing.module';
     NgbModule,
     CustomersRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SearchesModule
   ],
   declarations: [
     CustomersComponent,
     AddCustomerComponent,
     CustomersFormComponent,
-    CustomersSearchComponent,
     ListCustomersComponent
   ]
 })

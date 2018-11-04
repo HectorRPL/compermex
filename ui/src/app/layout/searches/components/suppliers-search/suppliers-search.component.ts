@@ -1,21 +1,24 @@
 import {Component} from '@angular/core';
-import {ClientService} from '../../../../services/client/client.service';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
-import {Company} from '../../../../models/company/company.model';
+import {of} from 'rxjs/observable/of';
+import {SupplierService} from '../../../suppliers/service/supplier.service';
+import {Supplier} from '../../../suppliers/models/supplier/supplier.model';
+
 
 @Component({
-  selector: 'app-clients-search',
-  templateUrl: './clients-search.component.html',
-  styleUrls: ['./clients-search.component.css']
+  selector: 'app-suppliers-search',
+  templateUrl: './suppliers-search.component.html',
+  styleUrls: ['./suppliers-search.component.css']
 })
-export class ClientsSearchComponent {
+export class SuppliersSearchComponent {
 
   model: any;
   searching = false;
   searchFailed = false;
 
-  constructor(private clientService: ClientService) {
+  constructor(private supplierServ: SupplierService) {
+
   }
 
   search = (text$: Observable<string>) =>
@@ -24,7 +27,7 @@ export class ClientsSearchComponent {
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-        this.clientService.getClients().pipe(
+        this.supplierServ.searchSuppliers(term.toUpperCase()).pipe(
           tap(() => this.searchFailed = false),
           catchError(() => {
             this.searchFailed = true;
@@ -34,8 +37,8 @@ export class ClientsSearchComponent {
       tap(() => this.searching = false)
     );
 
-  resFormatter = (x: Company) => x.name;
-  inFormatter = (result: Company) => result.name;
+  resFormatter = (x: Supplier) => x.name;
+  inFormatter = (result: Supplier) => result.name;
 
   selectedItem($event) {
     console.log($event);
