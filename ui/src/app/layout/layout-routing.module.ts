@@ -36,6 +36,11 @@ const routes: Routes = [
         path: 'cardboards',
         loadChildren: './cardboards/cardboards.module#CardboardsModule',
         data: {preload: false}
+      },
+      {
+        path: 'reception',
+        loadChildren: './reception/reception.module#ReceptionModule',
+        data: {preload: false}
       }
     ]
   }

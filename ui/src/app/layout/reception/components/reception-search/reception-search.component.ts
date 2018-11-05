@@ -1,22 +1,22 @@
 import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/index';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
-import {OrdersService} from '../../service/orders.service';
-import {Order} from '../../../../models/order';
+import {Reception} from "../../models/reception.model";
+import {ReceptionService} from "../../service/reception.service";
 
 @Component({
-  selector: 'app-orders-search',
-  templateUrl: './orders-search.component.html',
-  styleUrls: ['./orders-search.component.css']
+  selector: 'app-reception-search',
+  templateUrl: './reception-search.component.html',
+  styleUrls: ['./reception-search.component.css']
 })
-export class OrdersSearchComponent {
+export class ReceptionSearchComponent {
 
   model: any;
   searching = false;
   searchFailed = false;
 
-  constructor(private ordersService: OrdersService) { }
+  constructor(private receptionService: ReceptionService) { }
 
   search = (text$: Observable<string>) =>
     text$.pipe(
@@ -24,7 +24,7 @@ export class OrdersSearchComponent {
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-        this.ordersService.getOrders().pipe(
+        this.receptionService.getReceptions().pipe(
           tap(() => this.searchFailed = false),
           catchError(() => {
             this.searchFailed = true;
@@ -34,8 +34,8 @@ export class OrdersSearchComponent {
       tap(() => this.searching = false)
     );
 
-  resFormatter = (x: Order) => x;
-  inFormatter = (result: Order) => result;
+  resFormatter = (x: Reception) => x;
+  inFormatter = (result: Reception) => result;
 
   selectedItem($event) {
     console.log($event);
