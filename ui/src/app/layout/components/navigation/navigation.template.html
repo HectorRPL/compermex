@@ -113,11 +113,21 @@
       </li>
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-file-invoice-dollar"></i>
-          <span class="nav-label">Producción</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="nav-label">Producción</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>
         <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
           <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
             <a [routerLink]="['/layout/production/list']">Lista</a>
+          </li>
+        </ul>
+      </li>
+      <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+        <a href="#"><i class="fas fa-file-invoice-dollar"></i>
+          <span class="nav-label">Calidad</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span> </a>
+        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/quality/list']">Lista</a>
           </li>
         </ul>
       </li>

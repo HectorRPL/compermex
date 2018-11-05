@@ -46,6 +46,11 @@ const routes: Routes = [
         path: 'production',
         loadChildren: './production/production.module#ProductionModule',
         data: {preload: false}
+      },
+      {
+        path: 'quality',
+        loadChildren: './quality/quality.module#QualityModule',
+        data: {preload: false}
       }
     ]
   }

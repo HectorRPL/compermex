@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    Calidad
+  </div>
+  <div class="card-body">
+    <app-quality-search></app-quality-search>
+    <div class="table-responsive">
+      <table class="table table-sm table-hover">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Títulos 1</th>
+          <th scope="col">Títulos 2</th>
+          <th scope="col">Títulos 3</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let quality of qualities$ | async">
+          <th scope="row">1</th>
+          <td>{{quality._id.$oid}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
