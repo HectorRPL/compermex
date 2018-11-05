@@ -72,7 +72,13 @@ CREACION DE UN MODULO: MATERIALS
 `ng generate component layout/materials/components/listMaterialSelected`
 `ng generate class layout/materials/models/material -type model`
 
-
+CREACION DEL MODULO: producción
+`ng generate module layout/production`
+`ng generate service layout/production/service/production`
+`ng generate component layout/production/components/production`
+`ng generate component layout/production/views/listProduction`
+`ng generate component layout/production/components/productionSearch`
+`ng generate class layout/production/models/production -type model`
 
 
 ## Build

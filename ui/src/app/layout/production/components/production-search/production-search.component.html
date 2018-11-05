@@ -1,0 +1,24 @@
+<div class="form-group">
+  <label for="searchOrderId">Buscar orden</label>
+  <div class="input-group mb-3">
+    <input type="text"
+           id="searchOrderId"
+           class="form-control form-control-sm"
+           placeholder="Buscar orden"
+           [class.is-invalid]="searchFailed"
+           [(ngModel)]="model"
+           [ngbTypeahead]="search"
+           [resultFormatter]="resFormatter"
+           [inputFormatter]="inFormatter"
+           (selectItem)="selectedItem($event)">
+    <div class="input-group-append">
+      <button type="button"
+              class="btn btn-outline-secondary btn-sm"
+              [routerLink]="['/layout/orders/add']">
+        <i class="fas fa-plus" ngbTooltip="Añadir orden"></i>
+      </button>
+    </div>
+  </div>
+  <div class="small" *ngIf="searching">Buscando...</div>
+  <div class="text-danger small" *ngIf="searchFailed">No encontrado.</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    Producción
+  </div>
+  <div class="card-body">
+    <app-production-search></app-production-search>
+    <div class="table-responsive">
+      <table class="table table-sm table-hover">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Títulos 1</th>
+          <th scope="col">Títulos 2</th>
+          <th scope="col">Títulos 3</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let production of productions$ | async">
+          <th scope="row">1</th>
+          <td>{{production._id.$oid}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

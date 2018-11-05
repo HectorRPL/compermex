@@ -41,6 +41,11 @@ const routes: Routes = [
         path: 'reception',
         loadChildren: './reception/reception.module#ReceptionModule',
         data: {preload: false}
+      },
+      {
+        path: 'production',
+        loadChildren: './production/production.module#ProductionModule',
+        data: {preload: false}
       }
     ]
   }
