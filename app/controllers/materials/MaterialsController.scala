@@ -2,11 +2,11 @@ package controllers.materials
 
 import javax.inject.Inject
 import myservices.materials.MaterialsService
-import play.api.i18n.I18nSupport
+import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
 
-import scala.concurrent.ExecutionContext
+import scala.concurrent.{ExecutionContext, Future}
 
 class MaterialsController @Inject()(
                                      cc: ControllerComponents,
@@ -32,6 +32,17 @@ class MaterialsController @Inject()(
       Ok(Json.toJson(strengths))
     }
   }
+
+  /*def save() = Action.async() {implicit request =>
+    request.body.validate[Address].map { data =>
+      addressesService.save(data).map { result =>
+        Ok(Json.toJson(result))
+      }
+    }.recoverTotal {
+      case error =>
+        Future.successful(BadRequest(Json.obj("message" -> Messages("invalid.data"))))
+    }
+  }*/
 
 }
 

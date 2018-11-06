@@ -30,6 +30,7 @@ GET     /materials/colors       controllers.materials.MaterialsController.listCo
 GET     /materials/types        controllers.materials.MaterialsController.listTypes
 GET     /materials/strengths    controllers.materials.MaterialsController.listStrengths
 
+
 #ROUTES FOR AREAS
 GET     /api/areas              controllers.areas.AreasController.list
 

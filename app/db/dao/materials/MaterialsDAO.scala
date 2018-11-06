@@ -1,6 +1,6 @@
 package db.dao.materials
 
-import models.material.{MaterialColor, MaterialStrength, MaterialType}
+import models.material.{MaterialColor, MaterialStrengths, MaterialType}
 
 import scala.concurrent.Future
 
@@ -10,6 +10,6 @@ trait MaterialsDAO {
 
   def allCollors(): Future[Seq[MaterialColor]]
 
-  def allStrengths(): Future[Seq[MaterialStrength]]
+  def allStrengths(): Future[Seq[MaterialStrengths]]
 
 }

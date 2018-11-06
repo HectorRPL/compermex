@@ -1,12 +1,12 @@
 package myservices.materials
 
-import models.material.{MaterialColor, MaterialStrength, MaterialType}
+import models.material.{MaterialColor, MaterialStrengths, MaterialType}
 
 import scala.concurrent.Future
 
 trait MaterialsService {
 
-  def getAllStrengths(): Future[Seq[MaterialStrength]]
+  def getAllStrengths(): Future[Seq[MaterialStrengths]]
 
   def getAllColor(): Future[Seq[MaterialColor]]
 

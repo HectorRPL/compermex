@@ -1,7 +1,7 @@
 package db.dao.materials
 
 import javax.inject.Inject
-import models.material.{MaterialColor, MaterialStrength, MaterialType}
+import models.material.{MaterialColor, MaterialStrengths, MaterialType, Paperboard}
 import play.api.libs.json.Json
 import play.modules.reactivemongo.ReactiveMongoApi
 import reactivemongo.api.{Cursor, ReadPreference}
@@ -39,11 +39,11 @@ class MaterialsDAOImpl @Inject()(
     )
   }
 
-  def allStrengths(): Future[Seq[MaterialStrength]] = {
+  def allStrengths(): Future[Seq[MaterialStrengths]] = {
     val query = Json.obj()
     materStrength.flatMap(_.find(query)
-      .cursor[MaterialStrength](ReadPreference.primary)
-      .collect[Seq](10, Cursor.FailOnError[Seq[MaterialStrength]]())
+      .cursor[MaterialStrengths](ReadPreference.primary)
+      .collect[Seq](10, Cursor.FailOnError[Seq[MaterialStrengths]]())
     )
   }
 }
