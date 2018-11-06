@@ -30,6 +30,17 @@ GET     /materials/colors       controllers.materials.MaterialsController.listCo
 GET     /materials/types        controllers.materials.MaterialsController.listTypes
 GET     /materials/strengths    controllers.materials.MaterialsController.listStrengths
 
+# ROUTES FOR CLIENTS
+GET     /clients                controllers.clients.ClientsController.list
+POST    /add/client             controllers.clients.ClientsController.save
+GET    /clients/search/:name    controllers.clients.ClientsController.search(name: String)
+
+# ROUTES FOR COMPANIES
+GET     /companies                controllers.companies.CompaniesController.list
+POST    /add/company             controllers.companies.CompaniesController.save
+GET    /companies/search/:name    controllers.companies.CompaniesController.search(name: String)
+
+
 
 #ROUTES FOR AREAS
 GET     /areas              controllers.areas.AreasController.list

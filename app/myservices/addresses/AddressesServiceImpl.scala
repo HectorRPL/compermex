@@ -3,7 +3,7 @@ import db.dao.addresses.AddressesDAO
 import javax.inject.Inject
 import models.Pagination
 import models.address.Address
-import play.api.libs.json.Json
+import play.api.libs.json.{JsObject, Json}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -12,10 +12,7 @@ class AddressesServiceImpl @Inject()(
                                       addressesDAO: AddressesDAO,
                                     )  extends AddressesService {
 
-  def getAll(): Future[Seq[Address]] = {
-    val pag = Pagination(50, 0)
-    val query = Json.obj()
-    val sort = Json.obj()
+  def getAll(query: JsObject, sort: JsObject, pag: Pagination): Future[Seq[Address]] = {
 
     addressesDAO.getList(query, sort, pag)
   }

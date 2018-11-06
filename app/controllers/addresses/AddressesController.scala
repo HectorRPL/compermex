@@ -1,6 +1,7 @@
 package controllers.addresses
 
 import javax.inject.Inject
+import models.Pagination
 import models.address.Address
 import myservices.addresses.AddressesService
 import play.api.i18n.{I18nSupport, Messages}
@@ -17,7 +18,10 @@ class AddressesController @Inject()(
     with I18nSupport {
 
   def list() = Action.async {
-    addressesService.getAll().map { adddress =>
+    val pag = Pagination(50, 0)
+    val query = Json.obj()
+    val sort = Json.obj()
+    addressesService.getAll(query, sort, pag).map { adddress =>
       Ok(Json.toJson(adddress))
     }
 
