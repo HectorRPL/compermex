@@ -18,24 +18,24 @@ export class ProductionService {
   }
 
   searchProduction(name: String): Observable<Production[]> {
-    return this.http.get<Production[]>('api/productions')
+    return this.http.get<Production[]>('/productions/search/')
       .pipe(
-        catchError(this.handleError('search', []))
+        catchError(this.handleError('searchProductions', []))
       );
   }
 
   addProduction(order: Production): Observable<Production> {
     console.log('Dentro del servicio ', order);
-    return this.http.post<Production>('/productions/create', order)
+    return this.http.post<Production>('/add/production', order)
       .pipe(
         catchError(this.handleError('add', order))
       );
   }
 
   getProduction(): Observable<Production[]> {
-    return this.http.get<Production[]>('api/productions')
+    return this.http.get<Production[]>('/productions')
       .pipe(
-        catchError(this.handleError('getProduction', []))
+        catchError(this.handleError('getProductions', []))
       );
   }
 

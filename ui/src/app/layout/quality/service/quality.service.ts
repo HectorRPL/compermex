@@ -18,24 +18,23 @@ export class QualityService {
   }
 
   searchQuality(name: String): Observable<Quality[]> {
-    return this.http.get<Quality[]>('api/quality')
+    return this.http.get<Quality[]>('/qualities/search/')
       .pipe(
-        catchError(this.handleError('search', []))
+        catchError(this.handleError('searchQualities', []))
       );
   }
 
   addQuality(quality: Quality): Observable<Quality> {
-    console.log('Dentro del servicio ', quality);
-    return this.http.post<Quality>('/quality/create', quality)
+    return this.http.post<Quality>('/add/quality', quality)
       .pipe(
         catchError(this.handleError('add', quality))
       );
   }
 
   getQuality(): Observable<Quality[]> {
-    return this.http.get<Quality[]>('api/quality')
+    return this.http.get<Quality[]>('/qualities')
       .pipe(
-        catchError(this.handleError('getQuality', []))
+        catchError(this.handleError('getQualities', []))
       );
   }
 
