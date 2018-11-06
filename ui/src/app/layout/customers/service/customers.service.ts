@@ -25,7 +25,6 @@ export class CustomersService {
   }
 
   addCustomer(customer: Customer): Observable<Customer> {
-    console.log('Dentro del servicio ', customer);
     return this.http.post<Customer>('/add/customer', customer)
       .pipe(
         catchError(this.handleError('add', customer))
