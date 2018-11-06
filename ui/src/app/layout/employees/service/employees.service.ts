@@ -27,7 +27,7 @@ export class EmployeesService {
 
   addEmployee(employee: Employee): Observable<Employee> {
     console.log('Dentro del servicio ', employee);
-    return this.http.post<Employee>('/employees/create', employee)
+    return this.http.post<Employee>('/add/employe', employee)
       .pipe(
         catchError(this.handleError('add', employee))
       );
@@ -41,7 +41,7 @@ export class EmployeesService {
   }
 
   getAreas(): Observable<Area[]> {
-    return this.http.get<Area[]>('api/areas')
+    return this.http.get<Area[]>('/areas')
       .pipe(
         catchError(this.handleError('getAreas', []))
       );

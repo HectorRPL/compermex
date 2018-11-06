@@ -26,7 +26,7 @@ export class MaterialsService {
 
   addMaterial(material: Material): Observable<Material> {
     console.log('Dentro del servicio ', material);
-    return this.http.post<Material>('/materials/create', material)
+    return this.http.post<Material>('/add/material', material)
       .pipe(
         catchError(this.handleError('add', material))
       );

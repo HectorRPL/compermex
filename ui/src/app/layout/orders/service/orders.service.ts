@@ -18,7 +18,7 @@ export class OrdersService {
   }
 
   searchOrders(name: String): Observable<Order[]> {
-    return this.http.get<Order[]>('api/orders')
+    return this.http.get<Order[]>(`/orders/search/${name}`)
       .pipe(
         catchError(this.handleError('search', []))
       );
@@ -26,14 +26,14 @@ export class OrdersService {
 
   addOrder(order: Order): Observable<Order> {
     console.log('Dentro del servicio ', order);
-    return this.http.post<Order>('/orders/create', order)
+    return this.http.post<Order>('/add/order', order)
       .pipe(
         catchError(this.handleError('add', order))
       );
   }
 
   getOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>('api/orders')
+    return this.http.get<Order[]>('/orders')
       .pipe(
         catchError(this.handleError('getOrders', []))
       );
