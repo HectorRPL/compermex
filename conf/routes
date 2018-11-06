@@ -32,7 +32,7 @@ GET     /materials/strengths    controllers.materials.MaterialsController.listSt
 
 
 #ROUTES FOR AREAS
-GET     /api/areas              controllers.areas.AreasController.list
+GET     /areas              controllers.areas.AreasController.list
 
 #ROUTES FOR ZIPCODES
 GET     /zipCodes/:code         controllers.zipCodes.ZipCodesController.neighborhoods(code: String)

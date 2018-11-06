@@ -43,7 +43,7 @@ class EmployeesController @Inject()(
     val query = Json.obj(
       "fullName" -> Json.obj("$regex" -> name))
     val sort = Json.obj("fullName" -> -1)
-    val pag = Pagination(20, 1)
+    val pag = Pagination(20, 0)
 
     employeesService.getAll(query, sort, pag).map { employees =>
       Ok(Json.toJson(employees))

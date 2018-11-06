@@ -42,7 +42,7 @@ class SupplierController @Inject()(
     val query = Json.obj(
       "name" -> Json.obj("$regex" -> name))
     val sort = Json.obj("name" -> -1)
-    val pag = Pagination(20, 1)
+    val pag = Pagination(20, 0)
 
     suppliersServ.getAll(query, sort, pag).map { suppliers =>
       Ok(Json.toJson(suppliers))

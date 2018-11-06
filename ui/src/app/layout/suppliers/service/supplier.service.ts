@@ -26,7 +26,7 @@ export class SupplierService {
   addSupplier(supplier: Supplier): Observable<Supplier> {
     return this.http.post<Supplier>('/add/supplier', supplier)
       .pipe(
-        catchError(this.handleError('add', supplier))
+        catchError(this.handleError('addSupplier', supplier))
       );
   }
 

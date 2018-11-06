@@ -16,7 +16,7 @@ export class ListCustomersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.customers$ = this.customersService.searchCustomers('searchCustomers');
+    this.customers$ = this.customersService.getCustomers();
   }
 
 }
