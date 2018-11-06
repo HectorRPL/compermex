@@ -18,7 +18,7 @@ export class CustomersService {
   }
 
   searchCustomers(name: String): Observable<Customer[]> {
-    return this.http.get<Customer[]>('api/customers')
+    return this.http.get<Customer[]>(`/customers/search/${name}`)
       .pipe(
         catchError(this.handleError('search', []))
       );
@@ -26,14 +26,14 @@ export class CustomersService {
 
   addCustomer(customer: Customer): Observable<Customer> {
     console.log('Dentro del servicio ', customer);
-    return this.http.post<Customer>('/customers/create', customer)
+    return this.http.post<Customer>('/add/customer', customer)
       .pipe(
         catchError(this.handleError('add', customer))
       );
   }
 
   getCustomers(): Observable<Customer[]> {
-    return this.http.get<Customer[]>('api/customers')
+    return this.http.get<Customer[]>('/customers')
       .pipe(
         catchError(this.handleError('getCustomers', []))
       );
