@@ -29,6 +29,7 @@ GET    /employees/search/:name  controllers.employees.EmployeesController.search
 GET     /materials/colors       controllers.materials.MaterialsController.listColors
 GET     /materials/types        controllers.materials.MaterialsController.listTypes
 GET     /materials/strengths    controllers.materials.MaterialsController.listStrengths
+GET     /paperboards             controllers.materials.MaterialsController.paperboars
 
 # ROUTES FOR CLIENTS
 GET     /clients                controllers.clients.ClientsController.list

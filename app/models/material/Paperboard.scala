@@ -9,7 +9,7 @@ case class Paperboard(
                              _id: Option[BSONObjectID],
                              code: Int,
                              description: String,
-                             materialTypeId: BSONObjectID,
+                             materialTypeId: Option[BSONObjectID],
                              materialStrengthId: BSONObjectID,
                              materialColorId: BSONObjectID,
 
@@ -23,8 +23,8 @@ object Paperboard {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
         val code = (obj \ "code").as[Int]
-        val description = (obj \ "strength").as[String]
-        val materialTypeId = (obj \ "materialTypeId").as[BSONObjectID]
+        val description = (obj \ "description").as[String]
+        val materialTypeId = (obj \ "materialTypeId").asOpt[BSONObjectID]
         val materialStrengthId = (obj \ "materialColorId").as[BSONObjectID]
         val materialColorId = (obj \ "materialColorId").as[BSONObjectID]
 
@@ -41,13 +41,13 @@ object Paperboard {
   }
 
   implicit object PaperboardWriter extends OWrites[Paperboard] {
-    def writes(materialStrength: Paperboard): JsObject = Json.obj(
-      "_id" -> materialStrength._id,
-      "code" -> materialStrength.code,
-      "description" -> materialStrength.description,
-      "materialTypeId" -> materialStrength.materialTypeId,
-      "materialStrengthId" -> materialStrength.materialStrengthId,
-      "materialColorId" -> materialStrength.materialColorId
+    def writes(paperboard: Paperboard): JsObject = Json.obj(
+      "_id" -> paperboard._id,
+      "code" -> paperboard.code,
+      "description" -> paperboard.description,
+      "materialTypeId" -> paperboard.materialTypeId,
+      "materialStrengthId" -> paperboard.materialStrengthId,
+      "materialColorId" -> paperboard.materialColorId
     )
   }
 
