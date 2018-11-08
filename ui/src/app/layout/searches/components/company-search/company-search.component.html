@@ -1,17 +1,7 @@
-<label for="companySearchId">Buscar compañía:</label>
-<input id="companySearchId"
-       type="text"
-       class="form-control form-control-sm"
-       [class.is-invalid]="searchFailed1"
-       [(ngModel)]="model"
-       [ngbTypeahead]="search"
-       placeholder="Buscar compañía"
-       [resultFormatter]="resFormatter"
-       [inputFormatter]="inFormatter"
-       (selectItem)="selectedItem($event)"/>
-<span *ngIf="searching">Buscando...</span>
-<div class="invalid-feedback" *ngIf="searchFailed1">
-  No existe ninguna compañía con ese nombre.
-</div>
+<label for="companyId">Compañía</label>
+<select class="form-control custom-select custom-select-sm"
+        id="companyId">
+  <option *ngFor="let company of companies$ | async" value="">Selecciona</option>
+</select>
 
 
