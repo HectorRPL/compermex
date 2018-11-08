@@ -6,7 +6,6 @@ import reactivemongo.play.json._
 
 case class Address(
                     _id: Option[BSONObjectID],
-                    ownerId: Option[BSONObjectID],
                     street: String,
                     town: String,
                     state: String,
@@ -25,7 +24,6 @@ object Address {
     def reads(json: JsValue): JsResult[Address] = json match {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
-        val ownerId = (obj \ "ownerId").asOpt[BSONObjectID]
         val street = (obj \ "street").as[String]
         val town = (obj \ "town").as[String]
         val state = (obj \ "state").as[String]
@@ -36,7 +34,7 @@ object Address {
         val numInt = (obj \ "numExt").asOpt[String]
 
 
-        JsSuccess(Address(_id, ownerId, street, town, state,
+        JsSuccess(Address(_id, street, town, state,
           stateCode, colony, zipCode, numExt, numInt))
 
       } catch {
@@ -51,7 +49,6 @@ object Address {
   implicit object ZipCodesWriter extends OWrites[Address] {
     def writes(address: Address): JsObject = Json.obj(
       "_id" -> address._id,
-      "ownerId" -> address.ownerId,
       "street" -> address.street,
       "town" -> address.town,
       "state" -> address.state,

@@ -1,4 +1,4 @@
-package models.orders
+package models.sale
 
 import reactivemongo.bson.BSONObjectID
 
@@ -20,3 +20,6 @@ case class SaleOrder (
                      moneyCollect: Double,//Saldo por Cobrar
                      moneyCharged: Double// total cobrado
                      )
+object SaleOrder{
+
+}

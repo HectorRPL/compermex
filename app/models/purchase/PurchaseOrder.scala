@@ -1,12 +1,8 @@
-package models.orders
+package models.purchase
 
-import models.fiscalData.FiscalData
-import models.material.Paperboard
-import play.api.libs.json._
 import reactivemongo.bson.BSONObjectID
-import reactivemongo.play.json._
 
-case class BuyOrder (
+case class PurchaseOrder(
                       _id: BSONObjectID,
                       supplierId: BSONObjectID,
                       employeId: BSONObjectID,
@@ -25,7 +21,7 @@ case class BuyOrder (
                       creditDays: Int
                     )
 
-object BuyOrder {
+object PurchaseOrder {
 
   /*implicit object CompanyReaders extends Reads[BuyOrder] {
 

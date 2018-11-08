@@ -12,7 +12,7 @@ import reactivemongo.play.json.collection.JSONCollection
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class CompanyDAOImpl @Inject()(
+class CompaniesDAOImpl @Inject()(
                                 implicit ec: ExecutionContext,
                                 val reactiveMongoApi: ReactiveMongoApi
                               ) extends CompaniesDAO {
