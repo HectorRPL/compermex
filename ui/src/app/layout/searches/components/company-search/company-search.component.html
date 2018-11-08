@@ -1,7 +1,8 @@
 <label for="companyId">Compañía</label>
 <select class="form-control custom-select custom-select-sm"
         id="companyId">
-  <option *ngFor="let company of companies$ | async" value="">Selecciona</option>
+  <option value="">Selcciona</option>
+  <option *ngFor="let company of companies$|async" value="{{company.name}}">{{company.name}}</option>
 </select>
 
 

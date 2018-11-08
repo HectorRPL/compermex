@@ -15,12 +15,12 @@ export class CardboardService {
   constructor(public http: HttpClient,
               httpErrorHandler: HttpErrorHandlerService) {
 
-    this.handleError = httpErrorHandler.createHandleError('CompanyService');
+    this.handleError = httpErrorHandler.createHandleError('PaperboardService');
 
   }
 
   getCardboards(): Observable<Cardboard[]> {
-    return this.http.get<Cardboard[]>('api/cardboard')
+    return this.http.get<Cardboard[]>('/paperboards') // TODO => es paperboards no cardboards
       .pipe(
         catchError(this.handleError('getCardboards', []))
       );
