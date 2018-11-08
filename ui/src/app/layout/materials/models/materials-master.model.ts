@@ -1,27 +1,23 @@
+import {ObjectId} from '../../../models/object-id.model';
+import {BoxSize} from './box-size.model';
+
 export class MaterialsMaster {
   // PANEL ARTÍCULO
-  key: string;
-  ourKey: string;
-  type: number;
-  cia: number;
-  client: number;
-  businessName: string;
-  seller: string;
-  company: string;
+  code: string; // clave
+  description: string;
+  boxTypeId: ObjectId;
+  companyId: ObjectId;
+  customerId: ObjectId;
+  employeId: ObjectId; // Checar el autocomplete, en maestro de materiales
 
   // <!--PANEL MEDIDAS-->
-  long: number; // Largo
-  width: number; // Ancho
-  height: number; // Alto
-  slots: number; // Ranuras
+  boxSizeLarge?: BoxSize;
+  boxSizeSmall?: BoxSize;
 
-  // <!--PANEL ESPEFIFICACIONES DE MATERIAL-->
-  purchase: number;
-  sale: number;
-  sellerPrice: number;
-  maxPercentage: number;
-  minPercentage: number;
-  certificate: number;
-  flat: number;
+  // <!--PANEL ESPEFIFICACIONES...-->
+  paperboardId: ObjectId;
+  variationPositive: number;
+  variationNegative: number;
+  sellerPrice; number;
   observations: string;
 }
