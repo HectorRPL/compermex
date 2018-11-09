@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {CompanyService} from '../../../../services/company/company.service';
 import {Company} from '../../../../models/company/company.model';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
