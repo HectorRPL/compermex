@@ -1,8 +1,19 @@
-<label for="companyId">Compañía</label>
-<select class="form-control custom-select custom-select-sm"
-        id="companyId">
-  <option value="">Selcciona</option>
-  <option *ngFor="let company of companies$|async" value="{{company.name}}">{{company.name}}</option>
-</select>
+<form novalidate
+      autocomplete="off"
+      [formGroup]="companySearchForm">
+  <label for="companyId">Compañía</label>
+  <select class="form-control custom-select custom-select-sm"
+          id="companyId"
+          (ngModelChange)="onChangeSelectCompany($event)"
+          formControlName="company">
+    <option value="">Selcciona</option>
+    <option *ngFor="let company of companies$|async"
+            [ngValue]="company">{{company.name}}
+    </option>
+  </select>
+  <div *ngIf="company.invalid && (company.dirty || company.touched)">
+    <div class="text-danger small" *ngIf="company.errors.required">Requerido.</div>
+  </div>
+</form>
 
 
