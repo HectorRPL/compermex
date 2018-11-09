@@ -25,158 +25,39 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   ngOnInit() {
 
-    this.createMaterialsMastersForm();
+    // this.createMaterialsMastersForm();
 
   }
 
+  /*
   createMaterialsMastersForm() {
     this.materialsMasterForm = this.formBuilder.group({
-      // PANEL ARTÍCULO
-      'cia': new FormControl(this.materialsMaster.cia, [
+      'code': new FormControl(this.materialsMaster.code, [
         Validators.required
       ]),
-      'key': new FormControl(this.materialsMaster.key, [
+      'description': new FormControl(this.materialsMaster.description, [
         Validators.required
       ]),
-      'ourKey': new FormControl(this.materialsMaster.ourKey, [
+      'boxTypeId': new FormControl(this.materialsMaster.boxTypeId, [
         Validators.required
       ]),
-      'type': new FormControl(this.materialsMaster.type, [
-        Validators.required
-      ]),
-      'client': new FormControl(this.materialsMaster.client, [
-        Validators.required
-      ]),
-      'businessName': new FormControl(this.materialsMaster.businessName, [
-        Validators.required
-      ]),
-      'seller': new FormControl(this.materialsMaster.seller, [
-        Validators.required
-      ]),
-
-      // <!--PANEL MEDIDAS-->
-      'long': new FormControl(this.materialsMaster.long, [
-        Validators.required,
-        Validators.min(this.minSize),
-        Validators.max(this.maxSize)
-      ]),
-      'width': new FormControl(this.materialsMaster.width, [
-        Validators.required,
-        Validators.min(this.minSize),
-        Validators.max(this.maxSize)
-      ]),
-      'height': new FormControl(this.materialsMaster.height, [
-        Validators.required,
-        Validators.min(this.minSize),
-        Validators.max(this.maxSize)
-      ]),
-      'slots': new FormControl(this.materialsMaster.slots, [
-        Validators.required,
-        Validators.min(this.minSize),
-        Validators.max(this.maxSize)
-      ]),
-
-      // <!--PANEL ESPEFIFICACIONES DE MATERIAL-->
-      'purchase': new FormControl(this.materialsMaster.purchase, [
-        Validators.required
-      ]),
-      'sale': new FormControl(this.materialsMaster.sale, [
-        Validators.required
-      ]),
-      'sellerPrice': new FormControl(this.materialsMaster.sellerPrice, [
-        Validators.required
-      ]),
-      'maxPercentage': new FormControl(this.materialsMaster.maxPercentage, [
-        Validators.required
-      ]),
-      'minPercentage': new FormControl(this.materialsMaster.minPercentage, [
-        Validators.required
-      ]),
-      'certificate': new FormControl(this.materialsMaster.certificate, [
-        Validators.required
-      ]),
-      'flat': new FormControl(this.materialsMaster.flat, [
-        Validators.required
-      ]),
-      'observations': new FormControl(this.materialsMaster.observations, [
-        Validators.required,
-        Validators.minLength(this.minSize),
-        Validators.maxLength(this.maxSize)
-      ]),
-      'company': new FormControl(this.materialsMaster.company, [
-        Validators.required,
-        Validators.minLength(this.minSize),
-        Validators.maxLength(this.maxSize)
-      ])
     });
   }
+  */
 
-  // PANEL ARTÍCULO
-  get cia() {
-    return this.materialsMasterForm.get('cia');
-  }
-  get key() {
-    return this.materialsMasterForm.get('key');
-  }
-  get ourKey() {
-    return this.materialsMasterForm.get('ourKey');
-  }
-  get type() {
-    return this.materialsMasterForm.get('type');
-  }
-  get client() {
-    return this.materialsMasterForm.get('client');
-  }
-  get businessName() {
-    return this.materialsMasterForm.get('businessName');
-  }
-  get seller() {
-    return this.materialsMasterForm.get('seller');
-  }
-  get company() {
-    return this.materialsMasterForm.get('company');
+  /*
+  get code() {
+    return this.materialsMasterForm.get('code');
   }
 
-  // PANEL MEDIDAS
-  get long() {
-    return this.materialsMasterForm.get('long');
-  }
-  get width() {
-    return this.materialsMasterForm.get('width');
-  }
-  get height() {
-    return this.materialsMasterForm.get('height');
-  }
-  get slots() {
-    return this.materialsMasterForm.get('slots');
+  get description() {
+    return this.materialsMasterForm.get('description');
   }
 
-  // PANEL ESPEFIFICACIÓN DE MATERIAL
-  get purchase() {
-    return this.materialsMasterForm.get('purchase');
+  get boxTypeId() {
+    return this.materialsMasterForm.get('boxTypeId');
   }
-  get sale() {
-    return this.materialsMasterForm.get('sale');
-  }
-  get sellerPrice() {
-    return this.materialsMasterForm.get('sellerPrice');
-  }
-  get maxPercentage() {
-    return this.materialsMasterForm.get('maxPercentage');
-  }
-  get minPercentage() {
-    return this.materialsMasterForm.get('minPercentage');
-  }
-  get certificate() {
-    return this.materialsMasterForm.get('certificate');
-  }
-  get flat() {
-    return this.materialsMasterForm.get('flat');
-  }
-  get observations() {
-    return this.materialsMasterForm.get('observations');
-  }
-
+  */
   materialAction() {
     console.log(this.materialsMasterForm);
   }
