@@ -60,7 +60,18 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'sellerPrice': new FormControl(this.materialsMaster.sellerPrice, [
         Validators.required
       ]),
+      /* TODO
+      'large': new FormControl(this.materialsMaster.boxSizeLarge.large, [
+        Validators.required
+      ]),
+      */
+
+
       /*
+
+      'boxSizeSmall': new FormControl(this.materialsMaster.boxSizeSmall, [
+        Validators.required
+      ]),
       'description': new FormControl(this.materialsMaster.description, [
         Validators.required
       ]),
@@ -68,12 +79,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
         Validators.required
       ]),
       'employeId': new FormControl(this.materialsMaster.employeId, [
-        Validators.required
-      ]),
-      'boxSizeLarge': new FormControl(this.materialsMaster.boxSizeLarge, [
-        Validators.required
-      ]),
-      'boxSizeSmall': new FormControl(this.materialsMaster.boxSizeSmall, [
         Validators.required
       ]),
       'paperboardId': new FormControl(this.materialsMaster.paperboardId, [
@@ -109,6 +114,18 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   }
 
   /*
+  get large() {
+    return this.materialsMasterForm.get('large');
+  }
+  */
+
+
+  /*
+
+  get boxSizeSmall() {
+    return this.materialsMasterForm.get('boxSizeSmall');
+  }
+
   get companyId() {
     return this.materialsMasterForm.get('companyId');
   }
@@ -119,14 +136,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   get employeId() {
     return this.materialsMasterForm.get('employeId');
-  }
-
-  get boxSizeLarge() {
-    return this.materialsMasterForm.get('boxSizeLarge');
-  }
-
-  get boxSizeSmall() {
-    return this.materialsMasterForm.get('boxSizeSmall');
   }
 
   get paperboardId() {

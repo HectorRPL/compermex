@@ -98,6 +98,20 @@
         <div class="text-danger small" *ngIf="sellerPrice.errors.required">Requerido.</div>
       </div>
     </div>
+    <!--LARGO: large
+    <div class="form-group col-sm-4">
+      <label for="largeId">Largo</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="largeId"
+             placeholder="Largo"
+             [ngClass]="{'is-invalid': large.invalid && (large.dirty || large.touched)}"
+             formControlName="large">
+      <div *ngIf="large.invalid && (large.dirty || large.touched)">
+        <div class="text-danger small" *ngIf="large.errors.required">Requerido.</div>
+      </div>
+    </div>
+    -->
   </div>
 
   <!--BOTTON-->

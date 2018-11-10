@@ -10,9 +10,9 @@ export class MaterialsMaster {
   code: string; // clave
   boxTypeId: ObjectId; // Cajas
   sellerPrice: number;
-  // description: string;
-  // employeId: ObjectId; // Checar el autocomplete, en maestro de materiales
   // boxSizeLarge?: BoxSize;
   // boxSizeSmall?: BoxSize;
+  // description: string;
+  // employeId: ObjectId; // Checar el autocomplete, en maestro de materiales
   // paperboardId: ObjectId;
 }
