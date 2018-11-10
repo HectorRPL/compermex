@@ -67,6 +67,24 @@
         <div class="text-danger small" *ngIf="code.errors.required">Requerido.</div>
       </div>
     </div>
+    <!--TIPO: boxTypeId-->
+    <div class="form-group col-sm-3">
+      <label for="boxTypeId">Tipo</label>
+      <select class="form-control custom-select custom-select-sm"
+              id="boxTypeId"
+              [ngClass]="{'is-invalid': boxTypeId.invalid && (boxTypeId.dirty || boxTypeId.touched)}"
+              formControlName="boxTypeId">
+        <option value="1">R.R.</option>
+        <option value="2">M.R.</option>
+        <option value="3">T.Y.F.C.</option>
+        <option value="3">SEP</option>
+        <option value="3">SUA</option>
+        <option value="3">REJ</option>
+      </select>
+      <div *ngIf="boxTypeId.invalid && (boxTypeId.dirty || boxTypeId.touched)">
+        <div class="text-danger small" *ngIf="boxTypeId.errors.required">Requerido.</div>
+      </div>
+    </div>
   </div>
   <!--BOTTON-->
   <button type="submit"

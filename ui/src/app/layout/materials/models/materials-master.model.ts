@@ -8,8 +8,8 @@ export class MaterialsMaster {
   variationPositive: number;
   variationNegative: number;
   code: string; // clave
+  boxTypeId: ObjectId; // Cajas
   // description: string;
-  // boxTypeId: ObjectId; // Cajas
   // employeId: ObjectId; // Checar el autocomplete, en maestro de materiales
   // boxSizeLarge?: BoxSize;
   // boxSizeSmall?: BoxSize;

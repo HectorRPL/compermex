@@ -54,14 +54,14 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'code': new FormControl(this.materialsMaster.code, [
         Validators.required
       ]),
+      'boxTypeId': new FormControl(this.materialsMaster.boxTypeId, [
+        Validators.required
+      ]),
       /*
       'description': new FormControl(this.materialsMaster.description, [
         Validators.required
       ]),
       'description': new FormControl(this.materialsMaster.description, [
-        Validators.required
-      ]),
-      'boxTypeId': new FormControl(this.materialsMaster.boxTypeId, [
         Validators.required
       ]),
       'employeId': new FormControl(this.materialsMaster.employeId, [
@@ -100,6 +100,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('code');
   }
 
+  get boxTypeId() {
+    return this.materialsMasterForm.get('boxTypeId');
+  }
+
   /*
   get companyId() {
     return this.materialsMasterForm.get('companyId');
@@ -107,10 +111,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   get customerId() {
     return this.materialsMasterForm.get('customerId');
-  }
-
-  get boxTypeId() {
-    return this.materialsMasterForm.get('boxTypeId');
   }
 
   get employeId() {
