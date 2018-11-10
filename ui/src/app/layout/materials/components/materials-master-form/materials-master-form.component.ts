@@ -57,6 +57,9 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'boxTypeId': new FormControl(this.materialsMaster.boxTypeId, [
         Validators.required
       ]),
+      'sellerPrice': new FormControl(this.materialsMaster.sellerPrice, [
+        Validators.required
+      ]),
       /*
       'description': new FormControl(this.materialsMaster.description, [
         Validators.required
@@ -74,9 +77,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
         Validators.required
       ]),
       'paperboardId': new FormControl(this.materialsMaster.paperboardId, [
-        Validators.required
-      ]),
-      'sellerPrice': new FormControl(this.materialsMaster.sellerPrice, [
         Validators.required
       ]),
       */
@@ -104,6 +104,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('boxTypeId');
   }
 
+  get sellerPrice() {
+    return this.materialsMasterForm.get('sellerPrice');
+  }
+
   /*
   get companyId() {
     return this.materialsMasterForm.get('companyId');
@@ -127,10 +131,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   get paperboardId() {
     return this.materialsMasterForm.get('paperboardId');
-  }
-
-  get sellerPrice() {
-    return this.materialsMasterForm.get('sellerPrice');
   }
 */
   get observations() {

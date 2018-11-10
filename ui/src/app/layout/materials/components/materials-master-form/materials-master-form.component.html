@@ -85,7 +85,21 @@
         <div class="text-danger small" *ngIf="boxTypeId.errors.required">Requerido.</div>
       </div>
     </div>
+    <!--PRECIO DEL VENDEDOR: sellerPrice-->
+    <div class="form-group col-sm-3">
+      <label for="sellerPriceId">Precio vendedor</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="sellerPriceId"
+             placeholder="Precio vendedor"
+             [ngClass]="{'is-invalid': sellerPrice.invalid && (sellerPrice.dirty || sellerPrice.touched)}"
+             formControlName="sellerPrice">
+      <div *ngIf="sellerPrice.invalid && (sellerPrice.dirty || sellerPrice.touched)">
+        <div class="text-danger small" *ngIf="sellerPrice.errors.required">Requerido.</div>
+      </div>
+    </div>
   </div>
+
   <!--BOTTON-->
   <button type="submit"
           class="btn btn-primary btn-sm"
