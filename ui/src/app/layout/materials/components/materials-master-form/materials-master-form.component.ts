@@ -60,6 +60,12 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'sellerPrice': new FormControl(this.materialsMaster.sellerPrice, [
         Validators.required
       ]),
+      'employeeId': new FormControl(this.materialsMaster.employeeId, [
+        Validators.required
+      ]),
+      'description': new FormControl(this.materialsMaster.description, [
+        Validators.required
+      ]),
       /* TODO
       'large': new FormControl(this.materialsMaster.boxSizeLarge.large, [
         Validators.required
@@ -75,22 +81,12 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'description': new FormControl(this.materialsMaster.description, [
         Validators.required
       ]),
-      'description': new FormControl(this.materialsMaster.description, [
-        Validators.required
-      ]),
-      'employeId': new FormControl(this.materialsMaster.employeId, [
-        Validators.required
-      ]),
       'paperboardId': new FormControl(this.materialsMaster.paperboardId, [
         Validators.required
       ]),
       */
 
     });
-  }
-
-  get description() {
-    return this.materialsMasterForm.get('description');
   }
 
   get variationPositive() {
@@ -113,6 +109,18 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('sellerPrice');
   }
 
+  get description() {
+    return this.materialsMasterForm.get('description');
+  }
+
+  get companyId() {
+    return this.materialsMasterForm.get('companyId');
+  }
+
+  get customerId() {
+    return this.materialsMasterForm.get('customerId');
+  }
+
   /*
   get large() {
     return this.materialsMasterForm.get('large');
@@ -126,17 +134,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('boxSizeSmall');
   }
 
-  get companyId() {
-    return this.materialsMasterForm.get('companyId');
-  }
 
-  get customerId() {
-    return this.materialsMasterForm.get('customerId');
-  }
-
-  get employeId() {
-    return this.materialsMasterForm.get('employeId');
-  }
 
   get paperboardId() {
     return this.materialsMasterForm.get('paperboardId');

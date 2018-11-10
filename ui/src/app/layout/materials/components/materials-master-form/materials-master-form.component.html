@@ -2,20 +2,6 @@
       autocomplete="off"
       [formGroup]="materialsMasterForm">
   <div class="form row">
-    <!--OBSERVACIONES / OBSERVATIONS-->
-    <div class="form-group col-sm-12">
-      <label for="observationsId">Observaciones</label>
-      <textarea class="form-control form-control-sm"
-                id="observationsId"
-                rows="3"
-                placeholder="Observaciones"
-                [ngClass]="{'is-invalid': observations.invalid && (observations.dirty || observations.touched)}"
-                formControlName="observations">
-              </textarea>
-      <div *ngIf="observations.invalid && (observations.dirty || observations.touched)">
-        <div class="text-danger small" *ngIf="observations.errors.required">Requerido.</div>
-      </div>
-    </div>
     <!--CIA / COMPAÑÍA-->
     <div class="form-group col-sm-3">
       <app-company-search
@@ -103,6 +89,33 @@
       <app-employeess-search
         (sendStatusForm)="recipeEmployeessSearchStatusForm($event)">
       </app-employeess-search>
+    </div>
+    <!--description: descripción-->
+    <div class="form-group col-sm-3">
+      <label for="descriptionId">Artículo</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="descriptionId"
+             placeholder="Nuestra"
+             [ngClass]="{'is-invalid': description.invalid && (description.dirty || description.touched)}"
+             formControlName="description">
+      <div *ngIf="description.invalid && (description.dirty || description.touched)">
+        <div class="text-danger small" *ngIf="description.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--OBSERVACIONES / OBSERVATIONS-->
+    <div class="form-group col-sm-12">
+      <label for="observationsId">Observaciones</label>
+      <textarea class="form-control form-control-sm"
+                id="observationsId"
+                rows="3"
+                placeholder="Observaciones"
+                [ngClass]="{'is-invalid': observations.invalid && (observations.dirty || observations.touched)}"
+                formControlName="observations">
+              </textarea>
+      <div *ngIf="observations.invalid && (observations.dirty || observations.touched)">
+        <div class="text-danger small" *ngIf="observations.errors.required">Requerido.</div>
+      </div>
     </div>
     <!--LARGO: large
     <div class="form-group col-sm-4">
