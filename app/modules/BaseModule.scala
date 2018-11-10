@@ -2,6 +2,9 @@ package modules
 
 import com.google.inject.AbstractModule
 import db.dao.areas.{AreasDAO, AreasDAOImpl}
+import db.dao.boxes.sizes.{BoxesSizesDAO, BoxesSizesDAOImpl}
+import db.dao.boxes.types.{BoxesTypesDAO, BoxesTypesDAOImpl}
+import db.dao.boxes.{BoxesDAO, BoxesDAOImpl}
 import db.dao.clients.{ClientsDAO, ClientsDAOImpl}
 import db.dao.companies.{CompaniesDAO, CompaniesDAOImpl}
 import db.dao.employees.{EmployeesDAO, EmployeesDAOImpl}
@@ -11,6 +14,7 @@ import db.dao.suppliers.{SuppliersDAO, SuppliersDAOImpl}
 import db.dao.user.{AuthTokenDAO, AuthTokenDAOImpl}
 import db.dao.zipCodes.{ZipCodesDAO, ZipCodesDAOImpl}
 import myservices.areas.{AreasService, AreasServiceImpl}
+import myservices.boxes.{BoxesService, BoxesServiceImpl}
 import myservices.clients.{ClientsService, ClientsServiceImpl}
 import myservices.companies.{CompaniesService, CompaniesServiceImpl}
 import myservices.employees.{EmployeesService, EmployeesServiceImpl}
@@ -62,6 +66,12 @@ class BaseModule extends AbstractModule with ScalaModule {
     //DI for paperboard
     bind[PaperboardsService].to[PaperboardsServiceImpl]
     bind[PaperboardsDAO].to[PaperboardsDAOImpl]
+
+    // DI for Boxes
+    bind[BoxesService].to[BoxesServiceImpl]
+    bind[BoxesDAO].to[BoxesDAOImpl]
+    bind[BoxesTypesDAO].to[BoxesTypesDAOImpl]
+    bind[BoxesSizesDAO].to[BoxesSizesDAOImpl]
 
   }
 }

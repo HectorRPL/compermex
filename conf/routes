@@ -26,10 +26,10 @@ POST    /add/employe            controllers.employees.EmployeesController.save
 GET    /employees/search/:name  controllers.employees.EmployeesController.search(name: String)
 
 # ROUTES FOR MATERIALS
-GET     /materials/colors       controllers.materials.MaterialsController.listColors
-GET     /materials/types        controllers.materials.MaterialsController.listTypes
-GET     /materials/strengths    controllers.materials.MaterialsController.listStrengths
-GET     /paperboards             controllers.materials.MaterialsController.paperboars
+GET     /materials/colors           controllers.materials.MaterialsController.listColors
+GET     /materials/types            controllers.materials.MaterialsController.listTypes
+GET     /materials/strengths        controllers.materials.MaterialsController.listStrengths
+GET     /paperboards/search/:name   controllers.materials.MaterialsController.paperboars(name: String)
 
 # ROUTES FOR CLIENTS
 GET     /clients                controllers.clients.ClientsController.list
@@ -37,9 +37,12 @@ POST    /add/client             controllers.clients.ClientsController.save
 GET    /clients/search/:name    controllers.clients.ClientsController.search(name: String)
 
 # ROUTES FOR COMPANIES
-GET     /companies                controllers.companies.CompaniesController.list
+GET     /companies               controllers.companies.CompaniesController.list
 POST    /add/company             controllers.companies.CompaniesController.save
-GET    /companies/search/:name    controllers.companies.CompaniesController.search(name: String)
+GET    /companies/search/:name   controllers.companies.CompaniesController.search(name: String)
+
+#ROUTES FOR BOXES
+GET    /boxes/types             controllers.boxes.BoxesController.listBoxesTypes
 
 
 
