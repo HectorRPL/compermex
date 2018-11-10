@@ -58,9 +58,6 @@ export class CustomersSearchComponent {
   inFormatter = (result: Company) => result.name;
 
   selectedItem($event) {
-    console.log('Este es el evento seleccionado, aquí va el emiter, creo.');
-    console.log($event);
-    console.log('Este es el status del customer ', this.customerSearchForm.status);
     if (this.customerSearchForm.status === 'VALID') {
       this.sendStatusForm.emit(false);
     } else if (this.customerSearchForm.status === 'INVALID') {
