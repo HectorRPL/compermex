@@ -2,7 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 import {CompanyService} from '../../../../services/company/company.service';
 import {Company} from '../../../../models/company/company.model';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-company-search',

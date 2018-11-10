@@ -2,11 +2,12 @@ import {ObjectId} from '../../../models/object-id.model';
 import {BoxSize} from './box-size.model';
 
 export class MaterialsMaster {
+  observations: string;
+  companyId: ObjectId;
+  customerId: ObjectId;
   // code: string; // clave
   // description: string;
-  // boxTypeId: ObjectId;
-  // companyId: ObjectId;
-  // customerId: ObjectId;
+  // boxTypeId: ObjectId; // Cajas
   // employeId: ObjectId; // Checar el autocomplete, en maestro de materiales
   // boxSizeLarge?: BoxSize;
   // boxSizeSmall?: BoxSize;
@@ -14,5 +15,4 @@ export class MaterialsMaster {
   // variationPositive: number;
   // variationNegative: number;
   // sellerPrice: number;
-  observations: string;
 }

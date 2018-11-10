@@ -18,18 +18,30 @@
     </div>
     <!--CIA / COMPAÑÍA-->
     <div class="form-group col-sm-3">
-
       <app-company-search
         (sendStatusForm)="recipeStatusForm($event)">
       </app-company-search>
-
+    </div>
+    <div class="form-group col-sm-3">
+      <app-customers-search
+        (sendStatusForm)="recipeCustomersSearchStatusForm($event)">
+      </app-customers-search>
     </div>
   </div>
   <!--BOTTON-->
   <button type="submit"
           class="btn btn-primary btn-sm"
-          [disabled]="materialsMasterForm.invalid || invalidCompanySearchForm"
+          [disabled]="materialsMasterForm.invalid && statusCompanySearchForm"
           (click)="materialAction()">
     Siguiente
   </button>
 </form>
+
+[materialsMasterForm.invalid]<br>
+<pre>{{materialsMasterForm.invalid}}</pre>
+
+[this.statusCompanySearchForm] <br>
+<pre>{{this.statusCompanySearchForm}}</pre> <br>
+
+[this.statusCustomersSearchForm] <br>
+<pre>{{this.statusCustomersSearchForm}}</pre> <br>

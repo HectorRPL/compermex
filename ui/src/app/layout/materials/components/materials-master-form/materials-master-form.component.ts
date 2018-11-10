@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MaterialsMaster} from '../../models/materials-master.model';
+import {s} from "@angular/core/src/render3";
 
 @Component({
   selector: 'app-materials-master-form',
@@ -13,11 +14,13 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   public maxSize: number;
   public materialsMaster: MaterialsMaster;
   public materialsMasterForm: FormGroup;
-  public invalidCompanySearchForm: boolean;
+  public statusCompanySearchForm: boolean;
+  public statusCustomersSearchForm: boolean;
 
   constructor(private formBuilder: FormBuilder) {
 
-    this.invalidCompanySearchForm = true;
+    this.statusCompanySearchForm = true;
+    this.statusCustomersSearchForm = true;
     this.materialsMaster = new MaterialsMaster();
     this.minSize = 1;
     this.maxSize = 10;
@@ -33,7 +36,19 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   createMaterialsMastersForm() {
     this.materialsMasterForm = this.formBuilder.group({
+      'companyId': new FormControl(this.materialsMaster.companyId, [
+        Validators.required
+      ]),
+      'customerId': new FormControl(this.materialsMaster.customerId, [
+        Validators.required
+      ]),
+      'observations': new FormControl(this.materialsMaster.observations, [
+        Validators.required
+      ]),
       /*
+      'description': new FormControl(this.materialsMaster.description, [
+        Validators.required
+      ]),
       'code': new FormControl(this.materialsMaster.code, [
         Validators.required
       ]),
@@ -41,12 +56,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
         Validators.required
       ]),
       'boxTypeId': new FormControl(this.materialsMaster.boxTypeId, [
-        Validators.required
-      ]),
-      'companyId': new FormControl(this.materialsMaster.companyId, [
-        Validators.required
-      ]),
-      'customerId': new FormControl(this.materialsMaster.customerId, [
         Validators.required
       ]),
       'employeId': new FormControl(this.materialsMaster.employeId, [
@@ -71,9 +80,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
         Validators.required
       ]),
       */
-      'observations': new FormControl(this.materialsMaster.observations, [
-        Validators.required
-      ])
+
     });
   }
 
@@ -133,9 +140,12 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     console.log(this.materialsMasterForm);
   }
 
-  recipeStatusForm(invalidCompanySearchForm) {
-    this.invalidCompanySearchForm = invalidCompanySearchForm;
+  recipeStatusForm(status: boolean) {
+    this.statusCompanySearchForm = status;
+  }
 
+  recipeCustomersSearchStatusForm(status: boolean) {
+    this.statusCustomersSearchForm = status;
   }
 
 }

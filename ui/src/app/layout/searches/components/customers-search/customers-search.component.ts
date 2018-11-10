@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {Company} from '../../../../models/company/company.model';
 import {Observable, of} from 'rxjs/index';
 import {CustomersService} from '../../../customers/service/customers.service';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-customers-search',
@@ -11,11 +12,30 @@ import {CustomersService} from '../../../customers/service/customers.service';
 })
 export class CustomersSearchComponent {
 
-  model: any;
-  searching = false;
-  searchFailed = false;
+  @Output() public sendStatusForm = new EventEmitter();
+  public customerSearchForm: FormGroup;
+  public model: any;
+  public searching = false;
+  public searchFailed = false;
 
-  constructor(private customersService: CustomersService) {
+  constructor(private customersService: CustomersService,
+              private formBuilder: FormBuilder) {
+  }
+
+  ngOnInit() {
+    this.createCustomerSearchForm();
+  }
+
+  createCustomerSearchForm() {
+    this.customerSearchForm = this.formBuilder.group({
+      'customer': new FormControl('', [
+        Validators.required
+      ]),
+    });
+  }
+
+  get customer() {
+    return this.customerSearchForm.get('customer');
   }
 
   search = (text$: Observable<string>) =>
@@ -38,7 +58,14 @@ export class CustomersSearchComponent {
   inFormatter = (result: Company) => result.name;
 
   selectedItem($event) {
+    console.log('Este es el evento seleccionado, aquí va el emiter, creo.');
     console.log($event);
+    console.log('Este es el status del customer ', this.customerSearchForm.status);
+    if (this.customerSearchForm.status === 'VALID') {
+      this.sendStatusForm.emit(false);
+    } else if (this.customerSearchForm.status === 'INVALID') {
+      this.sendStatusForm.emit(true);
+    }
   }
 
 }
