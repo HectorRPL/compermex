@@ -5,6 +5,7 @@ export class MaterialsMaster {
   observations: string;
   companyId: ObjectId;
   customerId: ObjectId;
+  variationPositive: number;
   // code: string; // clave
   // description: string;
   // boxTypeId: ObjectId; // Cajas
@@ -12,7 +13,6 @@ export class MaterialsMaster {
   // boxSizeLarge?: BoxSize;
   // boxSizeSmall?: BoxSize;
   // paperboardId: ObjectId;
-  // variationPositive: number;
   // variationNegative: number;
   // sellerPrice: number;
 }

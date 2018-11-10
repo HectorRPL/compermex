@@ -45,6 +45,9 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'observations': new FormControl(this.materialsMaster.observations, [
         Validators.required
       ]),
+      'variationPositive': new FormControl(this.materialsMaster.variationPositive, [
+        Validators.required
+      ]),
       /*
       'description': new FormControl(this.materialsMaster.description, [
         Validators.required
@@ -70,9 +73,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'paperboardId': new FormControl(this.materialsMaster.paperboardId, [
         Validators.required
       ]),
-      'variationPositive': new FormControl(this.materialsMaster.variationPositive, [
-        Validators.required
-      ]),
       'variationNegative': new FormControl(this.materialsMaster.variationNegative, [
         Validators.required
       ]),
@@ -92,10 +92,15 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('description');
   }
 
+  get variationPositive() {
+    return this.materialsMasterForm.get('variationPositive');
+  }
+
+  /*
   get companyId() {
     return this.materialsMasterForm.get('companyId');
   }
-/*
+
   get customerId() {
     return this.materialsMasterForm.get('customerId');
   }
@@ -118,10 +123,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   get paperboardId() {
     return this.materialsMasterForm.get('paperboardId');
-  }
-
-  get variationPositive() {
-    return this.materialsMasterForm.get('variationPositive');
   }
 
   get variationNegative() {

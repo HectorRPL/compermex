@@ -22,17 +22,30 @@
         (sendStatusForm)="recipeStatusForm($event)">
       </app-company-search>
     </div>
-    <!--SELECCIONAR COMPAÑOA-->
+    <!--SELECCIONAR CLIENTE-->
     <div class="form-group col-sm-3">
       <app-customers-search
         (sendStatusForm)="recipeCustomersSearchStatusForm($event)">
       </app-customers-search>
     </div>
+    <!--VARIACIÓN POSITIVA: variationPositive-->
+    <div class="form-group col-sm-3">
+      <label for="variationPositiveId">+% Variación CTE:</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="variationPositiveId"
+             placeholder="+% Variación CTE:"
+             [ngClass]="{'is-invalid': variationPositive.invalid && (variationPositive.dirty || variationPositive.touched)}"
+             formControlName="variationPositive">
+      <div *ngIf="variationPositive.invalid && (variationPositive.dirty || variationPositive.touched)">
+        <div class="text-danger small" *ngIf="variationPositive.errors.required">Requerido.</div>
+      </div>
+    </div>
   </div>
   <!--BOTTON-->
   <button type="submit"
           class="btn btn-primary btn-sm"
-          [disabled]="materialsMasterForm.invalid && statusCompanySearchForm"
+          [disabled]="materialsMasterForm.invalid"
           (click)="materialAction()">
     Siguiente
   </button>
