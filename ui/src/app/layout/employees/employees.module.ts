@@ -7,7 +7,7 @@ import {EmployeesComponent} from "./components/employees/employees.component";
 import {ListEmployeesComponent} from "./views/list-employees/list-employees.component";
 import {AddEmployeeComponent} from "./views/add-employee/add-employee.component";
 import {EmployeesFormComponent} from "./components/employees-form/employees-form.component";
-import {EmployeessSearchComponent} from './components/employeess-search/employeess-search.component';
+import {SearchesModule} from "../searches/searches.module";
 
 @NgModule({
   imports: [
@@ -15,14 +15,14 @@ import {EmployeessSearchComponent} from './components/employeess-search/employee
     CommonModule,
     EmployeesRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SearchesModule
   ],
   declarations: [
     EmployeesComponent,
     ListEmployeesComponent,
     AddEmployeeComponent,
-    EmployeesFormComponent,
-    EmployeessSearchComponent
+    EmployeesFormComponent
   ]
 })
 export class EmployeesModule {

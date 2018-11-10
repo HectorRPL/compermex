@@ -16,6 +16,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   public materialsMasterForm: FormGroup;
   public statusCompanySearchForm: boolean;
   public statusCustomersSearchForm: boolean;
+  public statusEmployeessSearchForm: boolean;
 
   constructor(private formBuilder: FormBuilder) {
 
@@ -156,6 +157,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   recipeCustomersSearchStatusForm(status: boolean) {
     this.statusCustomersSearchForm = status;
+  }
+
+  recipeEmployeessSearchStatusForm(status: boolean) {
+    this.statusEmployeessSearchForm = status;
   }
 
 }

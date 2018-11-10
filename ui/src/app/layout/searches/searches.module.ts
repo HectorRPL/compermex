@@ -6,6 +6,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RouterModule} from '@angular/router';
 import {CustomersSearchComponent} from './components/customers-search/customers-search.component';
 import {CompanySearchComponent} from './components/company-search/company-search.component';
+import {EmployeessSearchComponent} from './components/employeess-search/employeess-search.component';
 
 @NgModule({
   imports: [
@@ -18,12 +19,14 @@ import {CompanySearchComponent} from './components/company-search/company-search
   declarations: [
     SuppliersSearchComponent,
     CustomersSearchComponent,
-    CompanySearchComponent
+    CompanySearchComponent,
+    EmployeessSearchComponent
   ],
   exports: [
     SuppliersSearchComponent,
     CustomersSearchComponent,
-    CompanySearchComponent
+    CompanySearchComponent,
+    EmployeessSearchComponent
   ]
 })
 export class SearchesModule {

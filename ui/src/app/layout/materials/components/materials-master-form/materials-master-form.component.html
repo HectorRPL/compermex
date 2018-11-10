@@ -98,6 +98,12 @@
         <div class="text-danger small" *ngIf="sellerPrice.errors.required">Requerido.</div>
       </div>
     </div>
+    <!--Empleado-->
+    <div class="form-group col-sm-3">
+      <app-employeess-search
+        (sendStatusForm)="recipeEmployeessSearchStatusForm($event)">
+      </app-employeess-search>
+    </div>
     <!--LARGO: large
     <div class="form-group col-sm-4">
       <label for="largeId">Largo</label>
