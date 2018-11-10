@@ -30,11 +30,11 @@
     </div>
     <!--VARIACIÓN POSITIVA: variationPositive-->
     <div class="form-group col-sm-3">
-      <label for="variationPositiveId">+% Variación CTE:</label>
+      <label for="variationPositiveId">+ % Variación CTE</label>
       <input type="number"
              class="form-control form-control-sm"
              id="variationPositiveId"
-             placeholder="+ % Variación CTE:"
+             placeholder="+ % Variación CTE"
              [ngClass]="{'is-invalid': variationPositive.invalid && (variationPositive.dirty || variationPositive.touched)}"
              formControlName="variationPositive">
       <div *ngIf="variationPositive.invalid && (variationPositive.dirty || variationPositive.touched)">
@@ -43,15 +43,28 @@
     </div>
     <!--VARIACIÓN POSITIVA: variationNegative-->
     <div class="form-group col-sm-3">
-      <label for="variationNegativeId">+% Variación CTE:</label>
+      <label for="variationNegativeId">- % Variación CTE</label>
       <input type="number"
              class="form-control form-control-sm"
              id="variationNegativeId"
-             placeholder="- % Variación CTE:"
+             placeholder="- % Variación CTE"
              [ngClass]="{'is-invalid': variationNegative.invalid && (variationNegative.dirty || variationNegative.touched)}"
              formControlName="variationNegative">
       <div *ngIf="variationNegative.invalid && (variationNegative.dirty || variationNegative.touched)">
         <div class="text-danger small" *ngIf="variationNegative.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!-- CLAVE / CODE -->
+    <div class="form-group col-sm-3">
+      <label for="codeId">Clave</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="codeId"
+             placeholder="Clave"
+             [ngClass]="{'is-invalid': code.invalid && (code.dirty || code.touched)}"
+             formControlName="code">
+      <div *ngIf="code.invalid && (code.dirty || code.touched)">
+        <div class="text-danger small" *ngIf="code.errors.required">Requerido.</div>
       </div>
     </div>
   </div>

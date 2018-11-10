@@ -7,7 +7,7 @@ export class MaterialsMaster {
   customerId: ObjectId;
   variationPositive: number;
   variationNegative: number;
-  // code: string; // clave
+  code: string; // clave
   // description: string;
   // boxTypeId: ObjectId; // Cajas
   // employeId: ObjectId; // Checar el autocomplete, en maestro de materiales

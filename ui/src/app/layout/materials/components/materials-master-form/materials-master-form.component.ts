@@ -51,11 +51,11 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'variationNegative': new FormControl(this.materialsMaster.variationNegative, [
         Validators.required
       ]),
-      /*
-      'description': new FormControl(this.materialsMaster.description, [
+      'code': new FormControl(this.materialsMaster.code, [
         Validators.required
       ]),
-      'code': new FormControl(this.materialsMaster.code, [
+      /*
+      'description': new FormControl(this.materialsMaster.description, [
         Validators.required
       ]),
       'description': new FormControl(this.materialsMaster.description, [
@@ -84,10 +84,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     });
   }
 
-  get code() {
-    return this.materialsMasterForm.get('code');
-  }
-
   get description() {
     return this.materialsMasterForm.get('description');
   }
@@ -98,6 +94,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   get variationNegative() {
     return this.materialsMasterForm.get('variationNegative');
+  }
+
+  get code() {
+    return this.materialsMasterForm.get('code');
   }
 
   /*
