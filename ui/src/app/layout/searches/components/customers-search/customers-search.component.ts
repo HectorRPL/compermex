@@ -57,11 +57,21 @@ export class CustomersSearchComponent {
   resFormatter = (x: Company) => x.name;
   inFormatter = (result: Company) => result.name;
 
-  selectedItem($event) {
+  selectedItem(event) {
+    console.log(event);
     if (this.customerSearchForm.status === 'VALID') {
-      this.sendStatusForm.emit(false);
+      const value = {
+        status: false,
+        _id: event.item._id.$oid
+      };
+      this.sendStatusForm.emit(value);
     } else if (this.customerSearchForm.status === 'INVALID') {
-      this.sendStatusForm.emit(true);
+      const value = {
+        status: true,
+        _id: null
+      };
+      this.sendStatusForm.emit(value);
+
     }
   }
 
