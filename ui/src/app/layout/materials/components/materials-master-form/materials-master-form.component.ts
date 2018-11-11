@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MaterialsMaster} from '../../models/materials-master.model';
+import {ObjectId} from "../../../../models/object-id.model";
 
 @Component({
   selector: 'app-materials-master-form',
@@ -16,6 +17,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   public statusCompanySearchForm: boolean;
   public statusCustomersSearchForm: boolean;
   public statusEmployeessSearchForm: boolean;
+  public employeId: ObjectId;
   public statusPaperboardsSearchForm: boolean;
 
   constructor(private formBuilder: FormBuilder) {
@@ -161,8 +163,9 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     this.statusCustomersSearchForm = status;
   }
 
-  recipeEmployeessSearchStatusForm(status: boolean) {
-    this.statusEmployeessSearchForm = status;
+  recipeEmployeessSearchStatusForm(event) {
+    this.statusEmployeessSearchForm = event.status;
+    this.employeId = event._id;
   }
 
   recipePaperboardsSearchStatusForm(status: boolean) {

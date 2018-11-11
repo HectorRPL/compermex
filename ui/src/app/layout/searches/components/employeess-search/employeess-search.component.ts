@@ -58,12 +58,21 @@ export class EmployeessSearchComponent {
   resFormatter = (x: Employee) => x.fullName;
   inFormatter = (result: Employee) => result.fullName;
 
-  selectedItem($event) {
-    console.log($event);
+  selectedItem(event) {
+    console.log(event);
     if (this.employeeSearchForm.status === 'VALID') {
-      this.sendStatusForm.emit(false);
+      const value = {
+        status: false,
+        _id: event.item._id.$oid
+      };
+      this.sendStatusForm.emit(value);
     } else if (this.employeeSearchForm.status === 'INVALID') {
-      this.sendStatusForm.emit(true);
+      const value = {
+        status: true,
+        _id: null
+      };
+      this.sendStatusForm.emit(value);
+
     }
   }
 
