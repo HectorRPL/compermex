@@ -50,8 +50,7 @@ class BoxesController @Inject()(
       boxesService.save(box).map { box =>
         formData.boxesSize.map { sizes =>
           sizes.foreach(boxSize => {
-            val boxId = box._id;
-            val boxSizeCopy = boxSize.copy()
+            val boxSizeCopy = boxSize.copy(boxId = box._id)
             boxesService.saveBoxSize(boxSize).map(result => {
               print(result)
             }
@@ -73,7 +72,6 @@ class BoxesController @Inject()(
     boxesService.getBoxeTypes(query, sort, pag).map { boxes =>
       Ok(Json.toJson(boxes))
     }
-
   }
 
 

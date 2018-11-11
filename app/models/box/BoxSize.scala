@@ -7,7 +7,7 @@ import reactivemongo.play.json._
 
 case class BoxSize (
                 _id: Option[BSONObjectID],
-                boxId: BSONObjectID,
+                boxId: Option[BSONObjectID],
                 size: String,
                 large: Option[Double],
                 width: Option[Double],
@@ -21,7 +21,7 @@ object BoxSize {
     def reads(json: JsValue): JsResult[BoxSize] = json match {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
-        val boxId = (obj \ "_id").as[BSONObjectID]
+        val boxId = (obj \ "_id").asOpt[BSONObjectID]
         val size = (obj \ "size").as[String]
         val large = (obj \ "large").asOpt[Double]
         val width = (obj \ "width").asOpt[Double]

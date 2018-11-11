@@ -7,12 +7,14 @@ import play.api.mvc.{AbstractController, ControllerComponents}
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class OrdersController @Inject()(
+class SalesOrdersController @Inject()(
                                   cc: ControllerComponents,
 
                                 )(implicit ec: ExecutionContext)
   extends AbstractController(cc)
     with I18nSupport {
+
+
 
 
 
