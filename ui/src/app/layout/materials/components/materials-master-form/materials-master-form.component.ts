@@ -21,6 +21,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
 
     this.statusCompanySearchForm = true;
+    this.statusEmployeessSearchForm = true;
     this.statusCustomersSearchForm = true;
     this.statusPaperboardsSearchForm = true;
     this.materialsMaster = new MaterialsMaster();

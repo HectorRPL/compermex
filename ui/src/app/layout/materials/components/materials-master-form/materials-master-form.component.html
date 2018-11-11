@@ -84,12 +84,13 @@
         <div class="text-danger small" *ngIf="sellerPrice.errors.required">Requerido.</div>
       </div>
     </div>
-    <!--Empleado-->
+    <!--employee: Empleado-->
     <div class="form-group col-sm-3">
       <app-employeess-search
         (sendStatusForm)="recipeEmployeessSearchStatusForm($event)">
       </app-employeess-search>
     </div>
+    <!--paperboards: cartones-->
     <div class="form-group col-sm-3">
       <app-paperboards-search
         (sendStatusForm)="recipePaperboardsSearchStatusForm($event)">
@@ -158,4 +159,9 @@
 
 [statusPaperboardsSearchForm] <br>
 <pre>{{statusPaperboardsSearchForm}}</pre> <br>
+
+[statusEmployeessSearchForm] <br>
+<pre>{{statusEmployeessSearchForm}}</pre> <br>
+
+
 
