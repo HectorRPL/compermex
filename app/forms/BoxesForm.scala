@@ -1,11 +1,11 @@
 package forms
 
-import models.box.{BoxSize, BoxType}
+import models.box.{BoxSize}
 import play.api.libs.json._
-import reactivemongo.bson.{BSONArray, BSONObjectID}
+import reactivemongo.bson.{BSONObjectID}
 import reactivemongo.play.json._
 
-case class BoxForm(
+case class BoxesForm(
                     code: String,
                     descripcion: String,
                     boxtypeId: BSONObjectID,
@@ -23,10 +23,10 @@ case class BoxForm(
                     observations: Option[String],
              )
 
-object BoxForm {
-  implicit object BoxFormReaders extends Reads[BoxForm] {
+object BoxesForm {
+  implicit object BoxFormReaders extends Reads[BoxesForm] {
 
-    def reads(json: JsValue): JsResult[BoxForm] = json match {
+    def reads(json: JsValue): JsResult[BoxesForm] = json match {
       case obj: JsObject => try {
         val code = (obj \ "code").as[String]
         val descripcion = (obj \ "descripcion").as[String]
@@ -46,7 +46,7 @@ object BoxForm {
 
 
 
-        JsSuccess(BoxForm(code, descripcion, boxtypeId, companyId, customerId, employeId, large, width, high,
+        JsSuccess(BoxesForm(code, descripcion, boxtypeId, companyId, customerId, employeId, large, width, high,
           boxesSize, paperboardId, variationPositive, variationNegative, sellerPrice, observations))
 
       } catch {
@@ -58,23 +58,23 @@ object BoxForm {
 
   }
 
-  implicit object BoxFormWriter extends OWrites[BoxForm] {
-    def writes(boxForm: BoxForm): JsObject = Json.obj(
-      "code" -> boxForm.code,
-      "descripcion" -> boxForm.descripcion,
-      "boxtypeId" -> boxForm.boxtypeId,
-      "companyId" -> boxForm.companyId,
-      "customerId" -> boxForm.customerId,
-      "employeId" -> boxForm.employeId,
-      "large" -> boxForm.large,
-      "width" -> boxForm.width,
-      "high" -> boxForm.high,
-      "boxesSize"  -> boxForm.boxesSize,
-      "paperboardId" -> boxForm.paperboardId,
-      "variationPositive" -> boxForm.variationPositive,
-      "variationNegative" -> boxForm.variationNegative,
-      "sellerPrice" -> boxForm.sellerPrice,
-      "observations" -> boxForm.observations
+  implicit object BoxFormWriter extends OWrites[BoxesForm] {
+    def writes(boxesForm: BoxesForm): JsObject = Json.obj(
+      "code" -> boxesForm.code,
+      "descripcion" -> boxesForm.descripcion,
+      "boxtypeId" -> boxesForm.boxtypeId,
+      "companyId" -> boxesForm.companyId,
+      "customerId" -> boxesForm.customerId,
+      "employeId" -> boxesForm.employeId,
+      "large" -> boxesForm.large,
+      "width" -> boxesForm.width,
+      "high" -> boxesForm.high,
+      "boxesSize"  -> boxesForm.boxesSize,
+      "paperboardId" -> boxesForm.paperboardId,
+      "variationPositive" -> boxesForm.variationPositive,
+      "variationNegative" -> boxesForm.variationNegative,
+      "sellerPrice" -> boxesForm.sellerPrice,
+      "observations" -> boxesForm.observations
     )
   }
 

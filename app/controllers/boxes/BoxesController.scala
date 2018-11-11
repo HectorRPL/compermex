@@ -1,6 +1,6 @@
 package controllers.boxes
 
-import forms.BoxForm
+import forms.{BoxForm, BoxesForm}
 import javax.inject.Inject
 import models.Pagination
 import models.box.Box
@@ -30,7 +30,7 @@ class BoxesController @Inject()(
   }
 
   def save() = Action.async(parse.json) { implicit request =>
-    request.body.validate[BoxForm].map { formData =>
+    request.body.validate[BoxesForm].map { formData =>
       val box = Box(
         _id = None,
         code = formData.code,
