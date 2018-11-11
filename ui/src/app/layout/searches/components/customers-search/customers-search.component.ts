@@ -44,7 +44,7 @@ export class CustomersSearchComponent {
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-        this.customersService.getCustomers().pipe(
+        this.customersService.searchCustomers(term).pipe(
           tap(() => this.searchFailed = false),
           catchError(() => {
             this.searchFailed = true;
