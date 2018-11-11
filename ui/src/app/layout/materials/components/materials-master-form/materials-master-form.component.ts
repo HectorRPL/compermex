@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MaterialsMaster} from '../../models/materials-master.model';
 import {ObjectId} from "../../../../models/object-id.model";
+import {MaterialsService} from "../../service/materials.service";
 
 @Component({
   selector: 'app-materials-master-form',
@@ -23,7 +24,8 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   public statusPaperboardsSearchForm: boolean;
   public paperboardId: ObjectId;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private materialsService: MaterialsService) {
 
     this.statusCompanySearchForm = true;
     this.statusEmployeessSearchForm = true;
@@ -160,8 +162,14 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       // boxSizeSmall: ,
     };
 
-    console.log(materialMaster);
+    this.materialsMaster = materialMaster;
 
+    this.materialsService.addMaterial(materialMaster)
+      .subscribe(result => {
+      console.log(result);
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   recipeCompanyStatusForm(event) {

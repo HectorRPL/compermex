@@ -24,11 +24,11 @@ export class MaterialsService {
       );
   }
 
-  addMaterial(material: Material): Observable<Material> {
-    console.log('Dentro del servicio ', material);
-    return this.http.post<Material>('/add/material', material)
+  addMaterial(box: Material): Observable<Material> {
+    console.log('Dentro del servicio ', box);
+    return this.http.post<Material>('/add/box', box)
       .pipe(
-        catchError(this.handleError('add', material))
+        catchError(this.handleError('add', box))
       );
   }
 
