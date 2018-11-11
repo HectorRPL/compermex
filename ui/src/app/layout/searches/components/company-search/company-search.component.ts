@@ -36,12 +36,20 @@ export class CompanySearchComponent {
     return this.companySearchForm.get('company');
   }
 
-  onChangeSelectCompany() {
+  onChangeSelectCompany(event) {
 
     if (this.companySearchForm.status === 'VALID') {
-      this.sendStatusForm.emit(false);
+      const value = {
+        status: false,
+        _id: event._id.$oid
+      };
+      this.sendStatusForm.emit(value);
     } else if (this.companySearchForm.status === 'INVALID') {
-      this.sendStatusForm.emit(true);
+      const value = {
+        status: true,
+        _id: null
+      };
+      this.sendStatusForm.emit(value);
     }
 
   }

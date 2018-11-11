@@ -15,6 +15,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   public materialsMaster: MaterialsMaster;
   public materialsMasterForm: FormGroup;
   public statusCompanySearchForm: boolean;
+  public companyId: ObjectId;
   public statusCustomersSearchForm: boolean;
   public customerId: boolean;
   public statusEmployeessSearchForm: boolean;
@@ -35,7 +36,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   }
 
   ngOnInit() {
-
 
     this.createMaterialsMastersForm();
 
@@ -121,10 +121,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('description');
   }
 
-  get companyId() {
-    return this.materialsMasterForm.get('companyId');
-  }
-
   /*
   get large() {
     return this.materialsMasterForm.get('large');
@@ -149,8 +145,9 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     console.log(this.materialsMasterForm);
   }
 
-  recipeStatusForm(status: boolean) {
-    this.statusCompanySearchForm = status;
+  recipeCompanyStatusForm(event) {
+    this.statusCompanySearchForm = event.status;
+    this.companyId = event._id;
   }
 
   recipeCustomersSearchStatusForm(event) {

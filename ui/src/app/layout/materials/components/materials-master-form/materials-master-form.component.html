@@ -5,7 +5,7 @@
     <!--CIA / COMPAÑÍA-->
     <div class="form-group col-sm-3">
       <app-company-search
-        (sendStatusForm)="recipeStatusForm($event)">
+        (sendStatusForm)="recipeCompanyStatusForm($event)">
       </app-company-search>
     </div>
     <!--SELECCIONAR CLIENTE-->
@@ -152,7 +152,7 @@
 <pre>{{materialsMasterForm.invalid}}</pre>
 
 [statusCompanySearchForm] <br>
-<pre>{{statusCompanySearchForm}}</pre> <br>
+<pre>{{statusCompanySearchForm}} {{companyId}}</pre> <br>
 
 [statusCustomersSearchForm] <br>
 <pre>{{statusCustomersSearchForm}} {{customerId}}</pre> <br>
