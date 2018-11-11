@@ -43,6 +43,7 @@ GET    /companies/search/:name   controllers.companies.CompaniesController.searc
 
 #ROUTES FOR BOXES
 GET    /boxes/types             controllers.boxes.BoxesController.listBoxesTypes
+GET    /add/box                 controllers.boxes.BoxesController.save
 
 
 
