@@ -81,6 +81,9 @@ CREACION DEL MODULO: producción
 `ng generate class layout/production/models/production -type model`
 
 
+ng generate component layout/cardboards/components/paperboardsSearch
+
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.

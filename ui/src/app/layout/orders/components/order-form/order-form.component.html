@@ -2,7 +2,7 @@
       autocomplete="off"
       [formGroup]="orderForm">
   <div class="form row">
-    <div class="col-sm-6 mb-3">
+    <div class="col-sm-12 mb-3">
       <div class="card">
         <div class="card-header">
           <span class="font-weight-bold">Nota Orden:&nbsp;&nbsp;0123PRG82</span>
@@ -72,6 +72,10 @@
             <div class="form-group col-sm-6">
               <app-company-search></app-company-search>
             </div>
+            <!-- AUTOCOMPLETE: Buscar paperboard (cartones)-->
+            <div class="form-group col-sm-6">
+              <app-paperboards-search></app-paperboards-search>
+            </div>
             <!--PEDIDO CTE / CUSTOMER ORDER -->
             <div class="form-group col-sm-6">
               <label for="customerOrderId">Pedido cte</label>
@@ -86,18 +90,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 mb-3">
-      <div class="card">
-        <div class="card-header">
-          Resistencia Orden de compra
-        </div>
-        <div class="card-body">
-          <app-cardboard-search
-            (hijoDisparaEvento)="padreCachaDisparoDelHijo($event)">
-          </app-cardboard-search>
         </div>
       </div>
     </div>

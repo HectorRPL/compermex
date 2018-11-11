@@ -32,7 +32,7 @@ export class CardboardSearchComponent {
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-        this.cardboardService.getCardboards().pipe(
+        this.cardboardService.getPaperboards().pipe(
           tap(() => this.searchFailed = false),
           catchError(() => {
             this.searchFailed = true;

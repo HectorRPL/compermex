@@ -19,12 +19,16 @@ export class CardboardService {
 
   }
 
-  getCardboards(): Observable<Cardboard[]> {
-    return this.http.get<Cardboard[]>('/paperboards') // TODO => es paperboards no cardboards
+  // TODO => es paperboards no cardboards, este archivo se seja de usar por lo mismo, Cuando se haga el refactor
+  // este file se dejará de usar.
+  /*
+  getPaperboards(): Observable<Cardboard[]> {
+    return this.http.get<Cardboard[]>('/paperboards')
       .pipe(
-        catchError(this.handleError('getCardboards', []))
+        catchError(this.handleError('getPaperboards', []))
       );
   }
+  */
 }
 
 

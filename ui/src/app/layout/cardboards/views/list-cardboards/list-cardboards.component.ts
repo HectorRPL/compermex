@@ -16,7 +16,7 @@ export class ListCardboardsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cardboards$ = this.cardboardsService.searchCardboard('searchCardboard');
+    this.cardboards$ = this.cardboardsService.searchPaperboard('searchPaperboard');
   }
 
 }

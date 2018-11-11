@@ -17,26 +17,30 @@ export class CardboardsService {
     this.handleError = httpErrorHandler.createHandleError('CardboardsService');
   }
 
-  searchCardboard(name: String): Observable<Cardboard[]> {
-    return this.http.get<Cardboard[]>(`/cardboards/search/${name}`)
+  searchPaperboard(name: String): Observable<Cardboard[]> {
+    console.log('está entrando aquí', name);
+    return this.http.get<Cardboard[]>(`/paperboards/search/${name}`)
       .pipe(
-        catchError(this.handleError('searchCardboard', []))
+        catchError(this.handleError('searchPaperboards', []))
       );
   }
 
+  /*
   addCardboard(material: Cardboard): Observable<Cardboard> {
     console.log('Dentro del servicio ', material);
-    return this.http.post<Cardboard>('/cardboards/create', material)
+    return this.http.post<Cardboard>('/add/paperboards', material)
       .pipe(
-        catchError(this.handleError('add', material))
+        catchError(this.handleError('addPaperboard', material))
       );
   }
 
-  getCardboards(): Observable<Cardboard[]> {
-    return this.http.get<Cardboard[]>('/cardboards')
+  getPaperboards(): Observable<Cardboard[]> {
+    return this.http.get<Cardboard[]>('/paperboards')
       .pipe(
-        catchError(this.handleError('getCardboards', []))
+        catchError(this.handleError('getPaperboards', []))
       );
   }
+
+  */
 
 }
