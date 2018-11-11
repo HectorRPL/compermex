@@ -1,6 +1,6 @@
 package controllers.boxes
 
-import forms.{BoxForm, BoxesForm}
+import forms.{BoxesForm}
 import javax.inject.Inject
 import models.Pagination
 import models.box.Box
