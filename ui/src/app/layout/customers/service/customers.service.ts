@@ -32,7 +32,7 @@ export class CustomersService {
   }
 
   getCustomers(): Observable<Customer[]> {
-    return this.http.get<Customer[]>('/clients')
+    return this.http.get<Customer[]>('/customers')
       .pipe(
         catchError(this.handleError('getCustomers', []))
       );
