@@ -13,6 +13,9 @@ export class MaterialsMaster {
   employeeId: ObjectId; // Checar el autocomplete, en maestro de materiales
   description: string;
   paperboardId: ObjectId; // Se harcodea, pero deben ser del tipo: BoxSize;
+  width: number;
+  large: number;
+  high: number;
   boxSizeLarge?: string; // Se harcodea, pero deben ser del tipo: BoxSize;
   boxSizeSmall?: string; // Se harcodea, pero deben ser del tipo: BoxSize;
 }

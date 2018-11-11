@@ -157,7 +157,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       customerId: this.customerId,
       boxTypeId: new ObjectId('5bd29adf583b8c1a0df75408'),
       employeeId: this.employeeId,
-      paperboardId: this.paperboardId
+      paperboardId: this.paperboardId,
+      width: 666,
+      large: 666,
+      high: 666
       // boxSizeLarge: ,
       // boxSizeSmall: ,
     };
