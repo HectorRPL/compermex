@@ -8,10 +8,10 @@ import reactivemongo.play.json._
 case class BoxesForm(
                     code: String,
                     descripcion: String,
-                    boxtypeId: BSONObjectID,
+                    boxTypeId: BSONObjectID,
                     companyId: BSONObjectID,
                     customerId: BSONObjectID,
-                    employeId: BSONObjectID, // Checar el autocomplete, en maestro de materiales
+                    employeeId: BSONObjectID, // Checar el autocomplete, en maestro de materiales
                     large: Double,
                     width: Double,
                     high: Double,
