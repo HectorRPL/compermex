@@ -17,8 +17,9 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   public statusCompanySearchForm: boolean;
   public statusCustomersSearchForm: boolean;
   public statusEmployeessSearchForm: boolean;
-  public employeId: ObjectId;
+  public employeeId: ObjectId;
   public statusPaperboardsSearchForm: boolean;
+  public paperboardId: ObjectId;
 
   constructor(private formBuilder: FormBuilder) {
 
@@ -127,9 +128,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('customerId');
   }
 
-  get paperboardId() {
-    return this.materialsMasterForm.get('paperboardId');
-  }
 
   /*
   get large() {
@@ -165,11 +163,12 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   recipeEmployeessSearchStatusForm(event) {
     this.statusEmployeessSearchForm = event.status;
-    this.employeId = event._id;
+    this.employeeId = event._id;
   }
 
-  recipePaperboardsSearchStatusForm(status: boolean) {
-    this.statusPaperboardsSearchForm = status;
+  recipePaperboardsSearchStatusForm(event) {
+    this.statusPaperboardsSearchForm = event.status;
+    this.paperboardId = event._id;
   }
 
 }

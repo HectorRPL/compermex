@@ -59,12 +59,21 @@ export class PaperboardsSearchComponent {
   resFormatter = (x: Paperboard) => x.description;
   inFormatter = (result: Paperboard) => result.description;
 
-  selectedItem($event) {
-    console.log($event);
+  selectedItem(event) {
+    console.log(event);
     if (this.paperboardsSearchForm.status === 'VALID') {
-      this.sendStatusForm.emit(false);
+      const value = {
+        status: false,
+        _id: event.item._id.$oid
+      };
+      this.sendStatusForm.emit(value);
     } else if (this.paperboardsSearchForm.status === 'INVALID') {
-      this.sendStatusForm.emit(true);
+      const value = {
+        status: true,
+        _id: null
+      };
+      this.sendStatusForm.emit(value);
+
     }
   }
 
