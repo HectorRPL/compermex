@@ -16,8 +16,9 @@ case class Box(
                 clientId: BSONObjectID,
                 variationPositive: Int,
                 variationNegative: Int,
-                selesPrice: Double,
+                sellerPrice: Double,
                 observations: Option[String],
+                boxTypeId: BSONObjectID,
               )
 
 object Box {
@@ -37,12 +38,13 @@ object Box {
         val clientId = (obj \ "clientId").as[BSONObjectID]
         val variationPositive = (obj \ "variationPositive").as[Int]
         val variationNegative = (obj \ "variationNegative").as[Int]
-        val selesPrice = (obj \ "selesPrice").as[Double]
+        val sellerPrice = (obj \ "sellerPrice").as[Double]
         val observations = (obj \ "observations").asOpt[String]
+        val boxTypeId = (obj \ "boxTypeId").as[BSONObjectID]
 
 
         JsSuccess(Box(_id, code, description, large, width, high,  companyId, paperboardId,
-          clientId, variationPositive, variationNegative, selesPrice, observations))
+          clientId, variationPositive, variationNegative, sellerPrice, observations, boxTypeId))
 
       } catch {
         case cause: Throwable => JsError(cause.getMessage)
@@ -67,8 +69,9 @@ object Box {
       "clientId" -> box.clientId,
       "variationPositive" -> box.variationPositive,
       "variationNegative" -> box.variationNegative,
-      "selesPrice" -> box.clientId,
-      "observations" -> box.clientId
+      "sellerPrice" -> box.sellerPrice,
+      "observations" -> box.observations,
+      "boxTypeId" -> box.boxTypeId
     )
   }
 
