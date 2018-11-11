@@ -37,8 +37,8 @@ class MaterialsController @Inject()(
 
   def paperboars(name: String) = Action.async {
     val query = Json.obj(
-      "name" -> Json.obj("$regex" -> name))
-    val sort = Json.obj("name" -> -1)
+      "description" -> Json.obj("$regex" -> name))
+    val sort = Json.obj("description" -> -1)
     val pag = Pagination(20, 0)
     paperboardsService.getAll(query, sort, pag).map { paperBoards =>
       Ok(Json.toJson(paperBoards))
