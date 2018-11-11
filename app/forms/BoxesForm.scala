@@ -7,11 +7,11 @@ import reactivemongo.play.json._
 
 case class BoxesForm(
                     code: String,
-                    descripcion: String,
-                    boxtypeId: BSONObjectID,
+                    description: String,
+                    boxTypeId: BSONObjectID,
                     companyId: BSONObjectID,
                     customerId: BSONObjectID,
-                    employeId: BSONObjectID, // Checar el autocomplete, en maestro de materiales
+                    employeeId: BSONObjectID, // Checar el autocomplete, en maestro de materiales
                     large: Double,
                     width: Double,
                     high: Double,
@@ -29,11 +29,11 @@ object BoxesForm {
     def reads(json: JsValue): JsResult[BoxesForm] = json match {
       case obj: JsObject => try {
         val code = (obj \ "code").as[String]
-        val descripcion = (obj \ "descripcion").as[String]
-        val boxtypeId = (obj \ "boxtypeId").as[BSONObjectID]
+        val description = (obj \ "description").as[String]
+        val boxTypeId = (obj \ "boxTypeId").as[BSONObjectID]
         val companyId = (obj \ "companyId").as[BSONObjectID]
         val customerId = (obj \ "customerId").as[BSONObjectID]
-        val employeId = (obj \ "employeId").as[BSONObjectID]
+        val employeeId = (obj \ "employeeId").as[BSONObjectID]
         val large = (obj \ "large").as[Double]
         val width = (obj \ "width").as[Double]
         val high = (obj \ "high").as[Double]
@@ -46,7 +46,7 @@ object BoxesForm {
 
 
 
-        JsSuccess(BoxesForm(code, descripcion, boxtypeId, companyId, customerId, employeId, large, width, high,
+        JsSuccess(BoxesForm(code, description, boxTypeId, companyId, customerId, employeeId, large, width, high,
           boxesSize, paperboardId, variationPositive, variationNegative, sellerPrice, observations))
 
       } catch {
@@ -61,11 +61,11 @@ object BoxesForm {
   implicit object BoxFormWriter extends OWrites[BoxesForm] {
     def writes(boxesForm: BoxesForm): JsObject = Json.obj(
       "code" -> boxesForm.code,
-      "descripcion" -> boxesForm.descripcion,
-      "boxtypeId" -> boxesForm.boxtypeId,
+      "description" -> boxesForm.description,
+      "boxTypeId" -> boxesForm.boxTypeId,
       "companyId" -> boxesForm.companyId,
       "customerId" -> boxesForm.customerId,
-      "employeId" -> boxesForm.employeId,
+      "employeId" -> boxesForm.employeeId,
       "large" -> boxesForm.large,
       "width" -> boxesForm.width,
       "high" -> boxesForm.high,

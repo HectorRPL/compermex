@@ -8,7 +8,6 @@ import myservices.boxes.BoxesService
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
-import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -34,7 +33,7 @@ class BoxesController @Inject()(
       val box = Box(
         _id = None,
         code = formData.code,
-        description = formData.descripcion,
+        description = formData.description,
         large = formData.large,
         width = formData.width,
         high = formData.high,
@@ -43,8 +42,9 @@ class BoxesController @Inject()(
         clientId = formData.customerId,
         variationPositive = formData.variationPositive,
         variationNegative = formData.variationNegative,
-        selesPrice = formData.sellerPrice,
+        sellerPrice = formData.sellerPrice,
         observations = formData.observations,
+        boxTypeId = formData.boxTypeId
       )
 
       boxesService.save(box).map { box =>
@@ -60,8 +60,10 @@ class BoxesController @Inject()(
         Ok(Json.toJson(box))
       }
     }.recoverTotal {
-      case error =>
+      case error =>{
+        print(error)
         Future.successful(BadRequest(Json.obj("message" -> Messages("invalid.data"))))
+      }
     }
   }
 
