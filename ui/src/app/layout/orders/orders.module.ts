@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {OrdersRoutingModule} from './orders-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CardboardSearchComponent} from '../materials/components/cardboard-search/cardboard-search.component';
 import {ListOrdersComponent} from './views/list-orders/list-orders.component';
 import {AddOrderComponent} from './views/add-order/add-order.component';
 import {OrdersComponent} from './components/orders/orders.component';
@@ -31,7 +30,6 @@ import {SearchesModule} from '../searches/searches.module';
     FiscalDataPhysicalPersonFormComponent,
     FiscalDataMoralPersonFormComponent,
     OrderFormComponent,
-    CardboardSearchComponent,
     ListOrdersComponent,
     AddOrderComponent,
     OrdersSearchComponent,
