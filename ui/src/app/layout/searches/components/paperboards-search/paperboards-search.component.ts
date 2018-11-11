@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import {CardboardsService} from "../../../cardboards/service/cardboards.service";
 import {Paperboard} from "../../../../models/paperboard/paperboard.model";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-paperboards-search',
@@ -12,12 +13,31 @@ import {Paperboard} from "../../../../models/paperboard/paperboard.model";
 })
 export class PaperboardsSearchComponent {
 
+  @Output() public sendStatusForm = new EventEmitter();
+  public paperboardsSearchForm: FormGroup;
   model: any;
   searching = false;
   searchFailed = false;
 
-  constructor(private cardboardsService: CardboardsService) {
+  constructor(private cardboardsService: CardboardsService,
+              private formBuilder: FormBuilder) {
 
+  }
+
+  ngOnInit() {
+    this.createPaperboardsSearchForm();
+  }
+
+  createPaperboardsSearchForm() {
+    this.paperboardsSearchForm = this.formBuilder.group({
+      'paperboard': new FormControl('', [
+        Validators.required
+      ]),
+    });
+  }
+
+  get paperboard() {
+    return this.paperboardsSearchForm.get('paperboard');
   }
 
   search = (text$: Observable<string>) =>
@@ -41,6 +61,11 @@ export class PaperboardsSearchComponent {
 
   selectedItem($event) {
     console.log($event);
+    if (this.paperboardsSearchForm.status === 'VALID') {
+      this.sendStatusForm.emit(false);
+    } else if (this.paperboardsSearchForm.status === 'INVALID') {
+      this.sendStatusForm.emit(true);
+    }
   }
 
 }

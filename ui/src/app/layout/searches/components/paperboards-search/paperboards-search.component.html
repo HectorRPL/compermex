@@ -1,26 +1,34 @@
-<div class="form-group">
-  <label for="searchProviderId">Buscar cartones y papers quien sabe qué</label>
-  <div class="input-group mb-3">
-    <input type="text"
-           id="searchProviderId"
-           class="form-control form-control-sm"
-           placeholder="Buscar cartón"
-           [class.is-invalid]="searchFailed"
-           [(ngModel)]="model"
-           [ngbTypeahead]="search"
-           [resultFormatter]="resFormatter"
-           [inputFormatter]="inFormatter"
-           (selectItem)="selectedItem($event)">
-    <div class="input-group-append">
-      <button type="button"
-              class="btn btn-outline-secondary btn-sm"
-              [routerLink]="['/layout/suppliers/add']">
-        <i class="fas fa-plus"
-           ngbTooltip="Añadir carton"></i>
-      </button>
+<form novalidate
+      autocomplete="off"
+      [formGroup]="paperboardsSearchForm">
+  <div class="form-group">
+    <label for="searchProviderId">Buscar cartón</label>
+    <div class="input-group mb-3">
+      <input type="text"
+             id="searchProviderId"
+             class="form-control form-control-sm"
+             placeholder="Buscar cartón"
+             [class.is-invalid]="searchFailed"
+             [(ngModel)]="model"
+             [ngbTypeahead]="search"
+             [resultFormatter]="resFormatter"
+             [inputFormatter]="inFormatter"
+             (selectItem)="selectedItem($event)"
+             formControlName="paperboard">
+      <div class="input-group-append">
+        <button type="button"
+                class="btn btn-outline-secondary btn-sm"
+                [routerLink]="['/layout/suppliers/add']">
+          <i class="fas fa-plus"
+             ngbTooltip="Añadir carton"></i>
+        </button>
+      </div>
+    </div>
+    <div class="small" *ngIf="searching">Buscando...</div>
+    <div class="text-danger small" *ngIf="searchFailed">No encontrado.</div>
+    <div *ngIf="paperboard.invalid && (paperboard.dirty || paperboard.touched)">
+      <div class="text-danger small" *ngIf="paperboard.errors.required">Requerido.</div>
     </div>
   </div>
-  <div class="small" *ngIf="searching">Buscando...</div>
-  <div class="text-danger small" *ngIf="searchFailed">No encontrado.</div>
-</div>
+</form>
 

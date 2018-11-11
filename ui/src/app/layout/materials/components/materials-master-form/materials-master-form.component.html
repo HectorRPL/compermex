@@ -90,6 +90,11 @@
         (sendStatusForm)="recipeEmployeessSearchStatusForm($event)">
       </app-employeess-search>
     </div>
+    <div class="form-group col-sm-3">
+      <app-paperboards-search
+        (sendStatusForm)="recipePaperboardsSearchStatusForm($event)">
+      </app-paperboards-search>
+    </div>
     <!--description: descripción-->
     <div class="form-group col-sm-3">
       <label for="descriptionId">Artículo</label>
@@ -145,8 +150,12 @@
 [materialsMasterForm.invalid]<br>
 <pre>{{materialsMasterForm.invalid}}</pre>
 
-[this.statusCompanySearchForm] <br>
-<pre>{{this.statusCompanySearchForm}}</pre> <br>
+[statusCompanySearchForm] <br>
+<pre>{{statusCompanySearchForm}}</pre> <br>
 
-[this.statusCustomersSearchForm] <br>
-<pre>{{this.statusCustomersSearchForm}}</pre> <br>
+[statusCustomersSearchForm] <br>
+<pre>{{statusCustomersSearchForm}}</pre> <br>
+
+[statusPaperboardsSearchForm] <br>
+<pre>{{statusPaperboardsSearchForm}}</pre> <br>
+

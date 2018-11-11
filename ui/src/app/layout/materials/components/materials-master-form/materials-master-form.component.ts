@@ -16,11 +16,13 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   public statusCompanySearchForm: boolean;
   public statusCustomersSearchForm: boolean;
   public statusEmployeessSearchForm: boolean;
+  public statusPaperboardsSearchForm: boolean;
 
   constructor(private formBuilder: FormBuilder) {
 
     this.statusCompanySearchForm = true;
     this.statusCustomersSearchForm = true;
+    this.statusPaperboardsSearchForm = true;
     this.materialsMaster = new MaterialsMaster();
     this.minSize = 1;
     this.maxSize = 10;
@@ -66,6 +68,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'description': new FormControl(this.materialsMaster.description, [
         Validators.required
       ]),
+      'paperboardId': new FormControl(this.materialsMaster.paperboardId, [
+      Validators.required
+    ]),
+
       /* TODO
       'large': new FormControl(this.materialsMaster.boxSizeLarge.large, [
         Validators.required
@@ -80,10 +86,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       ]),
       'description': new FormControl(this.materialsMaster.description, [
         Validators.required
-      ]),
-      'paperboardId': new FormControl(this.materialsMaster.paperboardId, [
-        Validators.required
-      ]),
+      ])
       */
 
     });
@@ -121,6 +124,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('customerId');
   }
 
+  get paperboardId() {
+    return this.materialsMasterForm.get('paperboardId');
+  }
+
   /*
   get large() {
     return this.materialsMasterForm.get('large');
@@ -136,9 +143,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
 
 
-  get paperboardId() {
-    return this.materialsMasterForm.get('paperboardId');
-  }
 */
   get observations() {
     return this.materialsMasterForm.get('observations');
@@ -158,6 +162,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   recipeEmployeessSearchStatusForm(status: boolean) {
     this.statusEmployeessSearchForm = status;
+  }
+
+  recipePaperboardsSearchStatusForm(status: boolean) {
+    this.statusPaperboardsSearchForm = status;
   }
 
 }
