@@ -76,8 +76,17 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
         Validators.required
       ]),
       'paperboardId': new FormControl(this.materialsMaster.paperboardId, [
-      Validators.required
-    ]),
+        Validators.required
+      ]),
+      'width': new FormControl(this.materialsMaster.width, [
+        Validators.required
+      ]),
+      'large': new FormControl(this.materialsMaster.large, [
+        Validators.required
+      ]),
+      'high': new FormControl(this.materialsMaster.high, [
+        Validators.required
+      ])
 
       /* TODO
       'large': new FormControl(this.materialsMaster.boxSizeLarge.large, [
@@ -123,6 +132,18 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('description');
   }
 
+  get width() {
+    return this.materialsMasterForm.get('width');
+  }
+
+  get high() {
+    return this.materialsMasterForm.get('high');
+  }
+
+  get large() {
+    return this.materialsMasterForm.get('large');
+  }
+
   /*
   get large() {
     return this.materialsMasterForm.get('large');
@@ -158,21 +179,21 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       boxTypeId: new ObjectId('5bd29adf583b8c1a0df75408'),
       employeeId: this.employeeId,
       paperboardId: this.paperboardId,
-      width: 666,
-      large: 666,
-      high: 666
+      width: this.materialsMasterForm.controls.width.value,
+      large: this.materialsMasterForm.controls.large.value,
+      high: this.materialsMasterForm.controls.high.value
       // boxSizeLarge: ,
-      // boxSizeSmall: ,
+      // boxSizeSmall:
     };
 
     this.materialsMaster = materialMaster;
 
     this.materialsService.addMaterial(materialMaster)
       .subscribe(result => {
-      console.log(result);
-    }, (error) => {
-      console.log(error);
-    });
+        console.log(result);
+      }, (error) => {
+        console.log(error);
+      });
   }
 
   recipeCompanyStatusForm(event) {

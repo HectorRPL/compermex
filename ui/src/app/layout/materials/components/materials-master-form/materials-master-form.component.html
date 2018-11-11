@@ -109,6 +109,46 @@
         <div class="text-danger small" *ngIf="description.errors.required">Requerido.</div>
       </div>
     </div>
+
+    <!--LARGO / LONG-->
+    <div class="form-group col-sm-4">
+      <label for="largeId">Largo</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="largeId"
+             placeholder="Largo"
+             [ngClass]="{'is-invalid': large.invalid && (large.dirty || large.touched)}"
+             formControlName="large">
+      <div *ngIf="large.invalid && (large.dirty || large.touched)">
+        <div class="text-danger small" *ngIf="large.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--ANCHO / WIDTH-->
+    <div class="form-group col-sm-4">
+      <label for="widthId">Ancho</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="widthId"
+             placeholder="Ancho"
+             [ngClass]="{'is-invalid': width.invalid && (width.dirty || width.touched)}"
+             formControlName="width">
+      <div *ngIf="width.invalid && (width.dirty || width.touched)">
+        <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--ALTO / high-->
+    <div class="form-group col-sm-4">
+      <label for="highId">Alto</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="highId"
+             placeholder="Alto"
+             [ngClass]="{'is-invalid': high.invalid && (high.dirty || high.touched)}"
+             formControlName="high">
+      <div *ngIf="high.invalid && (high.dirty || high.touched)">
+        <div class="text-danger small" *ngIf="high.errors.required">Requerido.</div>
+      </div>
+    </div>
     <!--OBSERVACIONES / OBSERVATIONS-->
     <div class="form-group col-sm-12">
       <label for="observationsId">Observaciones</label>
