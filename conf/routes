@@ -32,9 +32,9 @@ GET     /materials/strengths        controllers.materials.MaterialsController.li
 GET     /paperboards/search/:name   controllers.materials.MaterialsController.paperboars(name: String)
 
 # ROUTES FOR CLIENTS
-GET     /clients                controllers.clients.ClientsController.list
-POST    /add/client             controllers.clients.ClientsController.save
-GET    /clients/search/:name    controllers.clients.ClientsController.search(name: String)
+GET     /customers                controllers.clients.ClientsController.list
+POST    /add/customer             controllers.clients.ClientsController.save
+GET    /customers/search/:name    controllers.clients.ClientsController.search(name: String)
 
 # ROUTES FOR COMPANIES
 GET     /companies               controllers.companies.CompaniesController.list
