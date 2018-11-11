@@ -62,7 +62,7 @@ export class CustomersSearchComponent {
     if (this.customerSearchForm.status === 'VALID') {
       const value = {
         status: false,
-        _id: event.item._id.$oid
+        _id: event.item._id
       };
       this.sendStatusForm.emit(value);
     } else if (this.customerSearchForm.status === 'INVALID') {

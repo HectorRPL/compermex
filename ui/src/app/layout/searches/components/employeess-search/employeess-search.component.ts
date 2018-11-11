@@ -63,7 +63,7 @@ export class EmployeessSearchComponent {
     if (this.employeeSearchForm.status === 'VALID') {
       const value = {
         status: false,
-        _id: event.item._id.$oid
+        _id: event.item._id
       };
       this.sendStatusForm.emit(value);
     } else if (this.employeeSearchForm.status === 'INVALID') {

@@ -41,7 +41,7 @@ export class CompanySearchComponent {
     if (this.companySearchForm.status === 'VALID') {
       const value = {
         status: false,
-        _id: event._id.$oid
+        _id: event._id
       };
       this.sendStatusForm.emit(value);
     } else if (this.companySearchForm.status === 'INVALID') {

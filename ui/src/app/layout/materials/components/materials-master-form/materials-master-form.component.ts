@@ -17,7 +17,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   public statusCompanySearchForm: boolean;
   public companyId: ObjectId;
   public statusCustomersSearchForm: boolean;
-  public customerId: boolean;
+  public customerId: ObjectId;
   public statusEmployeessSearchForm: boolean;
   public employeeId: ObjectId;
   public statusPaperboardsSearchForm: boolean;
@@ -142,7 +142,26 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   }
 
   materialAction() {
-    console.log(this.materialsMasterForm);
+    console.log('Se imprime lo que necesito ');
+    console.log();
+    const materialMaster: MaterialsMaster = {
+      observations: this.materialsMasterForm.controls.observations.value,
+      sellerPrice: this.materialsMasterForm.controls.sellerPrice.value,
+      description: this.materialsMasterForm.controls.description.value,
+      code: this.materialsMasterForm.controls.code.value,
+      variationPositive: this.materialsMasterForm.controls.variationPositive.value,
+      variationNegative: this.materialsMasterForm.controls.variationNegative.value,
+      companyId: this.companyId,
+      customerId: this.customerId,
+      boxTypeId: new ObjectId('5bd29adf583b8c1a0df75408'),
+      employeeId: this.employeeId,
+      paperboardId: this.paperboardId
+      // boxSizeLarge: ,
+      // boxSizeSmall: ,
+    };
+
+    console.log(materialMaster);
+
   }
 
   recipeCompanyStatusForm(event) {
