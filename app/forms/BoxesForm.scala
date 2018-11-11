@@ -62,10 +62,10 @@ object BoxesForm {
     def writes(boxesForm: BoxesForm): JsObject = Json.obj(
       "code" -> boxesForm.code,
       "descripcion" -> boxesForm.descripcion,
-      "boxtypeId" -> boxesForm.boxtypeId,
+      "boxtypeId" -> boxesForm.boxTypeId,
       "companyId" -> boxesForm.companyId,
       "customerId" -> boxesForm.customerId,
-      "employeId" -> boxesForm.employeId,
+      "employeId" -> boxesForm.employeeId,
       "large" -> boxesForm.large,
       "width" -> boxesForm.width,
       "high" -> boxesForm.high,
