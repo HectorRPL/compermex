@@ -86,6 +86,12 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       ]),
       'high': new FormControl(this.materialsMaster.high, [
         Validators.required
+      ]),
+      'quality': new FormControl(this.materialsMaster.quality, [
+        Validators.required
+      ]),
+      'plane': new FormControl(this.materialsMaster.plane, [
+        Validators.required
       ])
 
       /* TODO
@@ -144,6 +150,14 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('large');
   }
 
+  get plane() {
+    return this.materialsMasterForm.get('plane');
+  }
+
+  get quality() {
+    return this.materialsMasterForm.get('quality');
+  }
+
   /*
   get large() {
     return this.materialsMasterForm.get('large');
@@ -176,12 +190,14 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       variationNegative: this.materialsMasterForm.controls.variationNegative.value,
       companyId: this.companyId,
       customerId: this.customerId,
-      boxTypeId: new ObjectId('5bd29adf583b8c1a0df75408'),
+      boxTypeId: new ObjectId('5bd29adf583b8c1a0df75408'), // TODO => Falta conectarlo con el servicio de back, ya está el servicio
       employeeId: this.employeeId,
       paperboardId: this.paperboardId,
       width: this.materialsMasterForm.controls.width.value,
       large: this.materialsMasterForm.controls.large.value,
-      high: this.materialsMasterForm.controls.high.value
+      high: this.materialsMasterForm.controls.high.value,
+      quality: this.convertStringToBoolean(this.materialsMasterForm.controls.quality.value),
+      plane: this.convertStringToBoolean(this.materialsMasterForm.controls.plane.value)
       // boxSizeLarge: ,
       // boxSizeSmall:
     };
@@ -214,6 +230,17 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   recipePaperboardsSearchStatusForm(event) {
     this.statusPaperboardsSearchForm = event.status;
     this.paperboardId = event._id;
+  }
+
+  convertStringToBoolean(value: string): boolean {
+    let result: boolean = true;
+    if (value === 'true') {
+      result = true;
+    } else if (value === 'false') {
+      result = false;
+    }
+
+    return result;
   }
 
 }
