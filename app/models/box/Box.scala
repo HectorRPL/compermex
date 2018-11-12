@@ -28,7 +28,7 @@ object Box {
     def reads(json: JsValue): JsResult[Box] = json match {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
-        val code = (obj \ "prov").as[String]
+        val code = (obj \ "code").as[String]
         val description = (obj \ "description").as[String]
         val large = (obj \ "large").as[Double]
         val width = (obj \ "width").as[Double]
