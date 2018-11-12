@@ -18,7 +18,6 @@ case class OrdersForm(
                       paperboardId: BSONObjectID, //cartonId
                       kgMinLinier: Int,
                       kgMinKraft: Int,
-
                     )
 
 object OrdersForm {

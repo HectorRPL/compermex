@@ -41,7 +41,7 @@ class EmployeesController @Inject()(
 
   def search(name: String) = Action.async {
     val query = Json.obj(
-      "fullName" -> Json.obj("$regex" -> name))
+      "fullName" -> Json.obj("$regex" -> name, "$options" -> "i" ))
     val sort = Json.obj("fullName" -> -1)
     val pag = Pagination(20, 0)
 

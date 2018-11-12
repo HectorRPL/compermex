@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SignUp} from '../../../models/sign-up';
 import {AuthService} from 'ng2-ui-auth';
 import {UserService} from "../../../services/auth/user.service";
+import {TokenUser} from "../../../models/auth/token-user";
 
 @Component({
   selector: 'app-sign-up-form',
@@ -13,6 +14,8 @@ export class SignUpFormComponent implements OnInit {
 
   public signUp: SignUp;
   signUpForm: FormGroup;
+  public userLogeado: TokenUser;
+
 
   charactersMin: number = 2;
   charactersMax: number = 50;
@@ -82,7 +85,7 @@ export class SignUpFormComponent implements OnInit {
       next: (response)=>{
         console.log(response);
         this.auth.setToken(response);
-        this.userService.renewUser();
+         this.userService.renewUser();
       },
       error:(e)=> console.log(e),
       complete: () => console.log('complete')

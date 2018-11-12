@@ -23,7 +23,7 @@ GET     /suppliers/search/:name controllers.supplier.SupplierController.search(n
 # ROUTES FOR EMPLOYEES
 GET     /employees              controllers.employees.EmployeesController.list
 POST    /add/employe            controllers.employees.EmployeesController.save
-GET    /employees/search/:name  controllers.employees.EmployeesController.search(name: String)
+GET     /employees/search/:name  controllers.employees.EmployeesController.search(name: String)
 
 # ROUTES FOR MATERIALS
 GET     /materials/colors           controllers.materials.MaterialsController.listColors
@@ -34,12 +34,12 @@ GET     /paperboards/search/:name   controllers.materials.MaterialsController.pa
 # ROUTES FOR CLIENTS
 GET     /customers                controllers.clients.ClientsController.list
 POST    /add/customer             controllers.clients.ClientsController.save
-GET    /customers/search/:name    controllers.clients.ClientsController.search(name: String)
+GET     /customers/search/:name    controllers.clients.ClientsController.search(name: String)
 
 # ROUTES FOR COMPANIES
 GET     /companies               controllers.companies.CompaniesController.list
 POST    /add/company             controllers.companies.CompaniesController.save
-GET    /companies/search/:name   controllers.companies.CompaniesController.search(name: String)
+GET     /companies/search/:name   controllers.companies.CompaniesController.search(name: String)
 
 #ROUTES FOR BOXES
 GET    /boxes/types             controllers.boxes.BoxesController.listBoxesTypes
