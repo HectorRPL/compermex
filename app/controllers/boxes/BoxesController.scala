@@ -44,7 +44,9 @@ class BoxesController @Inject()(
         variationNegative = formData.variationNegative,
         sellerPrice = formData.sellerPrice,
         observations = formData.observations,
-        boxTypeId = formData.boxTypeId
+        boxTypeId = formData.boxTypeId,
+        quality = formData.quality,
+        plane = formData.plane,
       )
 
       boxesService.save(box).map { box =>

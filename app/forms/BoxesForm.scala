@@ -1,8 +1,9 @@
 package forms
 
-import models.box.{BoxSize}
+import javax.print.attribute.standard.PrintQuality
+import models.box.BoxSize
 import play.api.libs.json._
-import reactivemongo.bson.{BSONObjectID}
+import reactivemongo.bson.BSONObjectID
 import reactivemongo.play.json._
 
 case class BoxesForm(
@@ -21,6 +22,8 @@ case class BoxesForm(
                     variationNegative: Int,
                     sellerPrice: Double,
                     observations: Option[String],
+                    quality: Boolean,
+                    plane: Boolean,
              )
 
 object BoxesForm {
@@ -43,11 +46,13 @@ object BoxesForm {
         val variationNegative = (obj \ "variationNegative").as[Int]
         val sellerPrice = (obj \ "sellerPrice").as[Double]
         val observations = (obj \ "observations").asOpt[String]
+        val quality = (obj \ "quality").as[Boolean]
+        val plane = (obj \ "plane").as[Boolean]
 
 
 
         JsSuccess(BoxesForm(code, description, boxTypeId, companyId, customerId, employeeId, large, width, high,
-          boxesSize, paperboardId, variationPositive, variationNegative, sellerPrice, observations))
+          boxesSize, paperboardId, variationPositive, variationNegative, sellerPrice, observations, quality, plane))
 
       } catch {
         case cause: Throwable => JsError(cause.getMessage)
@@ -74,7 +79,9 @@ object BoxesForm {
       "variationPositive" -> boxesForm.variationPositive,
       "variationNegative" -> boxesForm.variationNegative,
       "sellerPrice" -> boxesForm.sellerPrice,
-      "observations" -> boxesForm.observations
+      "observations" -> boxesForm.observations,
+      "quality" -> boxesForm.quality,
+      "plane" -> boxesForm.plane,
     )
   }
 

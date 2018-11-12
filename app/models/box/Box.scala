@@ -19,6 +19,8 @@ case class Box(
                 sellerPrice: Double,
                 observations: Option[String],
                 boxTypeId: BSONObjectID,
+                quality: Boolean,
+                plane: Boolean,
               )
 
 object Box {
@@ -41,10 +43,12 @@ object Box {
         val sellerPrice = (obj \ "sellerPrice").as[Double]
         val observations = (obj \ "observations").asOpt[String]
         val boxTypeId = (obj \ "boxTypeId").as[BSONObjectID]
+        val quality = (obj \ "quality").as[Boolean]
+        val plane = (obj \ "plane").as[Boolean]
 
 
-        JsSuccess(Box(_id, code, description, large, width, high,  companyId, paperboardId,
-          clientId, variationPositive, variationNegative, sellerPrice, observations, boxTypeId))
+        JsSuccess(Box(_id, code, description, large, width, high,  companyId, paperboardId, clientId,
+          variationPositive, variationNegative, sellerPrice, observations, boxTypeId, quality, plane))
 
       } catch {
         case cause: Throwable => JsError(cause.getMessage)
@@ -71,7 +75,9 @@ object Box {
       "variationNegative" -> box.variationNegative,
       "sellerPrice" -> box.sellerPrice,
       "observations" -> box.observations,
-      "boxTypeId" -> box.boxTypeId
+      "boxTypeId" -> box.boxTypeId,
+      "quality" -> box.quality,
+      "plane" -> box.plane,
     )
   }
 
