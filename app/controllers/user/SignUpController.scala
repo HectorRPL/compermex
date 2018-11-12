@@ -50,7 +50,8 @@ class SignUpController @Inject()(
             loginInfo = loginInfo,
             username = Some(signUpData.username),
             activated = true,
-            avatarURL = None
+            avatarURL = None,
+            areaId = signUpData.areaId
           )
 
           val emp = Employe(

@@ -6,10 +6,11 @@ import {LayoutComponent} from './layout.component';
 import {SupplierService} from './suppliers/service/supplier.service';
 import {CompanyService} from '../services/company/company.service';
 import {CardboardService} from '../services/cardboard/cardboard.service';
-import {FooterComponent} from "./components/footer/footer.component";
-import {TopNavbarComponent} from "./components/topnavbar/topnavbar.component";
-import {NavigationComponent} from "./components/navigation/navigation.component";
-import {TopNavigationNavbarComponent} from "./components/topnavbar/topnavigationnavbar.component";
+import {FooterComponent} from './components/footer/footer.component';
+import {TopNavbarComponent} from './components/topnavbar/topnavbar.component';
+import {NavigationComponent} from './components/navigation/navigation.component';
+import {TopNavigationNavbarComponent} from './components/topnavbar/topnavigationnavbar.component';
+import {UserService} from '../services/auth/user.service';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {TopNavigationNavbarComponent} from "./components/topnavbar/topnavigation
   providers: [
     SupplierService,
     CompanyService,
-    CardboardService
+    CardboardService,
+    UserService
   ]
 })
 export class LayoutModule {

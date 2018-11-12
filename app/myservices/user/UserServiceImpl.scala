@@ -30,6 +30,7 @@ class UserServiceImpl @Inject()(
     */
   def save(user: User): Future[User] = userDao.save(user)
 
+
   /**
     * Saves the social profile for a user.
     *
@@ -38,25 +39,7 @@ class UserServiceImpl @Inject()(
     * @param profile The social profile to save.
     * @return The user for whom the profile was saved.
     */
-  def save(profile: CommonSocialProfile): Future[User] = {
-
-    userDao.find(profile.loginInfo).flatMap {
-      case Some(user) => // Update user with profile
-        userDao.save(user.copy(
-          username = profile.email,
-          avatarURL = profile.avatarURL
-        ))
-      case None => // Insert a new user
-        userDao.save(User(
-          _id = UUID.randomUUID(),
-          loginInfo = profile.loginInfo,
-          username = profile.email,
-          avatarURL = profile.avatarURL,
-          activated = true
-        ))
-    }
-
-  }
+  def save(profile: CommonSocialProfile): Future[User] = ???
 
   def retrieve(loginInfo: LoginInfo): Future[Option[User]] = userDao.find(loginInfo)
 }

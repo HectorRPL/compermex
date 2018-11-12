@@ -7,4 +7,6 @@ import scala.concurrent.Future
 trait AreasService {
 
   def getAll(): Future[Seq[Area]]
+
+  def getOne()
 }
