@@ -57,6 +57,7 @@
             <div class="form-group col-sm-6">
               <app-suppliers-search></app-suppliers-search>
             </div>
+            <!-- CONDICIONES DE PAGO-->
             <div class="form-group col-sm-6">
               <label for="customerOrderId">Condiciones de Pago</label>
               <input type="text"
@@ -89,6 +90,10 @@
                 <div class="text-danger small" *ngIf="customerOrder.errors.required">Requerido.</div>
               </div>
             </div>
+            <!--AUTOCOMPLETE: CAJAS boxes-search-->
+            <app-boxes-search
+              (sendStatusForm)="recipeBoxSearchStatusForm($event)">
+            </app-boxes-search>
           </div>
         </div>
       </div>

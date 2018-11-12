@@ -8,6 +8,7 @@ import {CustomersSearchComponent} from './components/customers-search/customers-
 import {CompanySearchComponent} from './components/company-search/company-search.component';
 import {EmployeessSearchComponent} from './components/employeess-search/employeess-search.component';
 import {PaperboardsSearchComponent} from "./components/paperboards-search/paperboards-search.component";
+import {BoxesSearchComponent} from './components/boxes-search/boxes-search.component';
 
 @NgModule({
   imports: [
@@ -22,14 +23,16 @@ import {PaperboardsSearchComponent} from "./components/paperboards-search/paperb
     CustomersSearchComponent,
     CompanySearchComponent,
     EmployeessSearchComponent,
-    PaperboardsSearchComponent
+    PaperboardsSearchComponent,
+    BoxesSearchComponent
   ],
   exports: [
     SuppliersSearchComponent,
     CustomersSearchComponent,
     CompanySearchComponent,
     EmployeessSearchComponent,
-    PaperboardsSearchComponent
+    PaperboardsSearchComponent,
+    BoxesSearchComponent
   ]
 })
 export class SearchesModule {

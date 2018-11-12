@@ -81,7 +81,8 @@ CREACION DEL MODULO: producción
 `ng generate class layout/production/models/production -type model`
 
 
-ng generate component layout/cardboards/components/paperboardsSearch
+CREACIÓN DE BUSQUEDAS/SEACHES REUTILIZABLES
+`ng generate component layout/searches/components/boxesSearch`
 
 
 ## Build

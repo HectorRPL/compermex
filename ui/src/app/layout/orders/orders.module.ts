@@ -21,7 +21,7 @@ import {SearchesModule} from '../searches/searches.module';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    SearchesModule,
+    SearchesModule
   ],
   declarations: [
     OrdersComponent,
@@ -32,7 +32,7 @@ import {SearchesModule} from '../searches/searches.module';
     OrderFormComponent,
     ListOrdersComponent,
     AddOrderComponent,
-    OrdersSearchComponent,
+    OrdersSearchComponent
   ]
 })
 export class OrdersModule {
