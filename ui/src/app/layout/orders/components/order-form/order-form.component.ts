@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Order} from "../../../../models/order";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {ObjectId} from "../../../../models/object-id.model";
 
 @Component({
   selector: 'app-order-form',
@@ -11,6 +12,9 @@ export class OrderFormComponent implements OnInit {
 
   public order: Order;
   orderForm: FormGroup;
+
+  public statusBoxSearchForm: boolean;
+  public boxId: ObjectId;
 
   constructor(private formBuilder: FormBuilder) {
 
@@ -112,5 +116,11 @@ export class OrderFormComponent implements OnInit {
   padreCachaDisparoDelHijo(parametro) {
     console.log('Imprime lo que le manda el hijo', parametro);
   }
+
+  recipeBoxSearchStatusForm(event) {
+    this.statusBoxSearchForm = event.status;
+    this.boxId = event._id;
+  }
+
 
 }

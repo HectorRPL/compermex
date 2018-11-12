@@ -15,7 +15,7 @@ export class OrderTemp {
   plane: string; //Plano de la caja(investigar de donde proviene)
   observations: string; //
   fiscalDataId: ObjectId; //Crear un autocomplete de los datos fiscales
-  paperboardId: ObjectId; //cartonId
+  // paperboardId: ObjectId; //cartonId
   boxTypeId: ObjectId; //Catalogo de tipo de cajas
   kgMinLinier: number;
   kgMinKraft: number;
