@@ -16,6 +16,8 @@ export class MaterialsMaster {
   width: number;
   large: number;
   high: number;
+  plane: boolean;
+  quality: boolean; // Certificado de calidad
   boxSizeLarge?: string; // Se harcodea, pero deben ser del tipo: BoxSize;
   boxSizeSmall?: string; // Se harcodea, pero deben ser del tipo: BoxSize;
 }

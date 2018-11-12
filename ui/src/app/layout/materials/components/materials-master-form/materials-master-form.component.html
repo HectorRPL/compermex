@@ -1,6 +1,7 @@
 <form novalidate
       autocomplete="off"
       [formGroup]="materialsMasterForm">
+  <!--ARTÍCULO / DETALLES GENERAL DEL PRODUCTO-->
   <div class="form row">
     <div class="form-group col-sm-12">
       <h3 class="text-center">Artículo</h3>
@@ -162,6 +163,38 @@
       <app-paperboards-search
         (sendStatusForm)="recipePaperboardsSearchStatusForm($event)">
       </app-paperboards-search>
+    </div>
+    <!--Certificado de calidad-->
+    <div class="form-group col-sm-3">
+      <label>Certificado de calidad</label>
+      <div class="btn-group btn-group-toggle d-flex"
+           ngbRadioGroup name="radioBasic"
+           formControlName="quality">
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="true">Si
+        </label>
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="false">No
+        </label>
+      </div>
+    </div>
+    <!--plano-->
+    <div class="form-group col-sm-3">
+      <label>Plano</label>
+      <div class="btn-group btn-group-toggle d-flex"
+           ngbRadioGroup name="radioBasic"
+           formControlName="plane">
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="true">Si
+        </label>
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="false">No
+        </label>
+      </div>
     </div>
     <!--OBSERVACIONES / OBSERVATIONS-->
     <div class="form-group col-sm-12">
