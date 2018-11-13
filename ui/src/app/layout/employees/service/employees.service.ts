@@ -40,11 +40,4 @@ export class EmployeesService {
       );
   }
 
-  getAreas(): Observable<Area[]> {
-    return this.http.get<Area[]>('/areas')
-      .pipe(
-        catchError(this.handleError('getAreas', []))
-      );
-  }
-
 }

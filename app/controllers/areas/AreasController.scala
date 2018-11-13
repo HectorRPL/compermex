@@ -23,4 +23,13 @@ class AreasController @Inject()(
     }
   }
 
+
+  def one(areaId: BSONObjectID) = Action.async {
+    areasService.getOne(areaId).map { optArea =>
+      optArea.map { area =>
+        Ok(Json.toJson(area))
+      }.getOrElse(NotFound)
+    }
+  }
+
 }

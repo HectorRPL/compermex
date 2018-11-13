@@ -6,6 +6,7 @@ import {Observable} from "rxjs/Observable";
 import {SignUpData} from "../../../../auth/models/signUp/signUp";
 import {ObjectId} from "../../../../models/object-id.model";
 import {AuthService} from "ng2-ui-auth";
+import {AreasService} from "../../../../services/areas/areas.service";
 
 
 @Component({
@@ -25,6 +26,7 @@ export class EmployeesFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private employeesService: EmployeesService,
+              private areasService:AreasService,
               private auth: AuthService) {
 
     this.employee = new SignUpData();
@@ -127,7 +129,7 @@ export class EmployeesFormComponent implements OnInit {
   }
 
   getAreas() {
-    this.areas$ = this.employeesService.getAreas();
+    this.areas$ = this.areasService.getAreas();
   }
 
   fillEmployee(): SignUpData {

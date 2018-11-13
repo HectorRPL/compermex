@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import 'jquery-slimscroll';
 import {AuthService} from "ng2-ui-auth";
 import {UserService} from "../../../services/auth/user.service";
+import {AreasService} from "../../../services/areas/areas.service";
+import {Area} from "../../../models/area/client.model";
 
 declare var jQuery: any;
 
@@ -13,9 +15,10 @@ declare var jQuery: any;
 
 export class NavigationComponent {
 
-  public area: any;
+  public area: Area;
 
   constructor(private router: Router,
+              private areasService: AreasService,
               private userService: UserService) {
   }
 
@@ -36,9 +39,17 @@ export class NavigationComponent {
   ngOnInit(){
 
     this.userService.renewUser().then((user)=>{
-      console.log(user)
-
+      console.log(user);
+      this.getArea(user.areaId.$oid)
     });
+  }
+
+
+  getArea(areaId: String){
+    this.areasService.getArea(areaId).subscribe({
+      next: value => this.area = value
+    })
+
   }
 
 
