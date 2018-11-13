@@ -20,6 +20,7 @@ export class NavigationComponent {
   constructor(private router: Router,
               private areasService: AreasService,
               private userService: UserService) {
+    this.area = new Area();
   }
 
   ngAfterViewInit() {
