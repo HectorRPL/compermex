@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
-import {of} from 'rxjs/observable/of';
+import {Observable, of} from 'rxjs/index';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SupplierService} from '../../../suppliers/service/supplier.service';
 import {Supplier} from '../../../suppliers/models/supplier/supplier.model';
 
@@ -13,12 +13,31 @@ import {Supplier} from '../../../suppliers/models/supplier/supplier.model';
 })
 export class SuppliersSearchComponent {
 
+  @Output() public sendStatusForm = new EventEmitter();
+  public supplierSearchForm: FormGroup;
   model: any;
   searching = false;
   searchFailed = false;
 
-  constructor(private supplierServ: SupplierService) {
+  constructor(private supplierServ: SupplierService,
+              private formBuilder: FormBuilder) {
 
+  }
+
+  ngOnInit() {
+    this.createCustomerSearchForm();
+  }
+
+  createCustomerSearchForm() {
+    this.supplierSearchForm = this.formBuilder.group({
+      'supplier': new FormControl('', [
+        Validators.required
+      ]),
+    });
+  }
+
+  get supplier() {
+    return this.supplierSearchForm.get('supplier');
   }
 
   search = (text$: Observable<string>) =>
@@ -40,8 +59,22 @@ export class SuppliersSearchComponent {
   resFormatter = (x: Supplier) => x.name;
   inFormatter = (result: Supplier) => result.name;
 
-  selectedItem($event) {
-    console.log($event);
+  selectedItem(event) {
+    console.log(event);
+    if (this.supplierSearchForm.status === 'VALID') {
+      const value = {
+        status: false,
+        _id: event.item._id
+      };
+      this.sendStatusForm.emit(value);
+    } else if (this.supplierSearchForm.status === 'INVALID') {
+      const value = {
+        status: true,
+        _id: null
+      };
+      this.sendStatusForm.emit(value);
+
+    }
   }
 
 }

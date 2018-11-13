@@ -10,90 +10,30 @@
         <div class="card-body">
           <!--[end]-->
           <div class="row">
-            <!-- FECHA ORDEN-->
-            <div class="form-group col-sm-6">
-              <label for="orderDateId">Fecha Orden</label>
-              <input type="date"
-                     class="form-control form-control-sm"
-                     id="orderDateId"
-                     placeholder="Fecha Orden"
-                     [ngClass]="{'is-invalid': orderDate.invalid &&
-                      (orderDate.dirty || orderDate.touched)}"
-                     formControlName="orderDate">
-              <div *ngIf="orderDate.invalid && (orderDate.dirty || orderDate.touched)">
-                <div class="text-danger small" *ngIf="orderDate.errors.required">Requerido.</div>
-              </div>
-            </div>
-            <!-- FECHA ENTREGA-->
-            <div class="form-group col-sm-6">
-              <label for="deliverDateId">Fecha Entrega</label>
-              <input type="date"
-                     class="form-control form-control-sm"
-                     id="deliverDateId"
-                     placeholder="Fecha Orden"
-                     [ngClass]="{'is-invalid': deliverDate.invalid &&
-                      (deliverDate.dirty || deliverDate.touched)}"
-                     formControlName="deliverDate">
-              <div *ngIf="deliverDate.invalid && (deliverDate.dirty || deliverDate.touched)">
-                <div class="text-danger small" *ngIf="deliverDate.errors.required">Requerido.</div>
-              </div>
-            </div>
-            <!-- FECHA CTE:-->
-            <div class="form-group col-sm-6">
-              <label for="customerDateId">Fecha Cte.</label>
-              <input type="date"
-                     class="form-control form-control-sm"
-                     id="customerDateId"
-                     placeholder="Fecha Orden"
-                     [ngClass]="{'is-invalid': customerDate.invalid &&
-                      (customerDate.dirty || customerDate.touched)}"
-                     formControlName="customerDate">
-              <div *ngIf="deliverDate.invalid &&
-               (customerDate.dirty || customerDate.touched)">
-                <div class="text-danger small" *ngIf="customerDate.errors.required">Requerido.</div>
-              </div>
-            </div>
-            <!-- AUTOCOMPLETE PROVEEDORES-->
-            <div class="form-group col-sm-6">
-              <app-suppliers-search></app-suppliers-search>
-            </div>
-            <!-- CONDICIONES DE PAGO-->
-            <div class="form-group col-sm-6">
-              <label for="customerOrderId">Condiciones de Pago</label>
-              <input type="text"
-                     class="form-control form-control-sm"
-                     disabled="true"
-                     id="condPagoId">
-            </div>
-            <!-- AUTOCOMPLETE CLIENTES-->
-            <div class="form-group col-sm-6">
-              <app-customers-search></app-customers-search>
-            </div>
-            <!-- AUTOCOMPLETE: Buscar compañia-->
-            <div class="form-group col-sm-6">
-              <app-company-search></app-company-search>
-            </div>
-            <!-- AUTOCOMPLETE: Buscar paperboard (cartones)-->
-            <div class="form-group col-sm-6">
-              <app-paperboards-search></app-paperboards-search>
-            </div>
-            <!--PEDIDO CTE / CUSTOMER ORDER -->
-            <div class="form-group col-sm-6">
-              <label for="customerOrderId">Pedido cte</label>
-              <input type="text"
-                     class="form-control form-control-sm"
-                     id="customerOrderId"
-                     placeholder="Pedido cte"
-                     [ngClass]="{'is-invalid': customerOrder.invalid && (customerOrder.dirty || customerOrder.touched)}"
-                     formControlName="customerOrder">
-              <div *ngIf="customerOrder.invalid && (customerOrder.dirty || customerOrder.touched)">
-                <div class="text-danger small" *ngIf="customerOrder.errors.required">Requerido.</div>
-              </div>
-            </div>
             <!--AUTOCOMPLETE: CAJAS boxes-search-->
-            <app-boxes-search
-              (sendStatusForm)="recipeBoxSearchStatusForm($event)">
-            </app-boxes-search>
+            <div class="form-group col-sm-3">
+              <app-boxes-search
+                (sendStatusForm)="recipeBoxSearchStatusForm($event)">
+              </app-boxes-search>
+            </div>
+            <!--AUTOCOMPLETE: SUPPLIERS-->
+            <div class="form-group col-sm-3">
+              <app-suppliers-search
+                (sendStatusForm)="recipeSupplerSearchStatusForm($event)">
+              </app-suppliers-search>
+            </div>
+            <!--AUTOCOMPLETE: COMPANY: app-company-search-->
+            <div class="form-group col-sm-3">
+              <app-company-search
+                (sendStatusForm)="recipeCompanySearchStatusForm($event)">
+              </app-company-search>
+            </div>
+            <!--AUTOCOMPLETE: CUSTOMER: app-customers-search-->
+            <div class="form-group col-sm-3">
+              <app-customers-search
+                (sendStatusForm)="recipeCustomerSearchStatusForm($event)">
+              </app-customers-search>
+            </div>
           </div>
         </div>
       </div>
@@ -108,3 +48,30 @@
   </button>
 </form>
 <!--<pre *ngIf="orderForm">{{orderForm|json}}</pre>-->
+
+
+[orderForm.invalid]<br>
+<pre>{{orderForm.invalid}}</pre>
+[statusBoxSearchForm] <br>
+<pre>{{statusBoxSearchForm|json}}</pre>
+[statusSupplerSearchForm] <br>
+<pre>{{statusSupplerSearchForm|json}}</pre>
+[statusCompanySearchForm] <br>
+<pre>{{statusCompanySearchForm|json}}</pre>
+[statusCustomerSearchForm] <br>
+<pre>{{statusCustomerSearchForm|json}}</pre>
+
+
+<!--
+[statusCompanySearchForm] <br>
+<pre>{{statusCompanySearchForm}} {{companyId}}</pre> <br>
+
+[statusCustomersSearchForm] <br>
+<pre>{{statusCustomersSearchForm}} {{customerId}}</pre> <br>
+
+[statusPaperboardsSearchForm] <br>
+<pre>{{statusPaperboardsSearchForm}} {{paperboardId}}</pre> <br>
+
+[statusEmployeessSearchForm] <br>
+<pre>{{statusEmployeessSearchForm}} {{employeeId}}</pre> <br>
+-->

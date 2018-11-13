@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Order} from "../../../../models/order";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ObjectId} from "../../../../models/object-id.model";
+import {OrderTemp} from "../../models/order-temp";
 
 @Component({
   selector: 'app-order-form',
@@ -10,15 +11,26 @@ import {ObjectId} from "../../../../models/object-id.model";
 })
 export class OrderFormComponent implements OnInit {
 
-  public order: Order;
+  public order: OrderTemp;
   orderForm: FormGroup;
 
   public statusBoxSearchForm: boolean;
   public boxId: ObjectId;
+  public statusSupplerSearchForm: boolean;
+  public supplierId: ObjectId;
+  public statusCompanySearchForm: boolean;
+  public companyId: ObjectId;
+  public statusCustomerSearchForm: boolean;
+  public customerId: ObjectId;
 
   constructor(private formBuilder: FormBuilder) {
 
-    this.order = new Order();
+    this.statusBoxSearchForm = true;
+    this.statusSupplerSearchForm = true;
+    this.statusCompanySearchForm = true;
+    this.statusCustomerSearchForm = true;
+
+    this.order = new OrderTemp();
 
   }
 
@@ -30,10 +42,12 @@ export class OrderFormComponent implements OnInit {
 
   createOrderForm() {
     this.orderForm = this.formBuilder.group({
-      // [ini] Encabezado
-      'companyId': new FormControl(this.order.company, [
+      'noOrder': new FormControl(this.order.noOrder, [
         Validators.required
-      ]),
+      ])
+    });
+    /*
+    this.orderForm = this.formBuilder.group({
       'customerOrder': new FormControl(this.order.customerOrder, [
         Validators.required
       ]),
@@ -58,9 +72,6 @@ export class OrderFormComponent implements OnInit {
       'providerKey02': new FormControl(this.order.providerKey02, [
         Validators.required
       ]),
-      // [end] Encabezado
-
-      // [ini] los tres selects del material
       'type': new FormControl(this.order.type, [
         Validators.required
       ]),
@@ -70,8 +81,8 @@ export class OrderFormComponent implements OnInit {
       'strength': new FormControl(this.order.strength, [
         Validators.required
       ])
-      // [end] los tres selects del material
     });
+    */
   }
 
   // [ini] Encabezado
@@ -120,6 +131,21 @@ export class OrderFormComponent implements OnInit {
   recipeBoxSearchStatusForm(event) {
     this.statusBoxSearchForm = event.status;
     this.boxId = event._id;
+  }
+
+  recipeSupplerSearchStatusForm(event) {
+    this.statusSupplerSearchForm = event.status;
+    this.supplierId = event._id;
+  }
+
+  recipeCompanySearchStatusForm(event) {
+    this.statusCompanySearchForm = event.status;
+    this.companyId = event._id;
+  }
+
+  recipeCustomerSearchStatusForm(event) {
+    this.statusCustomerSearchForm = event.status;
+    this.customerId = event._id;
   }
 
 
