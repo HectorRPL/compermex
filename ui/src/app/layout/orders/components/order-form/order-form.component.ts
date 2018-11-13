@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Order} from "../../../../models/order";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ObjectId} from "../../../../models/object-id.model";
 import {OrderTemp} from "../../models/order-temp";
+import {OrdersService} from "../../service/orders.service";
 
 @Component({
   selector: 'app-order-form',
@@ -24,14 +24,18 @@ export class OrderFormComponent implements OnInit {
   public customerId: ObjectId;
   public statusPaperboardSearchForm: boolean;
   public paperboardId: ObjectId;
+  public statusFiscalDataSearchForm: boolean;
+  public fiscalDataId: ObjectId;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private ordersService: OrdersService) {
 
     this.statusBoxSearchForm = true;
     this.statusSupplerSearchForm = true;
     this.statusCompanySearchForm = true;
     this.statusCustomerSearchForm = true;
     this.statusPaperboardSearchForm = true;
+    this.statusFiscalDataSearchForm = true;
 
     this.order = new OrderTemp();
 
@@ -61,46 +65,7 @@ export class OrderFormComponent implements OnInit {
         Validators.required
       ])
     });
-    /*
-    this.orderForm = this.formBuilder.group({
-      'customerOrder': new FormControl(this.order.customerOrder, [
-        Validators.required
-      ]),
-      'saleOrder': new FormControl(this.order.saleOrder, [
-        Validators.required
-      ]),
-      'providerKey01': new FormControl(this.order.providerKey01, [
-        Validators.required
-      ]),
-      'orderDate': new FormControl(this.order.orderDate, [
-        Validators.required
-      ]),
-      'deliverDate': new FormControl(this.order.deliverDate, [
-        Validators.required
-      ]),
-      'customerDate': new FormControl(this.order.customerDate, [
-        Validators.required
-      ]),
-      'paymentConditions': new FormControl(this.order.paymentConditions, [
-        Validators.required
-      ]),
-      'providerKey02': new FormControl(this.order.providerKey02, [
-        Validators.required
-      ]),
-      'type': new FormControl(this.order.type, [
-        Validators.required
-      ]),
-      'color': new FormControl(this.order.color, [
-        Validators.required
-      ]),
-      'strength': new FormControl(this.order.strength, [
-        Validators.required
-      ])
-    });
-    */
   }
-
-  // [ini] Encabezado
 
   get noOrder() {
     return this.orderForm.get('noOrder');
@@ -120,43 +85,6 @@ export class OrderFormComponent implements OnInit {
 
   get kgMinKraft() {
     return this.orderForm.get('kgMinKraft');
-  }
-
-  get customerOrder() {
-    return this.orderForm.get('customerOrder');
-  }
-
-  get saleOrder() {
-    return this.orderForm.get('saleOrder');
-  }
-
-  get providerKey01() {
-    return this.orderForm.get('providerKey01');
-  }
-
-  get orderDate() {
-    return this.orderForm.get('orderDate');
-  }
-
-  get deliverDate() {
-    return this.orderForm.get('deliverDate');
-  }
-
-  get customerDate() {
-    return this.orderForm.get('customerDate');
-  }
-
-  get paymentConditions() {
-    return this.orderForm.get('paymentConditions');
-  }
-
-  get providerKey02() {
-    return this.orderForm.get('providerKey02');
-  }
-  // [end] Encabezado
-
-  padreCachaDisparoDelHijo(parametro) {
-    console.log('Imprime lo que le manda el hijo', parametro);
   }
 
   recipeBoxSearchStatusForm(event) {
@@ -182,6 +110,36 @@ export class OrderFormComponent implements OnInit {
   recipePaperboardSearchStatusForm(event) {
     this.statusPaperboardSearchForm = event.status;
     this.paperboardId = event._id;
+  }
+
+  recipeDataFiscalSearchStatusForm(event) {
+    this.statusFiscalDataSearchForm = event.status;
+    this.fiscalDataId = event._id;
+  }
+
+  orderAction() {
+
+    const order: OrderTemp = {
+      boxId: this.boxId,
+      supplierId: this.supplierId,
+      companyId: this.companyId,
+      customerId: this.customerId,
+      paperboardId: this.paperboardId,
+      fiscalDataId: this.fiscalDataId,
+      noOrder: this.orderForm.controls.noOrder.value,
+      numBoxes: this.orderForm.controls.numBoxes.value,
+      observations: this.orderForm.controls.observations.value,
+      kgMinLinier: this.orderForm.controls.kgMinLinier.value,
+      kgMinKraft: this.orderForm.controls.kgMinKraft.value,
+    };
+
+    this.ordersService.addOrder(order)
+      .subscribe(result => {
+        console.log(result);
+      }, (error) => {
+        console.log(error);
+      });
+
   }
 
 

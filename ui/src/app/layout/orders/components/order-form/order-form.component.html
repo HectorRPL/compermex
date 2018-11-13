@@ -8,7 +8,6 @@
           <span class="font-weight-bold">Nota Orden:&nbsp;&nbsp;0123PRG82</span>
         </div>
         <div class="card-body">
-          <!--[end]-->
           <div class="row">
             <!--AUTOCOMPLETE: CAJAS boxes-search-->
             <div class="form-group col-sm-3">
@@ -40,6 +39,14 @@
                 (sendStatusForm)="recipePaperboardSearchStatusForm($event)">
               </app-paperboards-search>
             </div>
+            <!--
+            AUTOCOMPLETE: datos fiscales
+            <div class="form-group col-sm-3">
+              <app-paperboards-search
+                (sendStatusForm)="recipeDataFiscalSearchStatusForm($event)">
+              </app-paperboards-search>
+            </div>
+            -->
             <!-- noOrder -->
             <div class="form-group col-sm-3">
               <label for="noOrderId">No orden</label>
@@ -111,10 +118,9 @@
       </div>
     </div>
   </div>
-  <!--BOTTON-->
+  <!--BOTTON [disabled]="orderForm.invalid"-->
   <button type="submit"
           class="btn btn-primary btn-sm"
-          [disabled]="orderForm.invalid"
           (click)="orderAction()">
     Siguiente
   </button>

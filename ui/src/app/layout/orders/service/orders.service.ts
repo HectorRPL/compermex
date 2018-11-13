@@ -4,6 +4,7 @@ import {HandleError, HttpErrorHandlerService} from '../../../services/http-error
 import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Order} from '../../../models/order';
+import {OrderTemp} from "../models/order-temp";
 
 @Injectable({
   providedIn: 'root'
@@ -24,16 +25,16 @@ export class OrdersService {
       );
   }
 
-  addOrder(order: Order): Observable<Order> {
-    console.log('Dentro del servicio ', order);
-    return this.http.post<Order>('/add/order', order)
+  addOrder(OrderTemp: OrderTemp): Observable<OrderTemp> {
+    console.log('Dentro del servicio ', OrderTemp);
+    return this.http.post<OrderTemp>('/add/order', OrderTemp)
       .pipe(
-        catchError(this.handleError('add', order))
+        catchError(this.handleError('add', OrderTemp))
       );
   }
 
-  getOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>('/orders')
+  getOrders(): Observable<OrderTemp[]> {
+    return this.http.get<OrderTemp[]>('/orders')
       .pipe(
         catchError(this.handleError('getOrders', []))
       );
