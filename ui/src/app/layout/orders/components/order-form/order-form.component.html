@@ -22,6 +22,12 @@
                 (sendStatusForm)="recipeSupplerSearchStatusForm($event)">
               </app-suppliers-search>
             </div>
+            <!--AUTOCOMPLETE: COMPANY: app-company-search-->
+            <div class="form-group col-sm-3">
+              <app-company-search
+                (sendStatusForm)="recipeCompanySearchStatusForm($event)">
+              </app-company-search>
+            </div>
           </div>
         </div>
       </div>
@@ -36,3 +42,28 @@
   </button>
 </form>
 <!--<pre *ngIf="orderForm">{{orderForm|json}}</pre>-->
+
+
+[orderForm.invalid]<br>
+<pre>{{orderForm.invalid}}</pre>
+[statusBoxSearchForm] <br>
+<pre>{{statusBoxSearchForm|json}}</pre>
+[statusSupplerSearchForm] <br>
+<pre>{{statusSupplerSearchForm|json}}</pre>
+[statusCompanySearchForm] <br>
+<pre>{{statusCompanySearchForm|json}}</pre>
+
+
+<!--
+[statusCompanySearchForm] <br>
+<pre>{{statusCompanySearchForm}} {{companyId}}</pre> <br>
+
+[statusCustomersSearchForm] <br>
+<pre>{{statusCustomersSearchForm}} {{customerId}}</pre> <br>
+
+[statusPaperboardsSearchForm] <br>
+<pre>{{statusPaperboardsSearchForm}} {{paperboardId}}</pre> <br>
+
+[statusEmployeessSearchForm] <br>
+<pre>{{statusEmployeessSearchForm}} {{employeeId}}</pre> <br>
+-->

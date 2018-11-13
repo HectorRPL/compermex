@@ -18,8 +18,14 @@ export class OrderFormComponent implements OnInit {
   public boxId: ObjectId;
   public statusSupplerSearchForm: boolean;
   public supplierId: ObjectId;
+  public statusCompanySearchForm: boolean;
+  public companyId: ObjectId;
 
   constructor(private formBuilder: FormBuilder) {
+
+    this.statusBoxSearchForm = true;
+    this.statusSupplerSearchForm = true;
+    this.statusCompanySearchForm = true;
 
     this.order = new OrderTemp();
 
@@ -127,6 +133,11 @@ export class OrderFormComponent implements OnInit {
   recipeSupplerSearchStatusForm(event) {
     this.statusSupplerSearchForm = event.status;
     this.supplierId = event._id;
+  }
+
+  recipeCompanySearchStatusForm(event) {
+    this.statusCompanySearchForm = event.status;
+    this.companyId = event._id;
   }
 
 
