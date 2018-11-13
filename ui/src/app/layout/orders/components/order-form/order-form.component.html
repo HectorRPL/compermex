@@ -28,6 +28,12 @@
                 (sendStatusForm)="recipeCompanySearchStatusForm($event)">
               </app-company-search>
             </div>
+            <!--AUTOCOMPLETE: CUSTOMER: app-customers-search-->
+            <div class="form-group col-sm-3">
+              <app-customers-search
+                (sendStatusForm)="recipeCustomerSearchStatusForm($event)">
+              </app-customers-search>
+            </div>
           </div>
         </div>
       </div>
@@ -52,6 +58,8 @@
 <pre>{{statusSupplerSearchForm|json}}</pre>
 [statusCompanySearchForm] <br>
 <pre>{{statusCompanySearchForm|json}}</pre>
+[statusCustomerSearchForm] <br>
+<pre>{{statusCustomerSearchForm|json}}</pre>
 
 
 <!--
