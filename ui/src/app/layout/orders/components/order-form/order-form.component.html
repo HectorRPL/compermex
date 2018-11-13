@@ -80,6 +80,19 @@
                 <div class="text-danger small" *ngIf="observations.errors.required">Requerido.</div>
               </div>
             </div>
+            <!-- kgMinLinier -->
+            <div class="form-group col-sm-3">
+              <label for="kgMinLinierId">Kg. min Linier</label>
+              <input type="number"
+                     class="form-control form-control-sm"
+                     id="kgMinLinierId"
+                     placeholder="Kg. min Linier"
+                     [ngClass]="{'is-invalid': kgMinLinier.invalid && (kgMinLinier.dirty || kgMinLinier.touched)}"
+                     formControlName="kgMinLinier">
+              <div *ngIf="kgMinLinier.invalid && (kgMinLinier.dirty || kgMinLinier.touched)">
+                <div class="text-danger small" *ngIf="kgMinLinier.errors.required">Requerido.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
