@@ -50,6 +50,9 @@ export class OrderFormComponent implements OnInit {
       ]),
       'numBoxes': new FormControl(this.order.numBoxes, [
         Validators.required
+      ]),
+      'observations': new FormControl(this.order.observations, [
+        Validators.required
       ])
     });
     /*
@@ -99,6 +102,10 @@ export class OrderFormComponent implements OnInit {
 
   get numBoxes() {
     return this.orderForm.get('numBoxes');
+  }
+
+  get observations() {
+    return this.orderForm.get('observations');
   }
 
   get customerOrder() {

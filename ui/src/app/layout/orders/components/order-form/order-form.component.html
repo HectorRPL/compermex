@@ -67,6 +67,19 @@
                 <div class="text-danger small" *ngIf="numBoxes.errors.required">Requerido.</div>
               </div>
             </div>
+            <!-- observations -->
+            <div class="form-group col-sm-3">
+              <label for="observationsId">Observaciones</label>
+              <input type="text"
+                     class="form-control form-control-sm"
+                     id="observationsId"
+                     placeholder="Observaciones"
+                     [ngClass]="{'is-invalid': observations.invalid && (observations.dirty || observations.touched)}"
+                     formControlName="observations">
+              <div *ngIf="observations.invalid && (observations.dirty || observations.touched)">
+                <div class="text-danger small" *ngIf="observations.errors.required">Requerido.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
