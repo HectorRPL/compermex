@@ -47,6 +47,9 @@ export class OrderFormComponent implements OnInit {
     this.orderForm = this.formBuilder.group({
       'noOrder': new FormControl(this.order.noOrder, [
         Validators.required
+      ]),
+      'numBoxes': new FormControl(this.order.numBoxes, [
+        Validators.required
       ])
     });
     /*
@@ -92,6 +95,10 @@ export class OrderFormComponent implements OnInit {
 
   get noOrder() {
     return this.orderForm.get('noOrder');
+  }
+
+  get numBoxes() {
+    return this.orderForm.get('numBoxes');
   }
 
   get customerOrder() {

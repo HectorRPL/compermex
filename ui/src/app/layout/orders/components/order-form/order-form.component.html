@@ -54,6 +54,19 @@
                 <div class="text-danger small" *ngIf="noOrder.errors.required">Requerido.</div>
               </div>
             </div>
+            <!-- numBoxes -->
+            <div class="form-group col-sm-3">
+              <label for="numBoxesId">Cantidad</label>
+              <input type="number"
+                     class="form-control form-control-sm"
+                     id="numBoxesId"
+                     placeholder="Cantidad"
+                     [ngClass]="{'is-invalid': numBoxes.invalid && (numBoxes.dirty || numBoxes.touched)}"
+                     formControlName="numBoxes">
+              <div *ngIf="numBoxes.invalid && (numBoxes.dirty || numBoxes.touched)">
+                <div class="text-danger small" *ngIf="numBoxes.errors.required">Requerido.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
