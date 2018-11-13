@@ -56,6 +56,9 @@ export class OrderFormComponent implements OnInit {
       ]),
       'kgMinLinier': new FormControl(this.order.kgMinLinier, [
         Validators.required
+      ]),
+      'kgMinKraft': new FormControl(this.order.kgMinKraft, [
+        Validators.required
       ])
     });
     /*
@@ -113,6 +116,10 @@ export class OrderFormComponent implements OnInit {
 
   get kgMinLinier() {
     return this.orderForm.get('kgMinLinier');
+  }
+
+  get kgMinKraft() {
+    return this.orderForm.get('kgMinKraft');
   }
 
   get customerOrder() {
