@@ -1,3 +1,5 @@
+import {ObjectId} from "../object-id.model";
+
 export class TokenUser {
   firstName: string;
   lastName: string;
@@ -5,4 +7,5 @@ export class TokenUser {
   fullName?: string;
   displayName?: string;
   picture?: string;
+  areaId: ObjectId
 }

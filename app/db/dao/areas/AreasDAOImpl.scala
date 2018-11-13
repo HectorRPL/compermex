@@ -6,7 +6,7 @@ import models.area.Area
 import play.api.libs.json.{JsObject, Json}
 import play.modules.reactivemongo.ReactiveMongoApi
 import reactivemongo.api.{Cursor, ReadPreference}
-
+import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import reactivemongo.play.json._
 import reactivemongo.play.json.collection.JSONCollection
 
@@ -29,5 +29,10 @@ class AreasDAOImpl @Inject()(
       .cursor[Area](ReadPreference.primary)
       .collect[Seq](pag.limit, Cursor.FailOnError[Seq[Area]]())
     )
+  }
+
+  def getOne(id: BSONObjectID): Future[Option[Area]] = {
+    val query = BSONDocument("_id" -> id)
+    collection.flatMap(_.find(query).one[Area])
   }
 }

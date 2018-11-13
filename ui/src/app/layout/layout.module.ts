@@ -35,7 +35,7 @@ import {UserService} from '../services/auth/user.service';
     SupplierService,
     CompanyService,
     CardboardService,
-    UserService
+    UserService,
   ]
 })
 export class LayoutModule {

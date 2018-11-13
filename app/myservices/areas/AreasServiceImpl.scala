@@ -5,6 +5,7 @@ import javax.inject.Inject
 import models.Pagination
 import models.area.Area
 import play.api.libs.json.Json
+import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -19,5 +20,9 @@ class AreasServiceImpl  @Inject()(
     val sort = Json.obj()
 
     areasDAO.getList(query, sort, pag)
+  }
+
+  def getOne(_id: BSONObjectID): Future[Option[Area]] = {
+    areasDAO.getOne(_id)
   }
 }
