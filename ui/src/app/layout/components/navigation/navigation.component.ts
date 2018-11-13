@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import 'jquery-slimscroll';
+import {AuthService} from "ng2-ui-auth";
+import {UserService} from "../../../services/auth/user.service";
 
 declare var jQuery: any;
 
@@ -11,7 +13,10 @@ declare var jQuery: any;
 
 export class NavigationComponent {
 
-  constructor(private router: Router) {
+  public area: any;
+
+  constructor(private router: Router,
+              private userService: UserService) {
   }
 
   ngAfterViewInit() {
@@ -27,6 +32,16 @@ export class NavigationComponent {
   activeRoute(routename: string): boolean {
     return this.router.url.indexOf(routename) > -1;
   }
+
+  ngOnInit(){
+
+    this.userService.renewUser().then((user)=>{
+      console.log(user)
+
+    });
+  }
+
+
 
 
 }

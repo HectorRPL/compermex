@@ -42,7 +42,6 @@ export class UserService {
       .then(response => {
         this.user = response as TokenUser;
         this.userChangedSource.next(this.user);
-        console.log('asdasdasdad', this.user);
         return this.user;
       })
       .catch(this.handleError);
