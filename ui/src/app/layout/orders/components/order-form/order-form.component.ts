@@ -90,8 +90,8 @@ export class OrderFormComponent implements OnInit {
 
   // [ini] Encabezado
 
-  get company() {
-    return this.orderForm.get('company');
+  get noOrder() {
+    return this.orderForm.get('noOrder');
   }
 
   get customerOrder() {

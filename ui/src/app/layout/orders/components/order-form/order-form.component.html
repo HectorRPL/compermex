@@ -40,6 +40,20 @@
                 (sendStatusForm)="recipePaperboardSearchStatusForm($event)">
               </app-paperboards-search>
             </div>
+            <!-- noOrder -->
+            <div class="form-group col-sm-3">
+              <label for="noOrderId">No orden</label>
+              <input type="text"
+                     class="form-control form-control-sm"
+                     id="noOrderId"
+                     placeholder="No orden"
+                     [ngClass]="{'is-invalid': noOrder.invalid && (noOrder.dirty || noOrder.touched)}"
+                     disabled
+                     formControlName="noOrder">
+              <div *ngIf="noOrder.invalid && (noOrder.dirty || noOrder.touched)">
+                <div class="text-danger small" *ngIf="noOrder.errors.required">Requerido.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
