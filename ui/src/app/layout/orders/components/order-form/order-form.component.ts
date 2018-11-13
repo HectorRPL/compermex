@@ -22,6 +22,8 @@ export class OrderFormComponent implements OnInit {
   public companyId: ObjectId;
   public statusCustomerSearchForm: boolean;
   public customerId: ObjectId;
+  public statusPaperboardSearchForm: boolean;
+  public paperboardId: ObjectId;
 
   constructor(private formBuilder: FormBuilder) {
 
@@ -29,6 +31,7 @@ export class OrderFormComponent implements OnInit {
     this.statusSupplerSearchForm = true;
     this.statusCompanySearchForm = true;
     this.statusCustomerSearchForm = true;
+    this.statusPaperboardSearchForm = true;
 
     this.order = new OrderTemp();
 
@@ -146,6 +149,11 @@ export class OrderFormComponent implements OnInit {
   recipeCustomerSearchStatusForm(event) {
     this.statusCustomerSearchForm = event.status;
     this.customerId = event._id;
+  }
+
+  recipePaperboardSearchStatusForm(event) {
+    this.statusPaperboardSearchForm = event.status;
+    this.paperboardId = event._id;
   }
 
 

@@ -34,6 +34,12 @@
                 (sendStatusForm)="recipeCustomerSearchStatusForm($event)">
               </app-customers-search>
             </div>
+            <!--AUTOCOMPLETE: CUSTOMER: app-paperboards-search-->
+            <div class="form-group col-sm-3">
+              <app-paperboards-search
+                (sendStatusForm)="recipePaperboardSearchStatusForm($event)">
+              </app-paperboards-search>
+            </div>
           </div>
         </div>
       </div>
@@ -60,6 +66,8 @@
 <pre>{{statusCompanySearchForm|json}}</pre>
 [statusCustomerSearchForm] <br>
 <pre>{{statusCustomerSearchForm|json}}</pre>
+[statusPaperboardSearchForm] <br>
+<pre>{{statusPaperboardSearchForm|json}}</pre>
 
 
 <!--
