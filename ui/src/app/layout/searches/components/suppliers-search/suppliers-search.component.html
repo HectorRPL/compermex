@@ -1,27 +1,33 @@
-<div class="form-group">
-  <label for="searchProviderId">Buscar proveedor</label>
-  <div class="input-group mb-3">
-    <input type="text"
-           id="searchProviderId"
-           class="form-control form-control-sm"
-           placeholder="Buscar proveedor"
-           [class.is-invalid]="searchFailed"
-           [(ngModel)]="model"
-           [ngbTypeahead]="search"
-           [resultFormatter]="resFormatter"
-           [inputFormatter]="inFormatter"
-           (selectItem)="selectedItem($event)">
-    <div class="input-group-append">
-      <button type="button"
-              class="btn btn-outline-secondary btn-sm"
-              [routerLink]="['/layout/suppliers/add']">
-        <i class="fas fa-plus"
-           ngbTooltip="Añadir proveedor"></i>
-      </button>
+<form novalidate
+      autocomplete="off"
+      [formGroup]="supplierSearchForm">
+  <div class="form-group">
+    <label for="searchProviderId">Buscar proveedor</label>
+    <div class="input-group mb-3">
+      <input type="text"
+             id="searchProviderId"
+             class="form-control form-control-sm"
+             placeholder="Buscar proveedor"
+             [class.is-invalid]="searchFailed"
+             [(ngModel)]="model"
+             [ngbTypeahead]="search"
+             [resultFormatter]="resFormatter"
+             [inputFormatter]="inFormatter"
+             (selectItem)="selectedItem($event)"
+             formControlName="supplier">
+      <div class="input-group-append">
+        <button type="button"
+                class="btn btn-outline-secondary btn-sm"
+                [routerLink]="['/layout/suppliers/add']">
+          <i class="fas fa-plus"
+             ngbTooltip="Añadir proveedor"></i>
+        </button>
+      </div>
+    </div>
+    <div class="small" *ngIf="searching">Buscando...</div>
+    <div class="text-danger small" *ngIf="searchFailed">No encontrado.</div>
+    <div *ngIf="supplier.invalid && (supplier.dirty || supplier.touched)">
+      <div class="text-danger small" *ngIf="supplier.errors.required">Requerido.</div>
     </div>
   </div>
-  <div class="small" *ngIf="searching">Buscando...</div>
-  <div class="text-danger small" *ngIf="searchFailed">No encontrado.</div>
-</div>
-
-<!--TODO => investiga por qué este no tiene form ni validaciones-->
+</form>
