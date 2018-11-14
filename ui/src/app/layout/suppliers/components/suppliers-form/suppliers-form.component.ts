@@ -11,6 +11,10 @@ import {SupplierService} from "../../service/supplier.service";
 })
 export class SuppliersFormComponent implements OnInit {
 
+  public showAlert: boolean;
+  public message: string;
+  public alertType: string;
+
   public supplier: Supplier;
   suppliersForm: FormGroup;
 
@@ -29,6 +33,7 @@ export class SuppliersFormComponent implements OnInit {
 
     this.showAlert = false;
     this.message = '';
+    this.alertType = '';
 
     this.supplier = new Supplier();
 
@@ -126,19 +131,21 @@ export class SuppliersFormComponent implements OnInit {
   }
 
   add() {
-    this.supplierServ.addSupplier(this.fillSupplier())
-      .subscribe({
-        next: (result) => {
-          console.log(result);
-          this.showAlert = true;
-          this.message = 'Se guardó con éxito';
-        },
-        error: (error: any) => {
-          console.log(error);
-          this.showAlert = true;
-          this.message = 'No se guardó';
-        }
-      });
+    this.supplierServ.addSupplier(this.fillSupplier()).subscribe({
+      next: (result) => {
+        console.log(result);
+        this.showAlert = true;
+        this.message = 'Se guardó con éxito';
+        this.alertType = 'success';
+
+      },
+      error: (error: any) => {
+        console.log(error);
+        this.showAlert = true;
+        this.message = 'No se guardó';
+        this.alertType = 'danger';
+      }
+    });
   }
 
   fillSupplier(): Supplier {
