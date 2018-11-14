@@ -27,6 +27,9 @@ export class SuppliersFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private supplierServ: SupplierService) {
 
+    this.showAlert = false;
+    this.message = '';
+
     this.supplier = new Supplier();
 
   }
@@ -124,8 +127,17 @@ export class SuppliersFormComponent implements OnInit {
 
   add() {
     this.supplierServ.addSupplier(this.fillSupplier())
-      .subscribe(result => {
-        console.log(result);
+      .subscribe({
+        next: (result) => {
+          console.log(result);
+          this.showAlert = true;
+          this.message = 'Se guardó con éxito';
+        },
+        error: (error: any) => {
+          console.log(error);
+          this.showAlert = true;
+          this.message = 'No se guardó';
+        }
       });
   }
 

@@ -16,6 +16,10 @@ import {AreasService} from "../../../../services/areas/areas.service";
 })
 export class EmployeesFormComponent implements OnInit {
 
+  public showAlert: boolean;
+  public message: string;
+  public alertType: string;
+
   public employee: SignUpData;
   public areas$: Observable<Area[]>;
   public employeesForm: FormGroup;
@@ -28,6 +32,10 @@ export class EmployeesFormComponent implements OnInit {
               private employeesService: EmployeesService,
               private areasService:AreasService,
               private auth: AuthService) {
+
+    this.showAlert = false;
+    this.message = '';
+    this.alertType = '';
 
     this.employee = new SignUpData();
 
@@ -49,11 +57,14 @@ export class EmployeesFormComponent implements OnInit {
         console.log(result);
         this.showAlert = true;
         this.message = 'Se guardó con éxito';
+        this.alertType = 'success';
+
       },
       error: (error: any) => {
         console.log(error);
         this.showAlert = true;
         this.message = 'No se guardó';
+        this.alertType = 'danger';
       }
     });
 

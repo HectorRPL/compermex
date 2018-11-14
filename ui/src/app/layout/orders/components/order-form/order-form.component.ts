@@ -11,8 +11,11 @@ import {OrdersService} from "../../service/orders.service";
 })
 export class OrderFormComponent implements OnInit {
 
+  public showAlert: boolean;
+  public message: string;
+
   public order: OrderTemp;
-  orderForm: FormGroup;
+  public orderForm: FormGroup;
 
   public statusBoxSearchForm: boolean;
   public boxId: ObjectId;
@@ -36,6 +39,9 @@ export class OrderFormComponent implements OnInit {
     this.statusCustomerSearchForm = true;
     this.statusPaperboardSearchForm = true;
     this.statusFiscalDataSearchForm = true;
+
+    this.showAlert = false;
+    this.message = '';
 
     this.order = new OrderTemp();
 
@@ -133,12 +139,18 @@ export class OrderFormComponent implements OnInit {
       kgMinKraft: this.orderForm.controls.kgMinKraft.value,
     };
 
-    this.ordersService.addOrder(order)
-      .subscribe(result => {
+    this.ordersService.addOrder(order).subscribe({
+      next: (result) => {
         console.log(result);
-      }, (error) => {
+        this.showAlert = true;
+        this.message = 'Se guardó con éxito';
+      },
+      error: (error: any) => {
         console.log(error);
-      });
+        this.showAlert = true;
+        this.message = 'No se guardó';
+      }
+    });
 
   }
 
