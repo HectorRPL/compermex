@@ -119,9 +119,13 @@
     </div>
   </div>
   <!--BOTTON [disabled]="orderForm.invalid"-->
-  <button type="submit"
-          class="btn btn-primary btn-sm"
-          (click)="orderAction()">
-    Siguiente
-  </button>
+  <div class="row"> <!--[disabled]="orderForm.invalid"-->
+    <div class="col-sm-12">
+      <button type="submit"
+              class="btn btn-primary btn-sm float-right"
+              (click)="orderAction()">
+        Siguiente
+      </button>
+    </div>
+  </div>
 </form>

@@ -52,10 +52,14 @@
       </div>
     </div>
   </div>
-  <button type="submit"
-          class="btn btn-primary btn-sm"
-          [disabled]="cardboardsForm.invalid"
-          (click)="cardboardAction()">
-    Siguiente
-  </button>
+  <div class="row">
+    <div class="col-sm-12"> <!--[disabled]="materialsMasterForm.invalid"-->
+      <!-- TODO => Esta la validación pero como no jalan autocompletes por eso la pongo aquí, cuando los searches ya no manden error al enviar string vacio como parámetro entonces se implementa esta validación, porque al mandar error ya no cacha la forma vaciá, en pocas palabras truena. -->
+      <button type="submit"
+              class="btn btn-primary btn-sm float-right"
+              (click)="cardboardAction()">
+        Siguiente
+      </button>
+    </div>
+  </div>
 </form>

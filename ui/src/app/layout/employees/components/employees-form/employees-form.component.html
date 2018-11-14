@@ -121,11 +121,14 @@
       </div>
     </div>
   </div>
-  <button type="submit"
-          class="btn btn-primary btn-sm"
-          [disabled]="employeesForm.invalid"
-          (click)="addEmployee()">
-    Siguiente
-  </button>
+  <div class="row"> <!--[disabled]="employeesForm.invalid"-->
+    <div class="col-sm-12">
+      <button type="submit"
+              class="btn btn-primary btn-sm float-right"
+              (click)="addEmployee()">
+        Siguiente
+      </button>
+    </div>
+  </div>
 </form>
 

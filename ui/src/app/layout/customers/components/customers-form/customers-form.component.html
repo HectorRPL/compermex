@@ -51,11 +51,14 @@
       </div>
     </div>
   </div>
-  <button type="submit"
-          class="btn btn-primary btn-sm"
-          [disabled]="customersForm.invalid"
-          (click)="add()">
-    Siguiente
-  </button>
+  <div class="row"> <!--[disabled]="customersForm.invalid"-->
+    <div class="col-sm-12">
+      <button type="submit"
+              class="btn btn-primary btn-sm float-right"
+              (click)="add()">
+        Siguiente
+      </button>
+    </div>
+  </div>
 </form>
 <!--<pre *ngIf="customersForm">{{customersForm|json}}</pre>-->
