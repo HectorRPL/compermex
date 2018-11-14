@@ -81,7 +81,7 @@ class BoxesController @Inject()(
 
   def search(name: String) = Action.async {
     val query = Json.obj(
-      "code" -> Json.obj("$regex" -> name, "$options" -> "i" ))
+      "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
     val sort = Json.obj("name" -> -1)
     val pag = Pagination(20, 0)
     boxesService.getAll(query, sort, pag).map { boxes =>
