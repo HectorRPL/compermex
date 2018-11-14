@@ -13,6 +13,7 @@ export class OrderFormComponent implements OnInit {
 
   public showAlert: boolean;
   public message: string;
+  public alertType: string;
 
   public order: OrderTemp;
   public orderForm: FormGroup;
@@ -144,15 +145,16 @@ export class OrderFormComponent implements OnInit {
         console.log(result);
         this.showAlert = true;
         this.message = 'Se guardó con éxito';
+        this.alertType = 'success';
       },
       error: (error: any) => {
         console.log(error);
         this.showAlert = true;
         this.message = 'No se guardó';
+        this.alertType = 'danger';
       }
     });
 
   }
-
 
 }
