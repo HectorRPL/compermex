@@ -221,6 +221,18 @@
       </button>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <br>
+      <p *ngIf="showAlert">
+        <ngb-alert
+          [type]="'success'"
+          [dismissible]="false">
+          <strong>{{message}}</strong>
+        </ngb-alert>
+      </p>
+    </div>
+  </div>
 </form>
 
 <!--
