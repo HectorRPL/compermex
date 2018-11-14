@@ -45,13 +45,17 @@ export class EmployeesFormComponent implements OnInit {
 
     const dataFrm = this.fillEmployee();
     this.auth.signup(dataFrm).subscribe({
-      next: (response)=>{
-        console.log(response);
+      next: (result) => {
+        console.log(result);
+        this.showAlert = true;
+        this.message = 'Se guardó con éxito';
       },
-      error:(e)=> console.log(e),
-      complete: () => console.log('complete')
-
-      })
+      error: (error: any) => {
+        console.log(error);
+        this.showAlert = true;
+        this.message = 'No se guardó';
+      }
+    });
 
   }
 
