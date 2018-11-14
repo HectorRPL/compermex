@@ -115,11 +115,14 @@
       </div>
     </div>
   </div>
-  <button type="submit"
-          class="btn btn-primary btn-sm"
-          [disabled]="suppliersForm.invalid"
-          (click)="add()">
-    Siguiente
-  </button>
+  <div class="row"> <!--[disabled]="suppliersForm.invalid"-->
+    <div class="col-sm-12">
+      <button type="submit"
+              class="btn btn-primary btn-sm float-right"
+              (click)="add()">
+        Siguiente
+      </button>
+    </div>
+  </div>
 </form>
 <!--<pre *ngIf="suppliersForm">{{suppliersForm|json}}</pre>-->
