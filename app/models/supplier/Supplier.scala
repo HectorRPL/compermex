@@ -2,7 +2,7 @@ package models.supplier
 
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
-import reactivemongo.bson.BSONObjectID
+import reactivemongo.bson.{BSONObjectID, Macros}
 import reactivemongo.play.json._
 
 
@@ -23,7 +23,7 @@ case class Supplier(
 object Supplier {
 
 
-  implicit object SupplierReaders extends Reads[Supplier] {
+  /*implicit object SupplierReaders extends Reads[Supplier] {
 
     def reads(json: JsValue): JsResult[Supplier] = json match {
       case obj: JsObject => try {
@@ -62,6 +62,8 @@ object Supplier {
       "contact" -> supplier.contact,
       "alias"-> supplier.alias,
       "active"-> supplier.active)
-  }
+  }*/
+
+  implicit val supplierFormat = Json.format[Supplier]
 
 }
