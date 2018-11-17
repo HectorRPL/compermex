@@ -11,7 +11,7 @@ case class BoxesForm(
                     description: String,
                     boxTypeId: BSONObjectID,
                     companyId: Option[BSONObjectID],
-                    customerId: BSONObjectID,
+                    customerId: Option[BSONObjectID],
                     employeeId: Option[BSONObjectID], // Checar el autocomplete, en maestro de materiales
                     large: Double,
                     width: Double,
@@ -24,6 +24,8 @@ case class BoxesForm(
                     observations: Option[String],
                     quality: Boolean,
                     plane: Boolean,
+                    size: String,
+                    unitCost: Double
              )
 
 object BoxesForm {
@@ -48,11 +50,13 @@ object BoxesForm {
         val observations = (obj \ "observations").asOpt[String]
         val quality = (obj \ "quality").as[Boolean]
         val plane = (obj \ "plane").as[Boolean]
+        val size = (obj \ "size").as[String]
+        val unitCost = (obj \ "unitCost").as[Double]
 
 
 
-        JsSuccess(BoxesForm(code, description, boxTypeId, companyId, customerId, employeeId, large, width, high,
-          boxesSize, paperboardId, variationPositive, variationNegative, sellerPrice, observations, quality, plane))
+        JsSuccess(BoxesForm(code, description, boxTypeId, companyId, customerId, employeeId, large, width, high, boxesSize,
+           paperboardId, variationPositive, variationNegative, sellerPrice, observations, quality, plane, size, unitCost))
 
       } catch {
         case cause: Throwable => JsError(cause.getMessage)
@@ -82,6 +86,8 @@ object BoxesForm {
       "observations" -> boxesForm.observations,
       "quality" -> boxesForm.quality,
       "plane" -> boxesForm.plane,
+      "size" -> boxesForm.size,
+      "unitCost" -> boxesForm.unitCost,
     )
   }
 

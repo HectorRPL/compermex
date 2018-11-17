@@ -47,18 +47,11 @@ class BoxesController @Inject()(
         boxTypeId = formData.boxTypeId,
         quality = formData.quality,
         plane = formData.plane,
+        size = formData.size,
+        unitCost = formData.unitCost
       )
 
       boxesService.save(box).map { box =>
-        formData.boxesSize.map { sizes =>
-          sizes.foreach(boxSize => {
-            val boxSizeCopy = boxSize.copy(boxId = box._id)
-            boxesService.saveBoxSize(boxSize).map(result => {
-              print(result)
-            }
-            );
-          })
-        }
         Ok(Json.toJson(box))
       }
     }.recoverTotal {
