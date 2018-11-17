@@ -11,9 +11,9 @@ case class Box(
                 large: Double,
                 width: Double,
                 high: Double,
-                companyId: BSONObjectID,
+                companyId: Option[BSONObjectID],
                 paperboardId: BSONObjectID,
-                clientId: BSONObjectID,
+                clientId: Option[BSONObjectID],
                 variationPositive: Int,
                 variationNegative: Int,
                 sellerPrice: Double,
@@ -35,9 +35,9 @@ object Box {
         val large = (obj \ "large").as[Double]
         val width = (obj \ "width").as[Double]
         val high = (obj \ "high").as[Double]
-        val companyId = (obj \ "companyId").as[BSONObjectID]
+        val companyId = (obj \ "companyId").asOpt[BSONObjectID]
         val paperboardId = (obj \ "paperboardId").as[BSONObjectID]
-        val clientId = (obj \ "clientId").as[BSONObjectID]
+        val clientId = (obj \ "clientId").asOpt[BSONObjectID]
         val variationPositive = (obj \ "variationPositive").as[Int]
         val variationNegative = (obj \ "variationNegative").as[Int]
         val sellerPrice = (obj \ "sellerPrice").as[Double]
