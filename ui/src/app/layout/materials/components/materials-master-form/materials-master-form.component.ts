@@ -184,9 +184,8 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       high: this.materialsMasterForm.controls.high.value,
       quality: this.convertStringToBoolean(this.materialsMasterForm.controls.quality.value),
       plane: this.convertStringToBoolean(this.materialsMasterForm.controls.plane.value),
-      unitCost: this.materialsMasterForm.controls.unitCost.value
-      // boxSizeLarge: ,
-      // boxSizeSmall:
+      unitCost: this.materialsMasterForm.controls.unitCost.value,
+      size: 'standar'
     };
 
     this.materialsMaster = materialMaster;
