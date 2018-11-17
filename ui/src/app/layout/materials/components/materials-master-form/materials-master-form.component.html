@@ -108,19 +108,6 @@
         <div class="text-danger small" *ngIf="large.errors.required">Requerido.</div>
       </div>
     </div>
-    <!--COSTO UNITARIO / Unit cost-->
-    <div class="form-group col-sm-2">
-      <label for="largeId">Costo unitario</label>
-      <input type="number"
-             class="form-control form-control-sm"
-             id="unitCostId"
-             placeholder="Costo unitario"
-             [ngClass]="{'is-invalid': unitCost.invalid && (unitCost.dirty || unitCost.touched)}"
-             formControlName="unitCost">
-      <div *ngIf="unitCost.invalid && (unitCost.dirty || unitCost.touched)">
-        <div class="text-danger small" *ngIf="unitCost.errors.required">Requerido.</div>
-      </div>
-    </div>
     <!--ANCHO / WIDTH-->
     <div class="form-group col-sm-2">
       <label for="widthId">Ancho</label>
