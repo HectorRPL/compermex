@@ -7,7 +7,7 @@ import {RouterModule} from '@angular/router';
 import {CustomersSearchComponent} from './components/customers-search/customers-search.component';
 import {CompanySearchComponent} from './components/company-search/company-search.component';
 import {EmployeessSearchComponent} from './components/employeess-search/employeess-search.component';
-import {PaperboardsSearchComponent} from "./components/paperboards-search/paperboards-search.component";
+import {PaperboardsSearchComponent} from './components/paperboards-search/paperboards-search.component';
 import {BoxesSearchComponent} from './components/boxes-search/boxes-search.component';
 
 @NgModule({

@@ -81,8 +81,10 @@ CREACION DEL MODULO: producción
 `ng generate class layout/production/models/production -type model`
 
 
-CREACIÓN DE BUSQUEDAS/SEACHES REUTILIZABLES
+CREACIÓN DE MODULOS CON COMPONENTES REUTILIZABLES (COMUNES)
 `ng generate component layout/searches/components/boxesSearch`
+`ng generate module layout/common/commonForms`
+`ng generate component layout/common/common-forms/directionsForm`
 
 
 ## Build

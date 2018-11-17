@@ -6,7 +6,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ListOrdersComponent} from './views/list-orders/list-orders.component';
 import {AddOrderComponent} from './views/add-order/add-order.component';
 import {OrdersComponent} from './components/orders/orders.component';
-import {DirectionsFormComponent} from './components/directions-form/directions-form.component';
 import {FiscalDataFormComponent} from './components/fiscal-data-form/fiscal-data-form.component';
 import {FiscalDataPhysicalPersonFormComponent} from './components/fiscal-data-physical-person-form/fiscal-data-physical-person-form.component';
 import {FiscalDataMoralPersonFormComponent} from './components/fiscal-data-moral-person-form/fiscal-data-moral-person-form.component';
@@ -25,7 +24,6 @@ import {SearchesModule} from '../searches/searches.module';
   ],
   declarations: [
     OrdersComponent,
-    DirectionsFormComponent,
     FiscalDataFormComponent,
     FiscalDataPhysicalPersonFormComponent,
     FiscalDataMoralPersonFormComponent,

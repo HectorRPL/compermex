@@ -137,6 +137,8 @@ export class SuppliersFormComponent implements OnInit {
         this.showAlert = true;
         this.message = 'Se guardó con éxito';
         this.alertType = 'success';
+        console.log('Esto nos regresa juan una vez que se realizó el insert del proveedor');
+        console.log(result);
 
       },
       error: (error: any) => {
@@ -158,8 +160,7 @@ export class SuppliersFormComponent implements OnInit {
       phone: formModel.phone,
       fax: formModel.fax,
       contact: formModel.contact,
-      alias: formModel.alias,
-      active: formModel.active
+      alias: formModel.alias
     } as Supplier;
 
     console.log(supplier);
