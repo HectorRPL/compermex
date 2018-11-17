@@ -98,24 +98,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       'unitCost': new FormControl(this.materialsMaster.unitCost, [
         Validators.required
       ])
-
-      /* TODO
-      'large': new FormControl(this.materialsMaster.boxSizeLarge.large, [
-        Validators.required
-      ]),
-      */
-
-
-      /*
-
-      'boxSizeSmall': new FormControl(this.materialsMaster.boxSizeSmall, [
-        Validators.required
-      ]),
-      'description': new FormControl(this.materialsMaster.description, [
-        Validators.required
-      ])
-      */
-
     });
   }
 
@@ -211,14 +193,12 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
     this.materialsService.addMaterial(materialMaster).subscribe({
       next: (result) => {
-        console.log(result);
         this.showAlert = true;
         this.message = 'Se guardó con éxito';
         this.alertType = 'success';
 
       },
       error: (error: any) => {
-        console.log(error);
         this.showAlert = true;
         this.message = 'No se guardó';
         this.alertType = 'danger';
@@ -245,6 +225,11 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     this.statusPaperboardsSearchForm = event.status;
     this.paperboardId = event._id;
     this.responsePaperboardSearch = event.response.item; // TODO => Esto ya está tipado y debes homolagar las demás
+
+    this.materialsMasterForm.patchValue({
+      unitCost: event.response.item.cost,
+      sellerPrice: this.calculateSalePrice(event.response.item.cost),
+    });
   }
 
   convertStringToBoolean(value: string): boolean {
@@ -254,6 +239,13 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     } else if (value === 'false') {
       result = false;
     }
+
+    return result;
+  }
+
+  calculateSalePrice(cost: number): number {
+    const factor: number = 1; // TODO => Se harcodea, aquí va el la utilidad que se le quiere sacar en porcentaje
+    const result = cost * (1 + factor);
 
     return result;
   }

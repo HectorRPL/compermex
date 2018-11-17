@@ -166,12 +166,9 @@
       <input type="number"
              class="form-control form-control-sm"
              id="sellerPriceId"
+             disabled
              placeholder="Precio vendedor"
-             [ngClass]="{'is-invalid': sellerPrice.invalid && (sellerPrice.dirty || sellerPrice.touched)}"
              formControlName="sellerPrice">
-      <div *ngIf="sellerPrice.invalid && (sellerPrice.dirty || sellerPrice.touched)">
-        <div class="text-danger small" *ngIf="sellerPrice.errors.required">Requerido.</div>
-      </div>
     </div>
   </div>
   <!--Específicacione del material-->
