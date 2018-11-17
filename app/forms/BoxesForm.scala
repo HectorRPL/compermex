@@ -10,9 +10,9 @@ case class BoxesForm(
                     code: String,
                     description: String,
                     boxTypeId: BSONObjectID,
-                    companyId: BSONObjectID,
+                    companyId: Option[BSONObjectID],
                     customerId: BSONObjectID,
-                    employeeId: BSONObjectID, // Checar el autocomplete, en maestro de materiales
+                    employeeId: Option[BSONObjectID], // Checar el autocomplete, en maestro de materiales
                     large: Double,
                     width: Double,
                     high: Double,
@@ -34,9 +34,9 @@ object BoxesForm {
         val code = (obj \ "code").as[String]
         val description = (obj \ "description").as[String]
         val boxTypeId = (obj \ "boxTypeId").as[BSONObjectID]
-        val companyId = (obj \ "companyId").as[BSONObjectID]
-        val customerId = (obj \ "customerId").as[BSONObjectID]
-        val employeeId = (obj \ "employeeId").as[BSONObjectID]
+        val companyId = (obj \ "companyId").asOpt[BSONObjectID]
+        val customerId = (obj \ "customerId").asOpt[BSONObjectID]
+        val employeeId = (obj \ "employeeId").asOpt[BSONObjectID]
         val large = (obj \ "large").as[Double]
         val width = (obj \ "width").as[Double]
         val high = (obj \ "high").as[Double]

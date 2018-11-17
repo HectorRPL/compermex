@@ -51,29 +51,49 @@
         <div class="text-danger small" *ngIf="boxTypeId.errors.required">Requerido.</div>
       </div>
     </div>
-    <!--SELECCIONAR CLIENTE-->
+    <!--paperboards: cartones-->
     <div class="form-group col-sm-2">
-      <app-customers-search
-        (sendStatusForm)="recipeCustomersSearchStatusForm($event)">
-      </app-customers-search>
+      <app-paperboards-search
+        (sendStatusForm)="recipePaperboardsSearchStatusForm($event)">
+      </app-paperboards-search>
     </div>
-    <!--employee: Empleado-->
+    <!--Certificado de calidad-->
     <div class="form-group col-sm-2">
-      <app-employeess-search
-        (sendStatusForm)="recipeEmployeessSearchStatusForm($event)">
-      </app-employeess-search>
+      <label>Certificado de calidad</label>
+      <div class="btn-group btn-group-toggle d-flex"
+           ngbRadioGroup name="radioBasic"
+           formControlName="quality">
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="true">Si
+        </label>
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="false">No
+        </label>
+      </div>
     </div>
-    <!--CIA / COMPAÑÍA-->
+    <!--plano-->
     <div class="form-group col-sm-2">
-      <app-company-search
-        (sendStatusForm)="recipeCompanyStatusForm($event)">
-      </app-company-search>
+      <label>Plano</label>
+      <div class="btn-group btn-group-toggle d-flex"
+           ngbRadioGroup name="radioBasic"
+           formControlName="plane">
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="true">Si
+        </label>
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="false">No
+        </label>
+      </div>
     </div>
   </div>
   <!--MEDIDAS DE LA CAJA-->
   <div class="form row">
     <div class="form-group col-sm-12">
-      <h3 class="text-center">Medidas de la caja</h3>
+      <h3 class="text-center">Específicación del material</h3>
     </div>
     <!--LARGO / LONG-->
     <div class="form-group col-sm-2">
@@ -114,12 +134,6 @@
         <div class="text-danger small" *ngIf="high.errors.required">Requerido.</div>
       </div>
     </div>
-  </div>
-  <!--Específicacione del material-->
-  <div class="form row">
-    <div class="form-group col-sm-12">
-      <h3 class="text-center">Específicación del material</h3>
-    </div>
     <!--VARIACIÓN POSITIVA: variationPositive-->
     <div class="form-group col-sm-2">
       <label for="variationPositiveId">+ % Variación CTE</label>
@@ -159,44 +173,9 @@
         <div class="text-danger small" *ngIf="sellerPrice.errors.required">Requerido.</div>
       </div>
     </div>
-    <!--paperboards: cartones-->
-    <div class="form-group col-sm-2">
-      <app-paperboards-search
-        (sendStatusForm)="recipePaperboardsSearchStatusForm($event)">
-      </app-paperboards-search>
-    </div>
-    <!--Certificado de calidad-->
-    <div class="form-group col-sm-2">
-      <label>Certificado de calidad</label>
-      <div class="btn-group btn-group-toggle d-flex"
-           ngbRadioGroup name="radioBasic"
-           formControlName="quality">
-        <label ngbButtonLabel
-               class="btn-light btn-sm w-100">
-          <input ngbButton type="radio" value="true">Si
-        </label>
-        <label ngbButtonLabel
-               class="btn-light btn-sm w-100">
-          <input ngbButton type="radio" value="false">No
-        </label>
-      </div>
-    </div>
-    <!--plano-->
-    <div class="form-group col-sm-2">
-      <label>Plano</label>
-      <div class="btn-group btn-group-toggle d-flex"
-           ngbRadioGroup name="radioBasic"
-           formControlName="plane">
-        <label ngbButtonLabel
-               class="btn-light btn-sm w-100">
-          <input ngbButton type="radio" value="true">Si
-        </label>
-        <label ngbButtonLabel
-               class="btn-light btn-sm w-100">
-          <input ngbButton type="radio" value="false">No
-        </label>
-      </div>
-    </div>
+  </div>
+  <!--Específicacione del material-->
+  <div class="form row">
     <!--OBSERVACIONES / OBSERVATIONS-->
     <div class="form-group col-sm-12">
       <label for="observationsId">Observaciones</label>
@@ -235,23 +214,3 @@
     </div>
   </div>
 </form>
-
-<!--
-[materialsMaster]<br>
-<pre>{{materialsMaster|json}}</pre>
-
-[materialsMasterForm.invalid]<br>
-<pre>{{materialsMasterForm.invalid}}</pre>
-
-[statusCompanySearchForm] <br>
-<pre>{{statusCompanySearchForm}} {{companyId}}</pre> <br>
-
-[statusCustomersSearchForm] <br>
-<pre>{{statusCustomersSearchForm}} {{customerId}}</pre> <br>
-
-[statusPaperboardsSearchForm] <br>
-<pre>{{statusPaperboardsSearchForm}} {{paperboardId}}</pre> <br>
-
-[statusEmployeessSearchForm] <br>
-<pre>{{statusEmployeessSearchForm}} {{employeeId}}</pre> <br>
--->
