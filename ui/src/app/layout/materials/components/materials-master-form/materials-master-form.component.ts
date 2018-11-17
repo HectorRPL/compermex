@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MaterialsMaster} from '../../models/materials-master.model';
 import {ObjectId} from "../../../../models/object-id.model";
 import {MaterialsService} from "../../service/materials.service";
+import {Paperboard} from "../../../../models/paperboard/paperboard.model";
 
 @Component({
   selector: 'app-materials-master-form',
@@ -28,6 +29,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   public employeeId: ObjectId;
   public statusPaperboardsSearchForm: boolean;
   public paperboardId: ObjectId;
+  public responsePaperboardSearch: Paperboard;
 
   constructor(private formBuilder: FormBuilder,
               private materialsService: MaterialsService) {
@@ -242,6 +244,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   recipePaperboardsSearchStatusForm(event) {
     this.statusPaperboardsSearchForm = event.status;
     this.paperboardId = event._id;
+    this.responsePaperboardSearch = event.response.item; // TODO => Esto ya está tipado y debes homolagar las demás
   }
 
   convertStringToBoolean(value: string): boolean {

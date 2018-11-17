@@ -60,17 +60,21 @@ export class PaperboardsSearchComponent {
   inFormatter = (result: Paperboard) => result.description;
 
   selectedItem(event) {
+    console.log('Esto traemos del autocomplete');
     console.log(event);
-    if (this.paperboardsSearchForm.status === 'VALID') {
+
+    if (this.paperboardsSearchForm.status === 'VALID') { // TODO => por nueva definición siempre manda el todo el obejto
       const value = {
         status: false,
-        _id: event.item._id
+        _id: event.item._id,
+        response: event
       };
       this.sendStatusForm.emit(value);
     } else if (this.paperboardsSearchForm.status === 'INVALID') {
       const value = {
         status: true,
-        _id: null
+        _id: null,
+        response: null
       };
       this.sendStatusForm.emit(value);
 
