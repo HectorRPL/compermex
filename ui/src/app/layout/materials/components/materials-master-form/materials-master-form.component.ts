@@ -54,12 +54,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
   createMaterialsMastersForm() {
     this.materialsMasterForm = this.formBuilder.group({
-      'companyId': new FormControl(this.materialsMaster.companyId, [
-        Validators.required
-      ]),
-      'customerId': new FormControl(this.materialsMaster.customerId, [
-        Validators.required
-      ]),
       'observations': new FormControl(this.materialsMaster.observations, [
         Validators.required
       ]),
@@ -76,9 +70,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
         Validators.required
       ]),
       'sellerPrice': new FormControl(this.materialsMaster.sellerPrice, [
-        Validators.required
-      ]),
-      'employeeId': new FormControl(this.materialsMaster.employeeId, [
         Validators.required
       ]),
       'description': new FormControl(this.materialsMaster.description, [
@@ -100,6 +91,9 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
         Validators.required
       ]),
       'plane': new FormControl(this.materialsMaster.plane, [
+        Validators.required
+      ]),
+      'unitCost': new FormControl(this.materialsMaster.unitCost, [
         Validators.required
       ])
 
@@ -167,6 +161,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     return this.materialsMasterForm.get('quality');
   }
 
+  get unitCost() {
+    return this.materialsMasterForm.get('unitCost');
+  }
+
   /*
   get large() {
     return this.materialsMasterForm.get('large');
@@ -188,8 +186,6 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
   }
 
   materialAction() {
-    console.log('Se imprime lo que necesito ');
-    console.log();
     const materialMaster: MaterialsMaster = {
       observations: this.materialsMasterForm.controls.observations.value,
       sellerPrice: this.materialsMasterForm.controls.sellerPrice.value,
@@ -197,16 +193,14 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       code: this.materialsMasterForm.controls.code.value,
       variationPositive: this.materialsMasterForm.controls.variationPositive.value,
       variationNegative: this.materialsMasterForm.controls.variationNegative.value,
-      companyId: this.companyId,
-      customerId: this.customerId,
       boxTypeId: new ObjectId('5bd29adf583b8c1a0df75408'), // TODO => Falta conectarlo con el servicio de back, ya está el servicio
-      employeeId: this.employeeId,
       paperboardId: this.paperboardId,
       width: this.materialsMasterForm.controls.width.value,
       large: this.materialsMasterForm.controls.large.value,
       high: this.materialsMasterForm.controls.high.value,
       quality: this.convertStringToBoolean(this.materialsMasterForm.controls.quality.value),
-      plane: this.convertStringToBoolean(this.materialsMasterForm.controls.plane.value)
+      plane: this.convertStringToBoolean(this.materialsMasterForm.controls.plane.value),
+      unitCost: 50
       // boxSizeLarge: ,
       // boxSizeSmall:
     };
