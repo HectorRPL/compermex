@@ -78,14 +78,14 @@
           <span class="nav-label">Materiales</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>
         <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
-          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+          <!-- li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
             <a [routerLink]="['/layout/materials/list']">Lista</a>
+          </li -->
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/materials/add']">Crear Carton</a>
           </li>
           <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
-            <a [routerLink]="['/layout/materials/add']">Crear</a>
-          </li>
-          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
-            <a [routerLink]="['/layout/materials/addMaterial']">Maestro</a>
+            <a [routerLink]="['/layout/materials/addMaterial']">Crear Caja</a>
           </li>
         </ul>
       </li>
