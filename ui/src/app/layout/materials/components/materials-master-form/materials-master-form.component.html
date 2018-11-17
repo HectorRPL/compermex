@@ -3,11 +3,12 @@
       [formGroup]="materialsMasterForm">
   <!--ARTÍCULO / DETALLES GENERAL DEL PRODUCTO-->
   <div class="form row">
+    <!--TITULO-->
     <div class="form-group col-sm-12">
       <h3 class="text-center">Artículo</h3>
     </div>
     <!-- CLAVE / CODE -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label for="codeId">Clave</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -20,7 +21,7 @@
       </div>
     </div>
     <!--description: artículo-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label for="descriptionId">Artículo</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -33,7 +34,7 @@
       </div>
     </div>
     <!--TIPO: boxTypeId-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label for="boxTypeId">Tipo</label>
       <select class="form-control custom-select custom-select-sm"
               id="boxTypeId"
@@ -51,19 +52,19 @@
       </div>
     </div>
     <!--SELECCIONAR CLIENTE-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <app-customers-search
         (sendStatusForm)="recipeCustomersSearchStatusForm($event)">
       </app-customers-search>
     </div>
     <!--employee: Empleado-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <app-employeess-search
         (sendStatusForm)="recipeEmployeessSearchStatusForm($event)">
       </app-employeess-search>
     </div>
     <!--CIA / COMPAÑÍA-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <app-company-search
         (sendStatusForm)="recipeCompanyStatusForm($event)">
       </app-company-search>
@@ -75,7 +76,7 @@
       <h3 class="text-center">Medidas de la caja</h3>
     </div>
     <!--LARGO / LONG-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label for="largeId">Largo</label>
       <input type="number"
              class="form-control form-control-sm"
@@ -88,7 +89,7 @@
       </div>
     </div>
     <!--ANCHO / WIDTH-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label for="widthId">Ancho</label>
       <input type="number"
              class="form-control form-control-sm"
@@ -101,7 +102,7 @@
       </div>
     </div>
     <!--ALTO / high-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label for="highId">Alto</label>
       <input type="number"
              class="form-control form-control-sm"
@@ -117,10 +118,10 @@
   <!--Específicacione del material-->
   <div class="form row">
     <div class="form-group col-sm-12">
-      <h3 class="text-center">Específicacione del material</h3>
+      <h3 class="text-center">Específicación del material</h3>
     </div>
     <!--VARIACIÓN POSITIVA: variationPositive-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label for="variationPositiveId">+ % Variación CTE</label>
       <input type="number"
              class="form-control form-control-sm"
@@ -133,7 +134,7 @@
       </div>
     </div>
     <!--VARIACIÓN POSITIVA: variationNegative-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label for="variationNegativeId">- % Variación CTE</label>
       <input type="number"
              class="form-control form-control-sm"
@@ -146,7 +147,7 @@
       </div>
     </div>
     <!--PRECIO DEL VENDEDOR: sellerPrice-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label for="sellerPriceId">Precio vendedor</label>
       <input type="number"
              class="form-control form-control-sm"
@@ -159,13 +160,13 @@
       </div>
     </div>
     <!--paperboards: cartones-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <app-paperboards-search
         (sendStatusForm)="recipePaperboardsSearchStatusForm($event)">
       </app-paperboards-search>
     </div>
     <!--Certificado de calidad-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label>Certificado de calidad</label>
       <div class="btn-group btn-group-toggle d-flex"
            ngbRadioGroup name="radioBasic"
@@ -181,7 +182,7 @@
       </div>
     </div>
     <!--plano-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
       <label>Plano</label>
       <div class="btn-group btn-group-toggle d-flex"
            ngbRadioGroup name="radioBasic"
@@ -219,6 +220,18 @@
               (click)="materialAction()">
         Siguiente
       </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <br>
+      <p *ngIf="showAlert">
+        <ngb-alert
+          [type]="alertType"
+          [dismissible]="false">
+          <strong>{{message}}</strong>
+        </ngb-alert>
+      </p>
     </div>
   </div>
 </form>

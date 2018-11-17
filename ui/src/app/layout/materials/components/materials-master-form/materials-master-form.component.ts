@@ -11,6 +11,11 @@ import {MaterialsService} from "../../service/materials.service";
 })
 export class MaterialsMastersMasterFormComponent implements OnInit {
 
+  public showAlert: boolean;
+  public message: string;
+  public alertType: string;
+
+
   public minSize: number;
   public maxSize: number;
   public materialsMaster: MaterialsMaster;
@@ -34,6 +39,10 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
     this.materialsMaster = new MaterialsMaster();
     this.minSize = 1;
     this.maxSize = 10;
+
+    this.showAlert = false;
+    this.message = '';
+    this.alertType = '';
 
   }
 
@@ -204,12 +213,21 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
 
     this.materialsMaster = materialMaster;
 
-    this.materialsService.addMaterial(materialMaster)
-      .subscribe(result => {
+    this.materialsService.addMaterial(materialMaster).subscribe({
+      next: (result) => {
         console.log(result);
-      }, (error) => {
+        this.showAlert = true;
+        this.message = 'Se guardó con éxito';
+        this.alertType = 'success';
+
+      },
+      error: (error: any) => {
         console.log(error);
-      });
+        this.showAlert = true;
+        this.message = 'No se guardó';
+        this.alertType = 'danger';
+      }
+    });
   }
 
   recipeCompanyStatusForm(event) {

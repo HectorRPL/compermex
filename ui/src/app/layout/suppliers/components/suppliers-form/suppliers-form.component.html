@@ -3,7 +3,7 @@
       [formGroup]="suppliersForm">
   <div class="form-row">
     <!--NOMBRE DE EMPRESA-->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-2">
       <label for="nameId">Nombre</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -19,7 +19,7 @@
       </div>
     </div>
     <!--CODE-->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-2">
       <label for="codeId">Código</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -35,7 +35,7 @@
       </div>
     </div>
     <!--EMAIL-->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-2">
       <label for="emailId">Email</label>
       <input type="email"
              class="form-control form-control-sm"
@@ -51,7 +51,7 @@
       </div>
     </div>
     <!--TELËFONO-->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-2">
       <label for="phoneId">Teléfono</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -67,7 +67,7 @@
       </div>
     </div>
     <!--FAX-->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-2">
       <label for="faxId">Fax</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -83,7 +83,7 @@
       </div>
     </div>
     <!--CONTACTO-->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-2">
       <label for="contactId">Contacto</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -99,7 +99,7 @@
       </div>
     </div>
     <!--Alias-->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-2">
       <label for="aliasId">Alias</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -122,6 +122,18 @@
               (click)="add()">
         Siguiente
       </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <br>
+      <p *ngIf="showAlert">
+        <ngb-alert
+          [type]="alertType"
+          [dismissible]="false">
+          <strong>{{message}}</strong>
+        </ngb-alert>
+      </p>
     </div>
   </div>
 </form>
