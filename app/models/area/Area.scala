@@ -12,30 +12,6 @@ case class Area(
 
 object Area {
 
-  implicit object AreaReaders extends Reads[Area] {
-
-    def reads(json: JsValue): JsResult[Area] = json match {
-      case obj: JsObject => try {
-        val _id = (obj \ "_id").asOpt[BSONObjectID]
-        val description = (obj \ "description").as[String]
-
-
-        JsSuccess(Area(_id, description))
-
-      } catch {
-        case cause: Throwable => JsError(cause.getMessage)
-      }
-
-      case _ => JsError("expected.jsobject")
-    }
-
-  }
-
-  implicit object ZipCodesWriter extends OWrites[Area] {
-    def writes(area: Area): JsObject = Json.obj(
-      "_id" -> area._id,
-      "description" -> area.description
-    )
-  }
+  implicit val areaFormat = Json.format[Area]
 
 }
