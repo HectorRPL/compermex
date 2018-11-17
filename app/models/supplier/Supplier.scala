@@ -23,7 +23,7 @@ case class Supplier(
 object Supplier {
 
 
-  /*implicit object SupplierReaders extends Reads[Supplier] {
+  implicit object SupplierReaders extends Reads[Supplier] {
 
     def reads(json: JsValue): JsResult[Supplier] = json match {
       case obj: JsObject => try {
@@ -62,8 +62,8 @@ object Supplier {
       "contact" -> supplier.contact,
       "alias"-> supplier.alias,
       "active"-> supplier.active)
-  }*/
+  }
 
-  implicit val supplierFormat = Json.format[Supplier]
+  //implicit val supplierFormat = Json.format[Supplier]
 
 }
