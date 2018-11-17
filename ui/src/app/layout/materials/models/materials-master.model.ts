@@ -18,6 +18,7 @@ export class MaterialsMaster { // TODO => SON CAJAS => Cajas
   high: number;
   plane: boolean;
   quality: boolean; // Certificado de calidad
+  unitCost: number;
   boxSizeLarge?: string; // Se harcodea, pero deben ser del tipo: BoxSize;
   boxSizeSmall?: string; // Se harcodea, pero deben ser del tipo: BoxSize;
 }
