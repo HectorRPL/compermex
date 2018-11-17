@@ -12,6 +12,7 @@ case class Paperboard(
                              materialTypeId: Option[BSONObjectID],
                              materialStrengthId: BSONObjectID,
                              materialColorId: BSONObjectID,
+                             cost: Double
 
                            )
 
@@ -27,10 +28,11 @@ object Paperboard {
         val materialTypeId = (obj \ "materialTypeId").asOpt[BSONObjectID]
         val materialStrengthId = (obj \ "materialColorId").as[BSONObjectID]
         val materialColorId = (obj \ "materialColorId").as[BSONObjectID]
+        val cost = (obj \ "cost").as[Double]
 
 
         JsSuccess(Paperboard(_id, code, description, materialTypeId,
-          materialStrengthId, materialColorId))
+          materialStrengthId, materialColorId, cost))
 
       } catch {
         case cause: Throwable => JsError(cause.getMessage)
@@ -47,7 +49,8 @@ object Paperboard {
       "description" -> paperboard.description,
       "materialTypeId" -> paperboard.materialTypeId,
       "materialStrengthId" -> paperboard.materialStrengthId,
-      "materialColorId" -> paperboard.materialColorId
+      "materialColorId" -> paperboard.materialColorId,
+      "cost" -> paperboard.cost,
     )
   }
 
