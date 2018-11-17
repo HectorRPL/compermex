@@ -5,6 +5,7 @@ export class Company {
   name: string;
   email?: string;
   phone: number;
+  code: string;
   quotation: number;
   consecutive: number;
   identifier: string;

@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ObjectId} from "../../../../models/object-id.model";
 import {OrderTemp} from "../../models/order-temp";
 import {OrdersService} from "../../service/orders.service";
+import {Company} from "../../../../models/company/company.model";
 
 @Component({
   selector: 'app-order-form',
@@ -20,8 +21,6 @@ export class OrderFormComponent implements OnInit {
 
   public statusBoxSearchForm: boolean;
   public boxId: ObjectId;
-  public statusSupplerSearchForm: boolean;
-  public supplierId: ObjectId;
   public statusCompanySearchForm: boolean;
   public companyId: ObjectId;
   public statusCustomerSearchForm: boolean;
@@ -31,11 +30,12 @@ export class OrderFormComponent implements OnInit {
   public statusFiscalDataSearchForm: boolean;
   public fiscalDataId: ObjectId;
 
+  public responseCompanySearch: Company;
+
   constructor(private formBuilder: FormBuilder,
               private ordersService: OrdersService) {
 
     this.statusBoxSearchForm = true;
-    this.statusSupplerSearchForm = true;
     this.statusCompanySearchForm = true;
     this.statusCustomerSearchForm = true;
     this.statusPaperboardSearchForm = true;
@@ -99,14 +99,10 @@ export class OrderFormComponent implements OnInit {
     this.boxId = event._id;
   }
 
-  recipeSupplerSearchStatusForm(event) {
-    this.statusSupplerSearchForm = event.status;
-    this.supplierId = event._id;
-  }
-
   recipeCompanySearchStatusForm(event) {
     this.statusCompanySearchForm = event.status;
     this.companyId = event._id;
+    this.responseCompanySearch = event.response.item;
   }
 
   recipeCustomerSearchStatusForm(event) {
@@ -128,18 +124,18 @@ export class OrderFormComponent implements OnInit {
 
     const order: OrderTemp = {
       boxId: this.boxId,
-      supplierId: this.supplierId,
       companyId: this.companyId,
       customerId: this.customerId,
       paperboardId: this.paperboardId,
       fiscalDataId: this.fiscalDataId,
-      noOrder: this.orderForm.controls.noOrder.value,
-      numBoxes: this.orderForm.controls.numBoxes.value,
+      noOrder: this.generateNoOrder(),
+      numBoxes: this.orderForm.controls.numBoxes.value, // TODO => Checar bien como se llama este modelo en base de datos
       observations: this.orderForm.controls.observations.value,
       kgMinLinier: this.orderForm.controls.kgMinLinier.value,
       kgMinKraft: this.orderForm.controls.kgMinKraft.value,
     };
 
+    console.log(order);
     this.ordersService.addOrder(order).subscribe({
       next: (result) => {
         console.log(result);
@@ -155,6 +151,84 @@ export class OrderFormComponent implements OnInit {
       }
     });
 
+  }
+
+  generateNoOrder(): string {
+    const customerQuoteNumber: string = this.generateRandom(1000).toString();
+    const companyName: string = 'C'; // TODO => Este es el codigo ocorrecto: this.responseCompanySearch.code;
+    const providerCode: string = '6'; // TODO => this.responseSupplierSearch.code;
+    const monthOrderReceived: string = this.getMonthCodeCompermex(new Date().getMonth()); // TODO => verifica zonas horrias
+    const year: string = this.getCompermexYearCode(new Date().getFullYear());
+    const consecutiveOfTheCustomersOrderInTheMonth: string = this.generateRandom(1000).toString().slice(-2);
+    // const inCaseOfBeingACombinedMaterial: string = '123';
+
+    const result: string = customerQuoteNumber.concat(
+      companyName,
+      providerCode,
+      monthOrderReceived,
+      year,
+      consecutiveOfTheCustomersOrderInTheMonth      // inCaseOfBeingACombinedMaterial
+    );
+
+    return result;
+  }
+
+  generateRandom(digits: number): number {
+    const val = Math.floor(digits + Math.random() * 9000);
+    console.log(val);
+
+    return val;
+  }
+
+  getMonthCodeCompermex(month: number): string {
+    console.log(month);
+    let monthCode = '';
+
+    if (month === 0) {
+      monthCode = 'A'
+    }
+    if (month === 1) {
+      monthCode = 'C'
+    }
+    if (month === 2) {
+      monthCode = 'D'
+    }
+    if (month === 3) {
+      monthCode = 'E'
+    }
+    if (month === 4) {
+      monthCode = 'F'
+    }
+    if (month === 5) {
+      monthCode = 'G'
+    }
+    if (month === 6) {
+      monthCode = 'H'
+    }
+    if (month === 7) {
+      monthCode = 'I'
+    }
+    if (month === 8) {
+      monthCode = 'J'
+    }
+    if (month === 9) {
+      monthCode = 'K'
+    }
+    if (month === 10) {
+      monthCode = 'L'
+    }
+    if (month === 10) {
+      monthCode = 'M'
+    }
+
+    return monthCode;
+  }
+
+  getCompermexYearCode(year: number): string {
+    const yearString: string = String(year);
+    const result: string = yearString.slice(-1);
+
+    return result;
   }
 
 }

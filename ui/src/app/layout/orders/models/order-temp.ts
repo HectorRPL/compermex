@@ -2,7 +2,6 @@ import {ObjectId} from "../../../models/object-id.model";
 
 export class OrderTemp {
   boxId: ObjectId; // Lo que se da de alta en el maestro de materiales.
-  supplierId: ObjectId;
   companyId: ObjectId;
   customerId: ObjectId;
   paperboardId: ObjectId;

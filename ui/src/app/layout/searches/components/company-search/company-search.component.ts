@@ -41,13 +41,15 @@ export class CompanySearchComponent {
     if (this.companySearchForm.status === 'VALID') {
       const value = {
         status: false,
-        _id: event._id
+        _id: event._id,
+        response: event
       };
       this.sendStatusForm.emit(value);
     } else if (this.companySearchForm.status === 'INVALID') {
       const value = {
         status: true,
-        _id: null
+        _id: null,
+        response: null
       };
       this.sendStatusForm.emit(value);
     }

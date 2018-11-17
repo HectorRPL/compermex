@@ -186,7 +186,7 @@ export class MaterialsMastersMasterFormComponent implements OnInit {
       plane: this.convertStringToBoolean(this.materialsMasterForm.controls.plane.value),
       unitCost: this.materialsMasterForm.controls.unitCost.value,
       size: 'standar'
-    };
+  };
 
     this.materialsMaster = materialMaster;
 
