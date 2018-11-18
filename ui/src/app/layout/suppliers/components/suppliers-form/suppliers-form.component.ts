@@ -81,21 +81,16 @@ export class SuppliersFormComponent implements OnInit {
       ]),
       'contact': new FormControl(this.supplier.contact, [
         Validators.required,
-        Validators.pattern(/^[0-9]*$/),
         Validators.minLength(this.charactersMinPhone),
         Validators.maxLength(this.charactersMaxPhone)
       ]),
       'alias': new FormControl(this.supplier.alias, [
         Validators.required,
-        Validators.pattern(/^[0-9]*$/),
         Validators.minLength(this.charactersMinPhone),
         Validators.maxLength(this.charactersMaxPhone)
       ]),
       'active': new FormControl(this.supplier.active, [
-        Validators.required,
-        Validators.pattern(/^[0-9]*$/),
-        Validators.minLength(this.charactersMinPhone),
-        Validators.maxLength(this.charactersMaxPhone)
+        Validators.required
       ]),
     });
   }
@@ -125,7 +120,7 @@ export class SuppliersFormComponent implements OnInit {
   }
 
   get alias() {
-    return this.suppliersForm.get('contact');
+    return this.suppliersForm.get('alias');
   }
 
   get active() {
