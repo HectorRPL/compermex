@@ -14,10 +14,10 @@ import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import scala.concurrent.{ExecutionContext, Future}
 
 class SupplierController @Inject()(
-                                     cc: ControllerComponents,
-                                     suppliersServ: SuppliersService,
-                                     addressesService: AddressesService
-                                   )(implicit ec: ExecutionContext)
+                                    cc: ControllerComponents,
+                                    suppliersServ: SuppliersService,
+                                    addressesService: AddressesService
+                                  )(implicit ec: ExecutionContext)
   extends AbstractController(cc)
     with I18nSupport {
 
@@ -44,7 +44,7 @@ class SupplierController @Inject()(
 
   def search(name: String) = Action.async {
     val query = Json.obj(
-      "name" -> Json.obj("$regex" -> name, "$options" -> "i" ))
+      "name" -> Json.obj("$regex" -> name, "$options" -> "i"))
     val sort = Json.obj("name" -> -1)
     val pag = Pagination(20, 0)
 
@@ -53,21 +53,21 @@ class SupplierController @Inject()(
     }
   }
 
-  def saveAddress(supplierId: BSONObjectID) = Action.async(parse.json){ implicit request =>
+  def saveAddress(supplierId: BSONObjectID) = Action.async(parse.json) { implicit request =>
     request.body.validate[Address].map { data =>
 
-      addressesService.save(data).map{ address =>
-        val query = Json.obj("_id" -> supplierId.stringify)
+      addressesService.save(data).map { address =>
+        val query = Json.obj("_id" -> Json.obj("$oid" -> supplierId.stringify))
         val modifier = Json.obj(
           // this modifier will set the fields
           // 'updateDate', 'title', 'content', and 'publisher'
           "$set" -> Json.obj(
-            "addressId" -> address._id.get.stringify
+            "addressId" -> Json.obj("$oid" -> address._id.get.stringify)
           ))
         print(query)
         print(modifier)
 
-        suppliersServ.update(query, modifier).map{ _ =>
+        suppliersServ.update(query, modifier).map { _ =>
           print(_)
         }
         Ok(Json.toJson(address))
