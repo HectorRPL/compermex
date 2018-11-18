@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import {Supplier} from '../../models/supplier/supplier.model';
-import {SupplierService} from "../../service/supplier.service";
+import {SupplierService} from '../../service/supplier.service';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class SuppliersFormComponent implements OnInit {
   charactersMaxPhone: number = 10;
 
   constructor(private formBuilder: FormBuilder,
-              private supplierServ: SupplierService) {
+              private supplierServ: SupplierService,
+              private router: Router) {
 
     this.showAlert = false;
     this.message = '';
@@ -132,16 +134,16 @@ export class SuppliersFormComponent implements OnInit {
 
   add() {
     this.supplierServ.addSupplier(this.fillSupplier()).subscribe({
-      next: (result) => {
+      next: (result: Supplier) => {
         console.log(result);
         this.showAlert = true;
         this.message = 'Se guardó con éxito';
         this.alertType = 'success';
-        console.log('Esto nos regresa juan una vez que se realizó el insert del proveedor');
-        console.log(result);
+        this.router.navigate([`/layout/suppliers/${result._id.$oid}/add/address`]);
+                                      // /layout/employees/list
 
       },
-      error: (error: any) => {
+      error: (error: any) => { // TODO => que dice el juan que con onError ¿De qué habla?
         console.log(error);
         this.showAlert = true;
         this.message = 'No se guardó';
@@ -160,7 +162,8 @@ export class SuppliersFormComponent implements OnInit {
       phone: formModel.phone,
       fax: formModel.fax,
       contact: formModel.contact,
-      alias: formModel.alias
+      alias: formModel.alias,
+      active: false
     } as Supplier;
 
     console.log(supplier);
