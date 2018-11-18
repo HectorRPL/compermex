@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Direction} from '../../../../models/direction.model';
 
@@ -10,21 +10,8 @@ import {Direction} from '../../../../models/direction.model';
 export class DirectionsFormComponent implements OnInit {
 
   public direction: Direction;
-  directionsForm: FormGroup;
-
-  /******************************
-  FORMA VALIDACIONES
-  ******************************/
-
-  // Caractéres máximos y minimos
-  charactersMin: number = 2;
-  charactersMax: number = 50;
-  // INPUT NÚMERO EXTERIOR
-  charactersMinExteriorNumber: number = 5;
-  charactersMaxExteriorNumber: number = 50;
-  // INPUT NÚMERO INTERIOR
-  charactersMinInteriorNumber: number = 8;
-  charactersMaxInteriorNumber: number = 10;
+  public directionsForm: FormGroup;
+  @Output() public returnsModelForm = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder) {
 
@@ -41,45 +28,28 @@ export class DirectionsFormComponent implements OnInit {
   createDirectionsForm() {
     this.directionsForm = this.formBuilder.group({
       'street': new FormControl(this.direction.street, [
-        Validators.required,
-        Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMin),
-        Validators.maxLength(this.charactersMax)
+        Validators.required
       ]),
-      'exteriorNumber': new FormControl(this.direction.exteriorNumber, [
-        Validators.required,
-        Validators.minLength(this.charactersMinExteriorNumber),
-        Validators.maxLength(this.charactersMaxExteriorNumber)
-      ]),
-      'interiorNumber': new FormControl(this.direction.interiorNumber, [
-        Validators.required,
-        Validators.pattern(/^[0-9]*$/),
-        Validators.minLength(this.charactersMinInteriorNumber),
-        Validators.maxLength(this.charactersMaxInteriorNumber)
-      ]),
-      'postalCode': new FormControl(this.direction.postalCode, [
-        Validators.required,
-        Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMin),
-        Validators.maxLength(this.charactersMax)
-      ]),
-      'suburb': new FormControl(this.direction.suburb, [
-        Validators.required,
-        Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMin),
-        Validators.maxLength(this.charactersMax)
+      'city': new FormControl(this.direction.city, [
+        Validators.required
       ]),
       'state': new FormControl(this.direction.state, [
-        Validators.required,
-        Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMin),
-        Validators.maxLength(this.charactersMax)
+        Validators.required
       ]),
-      'town': new FormControl(this.direction.town, [
-        Validators.required,
-        Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMin),
-        Validators.maxLength(this.charactersMax)
+      'stateCode': new FormControl(this.direction.stateCode, [
+        Validators.required
+      ]),
+      'colony': new FormControl(this.direction.colony, [
+        Validators.required
+      ]),
+      'zipCode': new FormControl(this.direction.zipCode, [
+        Validators.required
+      ]),
+      'numExt': new FormControl(this.direction.numExt, [
+        Validators.required
+      ]),
+      'numInt': new FormControl(this.direction.numInt, [
+        Validators.required
       ])
     });
   }
@@ -88,32 +58,53 @@ export class DirectionsFormComponent implements OnInit {
     return this.directionsForm.get('street');
   }
 
-  get exteriorNumber() {
-    return this.directionsForm.get('exteriorNumber');
-  }
-
-  get interiorNumber() {
-    return this.directionsForm.get('interiorNumber');
-  }
-
-  get postalCode() {
-    return this.directionsForm.get('postalCode');
-  }
-
-  get suburb() {
-    return this.directionsForm.get('suburb');
+  get city() {
+    return this.directionsForm.get('city');
   }
 
   get state() {
     return this.directionsForm.get('state');
   }
 
-  get town() {
-    return this.directionsForm.get('town');
+  get stateCode() {
+    return this.directionsForm.get('stateCode');
   }
 
-  directionAction() {
-    console.log(this.directionsForm);
+  get colony() {
+    return this.directionsForm.get('colony');
+  }
+
+  get zipCode() {
+    return this.directionsForm.get('zipCode');
+  }
+
+  get numExt() {
+    return this.directionsForm.get('numExt');
+  }
+
+  get numInt() {
+    return this.directionsForm.get('numInt');
+  }
+
+  next() {
+    this.returnsModelForm.emit(this.fillDirection());
+  }
+
+  fillDirection(): Direction {
+
+    const formModel = this.directionsForm.value;
+    const direction: Direction = {
+      street: formModel.street,
+      city: formModel.city,
+      state: formModel.state,
+      stateCode: formModel.stateCode,
+      colony: formModel.colony,
+      zipCode: formModel.zipCode,
+      numExt: formModel.numExt,
+      numInt: formModel.numInt
+    } as Direction;
+
+    return direction;
   }
 
 }

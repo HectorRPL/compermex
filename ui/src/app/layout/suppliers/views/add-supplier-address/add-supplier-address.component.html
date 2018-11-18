@@ -3,7 +3,9 @@
     Agregar dirección
   </div>
   <div class="card-body">
-    <app-directions-form></app-directions-form>
+    <app-directions-form
+    (returnsModelForm)="createDirection($event)">
+    </app-directions-form>
   </div>
 </div>
 

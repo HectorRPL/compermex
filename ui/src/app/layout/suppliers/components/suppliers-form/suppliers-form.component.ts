@@ -140,7 +140,6 @@ export class SuppliersFormComponent implements OnInit {
         this.message = 'Se guardó con éxito';
         this.alertType = 'success';
         this.router.navigate([`/layout/suppliers/${result._id.$oid}/add/address`]);
-                                      // /layout/employees/list
 
       },
       error: (error: any) => { // TODO => que dice el juan que con onError ¿De qué habla?

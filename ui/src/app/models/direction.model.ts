@@ -1,9 +1,13 @@
+import {ObjectId} from "./object-id.model";
+
 export class Direction {
+  _id?: ObjectId;
   street: string; // calle
-  exteriorNumber: string; // numero exterior
-  interiorNumber: string; // número interior
-  postalCode: string; // código postal
-  suburb: string; // coloniua
+  city: string; // delegación o munucipio
   state: string; // estado
-  town: string; // delegación o munucipio
+  stateCode: string; // estado
+  colony: string;
+  zipCode: string;
+  numExt: string; // numero exterior
+  numInt: string; // número interior
 }

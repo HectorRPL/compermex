@@ -2,8 +2,7 @@
       autocomplete="off"
       [formGroup]="directionsForm">
   <div class="form-row">
-    <!--CALLE / STREET-->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-2">
       <label for="streetId">Calle</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -13,77 +12,23 @@
              formControlName="street">
       <div *ngIf="street.invalid && (street.dirty || street.touched)">
         <div class="text-danger small" *ngIf="street.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="street.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="street.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
-        <div class="text-danger small" *ngIf="street.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
       </div>
     </div>
-    <!--NÚMERO EXTERIOR / EXTERIOR NUMER-->
-    <div class="form-group col-sm-6">
-      <label for="exteriorNumberId">Número exterior</label>
+    <!--CITY-->
+    <div class="form-group col-sm-2">
+      <label for="cityId">Ciudad</label>
       <input type="text"
              class="form-control form-control-sm"
-             id="exteriorNumberId"
-             placeholder="Número exterior"
-             [ngClass]="{'is-invalid': exteriorNumber.invalid && (exteriorNumber.dirty || exteriorNumber.touched)}"
-             formControlName="exteriorNumber">
-      <div *ngIf="exteriorNumber.invalid && (exteriorNumber.dirty || exteriorNumber.touched)">
-        <div class="text-danger small" *ngIf="exteriorNumber.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="exteriorNumber.errors.exteriorNumber">Inválido.</div>
-        <div class="text-danger small" *ngIf="exteriorNumber.errors.minlength">Mínimo {{charactersMinExteriorNumber}} caracteres.</div>
-        <div class="text-danger small" *ngIf="exteriorNumber.errors.maxlength">Máximo {{charactersMaxExteriorNumber}} caracteres.</div>
+             id="cityId"
+             placeholder="Ciudad"
+             [ngClass]="{'is-invalid': city.invalid && (city.dirty || city.touched)}"
+             formControlName="city">
+      <div *ngIf="city.invalid && (city.dirty || city.touched)">
+        <div class="text-danger small" *ngIf="city.errors.required">Requerido.</div>
       </div>
     </div>
-    <!--NÚMERO INTERIOR / INTERIOR NUMER-->
-    <div class="form-group col-sm-6">
-      <label for="interiorNumberId">Número interior</label>
-      <input type="text"
-             class="form-control form-control-sm"
-             id="interiorNumberId"
-             placeholder="Número interior"
-             [ngClass]="{'is-invalid': interiorNumber.invalid && (interiorNumber.dirty || interiorNumber.touched)}"
-             formControlName="interiorNumber">
-      <div *ngIf="interiorNumber.invalid && (interiorNumber.dirty || interiorNumber.touched)">
-        <div class="text-danger small" *ngIf="interiorNumber.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="interiorNumber.errors.interiorNumber">Inválido.</div>
-        <div class="text-danger small" *ngIf="interiorNumber.errors.minlength">Mínimo {{charactersMinInteriorNumber}} caracteres.</div>
-        <div class="text-danger small" *ngIf="interiorNumber.errors.maxlength">Máximo {{charactersMaxInteriorNumber}} caracteres.</div>
-      </div>
-    </div>
-    <!--CÓDIGO POSTAL / POSTALCODE-->
-    <div class="form-group col-sm-6">
-      <label for="postalCodeId">Código Postal</label>
-      <input type="text"
-             class="form-control form-control-sm"
-             id="postalCodeId"
-             placeholder="Código Postal"
-             [ngClass]="{'is-invalid': postalCode.invalid && (postalCode.dirty || postalCode.touched)}"
-             formControlName="postalCode">
-      <div *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)">
-        <div class="text-danger small" *ngIf="postalCode.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="postalCode.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="postalCode.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
-        <div class="text-danger small" *ngIf="postalCode.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
-      </div>
-    </div>
-    <!--COLONIA / SUBURB-->
-    <div class="form-group col-sm-6">
-      <label for="suburbId">Colonia</label>
-      <input type="text"
-             class="form-control form-control-sm"
-             id="suburbId"
-             placeholder="Colonia"
-             [ngClass]="{'is-invalid': suburb.invalid && (suburb.dirty || suburb.touched)}"
-             formControlName="suburb">
-      <div *ngIf="suburb.invalid && (suburb.dirty || suburb.touched)">
-        <div class="text-danger small" *ngIf="suburb.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="suburb.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="suburb.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
-        <div class="text-danger small" *ngIf="suburb.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
-      </div>
-    </div>
-    <!--ESTADO / STATE-->
-    <div class="form-group col-sm-6">
+    <!--state-->
+    <div class="form-group col-sm-2">
       <label for="stateId">Estado</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -93,25 +38,71 @@
              formControlName="state">
       <div *ngIf="state.invalid && (state.dirty || state.touched)">
         <div class="text-danger small" *ngIf="state.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="state.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="state.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
-        <div class="text-danger small" *ngIf="state.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
       </div>
     </div>
-    <!--DELEGACIÓN O MUNUCIPIO / TOWN-->
-    <div class="form-group col-sm-6">
-      <label for="townId">Delegación / Munucipio</label>
+    <!--stateCode-->
+    <div class="form-group col-sm-2">
+      <label for="stateCodeId">Código postal</label>
       <input type="text"
              class="form-control form-control-sm"
-             id="townId"
-             placeholder="Delegación / Munucipio"
-             [ngClass]="{'is-invalid': town.invalid && (town.dirty || town.touched)}"
-             formControlName="town">
-      <div *ngIf="town.invalid && (town.dirty || town.touched)">
-        <div class="text-danger small" *ngIf="town.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="town.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="town.errors.minlength">Mínimo {{charactersMin}} caracteres.</div>
-        <div class="text-danger small" *ngIf="town.errors.maxlength">Máximo {{charactersMax}} caracteres.</div>
+             id="stateCodeId"
+             placeholder="Código postal"
+             [ngClass]="{'is-invalid': stateCode.invalid && (stateCode.dirty || stateCode.touched)}"
+             formControlName="stateCode">
+      <div *ngIf="stateCode.invalid && (stateCode.dirty || stateCode.touched)">
+        <div class="text-danger small" *ngIf="stateCode.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--colony-->
+    <div class="form-group col-sm-2">
+      <label for="colonyId">Colonia</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="colonyId"
+             placeholder="Colonia"
+             [ngClass]="{'is-invalid': colony.invalid && (colony.dirty || colony.touched)}"
+             formControlName="colony">
+      <div *ngIf="colony.invalid && (colony.dirty || colony.touched)">
+        <div class="text-danger small" *ngIf="colony.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--zipCode-->
+    <div class="form-group col-sm-2">
+      <label for="zipCodeId">Código postal</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="zipCodeId"
+             placeholder="Código postal"
+             [ngClass]="{'is-invalid': zipCode.invalid && (zipCode.dirty || zipCode.touched)}"
+             formControlName="zipCode">
+      <div *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
+        <div class="text-danger small" *ngIf="zipCode.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--numExt-->
+    <div class="form-group col-sm-2">
+      <label for="numExtId">Num. ext.</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="numExtId"
+             placeholder="Num. ext."
+             [ngClass]="{'is-invalid': numExt.invalid && (numExt.dirty || numExt.touched)}"
+             formControlName="numExt">
+      <div *ngIf="numExt.invalid && (numExt.dirty || numExt.touched)">
+        <div class="text-danger small" *ngIf="numExt.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--numInt-->
+    <div class="form-group col-sm-2">
+      <label for="numIntId">Num. int.</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="numIntId"
+             placeholder="Num. int."
+             [ngClass]="{'is-invalid': numInt.invalid && (numInt.dirty || numInt.touched)}"
+             formControlName="numInt">
+      <div *ngIf="numInt.invalid && (numInt.dirty || numInt.touched)">
+        <div class="text-danger small" *ngIf="numInt.errors.required">Requerido.</div>
       </div>
     </div>
   </div>
@@ -121,7 +112,7 @@
       <button type="submit"
               class="btn btn-primary btn-sm float-right"
               [disabled]="directionsForm.invalid"
-              (click)="directionAction()">
+              (click)="next()">
         Siguiente
       </button>
     </div>
