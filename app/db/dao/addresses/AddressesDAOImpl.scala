@@ -13,7 +13,7 @@ import reactivemongo.play.json.collection.JSONCollection
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
-class AddressesImplDAO @Inject()(
+class AddressesDAOImpl @Inject()(
                                   val reactiveMongoApi: ReactiveMongoApi
                                 ) extends AddressesDAO {
   def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("addresses"))

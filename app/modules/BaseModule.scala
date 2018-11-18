@@ -1,6 +1,7 @@
 package modules
 
 import com.google.inject.AbstractModule
+import db.dao.addresses.{AddressesDAO, AddressesDAOImpl}
 import db.dao.areas.{AreasDAO, AreasDAOImpl}
 import db.dao.boxes.sizes.{BoxesSizesDAO, BoxesSizesDAOImpl}
 import db.dao.boxes.types.{BoxesTypesDAO, BoxesTypesDAOImpl}
@@ -13,6 +14,7 @@ import db.dao.materials.{MaterialsDAO, MaterialsDAOImpl}
 import db.dao.suppliers.{SuppliersDAO, SuppliersDAOImpl}
 import db.dao.user.{AuthTokenDAO, AuthTokenDAOImpl}
 import db.dao.zipCodes.{ZipCodesDAO, ZipCodesDAOImpl}
+import myservices.addresses.{AddressesService, AddressesServiceImpl}
 import myservices.areas.{AreasService, AreasServiceImpl}
 import myservices.boxes.{BoxesService, BoxesServiceImpl}
 import myservices.clients.{ClientsService, ClientsServiceImpl}
@@ -73,5 +75,8 @@ class BaseModule extends AbstractModule with ScalaModule {
     bind[BoxesTypesDAO].to[BoxesTypesDAOImpl]
     bind[BoxesSizesDAO].to[BoxesSizesDAOImpl]
 
+    //DI for Address
+    bind[AddressesService].to[AddressesServiceImpl]
+    bind[AddressesDAO].to[AddressesDAOImpl]
   }
 }

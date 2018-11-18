@@ -154,6 +154,7 @@ export class SuppliersFormComponent implements OnInit {
   fillSupplier(): Supplier {
 
     const formModel = this.suppliersForm.value;
+
     const supplier: Supplier = {
       code: formModel.code,
       name: formModel.name,
@@ -165,7 +166,6 @@ export class SuppliersFormComponent implements OnInit {
       active: false
     } as Supplier;
 
-    console.log(supplier);
 
     return supplier;
   }

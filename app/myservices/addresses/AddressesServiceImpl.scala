@@ -4,6 +4,7 @@ import javax.inject.Inject
 import models.Pagination
 import models.address.Address
 import play.api.libs.json.{JsObject, Json}
+import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -20,4 +21,6 @@ class AddressesServiceImpl @Inject()(
   def save(address: Address): Future[Address] = {
     addressesDAO.save(address)
   }
+
+  def getOne(_id: BSONObjectID): Future[Option[Address]] = ???
 }

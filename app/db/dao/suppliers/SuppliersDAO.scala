@@ -3,6 +3,7 @@ package db.dao.suppliers
 import models.Pagination
 import models.supplier.Supplier
 import play.api.libs.json.JsObject
+import reactivemongo.api.commands.WriteResult
 import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.Future
@@ -19,6 +20,6 @@ trait SuppliersDAO {
 
   def remove(_id: BSONObjectID): Future[Unit]
 
-  def update(query: JsObject, data: JsObject): Future[Unit]
+  def update(query: JsObject, data: JsObject): Future[WriteResult]
 
 }

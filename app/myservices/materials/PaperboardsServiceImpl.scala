@@ -5,6 +5,7 @@ import javax.inject.Inject
 import models.Pagination
 import models.material.Paperboard
 import play.api.libs.json.JsObject
+import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -23,4 +24,7 @@ class PaperboardsServiceImpl @Inject()(
     paperboardsDAO.save(employe)
   }
 
+  def getOne(_id: BSONObjectID): Future[Option[Paperboard]] = {
+    paperboardsDAO.getOne(_id)
+  }
 }

@@ -7,7 +7,7 @@ import reactivemongo.play.json._
 case class Address(
                     _id: Option[BSONObjectID],
                     street: String,
-                    town: String,
+                    city: String,
                     state: String,
                     stateCode: String,
                     colony: String,
@@ -15,7 +15,6 @@ case class Address(
                     numExt: String,
                     numInt: Option[String]
                   )
-
 
 object Address {
 
@@ -25,7 +24,7 @@ object Address {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
         val street = (obj \ "street").as[String]
-        val town = (obj \ "town").as[String]
+        val city = (obj \ "city").as[String]
         val state = (obj \ "state").as[String]
         val stateCode = (obj \ "stateCode").as[String]
         val colony = (obj \ "colony").as[String]
@@ -34,7 +33,7 @@ object Address {
         val numInt = (obj \ "numExt").asOpt[String]
 
 
-        JsSuccess(Address(_id, street, town, state,
+        JsSuccess(Address(_id, street, city, state,
           stateCode, colony, zipCode, numExt, numInt))
 
       } catch {
@@ -50,13 +49,13 @@ object Address {
     def writes(address: Address): JsObject = Json.obj(
       "_id" -> address._id,
       "street" -> address.street,
-      "town" -> address.town,
+      "city" -> address.city,
       "state" -> address.state,
       "stateCode" -> address.stateCode,
       "colony" -> address.colony,
       "zipCode" -> address.zipCode,
       "numExt" -> address.numExt,
-      "numInt" -> address.stateCode
+      "numInt" -> address.numInt
     )
   }
 

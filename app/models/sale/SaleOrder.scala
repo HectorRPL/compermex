@@ -5,9 +5,8 @@ import reactivemongo.bson.BSONObjectID
 import reactivemongo.play.json._
 
 case class SaleOrder(
-                      _id: BSONObjectID,
+                      _id: Option[BSONObjectID],
                       boxId: BSONObjectID,
-                      quantity: Int,
                       employeId: BSONObjectID,
                       clientId: BSONObjectID,
                       companyId: BSONObjectID,

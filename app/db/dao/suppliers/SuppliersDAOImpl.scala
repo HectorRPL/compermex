@@ -5,6 +5,7 @@ import models.Pagination
 import models.supplier.Supplier
 import play.api.libs.json._
 import play.modules.reactivemongo.ReactiveMongoApi
+import reactivemongo.api.commands.WriteResult
 import reactivemongo.api.{Cursor, ReadPreference}
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import reactivemongo.play.json._
@@ -44,5 +45,7 @@ class SuppliersDAOImpl @Inject()(
 
   def remove(_id: BSONObjectID): Future[Unit] = ???
 
-  def update(query: JsObject, data: JsObject): Future[Unit] = ???
+  def update(query: JsObject, data: JsObject): Future[WriteResult] = {
+    collection.flatMap(_.update(query, data))
+  }
 }
