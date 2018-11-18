@@ -106,8 +106,6 @@
              formControlName="alias">
       <div *ngIf="alias.invalid && (alias.dirty || alias.touched)">
         <div class="text-danger small" *ngIf="alias.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="alias.errors.minlength">Mínimo {{charactersMinPhone}} dígitos.</div>
-        <div class="text-danger small" *ngIf="alias.errors.maxlength">Máximo {{charactersMaxPhone}} dígitos.</div>
       </div>
     </div>
   </div>

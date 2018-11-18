@@ -80,9 +80,7 @@ export class SuppliersFormComponent implements OnInit {
         Validators.maxLength(this.charactersMaxPhone)
       ]),
       'contact': new FormControl(this.supplier.contact, [
-        Validators.required,
-        Validators.minLength(this.charactersMinPhone),
-        Validators.maxLength(this.charactersMaxPhone)
+        Validators.required
       ]),
       'alias': new FormControl(this.supplier.alias, [
         Validators.required,
