@@ -36,9 +36,7 @@ export class AddressFormComponent implements OnInit {
       'state': new FormControl(this.address.state, [
         Validators.required
       ]),
-      'stateCode': new FormControl(this.address.stateCode, [
-        Validators.required
-      ]),
+      'stateCode': new FormControl(this.address.stateCode),
       'colony': new FormControl(this.address.colony, [
         Validators.required
       ]),
@@ -62,10 +60,6 @@ export class AddressFormComponent implements OnInit {
 
   get state() {
     return this.addressForm.get('state');
-  }
-
-  get stateCode() {
-    return this.addressForm.get('stateCode');
   }
 
   get colony() {
@@ -95,7 +89,7 @@ export class AddressFormComponent implements OnInit {
       street: formModel.street,
       city: formModel.city,
       state: formModel.state,
-      stateCode: formModel.stateCode,
+      stateCode: 'CDMX',
       colony: formModel.colony,
       zipCode: formModel.zipCode,
       numExt: formModel.numExt,

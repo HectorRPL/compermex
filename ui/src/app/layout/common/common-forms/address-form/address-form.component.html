@@ -40,19 +40,6 @@
         <div class="text-danger small" *ngIf="state.errors.required">Requerido.</div>
       </div>
     </div>
-    <!--stateCode-->
-    <div class="form-group col-sm-2">
-      <label for="stateCodeId">Código postal</label>
-      <input type="text"
-             class="form-control form-control-sm"
-             id="stateCodeId"
-             placeholder="Código postal"
-             [ngClass]="{'is-invalid': stateCode.invalid && (stateCode.dirty || stateCode.touched)}"
-             formControlName="stateCode">
-      <div *ngIf="stateCode.invalid && (stateCode.dirty || stateCode.touched)">
-        <div class="text-danger small" *ngIf="stateCode.errors.required">Requerido.</div>
-      </div>
-    </div>
     <!--colony-->
     <div class="form-group col-sm-2">
       <label for="colonyId">Colonia</label>
