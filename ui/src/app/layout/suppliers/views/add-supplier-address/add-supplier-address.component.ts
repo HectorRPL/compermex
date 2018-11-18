@@ -22,7 +22,7 @@ export class AddSupplierAddressComponent implements OnInit {
 
   createAddress(address: Address) {
     this.supplierService.addSupplierAddress(address, this.supplierId).subscribe({
-      next: (result) => {
+      next: (result: Address) => {
 
       },
       error: (error: any) => {

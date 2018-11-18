@@ -101,9 +101,6 @@
              placeholder="Num. int."
              [ngClass]="{'is-invalid': numInt.invalid && (numInt.dirty || numInt.touched)}"
              formControlName="numInt">
-      <div *ngIf="numInt.invalid && (numInt.dirty || numInt.touched)">
-        <div class="text-danger small" *ngIf="numInt.errors.required">Requerido.</div>
-      </div>
     </div>
   </div>
   <div class="row">
