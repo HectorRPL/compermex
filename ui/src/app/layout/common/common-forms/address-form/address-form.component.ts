@@ -48,9 +48,7 @@ export class AddressFormComponent implements OnInit {
       'numExt': new FormControl(this.address.numExt, [
         Validators.required
       ]),
-      'numInt': new FormControl(this.address.numInt, [
-        Validators.required
-      ])
+      'numInt': new FormControl(this.address.numInt)
     });
   }
 

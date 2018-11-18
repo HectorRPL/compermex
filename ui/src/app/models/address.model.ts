@@ -9,5 +9,5 @@ export class Address {
   colony: string;
   zipCode: string;
   numExt: string; // numero exterior
-  numInt: string; // número interior
+  numInt?: string; // número interior
 }
