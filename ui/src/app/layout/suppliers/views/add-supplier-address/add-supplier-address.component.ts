@@ -30,7 +30,7 @@ export class AddSupplierAddressComponent implements OnInit {
     this.supplierService.addSupplierAddress(address, this.supplierId).subscribe({
       next: (result: Address) => {
 
-        this.router.navigate([`/layout/suppliers/${result._id.$oid}/add/fiscalData`]);
+        this.router.navigate([`/layout/suppliers/${this.supplierId}/add/fiscalData`]);
 
       },
       error: (error: any) => {
