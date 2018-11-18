@@ -35,6 +35,7 @@ export class SupplierService {
 
   addSupplierAddress(address: Address, supplierId: string): Observable<Address> {
     console.log(address);
+    console.log(supplierId);
     return this.http.post<Address>(`/add/supplier/${supplierId}/address`, address)
       .pipe(
         catchError(this.handleError('addAddress', address))

@@ -34,6 +34,7 @@ CREACION DE UN MODULO: SUPPLIERS
 `ng generate component layout/suppliers/views/listSuppliers`
 `ng generate component layout/suppliers/views/addSupplier`
 `ng generate component layout/suppliers/views/addSupplierAddress`
+`ng generate component layout/suppliers/views/addSupplierFiscalData`
 `ng generate component layout/suppliers/components/suppliersForm`
 `ng generate component layout/suppliers/components/supplierssSearch`
 `ng generate class layout/suppliers/models/employee -type model`
