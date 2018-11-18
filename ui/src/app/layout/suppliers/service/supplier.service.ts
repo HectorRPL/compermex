@@ -4,7 +4,7 @@ import {Supplier} from '../models/supplier/supplier.model';
 import {HttpClient} from '@angular/common/http';
 import {HandleError, HttpErrorHandlerService} from '../../../services/http-error-handler.service';
 import {catchError} from 'rxjs/operators';
-import {Direction} from "../../../models/direction.model";
+import {Address} from "../../../models/address.model";
 import {ObjectId} from "../../../models/object-id.model";
 
 @Injectable()
@@ -33,11 +33,11 @@ export class SupplierService {
       );
   }
 
-  addSupplierDirection(direction: Direction, supplierId: string): Observable<Direction> {
-    console.log(direction);
-    return this.http.post<Direction>(`/add/supplier/${supplierId}/address`, direction)
+  addSupplierAddress(address: Address, supplierId: string): Observable<Address> {
+    console.log(address);
+    return this.http.post<Address>(`/add/supplier/${supplierId}/address`, address)
       .pipe(
-        catchError(this.handleError('addDirection', direction))
+        catchError(this.handleError('addAddress', address))
       );
   }
 

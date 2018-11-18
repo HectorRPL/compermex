@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {DirectionsFormComponent} from './directions-form/directions-form.component';
+import {AddressFormComponent} from './address-form/address-form.component';
 
 @NgModule({
   imports: [
@@ -14,10 +14,10 @@ import {DirectionsFormComponent} from './directions-form/directions-form.compone
     ReactiveFormsModule
   ],
   declarations: [
-    DirectionsFormComponent
+    AddressFormComponent
   ],
   exports: [
-    DirectionsFormComponent
+    AddressFormComponent
   ]
 })
 export class CommonFormsModule {

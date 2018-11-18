@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Direction} from '../../../../models/direction.model';
 import {SupplierService} from '../../service/supplier.service';
-import {Supplier} from "../../models/supplier/supplier.model";
+import {Address} from '../../../../models/address.model';
 
 @Component({
   selector: 'app-add-supplier-address',
@@ -21,8 +20,8 @@ export class AddSupplierAddressComponent implements OnInit {
   ngOnInit() {
   }
 
-  createDirection(direction: Direction) {
-    this.supplierService.addSupplierDirection(direction, this.supplierId).subscribe({
+  createAddress(address: Address) {
+    this.supplierService.addSupplierAddress(address, this.supplierId).subscribe({
       next: (result) => {
 
       },

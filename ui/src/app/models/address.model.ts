@@ -1,6 +1,6 @@
 import {ObjectId} from "./object-id.model";
 
-export class Direction {
+export class Address {
   _id?: ObjectId;
   street: string; // calle
   city: string; // delegación o munucipio
