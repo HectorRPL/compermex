@@ -11,5 +11,7 @@ export class OrderTemp {
   kgMinLinier: number;
   kgMinKraft: number;
   quotation?: object; // TODO => Investiar de donde sacar toda esta información (lado derecho validor) Generar view and model.(Especificaiones de Cotizacion)
+  total: number;
+  subtotal: number;
 
 }
