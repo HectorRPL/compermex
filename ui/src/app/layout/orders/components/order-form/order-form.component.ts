@@ -132,6 +132,8 @@ export class OrderFormComponent implements OnInit {
       observations: this.orderForm.controls.observations.value,
       kgMinLinier: this.orderForm.controls.kgMinLinier.value,
       kgMinKraft: this.orderForm.controls.kgMinKraft.value,
+      total: 100, // TODO => No hardcodear esto
+      subtotal: 50 // TODO => No hardcodear esto
     };
 
     console.log(order);
