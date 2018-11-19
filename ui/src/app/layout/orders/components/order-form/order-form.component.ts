@@ -22,6 +22,7 @@ export class OrderFormComponent implements OnInit {
   public orderForm: FormGroup;
 
   public box: MaterialsMaster;
+  public company: Company;
 
   public statusBoxSearchForm: boolean;
   public boxId: ObjectId;
@@ -31,13 +32,12 @@ export class OrderFormComponent implements OnInit {
   public customerId: ObjectId;
   public fiscalDataId: ObjectId;
 
-  public responseCompanySearch: Company;
-
   constructor(private formBuilder: FormBuilder,
               private ordersService: OrdersService,
               private employeesService: EmployeesService) {
 
     this.box = new MaterialsMaster();
+    this.company = new Company();
 
     this.statusBoxSearchForm = true;
     this.statusCompanySearchForm = true;
@@ -66,9 +66,7 @@ export class OrderFormComponent implements OnInit {
         Validators.pattern(/^[0-9]+$/),
         Validators.min(1)
       ]),
-      'observations': new FormControl(this.order.observations, [
-        Validators.required
-      ]),
+      'observations': new FormControl(this.order.observations),
       'kgMinLinier': new FormControl(this.order.kgMinLinier, [
         Validators.required
       ]),
@@ -118,7 +116,7 @@ export class OrderFormComponent implements OnInit {
     }
     this.statusCompanySearchForm = event.status;
     this.companyId = event._id;
-    this.responseCompanySearch = event.response.item;
+    this.company = event.response;
     this.noOrder.setValue(this.generateNoOrder());
   }
 
@@ -164,7 +162,7 @@ export class OrderFormComponent implements OnInit {
 
   generateNoOrder(): string {
     const customerQuoteNumber: string = this.generateRandom(1000).toString();
-    const companyName: string = 'C'; // TODO => Este es el codigo ocorrecto: this.responseCompanySearch.code;
+    const companyName: string = this.getCodeCompany();
     const providerCode: string = '6'; // TODO => this.responseSupplierSearch.code;
     const monthOrderReceived: string = this.getMonthCodeCompermex(new Date().getMonth()); // TODO => verifica zonas horrias
     const year: string = this.getCompermexYearCode(new Date().getFullYear());
@@ -181,6 +179,21 @@ export class OrderFormComponent implements OnInit {
 
     return result;
   }
+  
+  getCodeCompany(): string {
+    let result: string = '';
+    if (this.company.name === undefined) {
+      return
+    }
+    if (this.company.name == 'EDER') {
+      result = 'E'
+    } else if (this.company.name == 'COMPERMEX') {
+      result = 'C'
+    }
+
+    return result;
+  }
+
 
   generateRandom(digits: number): number {
     const val = Math.floor(digits + Math.random() * 9000);

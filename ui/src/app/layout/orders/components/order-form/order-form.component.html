@@ -36,12 +36,11 @@
     </div>
     <!-- numBoxes -->
     <div class="form-group col-sm-2">
-      <label for="numBoxesId">Cantidad recibida</label>
+      <label for="numBoxesId">Cantidad</label>
       <input type="text"
              class="form-control form-control-sm"
              id="numBoxesId"
-             placeholder="Ingresa la cantidad recibida"
-             *ngIf="orderForm.invalid"
+             placeholder="Cantidad"
              (ngModelChange)="updateTotalValue($event)"
              [ngClass]="{'is-invalid': numBoxes.invalid && (numBoxes.dirty || numBoxes.touched)}"
              formControlName="numBoxes">
@@ -103,11 +102,12 @@
       </div>
     </div>
   </div>
-  <!--BOTTON [disabled]="orderForm.invalid"-->
-  <div class="row"> <!--[disabled]="orderForm.invalid"-->
+  <!--BOTTON -->
+  <div class="row">
     <div class="col-sm-12">
       <button type="submit"
               class="btn btn-primary btn-sm float-right"
+              [disabled]="orderForm.invalid"
               (click)="orderAction()">
         Siguiente
       </button>
