@@ -4,6 +4,7 @@ import {ObjectId} from "../../../../models/object-id.model";
 import {OrderTemp} from "../../models/order-temp";
 import {OrdersService} from "../../service/orders.service";
 import {Company} from "../../../../models/company/company.model";
+import {EmployeesService} from "../../../employees/service/employees.service";
 
 @Component({
   selector: 'app-order-form',
@@ -33,7 +34,8 @@ export class OrderFormComponent implements OnInit {
   public responseCompanySearch: Company;
 
   constructor(private formBuilder: FormBuilder,
-              private ordersService: OrdersService) {
+              private ordersService: OrdersService,
+              private employeesService: EmployeesService) {
 
     this.statusBoxSearchForm = true;
     this.statusCompanySearchForm = true;
@@ -124,6 +126,7 @@ export class OrderFormComponent implements OnInit {
 
     const order: OrderTemp = {
       boxId: this.boxId,
+      employeId: this.employeesService.currentEmployee._id,
       companyId: this.companyId,
       customerId: this.customerId,
       fiscalDataId: this.fiscalDataId,
