@@ -19,7 +19,8 @@ export class ListReceptionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.salesOrders$ = this.receptionService.getSalesOrders();
+
+    // this.salesOrders$ = this.receptionService.getSalesOrders();
 
   }
 

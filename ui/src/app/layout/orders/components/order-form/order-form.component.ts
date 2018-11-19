@@ -135,7 +135,7 @@ export class OrderFormComponent implements OnInit {
       customerId: this.customerId,
       fiscalDataId: this.fiscalDataId,
       noOrder: this.generateNoOrder(),
-      numBoxes: this.orderForm.controls.numBoxes.value, // TODO => Checar bien como se llama este modelo en base de datos
+      numBoxes: Number(this.orderForm.controls.numBoxes.value), // TODO => Checar bien como se llama este modelo en base de datos
       observations: this.orderForm.controls.observations.value,
       kgMinLinier: this.orderForm.controls.kgMinLinier.value,
       kgMinKraft: this.orderForm.controls.kgMinKraft.value,
