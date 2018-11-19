@@ -2,99 +2,89 @@
       autocomplete="off"
       [formGroup]="orderForm">
   <div class="form row">
-    <div class="col-sm-12 mb-3">
-      <div class="card">
-        <div class="card-header">
-          <span class="font-weight-bold">Nota Orden:&nbsp;&nbsp;0123PRG82</span>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <!--AUTOCOMPLETE: CAJAS boxes-search-->
-            <div class="form-group col-sm-2">
-              <app-boxes-search
-                (sendStatusForm)="recipeBoxSearchStatusForm($event)">
-              </app-boxes-search>
-            </div>
-            <!--AUTOCOMPLETE: COMPANY: app-company-search-->
-            <div class="form-group col-sm-2">
-              <app-company-search
-                (sendStatusForm)="recipeCompanySearchStatusForm($event)">
-              </app-company-search>
-            </div>
-            <!--AUTOCOMPLETE: CUSTOMER: app-customers-search-->
-            <div class="form-group col-sm-2">
-              <app-customers-search
-                (sendStatusForm)="recipeCustomerSearchStatusForm($event)">
-              </app-customers-search>
-            </div>
-            <!-- noOrder -->
-            <div class="form-group col-sm-2">
-              <label for="noOrderId">No orden</label>
-              <input type="text"
-                     class="form-control form-control-sm"
-                     id="noOrderId"
-                     placeholder="No orden"
-                     [ngClass]="{'is-invalid': noOrder.invalid && (noOrder.dirty || noOrder.touched)}"
-                     disabled
-                     formControlName="noOrder">
-              <div *ngIf="noOrder.invalid && (noOrder.dirty || noOrder.touched)">
-                <div class="text-danger small" *ngIf="noOrder.errors.required">Requerido.</div>
-              </div>
-            </div>
-            <!-- numBoxes -->
-            <div class="form-group col-sm-2">
-              <label for="numBoxesId">Cantidad</label>
-              <input type="number"
-                     class="form-control form-control-sm"
-                     id="numBoxesId"
-                     placeholder="Cantidad"
-                     [ngClass]="{'is-invalid': numBoxes.invalid && (numBoxes.dirty || numBoxes.touched)}"
-                     formControlName="numBoxes">
-              <div *ngIf="numBoxes.invalid && (numBoxes.dirty || numBoxes.touched)">
-                <div class="text-danger small" *ngIf="numBoxes.errors.required">Requerido.</div>
-              </div>
-            </div>
-            <!-- observations -->
-            <div class="form-group col-sm-2">
-              <label for="observationsId">Observaciones</label>
-              <input type="text"
-                     class="form-control form-control-sm"
-                     id="observationsId"
-                     placeholder="Observaciones"
-                     [ngClass]="{'is-invalid': observations.invalid && (observations.dirty || observations.touched)}"
-                     formControlName="observations">
-              <div *ngIf="observations.invalid && (observations.dirty || observations.touched)">
-                <div class="text-danger small" *ngIf="observations.errors.required">Requerido.</div>
-              </div>
-            </div>
-            <!-- kgMinLinier -->
-            <div class="form-group col-sm-2">
-              <label for="kgMinLinierId">Kg. min Linier</label>
-              <input type="number"
-                     class="form-control form-control-sm"
-                     id="kgMinLinierId"
-                     placeholder="Kg. min Linier"
-                     [ngClass]="{'is-invalid': kgMinLinier.invalid && (kgMinLinier.dirty || kgMinLinier.touched)}"
-                     formControlName="kgMinLinier">
-              <div *ngIf="kgMinLinier.invalid && (kgMinLinier.dirty || kgMinLinier.touched)">
-                <div class="text-danger small" *ngIf="kgMinLinier.errors.required">Requerido.</div>
-              </div>
-            </div>
-            <!-- kgMinKraft -->
-            <div class="form-group col-sm-2">
-              <label for="kgMinKraftId">Kg. min Kraft</label>
-              <input type="number"
-                     class="form-control form-control-sm"
-                     id="kgMinKraftId"
-                     placeholder="Kg. min Kraft"
-                     [ngClass]="{'is-invalid': kgMinKraft.invalid && (kgMinKraft.dirty || kgMinKraft.touched)}"
-                     formControlName="kgMinKraft">
-              <div *ngIf="kgMinKraft.invalid && (kgMinKraft.dirty || kgMinKraft.touched)">
-                <div class="text-danger small" *ngIf="kgMinKraft.errors.required">Requerido.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!--AUTOCOMPLETE: CAJAS boxes-search-->
+    <div class="form-group col-sm-2">
+      <app-boxes-search
+        (sendStatusForm)="recipeBoxSearchStatusForm($event)">
+      </app-boxes-search>
+    </div>
+    <!--AUTOCOMPLETE: COMPANY: app-company-search-->
+    <div class="form-group col-sm-2">
+      <app-company-search
+        (sendStatusForm)="recipeCompanySearchStatusForm($event)">
+      </app-company-search>
+    </div>
+    <!--AUTOCOMPLETE: CUSTOMER: app-customers-search-->
+    <div class="form-group col-sm-2">
+      <app-customers-search
+        (sendStatusForm)="recipeCustomerSearchStatusForm($event)">
+      </app-customers-search>
+    </div>
+    <!-- noOrder -->
+    <div class="form-group col-sm-2">
+      <label for="noOrderId">No orden</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="noOrderId"
+             placeholder="No orden"
+             [ngClass]="{'is-invalid': noOrder.invalid && (noOrder.dirty || noOrder.touched)}"
+             disabled
+             formControlName="noOrder">
+      <div *ngIf="noOrder.invalid && (noOrder.dirty || noOrder.touched)">
+        <div class="text-danger small" *ngIf="noOrder.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!-- numBoxes -->
+    <div class="form-group col-sm-2">
+      <label for="numBoxesId">Cantidad</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="numBoxesId"
+             placeholder="Cantidad"
+             [ngClass]="{'is-invalid': numBoxes.invalid && (numBoxes.dirty || numBoxes.touched)}"
+             formControlName="numBoxes">
+      <div *ngIf="numBoxes.invalid && (numBoxes.dirty || numBoxes.touched)">
+        <div class="text-danger small" *ngIf="numBoxes.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!-- kgMinLinier -->
+    <div class="form-group col-sm-2">
+      <label for="kgMinLinierId">Kg. min Linier</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="kgMinLinierId"
+             placeholder="Kg. min Linier"
+             [ngClass]="{'is-invalid': kgMinLinier.invalid && (kgMinLinier.dirty || kgMinLinier.touched)}"
+             formControlName="kgMinLinier">
+      <div *ngIf="kgMinLinier.invalid && (kgMinLinier.dirty || kgMinLinier.touched)">
+        <div class="text-danger small" *ngIf="kgMinLinier.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!-- kgMinKraft -->
+    <div class="form-group col-sm-2">
+      <label for="kgMinKraftId">Kg. min Kraft</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="kgMinKraftId"
+             placeholder="Kg. min Kraft"
+             [ngClass]="{'is-invalid': kgMinKraft.invalid && (kgMinKraft.dirty || kgMinKraft.touched)}"
+             formControlName="kgMinKraft">
+      <div *ngIf="kgMinKraft.invalid && (kgMinKraft.dirty || kgMinKraft.touched)">
+        <div class="text-danger small" *ngIf="kgMinKraft.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!-- observations -->
+    <div class="form-group col-sm-12">
+      <label for="observationsId">Observaciones</label>
+      <textarea class="form-control form-control-sm"
+                id="observationsId"
+                rows="3"
+                placeholder="Observaciones"
+                [ngClass]="{'is-invalid': observations.invalid && (observations.dirty || observations.touched)}"
+                formControlName="observations">
+              </textarea>
+      <div *ngIf="observations.invalid && (observations.dirty || observations.touched)">
+        <div class="text-danger small" *ngIf="observations.errors.required">Requerido.</div>
       </div>
     </div>
   </div>
