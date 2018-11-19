@@ -9,31 +9,18 @@
         <thead>
         <tr>
           <th scope="col">Código lotificación</th>
-          <th scope="col">Estatus</th>
-          <th scope="col">Fecha</th>
+          <th scope="col">Total productos</th>
+          <th scope="col">Mts 3</th>
           <th scope="col">Acción</th>
         </tr>
         </thead>
         <tbody>
-        <tr> <!--*ngFor="let reception of receptions$ | async"-->
-          <th scope="row">123CT12312</th>
-          <td>Recibida</td>
-          <td>2018/11/20</td>
-          <td><i class="fas fa-file-download" (click)="openModalRecipe()"></i></td>
+        <tr *ngFor="let saleOrder of salesOrders$ | async">
+          <th scope="row">{{saleOrder.numSaleOrder}}</th>
+          <td>{{saleOrder.numTotalProducts}}</td>
+          <td>{{saleOrder.cubicMeters}}</td>
+          <td><i class="fas fa-file-download" (click)="openModalRecipe(saleOrder)"></i></td>
         </tr>
-        <tr>
-          <th scope="row">123CT12313</th>
-          <td>Pendiente</td>
-          <td>2018/11/19</td>
-          <td><i class="fas fa-file-download" (click)="openModalRecipe()"></i></td>
-        </tr>
-        <tr>
-          <th scope="row">123CT12314</th>
-          <td>Recibida</td>
-          <td>2018/11/18</td>
-          <td><i class="fas fa-file-download" (click)="openModalRecipe()"></i></td>
-        </tr>
-        </tbody>
       </table>
     </div>
   </div>

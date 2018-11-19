@@ -4,6 +4,7 @@ import {HandleError, HttpErrorHandlerService} from '../../../services/http-error
 import {catchError} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Reception} from '../models/reception.model';
+import {SaleOrder} from "../../orders/models/sale-order.model";
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +33,10 @@ export class ReceptionService {
       );
   }
 
-  getReceptions(): Observable<Reception[]> {
-    return this.http.get<Reception[]>('/receptions')
+  getSalesOrders(): Observable<SaleOrder[]> {
+    return this.http.get<SaleOrder[]>('/salesOrders')
       .pipe(
-        catchError(this.handleError('getReceptions', []))
+        catchError(this.handleError('getSalesOrders', []))
       );
   }
 

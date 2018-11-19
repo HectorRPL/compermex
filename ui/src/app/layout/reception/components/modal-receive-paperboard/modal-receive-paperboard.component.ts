@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgForm} from '@angular/forms';
 import {ReceptionService} from '../../service/reception.service';
-import {Reception} from "../../models/reception.model";
+import {Reception} from '../../models/reception.model';
+import {SaleOrder} from '../../../orders/models/sale-order.model';
 
 
 @Component({
@@ -11,6 +12,8 @@ import {Reception} from "../../models/reception.model";
   styleUrls: ['./modal-receive-paperboard.component.css']
 })
 export class ModalReceivePaperboardComponent implements OnInit {
+
+  @Input() saleOrder: SaleOrder;
 
   public showAlert: boolean;
   public message: string;
@@ -26,6 +29,10 @@ export class ModalReceivePaperboardComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    console.log('Recibiendo la order de la lista de salesOrders');
+    console.log(this.saleOrder);
+
   }
 
   getReceivePaperboardForm(dataForm: NgForm) {
@@ -60,6 +67,5 @@ export class ModalReceivePaperboardComponent implements OnInit {
 
     return reception;
   }
-
 
 }
