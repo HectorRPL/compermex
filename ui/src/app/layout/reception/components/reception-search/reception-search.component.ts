@@ -18,13 +18,13 @@ export class ReceptionSearchComponent {
 
   constructor(private receptionService: ReceptionService) { }
 
-  search = (text$: Observable<string>) =>
+  /*search = (text$: Observable<string>) =>
     text$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-        this.receptionService.getReceptions().pipe(
+        this.receptionService.getSalesOrders().pipe(
           tap(() => this.searchFailed = false),
           catchError(() => {
             this.searchFailed = true;
@@ -39,6 +39,6 @@ export class ReceptionSearchComponent {
 
   selectedItem($event) {
     console.log($event);
-  }
+  }*/
 
 }
