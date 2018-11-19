@@ -32,7 +32,7 @@ class OrdersController @Inject()(
       val saleOrder = SaleOrder(
         _id = None,
         boxId = formData.boxId,
-        employeId = formData.employeId.get,
+        employeId = formData.employeId,
         clientId = formData.customerId,
         companyId = formData.companyId,
         cubicMeters = 0,
@@ -56,7 +56,7 @@ class OrdersController @Inject()(
                 val purchase = PurchaseOrder(
                   _id = None,
                   supplierId = paperboard.get.supplierId,
-                  employeId = formData.employeId.get,
+                  employeId = formData.employeId,
                   saleOrderId = sale._id.get,
                   paperboardId = paperboard.get._id.get,
                   fiscalDataId = formData.fiscalDataId,

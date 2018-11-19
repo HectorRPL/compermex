@@ -11,7 +11,7 @@ case class OrdersForm(
                       boxId: BSONObjectID, //Lo que se da de alta en el maestro de materiales.
                       numBoxes: Int,
                       customerId: BSONObjectID,
-                      employeId: Option[BSONObjectID],
+                      employeId: BSONObjectID,
                       quality: Option[Boolean], //Requeire o no certificado de calidad (Verificar de que collecion proviene)
                       observations: String, //
                       fiscalDataId: Option[BSONObjectID], //Crear un autocomplete de los datos fiscales
