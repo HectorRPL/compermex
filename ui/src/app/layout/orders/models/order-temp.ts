@@ -4,7 +4,6 @@ export class OrderTemp {
   boxId: ObjectId; // Lo que se da de alta en el maestro de materiales.
   companyId: ObjectId;
   customerId: ObjectId;
-  paperboardId: ObjectId;
   fiscalDataId: ObjectId; // Crear un autocomplete de los datos fiscales
   noOrder: string; // El id que se forma (ver PDF)
   numBoxes: number;

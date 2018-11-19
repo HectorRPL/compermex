@@ -126,7 +126,6 @@ export class OrderFormComponent implements OnInit {
       boxId: this.boxId,
       companyId: this.companyId,
       customerId: this.customerId,
-      paperboardId: this.paperboardId,
       fiscalDataId: this.fiscalDataId,
       noOrder: this.generateNoOrder(),
       numBoxes: this.orderForm.controls.numBoxes.value, // TODO => Checar bien como se llama este modelo en base de datos
