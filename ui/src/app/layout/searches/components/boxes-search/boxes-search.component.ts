@@ -59,17 +59,18 @@ export class BoxesSearchComponent {
   inFormatter = (result: MaterialsMaster) => result.description;
 
   selectedItem(event) {
-    console.log(event);
     if (this.boxSearchForm.status === 'VALID') {
       const value = {
         status: false,
-        _id: event.item._id
+        _id: event.item._id,
+        boxSearchForm: event
       };
       this.sendStatusForm.emit(value);
     } else if (this.boxSearchForm.status === 'INVALID') {
       const value = {
         status: true,
-        _id: null
+        _id: null,
+        boxSearchForm: null
       };
       this.sendStatusForm.emit(value);
 

@@ -4,6 +4,7 @@ import {ObjectId} from "../../../../models/object-id.model";
 import {OrderTemp} from "../../models/order-temp";
 import {OrdersService} from "../../service/orders.service";
 import {Company} from "../../../../models/company/company.model";
+import {MaterialsMaster} from "../../../materials/models/materials-master.model";
 
 @Component({
   selector: 'app-order-form',
@@ -19,15 +20,14 @@ export class OrderFormComponent implements OnInit {
   public order: OrderTemp;
   public orderForm: FormGroup;
 
+  public box: MaterialsMaster;
+
   public statusBoxSearchForm: boolean;
   public boxId: ObjectId;
   public statusCompanySearchForm: boolean;
   public companyId: ObjectId;
   public statusCustomerSearchForm: boolean;
   public customerId: ObjectId;
-  public statusPaperboardSearchForm: boolean;
-  public paperboardId: ObjectId;
-  public statusFiscalDataSearchForm: boolean;
   public fiscalDataId: ObjectId;
 
   public responseCompanySearch: Company;
@@ -35,11 +35,11 @@ export class OrderFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private ordersService: OrdersService) {
 
+    this.box = new MaterialsMaster();
+
     this.statusBoxSearchForm = true;
     this.statusCompanySearchForm = true;
     this.statusCustomerSearchForm = true;
-    this.statusPaperboardSearchForm = true;
-    this.statusFiscalDataSearchForm = true;
 
     this.showAlert = false;
     this.message = '';
@@ -60,7 +60,9 @@ export class OrderFormComponent implements OnInit {
         Validators.required
       ]),
       'numBoxes': new FormControl(this.order.numBoxes, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^[0-9]+$/),
+        Validators.min(1)
       ]),
       'observations': new FormControl(this.order.observations, [
         Validators.required
@@ -70,7 +72,8 @@ export class OrderFormComponent implements OnInit {
       ]),
       'kgMinKraft': new FormControl(this.order.kgMinKraft, [
         Validators.required
-      ])
+      ]),
+      'total': new FormControl(this.order.total)
     });
   }
 
@@ -94,12 +97,22 @@ export class OrderFormComponent implements OnInit {
     return this.orderForm.get('kgMinKraft');
   }
 
+  get total() {
+    return this.orderForm.get('total');
+  }
+
   recipeBoxSearchStatusForm(event) {
+    this.total.setValue(null);
+    this.numBoxes.setValue(null);
     this.statusBoxSearchForm = event.status;
     this.boxId = event._id;
+    this.box = event.boxSearchForm.item;
   }
 
   recipeCompanySearchStatusForm(event) {
+    if (event.response === null) {
+      return;
+    }
     this.statusCompanySearchForm = event.status;
     this.companyId = event._id;
     this.responseCompanySearch = event.response.item;
@@ -108,16 +121,6 @@ export class OrderFormComponent implements OnInit {
   recipeCustomerSearchStatusForm(event) {
     this.statusCustomerSearchForm = event.status;
     this.customerId = event._id;
-  }
-
-  recipePaperboardSearchStatusForm(event) {
-    this.statusPaperboardSearchForm = event.status;
-    this.paperboardId = event._id;
-  }
-
-  recipeDataFiscalSearchStatusForm(event) {
-    this.statusFiscalDataSearchForm = event.status;
-    this.fiscalDataId = event._id;
   }
 
   orderAction() {
@@ -133,7 +136,7 @@ export class OrderFormComponent implements OnInit {
       kgMinLinier: this.orderForm.controls.kgMinLinier.value,
       kgMinKraft: this.orderForm.controls.kgMinKraft.value,
       total: 100, // TODO => No hardcodear esto
-      subtotal: 50 // TODO => No hardcodear esto
+      // subtotal: 50 // TODO => No hardcodear esto
     };
 
     console.log(order);
@@ -230,6 +233,18 @@ export class OrderFormComponent implements OnInit {
     const result: string = yearString.slice(-1);
 
     return result;
+  }
+
+  updateTotalValue(event: any) {
+    console.log(this.box.sellerPrice);
+    if (this.box.sellerPrice === undefined) {
+      return;
+    }
+
+    const newValue: number = (Number(event)) * this.box.sellerPrice;
+
+    this.total.setValue(newValue);
+
   }
 
 }

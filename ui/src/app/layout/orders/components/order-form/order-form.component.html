@@ -36,17 +36,22 @@
     </div>
     <!-- numBoxes -->
     <div class="form-group col-sm-2">
-      <label for="numBoxesId">Cantidad</label>
-      <input type="number"
+      <label for="numBoxesId">Cantidad recibida</label>
+      <input type="text"
              class="form-control form-control-sm"
              id="numBoxesId"
-             placeholder="Cantidad"
+             placeholder="Ingresa la cantidad recibida"
+             *ngIf="orderForm.invalid"
+             (ngModelChange)="updateTotalValue($event)"
              [ngClass]="{'is-invalid': numBoxes.invalid && (numBoxes.dirty || numBoxes.touched)}"
              formControlName="numBoxes">
       <div *ngIf="numBoxes.invalid && (numBoxes.dirty || numBoxes.touched)">
-        <div class="text-danger small" *ngIf="numBoxes.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="numBoxes.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="numBoxes.errors.pattern">Sólo números enteros</div>
+        <div class="text-danger small" *ngIf="numBoxes.errors.min">Mínimo 1</div>
       </div>
     </div>
+
     <!-- kgMinLinier -->
     <div class="form-group col-sm-2">
       <label for="kgMinLinierId">Kg. min Linier</label>
@@ -72,6 +77,16 @@
       <div *ngIf="kgMinKraft.invalid && (kgMinKraft.dirty || kgMinKraft.touched)">
         <div class="text-danger small" *ngIf="kgMinKraft.errors.required">Requerido.</div>
       </div>
+    </div>
+    <!-- total -->
+    <div class="form-group col-sm-2">
+      <label for="totalId">Total</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="totalId"
+             disabled
+             placeholder="Total"
+             formControlName="total">
     </div>
     <!-- observations -->
     <div class="form-group col-sm-12">
