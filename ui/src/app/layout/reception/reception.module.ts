@@ -6,6 +6,8 @@ import {ReceptionSearchComponent} from './components/reception-search/reception-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SuppliersRoutingModule} from './reception-routing.module';
+import {ModalReceivePaperboardComponent} from './components/modal-receive-paperboard/modal-receive-paperboard.component';
+import { ReceivePaperboardFormComponent } from './components/receive-paperboard-form/receive-paperboard-form.component';
 
 @NgModule({
   imports: [
@@ -18,7 +20,12 @@ import {SuppliersRoutingModule} from './reception-routing.module';
   declarations: [
     ReceptionComponent,
     ListReceptionComponent,
-    ReceptionSearchComponent
+    ReceptionSearchComponent,
+    ModalReceivePaperboardComponent,
+    ReceivePaperboardFormComponent
+  ],
+  entryComponents: [
+    ModalReceivePaperboardComponent
   ]
 })
 export class ReceptionModule {

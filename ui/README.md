@@ -90,6 +90,10 @@ CREACIÓN DE MODULOS CON COMPONENTES REUTILIZABLES (COMUNES)
 `ng generate component layout/common/common-forms/addressForm`
 
 
+CREACION DEL MODULO: reception
+`ng generate component layout/reception/components/modalReceivePaperboard`
+`ng generate component layout/reception/components/receivePaperboardForm`
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
