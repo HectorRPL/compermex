@@ -9,7 +9,7 @@ import reactivemongo.play.json.collection.JSONCollection
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
-class PurcharsesOrdersDAOImpl @Inject()(
+class PurchasesOrdersDAOImpl @Inject()(
                                          val reactiveMongoApi: ReactiveMongoApi
                                        ) extends PurchasesOrdersDAO {
 

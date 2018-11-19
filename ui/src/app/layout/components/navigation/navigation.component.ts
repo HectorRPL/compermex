@@ -5,6 +5,7 @@ import {AuthService} from "ng2-ui-auth";
 import {UserService} from "../../../services/auth/user.service";
 import {AreasService} from "../../../services/areas/areas.service";
 import {Area} from "../../../models/area/client.model";
+import {EmployeesService} from "../../employees/service/employees.service";
 
 declare var jQuery: any;
 
@@ -19,7 +20,8 @@ export class NavigationComponent {
 
   constructor(private router: Router,
               private areasService: AreasService,
-              private userService: UserService) {
+              private userService: UserService,
+              private employeesService: EmployeesService) {
     this.area = new Area();
   }
 
@@ -41,7 +43,8 @@ export class NavigationComponent {
 
     this.userService.renewUser().then((user)=>{
       console.log(user);
-      this.getArea(user.areaId.$oid)
+      this.getArea(user.areaId.$oid);
+      this.currentEmploye(user._id);
     });
   }
 
@@ -51,6 +54,12 @@ export class NavigationComponent {
       next: value => this.area = value
     })
 
+  }
+
+  currentEmploye(userId: String){
+    this.employeesService.getEmployeeByUserId(userId).subscribe({
+      next: value => this.employeesService.currentEmployee = value
+    })
   }
 
 

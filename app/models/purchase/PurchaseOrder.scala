@@ -17,6 +17,7 @@ case class PurchaseOrder(
                       numTotalProducts: Int,
                       numTotalCancel: Int,
                       numTotalDelivered: Int,
+                      numTotalQuality: Int,
                       moneyToPay: Double, // Dinero que debo
                       moneyPaid: Double,//Dinero Pagado
                       cubicMeters: Double,

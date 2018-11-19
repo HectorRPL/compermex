@@ -25,6 +25,7 @@ POST    /add/supplier/:supplierId/address     controllers.supplier.SupplierContr
 GET     /employees                  controllers.employees.EmployeesController.list
 POST    /add/employe                controllers.employees.EmployeesController.save
 GET     /employees/search/:name     controllers.employees.EmployeesController.search(name: String)
+GET     /employe/user/:userId       controllers.employees.EmployeesController.employeeByUser(userId: String)
 
 # ROUTES FOR MATERIALS
 GET     /materials/colors           controllers.materials.MaterialsController.listColors
@@ -46,6 +47,9 @@ GET     /companies/search/:name  controllers.companies.CompaniesController.searc
 GET    /boxes/types             controllers.boxes.BoxesController.listBoxesTypes
 POST   /add/box                 controllers.boxes.BoxesController.save
 GET    /boxes/search/:name      controllers.boxes.BoxesController.search(name: String)
+
+#ROUTES FOR ORDER
+POST     /add/order      controllers.orders.OrdersController.save
 
 
 

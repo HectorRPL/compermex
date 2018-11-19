@@ -5,6 +5,7 @@ import {OrderTemp} from "../../models/order-temp";
 import {OrdersService} from "../../service/orders.service";
 import {Company} from "../../../../models/company/company.model";
 import {MaterialsMaster} from "../../../materials/models/materials-master.model";
+import {EmployeesService} from "../../../employees/service/employees.service";
 
 @Component({
   selector: 'app-order-form',
@@ -33,7 +34,8 @@ export class OrderFormComponent implements OnInit {
   public responseCompanySearch: Company;
 
   constructor(private formBuilder: FormBuilder,
-              private ordersService: OrdersService) {
+              private ordersService: OrdersService,
+              private employeesService: EmployeesService) {
 
     this.box = new MaterialsMaster();
 
@@ -127,6 +129,7 @@ export class OrderFormComponent implements OnInit {
 
     const order: OrderTemp = {
       boxId: this.boxId,
+      employeId: this.employeesService.currentEmployee._id,
       companyId: this.companyId,
       customerId: this.customerId,
       fiscalDataId: this.fiscalDataId,

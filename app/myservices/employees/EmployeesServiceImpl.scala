@@ -5,6 +5,7 @@ import javax.inject.Inject
 import models.Pagination
 import models.employe.Employe
 import play.api.libs.json.{JsObject, Json}
+import reactivemongo.bson.BSONDocument
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -23,4 +24,7 @@ class EmployeesServiceImpl @Inject()(
     employeesDAO.save(employe)
   }
 
+  def getEmployeeByUserId(query: BSONDocument): Future[Option[Employe]] = {
+    employeesDAO.getOne(query)
+  }
 }

@@ -11,6 +11,8 @@ import db.dao.companies.{CompaniesDAO, CompaniesDAOImpl}
 import db.dao.employees.{EmployeesDAO, EmployeesDAOImpl}
 import db.dao.materials.paperboards.{PaperboardsDAO, PaperboardsDAOImpl}
 import db.dao.materials.{MaterialsDAO, MaterialsDAOImpl}
+import db.dao.purchases.{PurchasesOrdersDAO, PurchasesOrdersDAOImpl}
+import db.dao.sales.{SalesOrdersDAO, SalesOrdersDAOImpl}
 import db.dao.suppliers.{SuppliersDAO, SuppliersDAOImpl}
 import db.dao.user.{AuthTokenDAO, AuthTokenDAOImpl}
 import db.dao.zipCodes.{ZipCodesDAO, ZipCodesDAOImpl}
@@ -21,6 +23,8 @@ import myservices.clients.{ClientsService, ClientsServiceImpl}
 import myservices.companies.{CompaniesService, CompaniesServiceImpl}
 import myservices.employees.{EmployeesService, EmployeesServiceImpl}
 import myservices.materials.{MaterialsService, MatrerialsServiceImpl, PaperboardsService, PaperboardsServiceImpl}
+import myservices.purchases.{PurchasesService, PurchasesServiceImpl}
+import myservices.sales.{SalesService, SalesServiceImpl}
 import myservices.suppliers.{SuppliersService, SuppliersServiceImpl}
 import net.codingwell.scalaguice.ScalaModule
 import myservices.user.{AuthTokenService, AuthTokenServiceImpl}
@@ -78,5 +82,11 @@ class BaseModule extends AbstractModule with ScalaModule {
     //DI for Address
     bind[AddressesService].to[AddressesServiceImpl]
     bind[AddressesDAO].to[AddressesDAOImpl]
+
+    //DI for Orders
+    bind[SalesService].to[SalesServiceImpl]
+    bind[SalesOrdersDAO].to[SalesOrdersDAOImpl]
+    bind[PurchasesService].to[PurchasesServiceImpl]
+    bind[PurchasesOrdersDAO].to[PurchasesOrdersDAOImpl]
   }
 }
