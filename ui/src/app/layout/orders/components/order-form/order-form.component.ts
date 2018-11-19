@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ObjectId} from "../../../../models/object-id.model";
-import {OrderTemp} from "../../models/order-temp";
-import {OrdersService} from "../../service/orders.service";
-import {Company} from "../../../../models/company/company.model";
-import {MaterialsMaster} from "../../../materials/models/materials-master.model";
-import {EmployeesService} from "../../../employees/service/employees.service";
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ObjectId} from '../../../../models/object-id.model';
+import {OrderTemp} from '../../models/order-temp';
+import {OrdersService} from '../../service/orders.service';
+import {Company} from '../../../../models/company/company.model';
+import {MaterialsMaster} from '../../../materials/models/materials-master.model';
+import {EmployeesService} from '../../../employees/service/employees.service';
 
 @Component({
   selector: 'app-order-form',
@@ -109,6 +109,7 @@ export class OrderFormComponent implements OnInit {
     this.statusBoxSearchForm = event.status;
     this.boxId = event._id;
     this.box = event.boxSearchForm.item;
+    this.noOrder.setValue(this.generateNoOrder());
   }
 
   recipeCompanySearchStatusForm(event) {
@@ -118,11 +119,13 @@ export class OrderFormComponent implements OnInit {
     this.statusCompanySearchForm = event.status;
     this.companyId = event._id;
     this.responseCompanySearch = event.response.item;
+    this.noOrder.setValue(this.generateNoOrder());
   }
 
   recipeCustomerSearchStatusForm(event) {
     this.statusCustomerSearchForm = event.status;
     this.customerId = event._id;
+    this.noOrder.setValue(this.generateNoOrder());
   }
 
   orderAction() {
@@ -142,7 +145,6 @@ export class OrderFormComponent implements OnInit {
       // subtotal: 50 // TODO => No hardcodear esto
     };
 
-    console.log(order);
     this.ordersService.addOrder(order).subscribe({
       next: (result) => {
         console.log(result);
@@ -182,13 +184,11 @@ export class OrderFormComponent implements OnInit {
 
   generateRandom(digits: number): number {
     const val = Math.floor(digits + Math.random() * 9000);
-    console.log(val);
 
     return val;
   }
 
   getMonthCodeCompermex(month: number): string {
-    console.log(month);
     let monthCode = '';
 
     if (month === 0) {
@@ -239,7 +239,6 @@ export class OrderFormComponent implements OnInit {
   }
 
   updateTotalValue(event: any) {
-    console.log(this.box.sellerPrice);
     if (this.box.sellerPrice === undefined) {
       return;
     }
