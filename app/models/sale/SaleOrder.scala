@@ -22,7 +22,8 @@ case class SaleOrder(
                       numSaleOrder: String,
                       moneyCollect: Double, //Saldo por Cobrar
                       moneyCharged: Double, // total cobrado,
-                      VoBoQuality: Option[Date]
+                      VoBoQuality: Option[Date],
+                      status: Int
                     )
 
 object SaleOrder {

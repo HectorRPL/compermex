@@ -49,9 +49,8 @@ POST   /add/box                 controllers.boxes.BoxesController.save
 GET    /boxes/search/:name      controllers.boxes.BoxesController.search(name: String)
 
 #ROUTES FOR ORDER
-POST     /add/order      controllers.orders.OrdersController.save
-
-
+POST   /add/order      controllers.orders.OrdersController.save
+#GET    /orders/receive controllers.orders.OrdersController.toReceive
 
 #ROUTES FOR AREAS
 GET     /areas              controllers.areas.AreasController.list

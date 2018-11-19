@@ -21,7 +21,8 @@ case class PurchaseOrder(
                       moneyToPay: Double, // Dinero que debo
                       moneyPaid: Double,//Dinero Pagado
                       cubicMeters: Double,
-                      creditDays: Int
+                      creditDays: Int,
+                      status: Int
                     )
 
 object PurchaseOrder {

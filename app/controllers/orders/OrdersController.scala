@@ -37,7 +37,7 @@ class OrdersController @Inject()(
         companyId = formData.companyId,
         cubicMeters = 0,
         fiscalDataId = formData.fiscalDataId,
-        total = 0.0,
+        total = formData.total.get,
         subtotal = 0.0,
         numTotalProducts = formData.numBoxes,
         numTotalCancel = 0,
@@ -45,7 +45,8 @@ class OrdersController @Inject()(
         numSaleOrder = formData.noOrder,
         moneyCollect = 0.0, //Saldo por Cobrar
         moneyCharged = 0.0,
-        VoBoQuality = None
+        VoBoQuality = None,
+        status = 0
       )
 
       salesService.save(saleOrder).map { sale =>
@@ -70,7 +71,8 @@ class OrdersController @Inject()(
                   moneyToPay = 0, // Dinero que debo
                   moneyPaid = 0, //Dinero Pagado
                   cubicMeters = 0.0,
-                  creditDays = 0
+                  creditDays = 0,
+                  status = 0
                 )
                 purchasesService.save(purchase)
               }
@@ -86,5 +88,7 @@ class OrdersController @Inject()(
       }
     }
   }
+
+
 
 }
