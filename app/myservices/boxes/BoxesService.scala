@@ -3,6 +3,7 @@ package myservices.boxes
 import models.Pagination
 import models.box.{Box, BoxSize, BoxType}
 import play.api.libs.json.JsObject
+import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.Future
 
@@ -16,5 +17,9 @@ trait BoxesService {
                    pag: Pagination): Future[Seq[BoxType]]
 
   def saveBoxSize(boxSize: BoxSize): Future[BoxSize]
+
+  def getOneBox(_id: BSONObjectID): Future[Option[Box]]
+
+
 
 }

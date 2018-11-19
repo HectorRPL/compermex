@@ -35,4 +35,6 @@ class UserController  @Inject() (
     silhouette.env.authenticatorService.discard(request.authenticator, Ok)
   }
 
+
+
 }

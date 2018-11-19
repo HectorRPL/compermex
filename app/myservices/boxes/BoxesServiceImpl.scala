@@ -7,6 +7,7 @@ import javax.inject.Inject
 import models.Pagination
 import models.box.{Box, BoxSize, BoxType}
 import play.api.libs.json.{JsObject, Json}
+import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -36,5 +37,9 @@ class BoxesServiceImpl  @Inject()(
 
   def saveBoxSize(boxSize: BoxSize): Future[BoxSize] = {
     boxesSizesDAO.saveBoxSize(boxSize)
+  }
+
+  def getOneBox(_id: BSONObjectID): Future[Option[Box]] = {
+    boxesDAO.getOne(_id)
   }
 }

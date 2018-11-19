@@ -5,6 +5,7 @@ import javafx.print.Paper
 import javax.inject.Inject
 import models.purchase.PurchaseOrder
 import models.sale.SaleOrder
+import myservices.boxes.BoxesService
 import myservices.materials.PaperboardsService
 import myservices.purchases.PurchasesService
 import myservices.sales.SalesService
@@ -18,7 +19,8 @@ class OrdersController @Inject()(
                                   cc: ControllerComponents,
                                   salesService: SalesService,
                                   purchasesService: PurchasesService,
-                                  paperboardsService: PaperboardsService
+                                  paperboardsService: PaperboardsService,
+                                  boxesService: BoxesService
                                 )(implicit ec: ExecutionContext)
   extends AbstractController(cc)
     with I18nSupport {
@@ -30,43 +32,49 @@ class OrdersController @Inject()(
       val saleOrder = SaleOrder(
         _id = None,
         boxId = formData.boxId,
-        employeId = formData.employeId,
-        clientId = formData.clientId,
+        employeId = formData.employeId.get,
+        clientId = formData.customerId,
         companyId = formData.companyId,
         cubicMeters = 0,
         fiscalDataId = formData.fiscalDataId,
-        total = formData.total,
-        subtotal = formData.subtotal,
-        numTotalProducts = formData.quantity,
+        total = 0.0,
+        subtotal = 0.0,
+        numTotalProducts = formData.numBoxes,
         numTotalCancel = 0,
         numTotalDelivered = 0,
         numSaleOrder = formData.noOrder,
         moneyCollect = 0.0, //Saldo por Cobrar
-        moneyCharged = 0.0
+        moneyCharged = 0.0,
+        VoBoQuality = None
       )
 
       salesService.save(saleOrder).map { sale =>
-        paperboardsService.getOne(formData.paperboardId.get).flatMap{
-          case (paperboard) => {
-            val purchase = PurchaseOrder(
-              _id = None,
-              supplierId = paperboard.get._id.get,//asdasdasdasdasdasdasd
-              employeId = formData.employeId,
-              saleOrderId = sale._id.get,
-              paperboardId = formData.paperboardId.get,
-              fiscalDataId = formData.fiscalDataId,
-              folioInvoice = "sdsdadsa",
-              total = formData.total,
-              subtotal = formData.total,
-              numTotalProducts = 0,
-              numTotalCancel = 0,
-              numTotalDelivered = 0,
-              moneyToPay = 0, // Dinero que debo
-              moneyPaid = 0, //Dinero Pagado
-              cubicMeters = 0.0,
-              creditDays = 0
-            )
-            purchasesService.save(purchase)
+        boxesService.getOneBox(formData.boxId).flatMap{
+          case (box) => {
+            paperboardsService.getOne(box.get.paperboardId).flatMap{
+              case (paperboard) => {
+                val purchase = PurchaseOrder(
+                  _id = None,
+                  supplierId = paperboard.get.supplierId,
+                  employeId = formData.employeId.get,
+                  saleOrderId = sale._id.get,
+                  paperboardId = paperboard.get._id.get,
+                  fiscalDataId = formData.fiscalDataId,
+                  folioInvoice = "sdsdadsa",
+                  total = 0.0,
+                  subtotal = 0.0,
+                  numTotalProducts = 0,
+                  numTotalCancel = 0,
+                  numTotalDelivered = 0,
+                  numTotalQuality = 0,
+                  moneyToPay = 0, // Dinero que debo
+                  moneyPaid = 0, //Dinero Pagado
+                  cubicMeters = 0.0,
+                  creditDays = 0
+                )
+                purchasesService.save(purchase)
+              }
+            }
           }
         }
         Ok(Json.toJson(sale))
@@ -78,8 +86,5 @@ class OrdersController @Inject()(
       }
     }
   }
-
-
-
 
 }

@@ -12,6 +12,7 @@ import {Area} from '../../../models/area/client.model';
 export class EmployeesService {
 
   private handleError: HandleError;
+  public currentEmployee: Employee;
 
   constructor(public http: HttpClient,
               httpErrorHandler: HttpErrorHandlerService) {
@@ -37,6 +38,13 @@ export class EmployeesService {
     return this.http.get<Employee[]>('/employees')
       .pipe(
         catchError(this.handleError('getEmployees', []))
+      );
+  }
+
+  getEmployeeByUserId(userdId: String): Observable<Employee> {
+    return this.http.get<Employee>(`/employe/user/${userdId}`)
+      .pipe(
+        catchError(this.handleError('getEmployeeByUserId', null))
       );
   }
 

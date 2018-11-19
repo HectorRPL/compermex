@@ -30,8 +30,7 @@ class EmployeesDAOImpl @Inject()(
     )
   }
 
-  def getOne(_id: BSONObjectID): Future[Option[Employe]] = {
-    val query = BSONDocument("_id" -> _id)
+  def getOne(query: BSONDocument): Future[Option[Employe]] = {
     collection.flatMap(_.find(query).one[Employe])
   }
 

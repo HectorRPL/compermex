@@ -1,5 +1,7 @@
 package models.sale
 
+import java.util.Date
+
 import play.api.libs.json._
 import reactivemongo.bson.BSONObjectID
 import reactivemongo.play.json._
@@ -19,11 +21,12 @@ case class SaleOrder(
                       numTotalDelivered: Int,
                       numSaleOrder: String,
                       moneyCollect: Double, //Saldo por Cobrar
-                      moneyCharged: Double // total cobrado
+                      moneyCharged: Double, // total cobrado,
+                      VoBoQuality: Option[Date]
                     )
 
 object SaleOrder {
 
-  implicit val saleOrderFormat = Json.format[SaleOrder]
+  implicit val saleOrderFormat: OFormat[SaleOrder] = Json.format[SaleOrder]
 
 }

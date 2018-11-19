@@ -7,6 +7,7 @@ import myservices.employees.EmployeesService
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
+import reactivemongo.bson.BSONDocument
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -47,6 +48,17 @@ class EmployeesController @Inject()(
 
     employeesService.getAll(query, sort, pag).map { employees =>
       Ok(Json.toJson(employees))
+    }
+  }
+
+  def employeeByUser(userId: String) = Action.async{
+
+    val query = BSONDocument(
+      "userId" -> userId)
+    employeesService.getEmployeeByUserId(query).map { optEmployee =>
+      optEmployee.map{ employee =>
+        Ok(Json.toJson(employee))
+      }.getOrElse(NotFound)
     }
   }
 
