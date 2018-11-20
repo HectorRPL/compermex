@@ -16,9 +16,9 @@
         </thead>
         <tbody>
         <tr *ngFor="let item of purcharsesOrders$ | async">
-          <th scope="row"></th>
+          <th scope="row">{{item.folioInvoice}}</th>
           <td>{{item.numTotalProducts}}</td>
-          <td>{{item.cubicMeters}}</td>
+          <td>{{item.numTotalDelivered}}</td>
           <td><i class="fas fa-file-download" (click)="openModalRecipe(item)"></i></td>
         </tr>
       </table>

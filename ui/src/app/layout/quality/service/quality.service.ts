@@ -17,15 +17,8 @@ export class QualityService {
     this.handleError = httpErrorHandler.createHandleError('QualityService');
   }
 
-  searchQuality(name: String): Observable<PurchaseOrder[]> {
-    return this.http.get<PurchaseOrder[]>('/purcharsesOrders/search/')
-      .pipe(
-        catchError(this.handleError('searchPurcharsesOrders', []))
-      );
-  }
-
-  getQuality(): Observable<PurchaseOrder[]> {
-    return this.http.get<PurchaseOrder[]>('/purcharsesOrders')
+  getPurcharsesOrders(): Observable<PurchaseOrder[]> {
+    return this.http.get<PurchaseOrder[]>('orders/receive')
       .pipe(
         catchError(this.handleError('getPurcharsesOrders', []))
       );
