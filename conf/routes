@@ -50,7 +50,8 @@ GET    /boxes/search/:name      controllers.boxes.BoxesController.search(name: S
 
 #ROUTES FOR ORDER
 POST   /add/order      controllers.orders.OrdersController.save
-#GET    /orders/receive controllers.orders.OrdersController.toReceive
+GET    /orders/receive controllers.orders.OrdersController.toReceive
+GET    /orders/quality controllers.orders.OrdersController.toQuality
 
 #ROUTES FOR AREAS
 GET     /areas              controllers.areas.AreasController.list

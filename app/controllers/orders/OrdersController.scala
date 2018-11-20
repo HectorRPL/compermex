@@ -3,6 +3,7 @@ package controllers.orders
 import forms.OrdersForm
 import javafx.print.Paper
 import javax.inject.Inject
+import models.Pagination
 import models.purchase.PurchaseOrder
 import models.sale.SaleOrder
 import myservices.boxes.BoxesService
@@ -89,6 +90,26 @@ class OrdersController @Inject()(
     }
   }
 
+
+  def toReceive() = Action.async{
+    val query = Json.obj("status" -> Json.obj("$eq" -> 0))
+    val sort = Json.obj()
+    val pag = Pagination(20, 0)
+
+    purchasesService.getAll(query, sort, pag).map{ purchaseOrders =>
+      Ok(Json.toJson(purchaseOrders))
+    }
+  }
+
+  def toQuality() = Action.async{
+    val query = Json.obj("status" -> Json.obj("$eq" -> 1))
+    val sort = Json.obj()
+    val pag = Pagination(20, 0)
+
+    purchasesService.getAll(query, sort, pag).map{ purchaseOrders =>
+      Ok(Json.toJson(purchaseOrders))
+    }
+  }
 
 
 }
