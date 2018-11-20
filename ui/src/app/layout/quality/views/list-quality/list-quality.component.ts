@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {QualityService} from '../../service/quality.service';
-import {Quality} from '../../models/quality.model';
 import {Observable} from 'rxjs/Observable';
-import {SaleOrder} from "../../../orders/models/sale-order.model";
-import {ReceptionService} from "../../../reception/service/reception.service";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ModalQualityComponent} from "../../components/modal-quality/modal-quality.component";
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ModalQualityComponent} from '../../components/modal-quality/modal-quality.component';
+import {PurchaseOrder} from '../../../orders/models/buy-order.model';
 
 @Component({
   selector: 'app-list-quality',
@@ -14,19 +12,19 @@ import {ModalQualityComponent} from "../../components/modal-quality/modal-qualit
 })
 export class ListQualityComponent implements OnInit {
 
-  salesOrders$: Observable<SaleOrder[]>;
+  purchaseOrder$: Observable<PurchaseOrder[]>;
 
-  constructor(private receptionService: ReceptionService,
+  constructor(private qualityService: QualityService,
               private modalService: NgbModal) {
   }
 
   ngOnInit() {
 
-    // this.salesOrders$ = this.receptionService.getSalesOrders();
+    // this.purchaseOrder$ = this.qualityService.getSalesOrders();
 
   }
 
-  openModalRecipe(saleOrder: SaleOrder) {
+  openModalRecipe(saleOrder: PurchaseOrder) {
     const modalRef = this.modalService.open(
       ModalQualityComponent,
       {
