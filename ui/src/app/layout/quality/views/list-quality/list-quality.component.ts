@@ -12,7 +12,7 @@ import {PurchaseOrder} from '../../../orders/models/buy-order.model';
 })
 export class ListQualityComponent implements OnInit {
 
-  purchaseOrder$: Observable<PurchaseOrder[]>;
+  purcharsesOrders: Observable<PurchaseOrder[]>;
 
   constructor(private qualityService: QualityService,
               private modalService: NgbModal) {
@@ -20,7 +20,7 @@ export class ListQualityComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.purchaseOrder$ = this.qualityService.getSalesOrders();
+    // this.purcharsesOrders = this.qualityService.getSalesOrders();
 
   }
 
