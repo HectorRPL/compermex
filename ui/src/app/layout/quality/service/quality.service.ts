@@ -17,8 +17,10 @@ export class QualityService {
     this.handleError = httpErrorHandler.createHandleError('QualityService');
   }
 
+
+  //TODO cambiar al verdadero servicio
   getPurcharsesOrders(): Observable<PurchaseOrder[]> {
-    return this.http.get<PurchaseOrder[]>('orders/receive')
+    return this.http.get<PurchaseOrder[]>('orders/quality')
       .pipe(
         catchError(this.handleError('getPurcharsesOrders', []))
       );
