@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import {QualityService} from '../../service/quality.service';
-import {Quality} from '../../models/quality.model';
+import {PurchaseOrder} from '../../../orders/models/buy-order.model';
 
 @Component({
   selector: 'app-quality-search',
@@ -19,6 +19,7 @@ export class QualitySearchComponent  {
   constructor(private qualityService: QualityService) {
   }
 
+  /*
   search = (text$: Observable<string>) =>
     text$.pipe(
       debounceTime(300),
@@ -35,12 +36,13 @@ export class QualitySearchComponent  {
       tap(() => this.searching = false)
     );
 
-  resFormatter = (x: Quality) => x;
-  inFormatter = (result: Quality) => result;
+  resFormatter = (x: PurchaseOrder) => x;
+  inFormatter = (result: PurchaseOrder) => result;
 
   selectedItem($event) {
     console.log($event);
   }
+  */
 
 }
 

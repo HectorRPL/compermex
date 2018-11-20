@@ -6,6 +6,8 @@ import {QualitySearchComponent} from './components/quality-search/quality-search
 import {QualityRoutingModule} from './quality-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { QualityFormComponent } from './components/quality-form/quality-form.component';
+import { ModalQualityComponent } from './components/modal-quality/modal-quality.component';
 
 @NgModule({
   imports: [
@@ -18,7 +20,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   declarations: [
     QualityComponent,
     ListQualityComponent,
-    QualitySearchComponent
+    QualitySearchComponent,
+    QualityFormComponent,
+    ModalQualityComponent
   ]
 })
 export class QualityModule {

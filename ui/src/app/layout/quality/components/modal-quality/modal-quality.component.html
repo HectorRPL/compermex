@@ -1,0 +1,27 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Recibir material</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross Click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <app-quality-form
+    (sendDataForm)="getDataQualityForm($event)">
+  </app-quality-form>
+  <div class="row">
+    <div class="col-sm-12">
+      <br>
+      <p *ngIf="showAlert">
+        <ngb-alert
+          [type]="alertType"
+          [dismissible]="false">
+          <strong>{{message}}</strong>
+        </ngb-alert>
+      </p>
+    </div>
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-light btn-sm" (click)="activeModal.dismiss('Cross Click')">Cancelar</button>
+</div>

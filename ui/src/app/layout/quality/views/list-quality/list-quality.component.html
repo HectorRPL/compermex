@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    Calidad
+    Recepción
   </div>
   <div class="card-body">
     <app-quality-search></app-quality-search>
@@ -8,18 +8,19 @@
       <table class="table table-sm table-hover">
         <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Títulos 1</th>
-          <th scope="col">Títulos 2</th>
-          <th scope="col">Títulos 3</th>
+          <th scope="col">Código lotificación</th>
+          <th scope="col">Total productos</th>
+          <th scope="col">Mts 3</th>
+          <th scope="col">Acción</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let quality of qualities$ | async">
-          <th scope="row">1</th>
-          <td>{{quality._id.$oid}}</td>
+        <tr *ngFor="let saleOrder of salesOrders$ | async">
+          <th scope="row">{{saleOrder.numSaleOrder}}</th>
+          <td>{{saleOrder.numTotalProducts}}</td>
+          <td>{{saleOrder.cubicMeters}}</td>
+          <td><i class="fas fa-file-download" (click)="openModalRecipe(saleOrder)"></i></td>
         </tr>
-        </tbody>
       </table>
     </div>
   </div>

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {QualityService} from '../../service/quality.service';
 import {Quality} from '../../models/quality.model';
 import {Observable} from 'rxjs/Observable';
+import {SaleOrder} from "../../../orders/models/sale-order.model";
+import {ReceptionService} from "../../../reception/service/reception.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModalReceivePaperboardComponent} from "../../../reception/components/modal-receive-paperboard/modal-receive-paperboard.component";
 
 @Component({
   selector: 'app-list-quality',
@@ -10,14 +14,28 @@ import {Observable} from 'rxjs/Observable';
 })
 export class ListQualityComponent implements OnInit {
 
-  qualities$: Observable<Quality[]>;
+  salesOrders$: Observable<SaleOrder[]>;
 
-  constructor(private qualityService: QualityService) {
+  constructor(private receptionService: ReceptionService,
+              private modalService: NgbModal) {
   }
 
   ngOnInit() {
-    this.qualities$ = this.qualityService.getQuality();
 
+    // this.salesOrders$ = this.receptionService.getSalesOrders();
+
+  }
+
+  openModalRecipe(saleOrder: SaleOrder) {
+    const modalRef = this.modalService.open(
+      ModalReceivePaperboardComponent,
+      {
+        size: 'lg',
+        backdrop: 'static',
+        keyboard: false
+      }
+    );
+    modalRef.componentInstance.compraPartidaOrden = saleOrder;
   }
 
 }

@@ -1,0 +1,32 @@
+<form novalidate
+      autocomplete="off"
+      [formGroup]="receivePaperboardForm">
+  <div class="form-row">
+    <!-- numProductsReceived -->
+    <div class="form-group col-sm-12">
+      <label for="numProductsReceivedId">Cantidad recibida</label>
+      <input type="text"
+             class="form-control form-control-sm"
+             id="numProductsReceivedId"
+             placeholder="Ingresa la cantidad recibida"
+             [ngClass]="{'is-invalid': numProductsReceived.invalid && (numProductsReceived.dirty || numProductsReceived.touched)}"
+             formControlName="numProductsReceived">
+      <div *ngIf="numProductsReceived.invalid && (numProductsReceived.dirty || numProductsReceived.touched)">
+        <div class="text-danger small" *ngIf="numProductsReceived.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="numProductsReceived.errors.pattern">Sólo números enteros</div>
+        <div class="text-danger small" *ngIf="numProductsReceived.errors.max">Límite máximo</div>
+        <div class="text-danger small" *ngIf="numProductsReceived.errors.min">Mínimo 1</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="submit"
+              class="btn btn-primary btn-sm float-right"
+              [disabled]="receivePaperboardForm.invalid"
+              (click)="sendData()">
+        Siguiente
+      </button>
+    </div>
+  </div>
+</form>

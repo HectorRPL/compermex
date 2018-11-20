@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
-import {Quality} from '../models/quality.model';
 import {Observable} from 'rxjs/Observable';
 import {HandleError, HttpErrorHandlerService} from '../../../services/http-error-handler.service';
+import {PurchaseOrder} from '../../orders/models/buy-order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,24 +17,17 @@ export class QualityService {
     this.handleError = httpErrorHandler.createHandleError('QualityService');
   }
 
-  searchQuality(name: String): Observable<Quality[]> {
-    return this.http.get<Quality[]>('/qualities/search/')
+  searchQuality(name: String): Observable<PurchaseOrder[]> {
+    return this.http.get<PurchaseOrder[]>('/purcharsesOrders/search/')
       .pipe(
-        catchError(this.handleError('searchQualities', []))
+        catchError(this.handleError('searchPurcharsesOrders', []))
       );
   }
 
-  addQuality(quality: Quality): Observable<Quality> {
-    return this.http.post<Quality>('/add/quality', quality)
+  getQuality(): Observable<PurchaseOrder[]> {
+    return this.http.get<PurchaseOrder[]>('/purcharsesOrders')
       .pipe(
-        catchError(this.handleError('add', quality))
-      );
-  }
-
-  getQuality(): Observable<Quality[]> {
-    return this.http.get<Quality[]>('/qualities')
-      .pipe(
-        catchError(this.handleError('getQualities', []))
+        catchError(this.handleError('getPurcharsesOrders', []))
       );
   }
 
