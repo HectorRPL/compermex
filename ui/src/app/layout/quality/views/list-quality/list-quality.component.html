@@ -15,10 +15,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let saleOrder of salesOrders$ | async">
-          <th scope="row">{{saleOrder.numSaleOrder}}</th>
-          <td>{{saleOrder.numTotalProducts}}</td>
-          <td>{{saleOrder.cubicMeters}}</td>
+        <tr>
           <td><i class="fas fa-file-download" (click)="openModalRecipe(saleOrder)"></i></td>
         </tr>
       </table>

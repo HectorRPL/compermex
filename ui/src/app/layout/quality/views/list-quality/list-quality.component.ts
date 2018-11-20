@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {SaleOrder} from "../../../orders/models/sale-order.model";
 import {ReceptionService} from "../../../reception/service/reception.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ModalReceivePaperboardComponent} from "../../../reception/components/modal-receive-paperboard/modal-receive-paperboard.component";
+import {ModalQualityComponent} from "../../components/modal-quality/modal-quality.component";
 
 @Component({
   selector: 'app-list-quality',
@@ -28,7 +28,7 @@ export class ListQualityComponent implements OnInit {
 
   openModalRecipe(saleOrder: SaleOrder) {
     const modalRef = this.modalService.open(
-      ModalReceivePaperboardComponent,
+      ModalQualityComponent,
       {
         size: 'lg',
         backdrop: 'static',

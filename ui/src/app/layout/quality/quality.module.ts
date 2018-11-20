@@ -23,6 +23,9 @@ import { ModalQualityComponent } from './components/modal-quality/modal-quality.
     QualitySearchComponent,
     QualityFormComponent,
     ModalQualityComponent
+  ],
+  entryComponents: [
+    ModalQualityComponent
   ]
 })
 export class QualityModule {
