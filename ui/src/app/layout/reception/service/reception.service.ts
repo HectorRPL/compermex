@@ -5,6 +5,7 @@ import {catchError} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Reception} from '../models/reception.model';
 import {SaleOrder} from "../../orders/models/sale-order.model";
+import {PurchaseOrder} from "../../orders/models/buy-order.model";
 
 @Injectable({
   providedIn: 'root'
@@ -26,15 +27,15 @@ export class ReceptionService {
   }
 
   addReception(order: Reception): Observable<Reception> {
-    console.log('Dentro del servicio ', order);
     return this.http.post<Reception>('/add/reception', order)
       .pipe(
         catchError(this.handleError('add', order))
       );
   }
 
+  //TODO cambiar al verdadero servicio
   getSalesOrders(): Observable<SaleOrder[]> {
-    return this.http.get<SaleOrder[]>('/salesOrders')
+    return this.http.get<SaleOrder[]>('/orders/receive')
       .pipe(
         catchError(this.handleError('getSalesOrders', []))
       );
