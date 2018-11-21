@@ -47,7 +47,7 @@ export class SuppliersFormComponent implements OnInit {
       ]),
       'name': new FormControl(this.supplier.name, [
         Validators.required,
-        Validators.pattern(/^[a-zA-ZñÑ\s\d]+$/),
+        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
         Validators.minLength(1),
         Validators.maxLength(50)
       ]),
@@ -71,13 +71,13 @@ export class SuppliersFormComponent implements OnInit {
       ]),
       'contact': new FormControl(this.supplier.contact, [
         Validators.required,
-        Validators.pattern(/^[a-zA-ZñÑ\s]+$/),
+        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s]+$/),
         Validators.minLength(1),
         Validators.maxLength(50)
       ]),
       'alias': new FormControl(this.supplier.alias, [
         Validators.required,
-        Validators.pattern(/^[a-zA-ZñÑ\s\d]+$/),
+        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
         Validators.minLength(1),
         Validators.maxLength(50)
       ])
