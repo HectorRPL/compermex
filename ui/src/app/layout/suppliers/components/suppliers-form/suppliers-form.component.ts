@@ -19,16 +19,6 @@ export class SuppliersFormComponent implements OnInit {
   public supplier: Supplier;
   suppliersForm: FormGroup;
 
-  // VALIDACIONES PARA EL INPUT NOMBRE
-  charactersMinName: number = 2;
-  charactersMaxName: number = 50;
-  // VALIDACIONES PARA EL INPUT EMAIL
-  charactersMinEmail: number = 5;
-  charactersMaxEmail: number = 50;
-  // VALIDACIONES PARA EL INPUT TELÉFONO
-  charactersMinPhone: number = 8;
-  charactersMaxPhone: number = 10;
-
   constructor(private formBuilder: FormBuilder,
               private supplierServ: SupplierService,
               private router: Router) {
@@ -51,45 +41,46 @@ export class SuppliersFormComponent implements OnInit {
     this.suppliersForm = this.formBuilder.group({
       'code': new FormControl(this.supplier.code, [
         Validators.required,
-        Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMinName),
-        Validators.maxLength(this.charactersMaxName)
+        Validators.pattern(/^[a-zA-ZñÑ\s\d]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
       ]),
       'name': new FormControl(this.supplier.name, [
         Validators.required,
-        Validators.pattern(/^[ñÑ\s\w]+$/),
-        Validators.minLength(this.charactersMinName),
-        Validators.maxLength(this.charactersMaxName)
+        Validators.pattern(/^[a-zA-ZñÑ\s\d]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
       ]),
       'email': new FormControl(this.supplier.email, [
         Validators.required,
         Validators.email,
-        Validators.minLength(this.charactersMinEmail),
-        Validators.maxLength(this.charactersMaxEmail)
+        Validators.minLength(5),
+        Validators.maxLength(50)
       ]),
       'phone': new FormControl(this.supplier.phone, [
         Validators.required,
         Validators.pattern(/^[0-9]*$/),
-        Validators.minLength(this.charactersMinPhone),
-        Validators.maxLength(this.charactersMaxPhone)
+        Validators.minLength(10),
+        Validators.maxLength(15)
       ]),
       'fax': new FormControl(this.supplier.fax, [
         Validators.required,
         Validators.pattern(/^[0-9]*$/),
-        Validators.minLength(this.charactersMinPhone),
-        Validators.maxLength(this.charactersMaxPhone)
+        Validators.minLength(10),
+        Validators.maxLength(15)
       ]),
       'contact': new FormControl(this.supplier.contact, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^[a-zA-ZñÑ\s]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
       ]),
       'alias': new FormControl(this.supplier.alias, [
         Validators.required,
-        Validators.minLength(this.charactersMinPhone),
-        Validators.maxLength(this.charactersMaxPhone)
-      ]),
-      'active': new FormControl(this.supplier.active, [
-        Validators.required
-      ]),
+        Validators.pattern(/^[a-zA-ZñÑ\s\d]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
+      ])
     });
   }
 
@@ -119,10 +110,6 @@ export class SuppliersFormComponent implements OnInit {
 
   get alias() {
     return this.suppliersForm.get('alias');
-  }
-
-  get active() {
-    return this.suppliersForm.get('active');
   }
 
   add() {
