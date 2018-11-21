@@ -12,10 +12,10 @@
              [ngClass]="{'is-invalid': name.invalid && (name.dirty || name.touched)}"
              formControlName="name">
       <div *ngIf="name.invalid && (name.dirty || name.touched)">
-        <div class="text-danger small" *ngIf="name.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="name.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="name.errors.minlength">Mínimo 1 caracteres.</div>
-        <div class="text-danger small" *ngIf="name.errors.maxlength">Máximo 50 caracteres.</div>
+        <div class="text-danger small" *ngIf="name.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="name.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="name.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="name.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
     <!--CODE-->
@@ -28,10 +28,10 @@
              [ngClass]="{'is-invalid': code.invalid && (code.dirty || code.touched)}"
              formControlName="code">
       <div *ngIf="code.invalid && (code.dirty || code.touched)">
-        <div class="text-danger small" *ngIf="code.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="code.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="code.errors.minlength">Mínimo 1 caracteres.</div>
-        <div class="text-danger small" *ngIf="code.errors.maxlength">Máximo 50 caracteres.</div>
+        <div class="text-danger small" *ngIf="code.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="code.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="code.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="code.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
     <!--EMAIL-->
@@ -44,10 +44,10 @@
              [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
              formControlName="email">
       <div *ngIf="email.invalid && (email.dirty || email.touched)">
-        <div class="text-danger small" *ngIf="email.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="email.errors.required">Requerido</div>
         <div class="text-danger small" *ngIf="email.errors.email">Inválido.</div>
-        <div class="text-danger small" *ngIf="email.errors.minlength">Mínimo 5 caracteres.</div>
-        <div class="text-danger small" *ngIf="email.errors.maxlength">Máximo 50 caracteres.</div>
+        <div class="text-danger small" *ngIf="email.errors.minlength">Mínimo 5 caracteres</div>
+        <div class="text-danger small" *ngIf="email.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
     <!--TELËFONO-->
@@ -60,10 +60,10 @@
              [ngClass]="{'is-invalid': phone.invalid && (phone.dirty || phone.touched)}"
              formControlName="phone">
       <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
-        <div class="text-danger small" *ngIf="phone.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="phone.errors.required">Requerido</div>
         <div class="text-danger small" *ngIf="phone.errors.pattern">Sólo números.</div>
-        <div class="text-danger small" *ngIf="phone.errors.minlength">Mínimo 10 dígitos.</div>
-        <div class="text-danger small" *ngIf="phone.errors.maxlength">Máximo 15 dígitos.</div>
+        <div class="text-danger small" *ngIf="phone.errors.minlength">Mínimo 10 dígitos</div>
+        <div class="text-danger small" *ngIf="phone.errors.maxlength">Máximo 15 dígitos</div>
       </div>
     </div>
     <!--FAX-->
@@ -76,10 +76,10 @@
              [ngClass]="{'is-invalid': fax.invalid && (fax.dirty || fax.touched)}"
              formControlName="fax">
       <div *ngIf="fax.invalid && (fax.dirty || fax.touched)">
-        <div class="text-danger small" *ngIf="fax.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="fax.errors.required">Requerido</div>
         <div class="text-danger small" *ngIf="fax.errors.pattern">Sólo números.</div>
-        <div class="text-danger small" *ngIf="fax.errors.minlength">Mínimo 10 dígitos.</div>
-        <div class="text-danger small" *ngIf="fax.errors.maxlength">Máximo 15 dígitos.</div>
+        <div class="text-danger small" *ngIf="fax.errors.minlength">Mínimo 10 dígitos</div>
+        <div class="text-danger small" *ngIf="fax.errors.maxlength">Máximo 15 dígitos</div>
       </div>
     </div>
     <!--CONTACTO-->
@@ -92,10 +92,10 @@
              [ngClass]="{'is-invalid': contact.invalid && (contact.dirty || contact.touched)}"
              formControlName="contact">
       <div *ngIf="contact.invalid && (contact.dirty || contact.touched)">
-        <div class="text-danger small" *ngIf="contact.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="contact.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="contact.errors.minlength">Mínimo 1 caracteres.</div>
-        <div class="text-danger small" *ngIf="contact.errors.maxlength">Máximo 50 caracteres.</div>
+        <div class="text-danger small" *ngIf="contact.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="contact.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="contact.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="contact.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
     <!--Alias-->
@@ -108,10 +108,10 @@
              [ngClass]="{'is-invalid': alias.invalid && (alias.dirty || alias.touched)}"
              formControlName="alias">
       <div *ngIf="alias.invalid && (alias.dirty || alias.touched)">
-        <div class="text-danger small" *ngIf="alias.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="alias.errors.pattern">No caracteres especiales</div>
-        <div class="text-danger small" *ngIf="alias.errors.minlength">Mínimo 1 caracteres.</div>
-        <div class="text-danger small" *ngIf="alias.errors.maxlength">Máximo 50 caracteres.</div>
+        <div class="text-danger small" *ngIf="alias.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="alias.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="alias.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="alias.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
   </div>

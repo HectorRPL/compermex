@@ -5,7 +5,7 @@ export class Address {
   street: string; // calle
   city: string; // delegación o munucipio
   state: string; // estado
-  stateCode: string; // estado
+  stateCode?: string; // estado
   colony: string;
   zipCode: string;
   numExt: string; // numero exterior

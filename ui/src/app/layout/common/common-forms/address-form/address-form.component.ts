@@ -28,25 +28,44 @@ export class AddressFormComponent implements OnInit {
   createAddressForm() {
     this.addressForm = this.formBuilder.group({
       'street': new FormControl(this.address.street, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
       ]),
       'city': new FormControl(this.address.city, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
       ]),
       'state': new FormControl(this.address.state, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
       ]),
-      'stateCode': new FormControl(this.address.stateCode),
       'colony': new FormControl(this.address.colony, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
       ]),
       'zipCode': new FormControl(this.address.zipCode, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^[0-9]{5}$/)
       ]),
       'numExt': new FormControl(this.address.numExt, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
       ]),
-      'numInt': new FormControl(this.address.numInt)
+      'numInt': new FormControl(this.address.numInt, [
+        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
+        Validators.minLength(1),
+        Validators.maxLength(50)
+      ])
     });
   }
 

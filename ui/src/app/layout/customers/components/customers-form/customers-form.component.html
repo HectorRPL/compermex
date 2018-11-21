@@ -13,7 +13,7 @@
              formControlName="name">
       <div *ngIf="name.invalid && (name.dirty || name.touched)">
         <div class="text-danger small" *ngIf="name.errors.required">Requerido.</div>
-        <div class="text-danger small" *ngIf="name.errors.pattern">No caracteres especiales</div>
+        <div class="text-danger small" *ngIf="name.errors.pattern">Caracter inválido</div>
         <div class="text-danger small" *ngIf="name.errors.minlength">Mínimo {{charactersMinName}} caracteres.</div>
         <div class="text-danger small" *ngIf="name.errors.maxlength">Máximo {{charactersMaxName}} caracteres.</div>
       </div>

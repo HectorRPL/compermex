@@ -11,7 +11,10 @@
              [ngClass]="{'is-invalid': street.invalid && (street.dirty || street.touched)}"
              formControlName="street">
       <div *ngIf="street.invalid && (street.dirty || street.touched)">
-        <div class="text-danger small" *ngIf="street.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="street.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="street.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="street.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="street.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
     <!--CITY-->
@@ -24,7 +27,10 @@
              [ngClass]="{'is-invalid': city.invalid && (city.dirty || city.touched)}"
              formControlName="city">
       <div *ngIf="city.invalid && (city.dirty || city.touched)">
-        <div class="text-danger small" *ngIf="city.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="city.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="city.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="city.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="city.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
     <!--state-->
@@ -37,7 +43,10 @@
              [ngClass]="{'is-invalid': state.invalid && (state.dirty || state.touched)}"
              formControlName="state">
       <div *ngIf="state.invalid && (state.dirty || state.touched)">
-        <div class="text-danger small" *ngIf="state.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="state.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="state.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="state.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="state.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
     <!--colony-->
@@ -50,7 +59,10 @@
              [ngClass]="{'is-invalid': colony.invalid && (colony.dirty || colony.touched)}"
              formControlName="colony">
       <div *ngIf="colony.invalid && (colony.dirty || colony.touched)">
-        <div class="text-danger small" *ngIf="colony.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="colony.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="colony.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="colony.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="colony.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
     <!--zipCode-->
@@ -63,11 +75,12 @@
              [ngClass]="{'is-invalid': zipCode.invalid && (zipCode.dirty || zipCode.touched)}"
              formControlName="zipCode">
       <div *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
-        <div class="text-danger small" *ngIf="zipCode.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="zipCode.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="zipCode.errors.pattern">5 dígitos requeridos</div>
       </div>
     </div>
     <!--numExt-->
-    <div class="form-group col-sm-2">
+    <div class="form-group col-sm-1">
       <label for="numExtId">Num. ext.</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -76,11 +89,14 @@
              [ngClass]="{'is-invalid': numExt.invalid && (numExt.dirty || numExt.touched)}"
              formControlName="numExt">
       <div *ngIf="numExt.invalid && (numExt.dirty || numExt.touched)">
-        <div class="text-danger small" *ngIf="numExt.errors.required">Requerido.</div>
+        <div class="text-danger small" *ngIf="numExt.errors.required">Requerido</div>
+        <div class="text-danger small" *ngIf="numExt.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="numExt.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="numExt.errors.maxlength">Máximo 50 caracteres</div>
       </div>
     </div>
     <!--numInt-->
-    <div class="form-group col-sm-2">
+    <div class="form-group col-sm-1">
       <label for="numIntId">Num. int.</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -88,6 +104,11 @@
              placeholder="Num. int."
              [ngClass]="{'is-invalid': numInt.invalid && (numInt.dirty || numInt.touched)}"
              formControlName="numInt">
+      <div *ngIf="numInt.invalid && (numInt.dirty || numInt.touched)">
+        <div class="text-danger small" *ngIf="numInt.errors.pattern">Caracter inválido</div>
+        <div class="text-danger small" *ngIf="numInt.errors.minlength">Mínimo 1 caracteres</div>
+        <div class="text-danger small" *ngIf="numInt.errors.maxlength">Máximo 50 caracteres</div>
+      </div>
     </div>
   </div>
   <div class="row">
