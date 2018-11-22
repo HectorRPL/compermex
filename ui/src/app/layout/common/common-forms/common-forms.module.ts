@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AddressFormComponent} from './address-form/address-form.component';
+import {FiscalDataFormComponent} from './fiscal-data-form/fiscal-data-form.component';
 
 @NgModule({
   imports: [
@@ -14,10 +15,12 @@ import {AddressFormComponent} from './address-form/address-form.component';
     ReactiveFormsModule
   ],
   declarations: [
-    AddressFormComponent
+    AddressFormComponent,
+    FiscalDataFormComponent
   ],
   exports: [
-    AddressFormComponent
+    AddressFormComponent,
+    FiscalDataFormComponent
   ]
 })
 export class CommonFormsModule {

@@ -1,28 +1,21 @@
 <form novalidate
       autocomplete="off"
-      [formGroup]="fiscalDataPhysicalPersonForm">
+      [formGroup]="fiscalDataForm">
   <div class="form-row">
     <!--ELEGIR PERSONA FÍSICA/MORAL-->
     <div class="form-group col-sm-3">
       <label>Persona</label>
       <div class="btn-group btn-group-toggle d-flex" ngbRadioGroup name="radioBasic" formControlName="taxRegime">
         <label ngbButtonLabel class="btn-light btn-sm w-100">
-          <input ngbButton
-                 type="radio"
-                 value="FP">
-          Física
+          <input ngbButton type="radio" value="PF" (click)="createFiscalDataForm2('fisica')">Física
         </label>
         <label ngbButtonLabel class="btn-light btn-sm w-100">
-          <input ngbButton
-                 type="radio"
-                 value="MP"
-                 disabled>
-          Moral
+          <input ngbButton type="radio" value="PM" (click)="createFiscalDataForm2('moral')">Moral
         </label>
       </div>
     </div>
     <!--RFC-->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-3" *ngIf="this.taxRegimeValue !== null">
       <label for="rfcId">RFC</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -36,7 +29,7 @@
       </div>
     </div>
     <!--BUSINESS NAME = RAZÓN SOCIAL-->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-6" *ngIf="this.taxRegimeValue !== null">
       <label for="businessNameId">Razón social</label>
       <input type="text"
              class="form-control form-control-sm"
@@ -50,19 +43,24 @@
       </div>
     </div>
   </div>
-  <button type="submit"
-          class="btn btn-primary btn-sm"
-          [disabled]="fiscalDataPhysicalPersonForm.invalid"
-          (click)="fiscalDataAction()">
-    Siguiente
-  </button>
+  <div class="row">
+    <div class="col-sm-12"> <!--[disabled]="materialsMasterForm.invalid"-->
+      <!-- TODO => Esta la validación pero como no jalan autocompletes por eso la pongo aquí, cuando los searches ya no manden error al enviar string vacio como parámetro entonces se implementa esta validación, porque al mandar error ya no cacha la forma vaciá, en pocas palabras truena. -->
+      <button type="submit"
+              class="btn btn-primary btn-sm float-right"
+              [disabled]="fiscalDataForm.invalid"
+              (click)="fiscalDataAction()">
+        Siguiente
+      </button>
+    </div>
+  </div>
 </form>
 <!--
-<pre *ngIf="fiscalDataPhysicalPersonForm">{{fiscalDataPhysicalPersonForm|json}}</pre>
+<pre *ngIf="fiscalDataForm">{{fiscalDataForm|json}}</pre>
 
-[fiscalDataPhysicalPersonForm.value['taxRegime']] <br>
-<pre>{{fiscalDataPhysicalPersonForm.value['taxRegime']}}</pre>
+[fiscalDataForm.value['taxRegime']] <br>
+<pre>{{fiscalDataForm.value['taxRegime']}}</pre>
 
-[fiscalDataPhysicalPersonForm.value['rfc']] <br>
-<pre>{{fiscalDataPhysicalPersonForm.value['rfc']}}</pre>
+[fiscalDataForm.value['rfc']] <br>
+<pre>{{fiscalDataForm.value['rfc']}}</pre>
 -->

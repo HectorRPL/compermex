@@ -3,9 +3,9 @@
     Agregar datos fiscales
   </div>
   <div class="card-body">
-    <p>
-      add-supplier-fiscal-data works!
-    </p>
+    <app-fiscal-data-form
+      (sendDataForm)="getFiscalDataForm($event)">
+    </app-fiscal-data-form>
   </div>
 </div>
 
