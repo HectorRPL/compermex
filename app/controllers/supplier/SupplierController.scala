@@ -3,9 +3,11 @@ package controllers.supplier
 import javax.inject.Inject
 import models.Pagination
 import models.address.Address
-import models.supplier.Supplier
+import models.fiscalData.FiscalData
+import models.supplier.{Supplier, SupplierInfo}
 import myservices.addresses.AddressesService
-import myservices.suppliers.SuppliersService
+import myservices.fiscalData.FiscalDataService
+import myservices.suppliers.{SuppliersInfoService, SuppliersService}
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
@@ -16,7 +18,9 @@ import scala.concurrent.{ExecutionContext, Future}
 class SupplierController @Inject()(
                                     cc: ControllerComponents,
                                     suppliersServ: SuppliersService,
-                                    addressesService: AddressesService
+                                    addressesService: AddressesService,
+                                    suppliersInfoService: SuppliersInfoService,
+                                    fiscalDataService: FiscalDataService
                                   )(implicit ec: ExecutionContext)
   extends AbstractController(cc)
     with I18nSupport {
@@ -59,14 +63,9 @@ class SupplierController @Inject()(
       addressesService.save(data).map { address =>
         val query = Json.obj("_id" -> Json.obj("$oid" -> supplierId.stringify))
         val modifier = Json.obj(
-          // this modifier will set the fields
-          // 'updateDate', 'title', 'content', and 'publisher'
           "$set" -> Json.obj(
             "addressId" -> Json.obj("$oid" -> address._id.get.stringify)
           ))
-        print(query)
-        print(modifier)
-
         suppliersServ.update(query, modifier).map { _ =>
           print(_)
         }
@@ -86,5 +85,40 @@ class SupplierController @Inject()(
       }.getOrElse(NotFound)
     }
   }
+
+  def saveInfo(supplierId: BSONObjectID) = Action.async(parse.json) {implicit request =>
+    request.body.validate[SupplierInfo].map { data =>
+      suppliersInfoService.save(data).map { result =>
+        Ok(Json.toJson(result))
+      }
+    }.recoverTotal {
+      case error =>
+        Future.successful(BadRequest(Json.obj("message" -> Messages("invalid.data"))))
+    }
+  }
+
+  def saveFiscalData(supplierId: BSONObjectID) = Action.async(parse.json) { implicit request =>
+    request.body.validate[FiscalData].map { data =>
+
+      fiscalDataService.save(data).map { fiscalData =>
+        val query = Json.obj("_id" -> Json.obj("$oid" -> supplierId.stringify))
+        val modifier = Json.obj(
+          "$set" -> Json.obj(
+            "fiscalDataId" -> Json.obj("$oid" -> fiscalData._id.get.stringify)
+          ))
+        suppliersServ.update(query, modifier).map { _ =>
+          print(_)
+        }
+        Ok(Json.toJson(fiscalData))
+      }
+    }.recoverTotal {
+      case error =>
+        Future.successful(BadRequest(Json.obj("message" -> Messages("invalid.data"))))
+    }
+
+  }
+
+
+
 
 }

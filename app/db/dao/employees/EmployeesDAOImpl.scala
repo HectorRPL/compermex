@@ -7,7 +7,7 @@ import play.api.libs.json.{JsObject, Json}
 import play.modules.reactivemongo.ReactiveMongoApi
 import reactivemongo.api.{Cursor, ReadPreference}
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
-import reactivemongo.play.json._
+import reactivemongo.play.json.{collection, _}
 import reactivemongo.play.json.collection.JSONCollection
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -43,4 +43,19 @@ class EmployeesDAOImpl @Inject()(
   def remove(_id: BSONObjectID): Future[Unit] = ???
 
   def update(query: JsObject, data: JsObject): Future[Unit] = ???
+
+  /*def aggregation(): Future[Seq[Employe]] = {
+    import collection.JSONBatchCommands.AggregationFramework.{Lookup, Limit, Skip}
+
+    collection.flatMap(_.aggregate(
+      Lookup("areas", "areaId", "_id", "area"),
+      List(
+
+      )
+    )
+    collection.flatMap(_.aggregate(
+      Lookup("areas", "areaId", "_id", "area")).flatMap(
+      _.cursor[Employe](ReadPreference.primary))
+    )
+  }*/
 }

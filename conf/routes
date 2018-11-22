@@ -20,6 +20,7 @@ GET     /suppliers                  controllers.supplier.SupplierController.list
 POST    /add/supplier               controllers.supplier.SupplierController.save
 GET     /suppliers/search/:name     controllers.supplier.SupplierController.search(name: String)
 POST    /add/supplier/:supplierId/address     controllers.supplier.SupplierController.saveAddress(supplierId: reactivemongo.bson.BSONObjectID)
+POST    /add/supplier/:supplierId/info     controllers.supplier.SupplierController.saveInfo(supplierId: reactivemongo.bson.BSONObjectID)
 
 # ROUTES FOR EMPLOYEES
 GET     /employees                  controllers.employees.EmployeesController.list

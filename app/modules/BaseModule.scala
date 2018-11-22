@@ -9,11 +9,12 @@ import db.dao.boxes.{BoxesDAO, BoxesDAOImpl}
 import db.dao.clients.{ClientsDAO, ClientsDAOImpl}
 import db.dao.companies.{CompaniesDAO, CompaniesDAOImpl}
 import db.dao.employees.{EmployeesDAO, EmployeesDAOImpl}
+import db.dao.fiscalData.{FiscalDataDAO, FiscalDataDAOImpl}
 import db.dao.materials.paperboards.{PaperboardsDAO, PaperboardsDAOImpl}
 import db.dao.materials.{MaterialsDAO, MaterialsDAOImpl}
 import db.dao.purchases.{PurchasesOrdersDAO, PurchasesOrdersDAOImpl}
 import db.dao.sales.{SalesOrdersDAO, SalesOrdersDAOImpl}
-import db.dao.suppliers.{SuppliersDAO, SuppliersDAOImpl}
+import db.dao.suppliers.{SuppliersDAO, SuppliersDAOImpl, SuppliersInfoDAO, SuppliersInfoDAOImpl}
 import db.dao.user.{AuthTokenDAO, AuthTokenDAOImpl}
 import db.dao.zipCodes.{ZipCodesDAO, ZipCodesDAOImpl}
 import myservices.addresses.{AddressesService, AddressesServiceImpl}
@@ -22,10 +23,11 @@ import myservices.boxes.{BoxesService, BoxesServiceImpl}
 import myservices.clients.{ClientsService, ClientsServiceImpl}
 import myservices.companies.{CompaniesService, CompaniesServiceImpl}
 import myservices.employees.{EmployeesService, EmployeesServiceImpl}
+import myservices.fiscalData.{FiscalDataService, FiscalDataServiceImpl}
 import myservices.materials.{MaterialsService, MatrerialsServiceImpl, PaperboardsService, PaperboardsServiceImpl}
 import myservices.purchases.{PurchasesService, PurchasesServiceImpl}
 import myservices.sales.{SalesService, SalesServiceImpl}
-import myservices.suppliers.{SuppliersService, SuppliersServiceImpl}
+import myservices.suppliers.{SuppliersInfoService, SuppliersInfoServiceImpl, SuppliersService, SuppliersServiceImpl}
 import net.codingwell.scalaguice.ScalaModule
 import myservices.user.{AuthTokenService, AuthTokenServiceImpl}
 import myservices.zipCodes.{ZipCodesService, ZipCodesServiceImpl}
@@ -44,6 +46,8 @@ class BaseModule extends AbstractModule with ScalaModule {
 
     bind[SuppliersDAO].to[SuppliersDAOImpl]
     bind[SuppliersService].to[SuppliersServiceImpl]
+    bind[SuppliersInfoService].to[SuppliersInfoServiceImpl]
+    bind[SuppliersInfoDAO].to[SuppliersInfoDAOImpl]
 
     //DI for employees
     bind[EmployeesService].to[EmployeesServiceImpl]
@@ -88,5 +92,9 @@ class BaseModule extends AbstractModule with ScalaModule {
     bind[SalesOrdersDAO].to[SalesOrdersDAOImpl]
     bind[PurchasesService].to[PurchasesServiceImpl]
     bind[PurchasesOrdersDAO].to[PurchasesOrdersDAOImpl]
+
+    //DI for Fiscal Data
+    bind[FiscalDataService].to[FiscalDataServiceImpl]
+    bind[FiscalDataDAO].to[FiscalDataDAOImpl]
   }
 }
