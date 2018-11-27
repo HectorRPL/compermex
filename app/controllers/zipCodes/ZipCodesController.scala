@@ -6,6 +6,7 @@ import myservices.zipCodes.ZipCodesService
 import play.api.i18n.I18nSupport
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
+import reactivemongo.bson.BSONDocument
 
 import scala.concurrent.ExecutionContext
 
@@ -17,8 +18,8 @@ class ZipCodesController @Inject()(
     with I18nSupport {
 
 
-  def neighborhoods(zipCode: String) = Action.async {
-    val query = Json.obj("code" -> zipCode)
+  def colonies(zipCode: String) = Action.async {
+    val query = BSONDocument("code" -> zipCode)
     val sort = Json.obj("colony" -> -1)
     val pag = Pagination(20, 1)
     

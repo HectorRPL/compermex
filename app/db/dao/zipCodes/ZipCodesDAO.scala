@@ -3,21 +3,21 @@ package db.dao.zipCodes
 import models.Pagination
 import models.zipCode.ZipCode
 import play.api.libs.json.JsObject
-import reactivemongo.bson.BSONObjectID
+import reactivemongo.bson.{BSONDocument, BSONObjectID}
 
 import scala.concurrent.Future
 
 trait ZipCodesDAO {
 
-  def getList(query: JsObject, sort: JsObject,
+  def getList(query: BSONDocument, sort: JsObject,
               pag: Pagination): Future[Seq[ZipCode]]
 
-  def getOne(_id: BSONObjectID): Future[Option[ZipCode]]
+  def getOne(query: BSONDocument): Future[Option[ZipCode]]
 
   def save(zipCode: ZipCode): Future[ZipCode]
 
-  def remove(_id: BSONObjectID): Future[Unit]
+  def remove(query: BSONDocument): Future[Unit]
 
-  def update(query: JsObject, data: Object): Future[Unit]
+  def update(query: BSONDocument, data: BSONDocument): Future[Unit]
 
 }

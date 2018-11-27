@@ -59,7 +59,7 @@ GET     /areas              controllers.areas.AreasController.list
 GET     /area/:areaId       controllers.areas.AreasController.one(areaId: reactivemongo.bson.BSONObjectID)
 
 #ROUTES FOR ZIPCODES
-GET     /zipCodes/:code         controllers.zipCodes.ZipCodesController.neighborhoods(code: String)
+GET     /zipCodes/:code         controllers.zipCodes.ZipCodesController.colonies(code: String)
 
 # Serve static assets under public directory
 GET     /*file                  controllers.FrontendController.assetOrDefault(file)
