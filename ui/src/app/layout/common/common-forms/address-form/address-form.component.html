@@ -50,21 +50,22 @@
       </div>
     </div>
     <!--colony-->
+
     <div class="form-group col-sm-2">
       <label for="colonyId">Colonia</label>
-      <input type="text"
-             class="form-control form-control-sm"
-             id="colonyId"
-             placeholder="Colonia"
-             [ngClass]="{'is-invalid': colony.invalid && (colony.dirty || colony.touched)}"
-             formControlName="colony">
+      <select class="form-control custom-select custom-select-sm"
+              id="colonyId"
+              placeholder="Colonia"
+              [ngClass]="{'is-invalid': colony.invalid && (colony.dirty || colony.touched)}"
+              formControlName="colony">
+        <option value="">Selcciona</option>
+        <option *ngFor="let colony of colonies" value="colony.colony">{{colony.colony}}</option>
+      </select>
       <div *ngIf="colony.invalid && (colony.dirty || colony.touched)">
-        <div class="text-danger small" *ngIf="colony.errors.required">Requerido</div>
-        <div class="text-danger small" *ngIf="colony.errors.pattern">Caracter inválido</div>
-        <div class="text-danger small" *ngIf="colony.errors.minlength">Mínimo 1 caracteres</div>
-        <div class="text-danger small" *ngIf="colony.errors.maxlength">Máximo 50 caracteres</div>
+        <div class="text-danger small" *ngIf="colony.errors.required">Requerido.</div>
       </div>
     </div>
+
     <!--zipCode-->
     <div class="form-group col-sm-2">
       <label for="zipCodeId">Código postal</label>
@@ -77,6 +78,7 @@
       <div *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
         <div class="text-danger small" *ngIf="zipCode.errors.required">Requerido</div>
         <div class="text-danger small" *ngIf="zipCode.errors.pattern">5 dígitos requeridos</div>
+        <div class="text-danger small" *ngIf="zipCode.errors.codigoInvalido">No encontrado</div>
       </div>
     </div>
     <!--numExt-->

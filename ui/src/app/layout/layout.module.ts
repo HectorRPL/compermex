@@ -11,6 +11,7 @@ import {TopNavbarComponent} from './components/topnavbar/topnavbar.component';
 import {NavigationComponent} from './components/navigation/navigation.component';
 import {TopNavigationNavbarComponent} from './components/topnavbar/topnavigationnavbar.component';
 import {UserService} from '../services/auth/user.service';
+import {ColoniesService} from '../services/colonies/colonies.service';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import {UserService} from '../services/auth/user.service';
     CompanyService,
     CardboardService,
     UserService,
+    ColoniesService
   ]
 })
 export class LayoutModule {

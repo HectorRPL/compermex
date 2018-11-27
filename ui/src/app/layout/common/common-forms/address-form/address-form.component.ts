@@ -1,6 +1,9 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Address} from '../../../../models/address.model';
+import {zipCodeValidator} from "../codigos-postales/codigos-postales";
+import {ColoniesService} from "../../../../services/colonies/colonies.service";
+import {ZipCode} from "../../../../models/zip-code/zip-code.model";
 
 @Component({
   selector: 'app-address-form',
@@ -11,11 +14,15 @@ export class AddressFormComponent implements OnInit {
 
   public address: Address;
   public addressForm: FormGroup;
+  public colonies: ZipCode[];
+
   @Output() public returnsModelForm = new EventEmitter();
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private coloniesService: ColoniesService) {
 
     this.address = new Address();
+    this.colonies = [];
 
   }
 
@@ -46,15 +53,15 @@ export class AddressFormComponent implements OnInit {
         Validators.maxLength(50)
       ]),
       'colony': new FormControl(this.address.colony, [
-        Validators.required,
-        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
-        Validators.minLength(1),
-        Validators.maxLength(50)
+        Validators.required
       ]),
       'zipCode': new FormControl(this.address.zipCode, [
-        Validators.required,
-        Validators.pattern(/^[0-9]{5}$/)
-      ]),
+          Validators.required,
+          Validators.pattern(/^[0-9]{5}$/)
+        ],
+        [
+          zipCodeValidator(this.coloniesService, this)
+        ]),
       'numExt': new FormControl(this.address.numExt, [
         Validators.required,
         Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
