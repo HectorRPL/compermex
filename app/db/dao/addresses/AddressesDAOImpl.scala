@@ -18,7 +18,7 @@ class AddressesDAOImpl @Inject()(
                                 ) extends AddressesDAO {
   def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection("addresses"))
 
-  def getList(query: JsObject, sort: JsObject,
+  def getList(query: BSONDocument, sort: JsObject,
               pag: Pagination): Future[Seq[Address]] = {
 
     collection.flatMap(_.find(query)
@@ -29,8 +29,7 @@ class AddressesDAOImpl @Inject()(
     )
   }
 
-  def getOne(_id: BSONObjectID): Future[Option[Address]] = {
-    val query = BSONDocument("_id" -> _id)
+  def getOne(query: BSONDocument): Future[Option[Address]] = {
     collection.flatMap(_.find(query).one[Address])
   }
 
@@ -40,7 +39,7 @@ class AddressesDAOImpl @Inject()(
     Future.successful(doc)
   }
 
-  def remove(_id: BSONObjectID): Future[Unit] = ???
+  def remove(query: BSONDocument): Future[Unit] = ???
 
-  def update(query: JsObject, data: Object): Future[Unit] = ???
+  def update(query: BSONDocument, data: BSONDocument): Future[Unit] = ???
 }

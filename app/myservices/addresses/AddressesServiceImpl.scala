@@ -4,7 +4,7 @@ import javax.inject.Inject
 import models.Pagination
 import models.address.Address
 import play.api.libs.json.{JsObject, Json}
-import reactivemongo.bson.BSONObjectID
+import reactivemongo.bson.{BSONDocument, BSONObjectID}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -13,7 +13,7 @@ class AddressesServiceImpl @Inject()(
                                       addressesDAO: AddressesDAO,
                                     )  extends AddressesService {
 
-  def getAll(query: JsObject, sort: JsObject, pag: Pagination): Future[Seq[Address]] = {
+  def getAll(query: BSONDocument, sort: JsObject, pag: Pagination): Future[Seq[Address]] = {
 
     addressesDAO.getList(query, sort, pag)
   }
@@ -22,5 +22,5 @@ class AddressesServiceImpl @Inject()(
     addressesDAO.save(address)
   }
 
-  def getOne(_id: BSONObjectID): Future[Option[Address]] = ???
+  def getOne(query: BSONDocument): Future[Option[Address]] = ???
 }

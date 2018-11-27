@@ -7,6 +7,7 @@ import myservices.addresses.AddressesService
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
+import reactivemongo.bson.BSONDocument
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -19,7 +20,7 @@ class AddressesController @Inject()(
 
   def list() = Action.async {
     val pag = Pagination(50, 0)
-    val query = Json.obj()
+    val query = BSONDocument()
     val sort = Json.obj()
     addressesService.getAll(query, sort, pag).map { adddress =>
       Ok(Json.toJson(adddress))

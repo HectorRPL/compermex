@@ -31,8 +31,7 @@ class AreasDAOImpl @Inject()(
     )
   }
 
-  def getOne(id: BSONObjectID): Future[Option[Area]] = {
-    val query = BSONDocument("_id" -> id)
+  def getOne(query: BSONDocument): Future[Option[Area]] = {
     collection.flatMap(_.find(query).one[Area])
   }
 }
