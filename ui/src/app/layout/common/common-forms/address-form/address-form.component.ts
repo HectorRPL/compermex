@@ -40,19 +40,9 @@ export class AddressFormComponent implements OnInit {
         Validators.minLength(1),
         Validators.maxLength(50)
       ]),
-      'city': new FormControl(this.address.city, [
-        Validators.required,
-        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
-        Validators.minLength(1),
-        Validators.maxLength(50)
-      ]),
-      'state': new FormControl(this.address.state, [
-        Validators.required,
-        Validators.pattern(/^[a-zA-ZñÑzáéíóúÁÉÍÓÚÜü\s\d]+$/),
-        Validators.minLength(1),
-        Validators.maxLength(50)
-      ]),
-      'colony': new FormControl(this.address.colony, [
+      'city': new FormControl(this.address.city),
+      'state': new FormControl(this.address.state),
+      'colony': new FormControl('', [
         Validators.required
       ]),
       'zipCode': new FormControl(this.address.zipCode, [
