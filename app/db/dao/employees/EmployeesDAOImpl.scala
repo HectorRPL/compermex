@@ -9,7 +9,7 @@ import reactivemongo.api.{Cursor, ReadPreference}
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import reactivemongo.play.json.{collection, _}
 import reactivemongo.play.json.collection.JSONCollection
-
+import reactivemongo.play.json.commands.JSONAggregationFramework._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
@@ -44,18 +44,11 @@ class EmployeesDAOImpl @Inject()(
 
   def update(query: JsObject, data: JsObject): Future[Unit] = ???
 
-  /*def aggregation(): Future[Seq[Employe]] = {
-    import collection.JSONBatchCommands.AggregationFramework.{Lookup, Limit, Skip}
+  def aggregation(query: JsObject, sort: JsObject, pag: Pagination): Future[Seq[Employe]] = {
 
-    collection.flatMap(_.aggregate(
-      Lookup("areas", "areaId", "_id", "area"),
-      List(
+    collection.flatMap(_.aggregatorContext[Employe](
+      Lookup("areas", "areaId", "_id", "area")
+    ).prepared.cursor.collect[Seq](pag.limit, Cursor.FailOnError[Seq[Employe]]()))
+  }
 
-      )
-    )
-    collection.flatMap(_.aggregate(
-      Lookup("areas", "areaId", "_id", "area")).flatMap(
-      _.cursor[Employe](ReadPreference.primary))
-    )
-  }*/
 }

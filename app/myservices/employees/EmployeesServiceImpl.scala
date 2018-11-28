@@ -17,7 +17,7 @@ class EmployeesServiceImpl @Inject()(
   def getAll(query: JsObject, sort: JsObject,
              pag: Pagination): Future[Seq[Employe]] = {
 
-    employeesDAO.getList(query, sort, pag)
+    employeesDAO.aggregation(query, sort, pag)
   }
 
   def save(employe: Employe): Future[Employe] = {

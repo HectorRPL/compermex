@@ -21,7 +21,7 @@ class ZipCodesController @Inject()(
   def colonies(zipCode: String) = Action.async {
     val query = BSONDocument("code" -> zipCode)
     val sort = Json.obj("colony" -> -1)
-    val pag = Pagination(20, 1)
+    val pag = Pagination(20, 0)
     
     zipCodesService.getAll(query, sort, pag)
       .map { neighbors =>
