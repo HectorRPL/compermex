@@ -5,6 +5,7 @@ import {ListSuppliersComponent} from './views/list-suppliers/list-suppliers.comp
 import {AddSupplierComponent} from './views/add-supplier/add-supplier.component';
 import {AddSupplierAddressComponent} from './views/add-supplier-address/add-supplier-address.component';
 import {AddSupplierFiscalDataComponent} from './views/add-supplier-fiscal-data/add-supplier-fiscal-data.component';
+import {AddSupplierInfoComponent} from './views/add-supplier-info/add-supplier-info.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,9 @@ const routes: Routes = [
       },
       {
         path: ':supplierId/add/fiscalData', component: AddSupplierFiscalDataComponent
+      },
+      {
+        path: ':supplierId/add/supplierInfo', component: AddSupplierInfoComponent
       }
     ]
   }

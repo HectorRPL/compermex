@@ -11,6 +11,8 @@ import {SearchesModule} from '../searches/searches.module';
 import {CommonFormsModule} from '../common/common-forms/common-forms.module';
 import {AddSupplierAddressComponent} from './views/add-supplier-address/add-supplier-address.component';
 import {AddSupplierFiscalDataComponent} from './views/add-supplier-fiscal-data/add-supplier-fiscal-data.component';
+import {AddSupplierInfoComponent} from './views/add-supplier-info/add-supplier-info.component';
+import {SupplierInfoFormComponent} from './components/supplier-info-form/supplier-info-form.component';
 
 @NgModule({
   imports: [
@@ -28,7 +30,9 @@ import {AddSupplierFiscalDataComponent} from './views/add-supplier-fiscal-data/a
     AddSupplierComponent,
     SuppliersFormComponent,
     AddSupplierAddressComponent,
-    AddSupplierFiscalDataComponent
+    AddSupplierFiscalDataComponent,
+    AddSupplierInfoComponent,
+    SupplierInfoFormComponent
   ]
 })
 export class SuppliersModule {

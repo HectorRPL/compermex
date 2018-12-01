@@ -1,0 +1,125 @@
+<form novalidate
+      autocomplete="off"
+      [formGroup]="supplierInfoForm">
+  <div class="form row">
+    <!--creditDays-->
+    <div class="form-group col-sm-2">
+      <label for="creditDaysId">Días de crédito</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="creditDaysId"
+             placeholder="Días de crédito"
+             [ngClass]="{'is-invalid': creditDays.invalid && (creditDays.dirty || creditDays.touched)}"
+             formControlName="creditDays">
+      <div *ngIf="creditDays.invalid && (creditDays.dirty || creditDays.touched)">
+        <div class="text-danger small" *ngIf="creditDays.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--qualityCertificate-->
+    <div class="form-group col-sm-2">
+      <label>Certificado de calidad</label>
+      <div class="btn-group btn-group-toggle d-flex"
+           ngbRadioGroup name="radioBasic"
+           formControlName="qualityCertificate">
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="true">Si
+        </label>
+        <label ngbButtonLabel
+               class="btn-light btn-sm w-100">
+          <input ngbButton type="radio" value="false">No
+        </label>
+      </div>
+    </div>
+    <!--price-->
+    <div class="form-group col-sm-2">
+      <label for="priceId">Precio</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="priceId"
+             placeholder="Precio"
+             [ngClass]="{'is-invalid': price.invalid && (price.dirty || price.touched)}"
+             formControlName="price">
+      <div *ngIf="price.invalid && (price.dirty || price.touched)">
+        <div class="text-danger small" *ngIf="price.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--minLong-->
+    <div class="form-group col-sm-2">
+      <label for="minLongId">Largo mínimo</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="minLongId"
+             placeholder="Largo mínimo"
+             [ngClass]="{'is-invalid': minLong.invalid && (minLong.dirty || minLong.touched)}"
+             formControlName="minLong">
+      <div *ngIf="minLong.invalid && (minLong.dirty || minLong.touched)">
+        <div class="text-danger small" *ngIf="minLong.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--maxLong-->
+    <div class="form-group col-sm-2">
+      <label for="maxLongId">Largo máximo</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="maxLongId"
+             placeholder="Largo máximo"
+             [ngClass]="{'is-invalid': maxLong.invalid && (maxLong.dirty || maxLong.touched)}"
+             formControlName="maxLong">
+      <div *ngIf="maxLong.invalid && (maxLong.dirty || maxLong.touched)">
+        <div class="text-danger small" *ngIf="maxLong.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--minHigh-->
+    <div class="form-group col-sm-2">
+      <label for="minHighId">Alto máximo</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="minHighId"
+             placeholder="Alto máximo"
+             [ngClass]="{'is-invalid': minHigh.invalid && (minHigh.dirty || minHigh.touched)}"
+             formControlName="minHigh">
+      <div *ngIf="minHigh.invalid && (minHigh.dirty || minHigh.touched)">
+        <div class="text-danger small" *ngIf="minHigh.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--maxHigh-->
+    <div class="form-group col-sm-2">
+      <label for="maxHigthId">Altura máxima</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="maxHigthId"
+             placeholder="Altura máxima"
+             [ngClass]="{'is-invalid': maxHigh.invalid && (maxHigh.dirty || maxHigh.touched)}"
+             formControlName="maxHigh">
+      <div *ngIf="maxHigh.invalid && (maxHigh.dirty || maxHigh.touched)">
+        <div class="text-danger small" *ngIf="maxHigh.errors.required">Requerido.</div>
+      </div>
+    </div>
+    <!--minSquareMeters-->
+    <div class="form-group col-sm-2">
+      <label for="minSquareMetersId">Mínimo de mts2</label>
+      <input type="number"
+             class="form-control form-control-sm"
+             id="minSquareMetersId"
+             placeholder="Mínimo de mts2"
+             [ngClass]="{'is-invalid': minSquareMeters.invalid && (minSquareMeters.dirty || minSquareMeters.touched)}"
+             formControlName="minSquareMeters">
+      <div *ngIf="minSquareMeters.invalid && (minSquareMeters.dirty || minSquareMeters.touched)">
+        <div class="text-danger small" *ngIf="minSquareMeters.errors.required">Requerido.</div>
+      </div>
+    </div>
+  </div>
+  <!--BUTTON-->
+  <div class="row">
+    <div class="col-sm-12"> <!--[disabled]="supplierInfoForm.invalid"-->
+      <!-- TODO => Esta la validación pero como no jalan autocompletes por eso la pongo aquí, cuando los searches ya no manden error al enviar string vacio como parámetro entonces se implementa esta validación, porque al mandar error ya no cacha la forma vaciá, en pocas palabras truena. -->
+      <button type="submit"
+              class="btn btn-primary btn-sm float-right"
+              (click)="materialAction()">
+        Siguiente
+      </button>
+    </div>
+  </div>
+</form>
+
