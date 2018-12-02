@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Cardboard} from '../../../../models/cardboard/cardboard.model';
-import {CardboardsService} from '../../service/cardboards.service';
+import {CardboardsService} from '../../../../services/cardboards/cardboards.service';
 
 @Component({
   selector: 'app-list-cardboards',

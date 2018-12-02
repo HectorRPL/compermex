@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SaleOrder} from "../../../orders/models/sale-order.model";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
-import {ReceptionService} from "../../../reception/service/reception.service";
+import {ReceptionService} from "../../../../services/receptions/reception.service";
 import {NgForm} from "@angular/forms";
 import {Reception} from "../../../reception/models/reception.model";
 

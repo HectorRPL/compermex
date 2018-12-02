@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
-import {OrdersService} from '../../service/orders.service';
+import {OrdersService} from '../../../../services/orders/orders.service';
 import {Order} from '../../../../models/order';
 
 @Component({

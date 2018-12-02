@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Area} from '../../../../models/area/client.model';
-import {EmployeesService} from '../../service/employees.service';
+import {EmployeesService} from '../../../../services/employees/employees.service';
 import {Observable} from "rxjs/Observable";
 import {SignUpData} from "../../../../auth/models/signUp/signUp";
 import {ObjectId} from "../../../../models/object-id.model";

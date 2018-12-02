@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Supplier} from "../../models/supplier/supplier.model";
 import {Observable} from "rxjs/index";
-import {SupplierService} from "../../service/supplier.service";
+import {SupplierService} from "../../../../services/suppliers/supplier.service";
 
 @Component({
   selector: 'app-list-suppliers',

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/index';
-import {HandleError, HttpErrorHandlerService} from '../../../services/http-error-handler.service';
+import {HandleError, HttpErrorHandlerService} from '../http-error-handler.service';
 import {catchError} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
-import {Cardboard} from '../../../models/cardboard/cardboard.model';
+import {Cardboard} from '../../models/cardboard/cardboard.model';
 
 @Injectable({
   providedIn: 'root'

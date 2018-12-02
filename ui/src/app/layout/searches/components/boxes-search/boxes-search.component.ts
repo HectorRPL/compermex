@@ -3,7 +3,7 @@ import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rx
 import {of} from 'rxjs/observable/of';
 import {Observable} from 'rxjs/index';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MaterialsService} from '../../../materials/service/materials.service';
+import {MaterialsService} from '../../../../services/materials/materials.service';
 import {MaterialsMaster} from "../../../materials/models/materials-master.model";
 
 @Component({

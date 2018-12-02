@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Customer} from '../../../../models/customer/customer.model';
-import {CustomersService} from '../../service/customers.service';
+import {CustomersService} from '../../../../services/customers/customers.service';
 
 @Component({
   selector: 'app-list-customers',

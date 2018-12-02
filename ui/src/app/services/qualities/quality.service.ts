@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
-import {HandleError, HttpErrorHandlerService} from '../../../services/http-error-handler.service';
-import {PurchaseOrder} from '../../orders/models/buy-order.model';
+import {HandleError, HttpErrorHandlerService} from '../http-error-handler.service';
+import {PurchaseOrder} from '../../layout/orders/models/buy-order.model';
 
 @Injectable({
   providedIn: 'root'

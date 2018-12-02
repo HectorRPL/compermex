@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {QualityService} from '../../service/quality.service';
+import {QualityService} from '../../../../services/qualities/quality.service';
 import {Observable} from 'rxjs/Observable';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalQualityComponent} from '../../components/modal-quality/modal-quality.component';

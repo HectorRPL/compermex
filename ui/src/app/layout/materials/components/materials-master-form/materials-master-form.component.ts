@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MaterialsMaster} from '../../models/materials-master.model';
 import {ObjectId} from "../../../../models/object-id.model";
-import {MaterialsService} from "../../service/materials.service";
+import {MaterialsService} from "../../../../services/materials/materials.service";
 import {Paperboard} from "../../../../models/paperboard/paperboard.model";
 
 @Component({

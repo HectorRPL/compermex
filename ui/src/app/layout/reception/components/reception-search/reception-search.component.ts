@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/index';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import {Reception} from "../../models/reception.model";
-import {ReceptionService} from "../../service/reception.service";
+import {ReceptionService} from "../../../../services/receptions/reception.service";
 
 @Component({
   selector: 'app-reception-search',

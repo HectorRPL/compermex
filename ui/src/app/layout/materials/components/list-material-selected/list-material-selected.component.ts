@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MaterialsService} from "../../service/materials.service";
+import {MaterialsService} from "../../../../services/materials/materials.service";
 import {Material} from "../../models/material.model";
 import {Observable} from "rxjs/Observable";
 

@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {HandleError, HttpErrorHandlerService} from '../../../services/http-error-handler.service';
+import {HandleError, HttpErrorHandlerService} from '../http-error-handler.service';
 import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {Order} from '../../../models/order';
-import {OrderTemp} from "../models/order-temp";
+import {Order} from '../../models/order';
+import {OrderTemp} from "../../layout/orders/models/order-temp";
 
 @Injectable({
   providedIn: 'root'

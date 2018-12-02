@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {HandleError, HttpErrorHandlerService} from "../../../services/http-error-handler.service";
+import {HandleError, HttpErrorHandlerService} from "../http-error-handler.service";
 import {catchError} from 'rxjs/operators';
-import {Production} from "../models/production.model";
+import {Production} from "../../layout/production/models/production.model";
 
 @Injectable({
   providedIn: 'root'

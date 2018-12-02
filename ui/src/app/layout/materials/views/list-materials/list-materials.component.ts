@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import {Material} from '../../models/material.model';
-import {MaterialsService} from '../../service/materials.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 

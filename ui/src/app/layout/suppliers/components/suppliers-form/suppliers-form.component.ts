@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Supplier} from '../../models/supplier/supplier.model';
-import {SupplierService} from '../../service/supplier.service';
+import {SupplierService} from '../../../../services/suppliers/supplier.service';
 
 
 @Component({

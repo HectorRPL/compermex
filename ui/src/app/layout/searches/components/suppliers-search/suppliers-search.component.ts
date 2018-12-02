@@ -2,7 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {Observable, of} from 'rxjs/index';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {SupplierService} from '../../../suppliers/service/supplier.service';
+import {SupplierService} from '../../../../services/suppliers/supplier.service';
 import {Supplier} from '../../../suppliers/models/supplier/supplier.model';
 
 

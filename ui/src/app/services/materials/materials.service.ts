@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {HandleError, HttpErrorHandlerService} from '../../../services/http-error-handler.service';
+import {HandleError, HttpErrorHandlerService} from '../http-error-handler.service';
 import {catchError} from 'rxjs/operators';
-import {Material} from '../models/material.model';
-import {MaterialsMaster} from "../models/materials-master.model";
+import {Material} from '../../layout/materials/models/material.model';
+import {MaterialsMaster} from "../../layout/materials/models/materials-master.model";
 
 @Injectable({
   providedIn: 'root'

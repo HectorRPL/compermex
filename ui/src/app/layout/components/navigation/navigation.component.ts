@@ -5,7 +5,7 @@ import {AuthService} from "ng2-ui-auth";
 import {UserService} from "../../../services/auth/user.service";
 import {AreasService} from "../../../services/areas/areas.service";
 import {Area} from "../../../models/area/client.model";
-import {EmployeesService} from "../../employees/service/employees.service";
+import {EmployeesService} from "../../../services/employees/employees.service";
 
 declare var jQuery: any;
 

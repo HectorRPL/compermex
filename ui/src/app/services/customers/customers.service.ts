@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {HandleError, HttpErrorHandlerService} from "../../../services/http-error-handler.service";
+import {HandleError, HttpErrorHandlerService} from "../http-error-handler.service";
 import {catchError} from "rxjs/operators";
-import {Customer} from "../../../models/customer/customer.model";
+import {Customer} from "../../models/customer/customer.model";
 import {Observable} from "rxjs/Observable";
 
 @Injectable({

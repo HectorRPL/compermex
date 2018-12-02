@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductionService} from "../../service/production.service";
+import {ProductionService} from "../../../../services/production/production.service";
 import {Observable} from "rxjs/Observable";
 import {Production} from "../../models/production.model";
 

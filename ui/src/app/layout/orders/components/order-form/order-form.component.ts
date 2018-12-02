@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ObjectId} from '../../../../models/object-id.model';
 import {OrderTemp} from '../../models/order-temp';
-import {OrdersService} from '../../service/orders.service';
+import {OrdersService} from '../../../../services/orders/orders.service';
 import {Company} from '../../../../models/company/company.model';
 import {MaterialsMaster} from '../../../materials/models/materials-master.model';
-import {EmployeesService} from '../../../employees/service/employees.service';
+import {EmployeesService} from '../../../../services/employees/employees.service';
 
 @Component({
   selector: 'app-order-form',

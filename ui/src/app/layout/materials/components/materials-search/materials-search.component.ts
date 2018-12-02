@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
-import {MaterialsService} from '../../service/materials.service';
+import {MaterialsService} from '../../../../services/materials/materials.service';
 import {Material} from '../../models/material.model';
 
 @Component({

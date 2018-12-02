@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Customer} from '../../../../models/customer/customer.model';
-import {CustomersService} from '../../service/customers.service';
+import {CustomersService} from '../../../../services/customers/customers.service';
 
 @Component({
   selector: 'app-customers-form',
@@ -71,16 +71,13 @@ export class CustomersFormComponent implements OnInit {
     return this.customersForm.get('phone');
   }
 
-  /*
   add() {
     this.customerServ.addCustomer(this.fillCustomer())
       .subscribe(result => {
         console.log(result);
       });
   }
-  */
 
-  /*
   fillCustomer(): Customer {
 
     const formModel = this.customersForm.value;
@@ -94,6 +91,5 @@ export class CustomersFormComponent implements OnInit {
 
     return customer;
   }
-  */
 
 }

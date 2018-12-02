@@ -2,7 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
-import {CardboardsService} from "../../../cardboards/service/cardboards.service";
+import {CardboardsService} from "../../../../services/cardboards/cardboards.service";
 import {Paperboard} from "../../../../models/paperboard/paperboard.model";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
