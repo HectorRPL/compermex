@@ -23,8 +23,9 @@ class EmployeesController @Inject()(
     val query = Json.obj()
     val sort = Json.obj()
     employeesService.getAll(query, sort, pag).map { employees =>
-        Ok(Json.toJson(employees))
-      }
+      print(employees)
+      Ok(Json.toJson(employees))
+    }
   }
 
   def save() = Action.async(parse.json) { implicit request =>
@@ -42,7 +43,9 @@ class EmployeesController @Inject()(
 
   def search(name: String) = Action.async {
     val query = Json.obj(
-      "fullName" -> Json.obj("$regex" -> name, "$options" -> "i" ))
+      "fullName" -> Json.obj(
+        "$regex" -> name, "$options" -> "i")
+    )
     val sort = Json.obj("fullName" -> -1)
     val pag = Pagination(20, 0)
 
@@ -51,12 +54,12 @@ class EmployeesController @Inject()(
     }
   }
 
-  def employeeByUser(userId: String) = Action.async{
+  def employeeByUser(userId: String) = Action.async {
 
     val query = BSONDocument(
       "userId" -> userId)
     employeesService.getEmployeeByUserId(query).map { optEmployee =>
-      optEmployee.map{ employee =>
+      optEmployee.map { employee =>
         Ok(Json.toJson(employee))
       }.getOrElse(NotFound)
     }

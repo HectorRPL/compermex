@@ -1,7 +1,6 @@
 package controllers.orders
 
 import forms.OrdersForm
-import javafx.print.Paper
 import javax.inject.Inject
 import models.Pagination
 import models.purchase.PurchaseOrder

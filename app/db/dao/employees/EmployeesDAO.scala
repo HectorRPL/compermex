@@ -20,4 +20,7 @@ trait EmployeesDAO {
   def remove(_id: BSONObjectID): Future[Unit]
 
   def update(query: JsObject, data: JsObject): Future[Unit]
+
+  def aggregation(query: JsObject, sort: JsObject,
+              pag: Pagination): Future[Seq[Employe]]
 }
