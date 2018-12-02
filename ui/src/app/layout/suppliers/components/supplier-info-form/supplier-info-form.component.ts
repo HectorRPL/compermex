@@ -9,20 +9,23 @@ import {SupplierInfo} from '../../../../models/supplier-info/supplier-info.model
 })
 export class SupplierInfoFormComponent implements OnInit {
 
-  @Output() public sendForm = new EventEmitter();
+  @Output() public returnsSupplierInfoForm = new EventEmitter();
   public supplierInfo: SupplierInfo;
   public supplierInfoForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
+
+    this.supplierInfo = new SupplierInfo();
+
   }
 
   ngOnInit() {
 
-    this.createSupplierInfoFormForm();
+    this.createSupplierInfoForm();
 
   }
 
-  createSupplierInfoFormForm() {
+  createSupplierInfoForm() {
     this.supplierInfoForm = this.formBuilder.group({
       'creditDays': new FormControl(this.supplierInfo.creditDays, [
         Validators.required,
@@ -93,8 +96,8 @@ export class SupplierInfoFormComponent implements OnInit {
     return this.supplierInfoForm.get('minSquareMeters');
   }
 
-  next() {
-    this.sendForm.emit(this.supplierInfoForm);
+  nextSupplierInfoForm() {
+    this.returnsSupplierInfoForm.emit(this.supplierInfoForm);
   }
 
 }

@@ -91,6 +91,7 @@ CREACIÓN DE MODULOS CON COMPONENTES REUTILIZABLES (COMUNES)
 `ng generate component layout/common/common-forms/directionsForm`
 `ng generate component layout/common/common-forms/addressForm`
 `ng generate service services/zipCodes/zipCodes`
+`ng generate service services/suppliers-info/suppliersInfo`
 `ng generate service services/colonies/colonies`
 
 CREACION DEL MODULO: reception

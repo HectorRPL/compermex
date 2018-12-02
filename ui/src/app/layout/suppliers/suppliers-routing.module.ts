@@ -23,10 +23,10 @@ const routes: Routes = [
         path: ':supplierId/add/address', component: AddSupplierAddressComponent
       },
       {
-        path: ':supplierId/add/fiscalData', component: AddSupplierFiscalDataComponent
+        path: ':supplierId/add/supplierInfo', component: AddSupplierInfoComponent
       },
       {
-        path: ':supplierId/add/supplierInfo', component: AddSupplierInfoComponent
+        path: ':supplierId/add/fiscalData', component: AddSupplierFiscalDataComponent
       }
     ]
   }

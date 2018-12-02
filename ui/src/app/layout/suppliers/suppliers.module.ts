@@ -13,6 +13,7 @@ import {AddSupplierAddressComponent} from './views/add-supplier-address/add-supp
 import {AddSupplierFiscalDataComponent} from './views/add-supplier-fiscal-data/add-supplier-fiscal-data.component';
 import {AddSupplierInfoComponent} from './views/add-supplier-info/add-supplier-info.component';
 import {SupplierInfoFormComponent} from './components/supplier-info-form/supplier-info-form.component';
+import {SuppliersInfoService} from "../../services/suppliers-info/suppliers-info.service";
 
 @NgModule({
   imports: [
@@ -33,6 +34,9 @@ import {SupplierInfoFormComponent} from './components/supplier-info-form/supplie
     AddSupplierFiscalDataComponent,
     AddSupplierInfoComponent,
     SupplierInfoFormComponent
+  ],
+  providers: [
+    SuppliersInfoService // TODO (recordatorio) => Asi se importan los servicios
   ]
 })
 export class SuppliersModule {
