@@ -1,7 +1,7 @@
 package db.dao.employees
 
 import models.Pagination
-import models.employe.Employe
+import models.employe.{Employe, EmployeInfo}
 import play.api.libs.json.JsObject
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
 
@@ -21,6 +21,6 @@ trait EmployeesDAO {
 
   def update(query: JsObject, data: JsObject): Future[Unit]
 
-  def aggregation(query: JsObject, sort: JsObject,
-              pag: Pagination): Future[Seq[Employe]]
+  def getListInfo(query: JsObject, sort: JsObject,
+              pag: Pagination): Future[Seq[EmployeInfo]]
 }

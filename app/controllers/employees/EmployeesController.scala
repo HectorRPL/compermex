@@ -22,7 +22,7 @@ class EmployeesController @Inject()(
     val pag = Pagination(50, 0)
     val query = Json.obj()
     val sort = Json.obj()
-    employeesService.getAll(query, sort, pag).map { employees =>
+    employeesService.getAllInfo(query, sort, pag).map { employees =>
       print(employees)
       Ok(Json.toJson(employees))
     }
@@ -64,5 +64,7 @@ class EmployeesController @Inject()(
       }.getOrElse(NotFound)
     }
   }
+
+
 
 }

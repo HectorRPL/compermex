@@ -3,7 +3,7 @@ package myservices.employees
 import db.dao.employees.EmployeesDAO
 import javax.inject.Inject
 import models.Pagination
-import models.employe.Employe
+import models.employe.{Employe, EmployeInfo}
 import play.api.libs.json.{JsObject, Json}
 import reactivemongo.bson.BSONDocument
 
@@ -17,7 +17,7 @@ class EmployeesServiceImpl @Inject()(
   def getAll(query: JsObject, sort: JsObject,
              pag: Pagination): Future[Seq[Employe]] = {
 
-    employeesDAO.aggregation(query, sort, pag)
+    employeesDAO.getList(query, sort, pag)
   }
 
   def save(employe: Employe): Future[Employe] = {
@@ -26,5 +26,10 @@ class EmployeesServiceImpl @Inject()(
 
   def getEmployeeByUserId(query: BSONDocument): Future[Option[Employe]] = {
     employeesDAO.getOne(query)
+  }
+
+  def getAllInfo(query: JsObject, sort: JsObject,
+                 pag: Pagination): Future[Seq[EmployeInfo]] = {
+    employeesDAO.getListInfo(query, sort, pag)
   }
 }

@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {HandleError, HttpErrorHandlerService} from '../http-error-handler.service';
+import {HandleError, HttpErrorHandlerService} from '../../../services/http-error-handler.service';
 import {catchError} from 'rxjs/operators';
-import {Employee} from '../../layout/employees/models/employee/employee';
-import {Area} from '../../models/area/client.model';
+import {Employee} from '../models/employee/employee';
+import {Area} from '../../../models/area/client.model';
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class EmployeesService {
   public currentEmployee: Employee;
 
   constructor(public http: HttpClient,
-              httpErrorHandler: HttpErrorHandlerService) {
+              httpErrorHandler: HttpErrorHandlerService,
+              private router : Router) {
     this.handleError = httpErrorHandler.createHandleError('EmployeesService');
   }
 
@@ -35,7 +37,7 @@ export class EmployeesService {
   }
 
   getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>('/employees')
+    return this.http.get<Employee[]>(this.router.url)
       .pipe(
         catchError(this.handleError('getEmployees', []))
       );
