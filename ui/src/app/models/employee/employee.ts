@@ -1,4 +1,5 @@
-import {ObjectId} from "../../../../models/object-id.model";
+import {ObjectId} from "../object-id.model";
+import {Area} from "../area/area.model";
 
 export class Employee {
   _id: ObjectId;
@@ -11,4 +12,5 @@ export class Employee {
   sex: string;
   birdDate: Date;
   mobile: number;
+  area?:Area;
 }

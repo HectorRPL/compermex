@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {HandleError, HttpErrorHandlerService} from '../../services/http-error-handler.service';
 import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {Employee} from '../../layout/employees/models/employee/employee';
+import {Employee} from '../../models/employee/employee';
 
 @Injectable({
   providedIn: 'root'

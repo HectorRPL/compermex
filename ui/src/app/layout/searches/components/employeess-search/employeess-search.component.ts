@@ -3,7 +3,7 @@ import {catchError, debounceTime, distinctUntilChanged, switchMap, tap} from 'rx
 import {Observable, of} from 'rxjs/index';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {EmployeesService} from '../../../../services/employees/employees.service';
-import {Employee} from '../../../employees/models/employee/employee';
+import {Employee} from '../../../../models/employee/employee';
 
 @Component({
   selector: 'app-employeess-search',

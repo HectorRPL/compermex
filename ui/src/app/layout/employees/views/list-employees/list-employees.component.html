@@ -1,3 +1,4 @@
+<br>
 <div class="card">
   <div class="card-header">
     Empleados
@@ -9,8 +10,8 @@
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellidos</th>
+          <th scope="col">Nombre Completo</th>
+          <th scope="col">Area</th>
           <th scope="col">Teléfono</th>
           <th scope="col">sexo</th>
         </tr>
@@ -18,8 +19,8 @@
         <tbody>
         <tr *ngFor="let employee of employees$ | async">
           <th scope="row">1</th>
-          <td>{{employee.names}}</td>
-          <td>{{employee.lastName}}</td>
+          <td>{{employee.fullName}}</td>
+          <td>{{employee.area.description}}</td>
           <td>{{employee.mobile}}</td>
           <td>{{employee.sex}}</td>
         </tr>
