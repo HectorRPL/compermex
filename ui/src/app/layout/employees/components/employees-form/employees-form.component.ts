@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Area} from '../../../../models/area/client.model';
+import {Area} from '../../../../models/area/area.model';
 import {EmployeesService} from '../../../../services/employees/employees.service';
 import {Observable} from "rxjs/Observable";
 import {SignUpData} from "../../../../auth/models/signUp/signUp";

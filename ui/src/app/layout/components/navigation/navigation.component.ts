@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import 'jquery-slimscroll';
-import {AuthService} from "ng2-ui-auth";
-import {UserService} from "../../../services/auth/user.service";
-import {AreasService} from "../../../services/areas/areas.service";
-import {Area} from "../../../models/area/client.model";
-import {EmployeesService} from "../../../services/employees/employees.service";
+import {AuthService} from 'ng2-ui-auth';
+import {UserService} from '../../../services/auth/user.service';
+import {AreasService} from '../../../services/areas/areas.service';
+import {Area} from '../../../models/area/area.model';
+import {EmployeesService} from '../../../services/employees/employees.service';
 
 declare var jQuery: any;
 
@@ -28,7 +28,7 @@ export class NavigationComponent {
   ngAfterViewInit() {
     jQuery('#side-menu').metisMenu();
 
-    if (jQuery("body").hasClass('fixed-sidebar')) {
+    if (jQuery('body').hasClass('fixed-sidebar')) {
       jQuery('.sidebar-collapse').slimscroll({
         height: '100%'
       })
@@ -42,7 +42,6 @@ export class NavigationComponent {
   ngOnInit(){
 
     this.userService.renewUser().then((user)=>{
-      console.log(user);
       this.getArea(user.areaId.$oid);
       this.currentEmploye(user._id);
     });
