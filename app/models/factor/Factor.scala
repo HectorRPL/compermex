@@ -9,9 +9,14 @@ case class Factor (
                   factor1: Double,
                   factor2: Double,
                   factor3: Double,
-                  factor4: Option[Double],
-                  factor5: Option[Double],
-                  factor6: Option[Double]
+                  minPrice:Double,
+                  ray: Double,
+                  gra: Double,
+                  pegman: Double,
+                  imp: Double,
+                  peg: Double,
+                  tro: Double,
+                  emb: Double,
                   )
 object Factor {
 
