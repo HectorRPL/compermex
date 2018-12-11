@@ -13,8 +13,8 @@ case class Paperboard(
                              materialStrengthId: BSONObjectID,
                              materialColorId: BSONObjectID,
                              supplierId: BSONObjectID,
-                             cost: Double
-
+                             cost: Double,
+                             factorId: BSONObjectID
                            )
 
 object Paperboard {
