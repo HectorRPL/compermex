@@ -1,6 +1,6 @@
 package controllers.boxes
 
-import forms.{BoxesForm}
+import forms.BoxesForm
 import javax.inject.Inject
 import models.Pagination
 import models.box.Box
@@ -33,22 +33,17 @@ class BoxesController @Inject()(
       val box = Box(
         _id = None,
         code = formData.code,
-        description = formData.description,
         large = formData.large,
         width = formData.width,
         high = formData.high,
-        companyId = formData.companyId,
         paperboardId = formData.paperboardId,
-        clientId = formData.customerId,
         variationPositive = formData.variationPositive,
         variationNegative = formData.variationNegative,
         sellerPrice = formData.sellerPrice,
         observations = formData.observations,
         boxTypeId = formData.boxTypeId,
         quality = formData.quality,
-        plane = formData.plane,
-        size = formData.size,
-        unitCost = formData.unitCost
+        plane = formData.plane
       )
 
       boxesService.save(box).map { box =>
