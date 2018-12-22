@@ -11,13 +11,8 @@ case class Box(
                 width: Double,
                 high: Double,
                 paperboardId: BSONObjectID,
-                variationPositive: Int,
-                variationNegative: Int,
-                sellerPrice: Double,
-                observations: Option[String],
-                boxTypeId: BSONObjectID,
-                quality: Boolean,
-                plane: Boolean
+                compexPrice: Double,
+                boxTypeId: BSONObjectID
               )
 
 object Box {
@@ -32,17 +27,11 @@ object Box {
         val width = (obj \ "width").as[Double]
         val high = (obj \ "high").as[Double]
         val paperboardId = (obj \ "paperboardId").as[BSONObjectID]
-        val variationPositive = (obj \ "variationPositive").as[Int]
-        val variationNegative = (obj \ "variationNegative").as[Int]
-        val sellerPrice = (obj \ "sellerPrice").as[Double]
-        val observations = (obj \ "observations").asOpt[String]
+        val compexPrice = (obj \ "compexPrice").as[Double]
         val boxTypeId = (obj \ "boxTypeId").as[BSONObjectID]
-        val quality = (obj \ "quality").as[Boolean]
-        val plane = (obj \ "plane").as[Boolean]
 
 
-        JsSuccess(Box(_id, code, large, width, high, paperboardId, variationPositive,
-          variationNegative, sellerPrice, observations, boxTypeId, quality, plane))
+        JsSuccess(Box(_id, code, large, width, high, paperboardId, compexPrice, boxTypeId))
 
       } catch {
         case cause: Throwable => JsError(cause.getMessage)
@@ -62,13 +51,8 @@ object Box {
       "width" -> box.width,
       "high" -> box.high,
       "paperboardId" -> box.paperboardId,
-      "variationPositive" -> box.variationPositive,
-      "variationNegative" -> box.variationNegative,
-      "sellerPrice" -> box.sellerPrice,
-      "observations" -> box.observations,
-      "boxTypeId" -> box.boxTypeId,
-      "quality" -> box.quality,
-      "plane" -> box.plane
+      "compexPrice" -> box.compexPrice,
+      "boxTypeId" -> box.boxTypeId
     )
   }
 

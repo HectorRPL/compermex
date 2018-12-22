@@ -7,7 +7,8 @@ import reactivemongo.play.json._
 case class BoxType (
                      _id: Option[BSONObjectID],
                      code: Int,
-                     description: String
+                     description: String,
+                     formula: String
                    )
 
 object BoxType {
@@ -19,8 +20,9 @@ object BoxType {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
         val code = (obj \ "code").as[Int]
         val description = (obj \ "description").as[String]
+        val formula = (obj \ "formula").as[String]
 
-        JsSuccess(BoxType(_id, code, description))
+        JsSuccess(BoxType(_id, code, description, formula))
 
       } catch {
         case cause: Throwable => JsError(cause.getMessage)
@@ -35,6 +37,7 @@ object BoxType {
       "_id" -> boxType._id,
       "code" -> boxType.code,
       "description" -> boxType.description,
+      "formula" -> boxType.formula
     )
   }
 
