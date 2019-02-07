@@ -6,19 +6,16 @@ import reactivemongo.play.json._
 
 
 case class Paperboard(
-                             _id: Option[BSONObjectID],
-                             code: Int,
-                             description: String,
-                             materialTypeId: Option[BSONObjectID],
-                             materialStrengthId: BSONObjectID,
-                             materialColorId: BSONObjectID,
-                             supplierId: BSONObjectID,
-                             cost: Double,
-                             factorId: BSONObjectID
-                           )
+                       _id: Option[BSONObjectID],
+                       code: Int,
+                       description: String,
+                       typeId: Option[BSONObjectID],
+                       strengthId: Option[BSONObjectID],
+                       colorId: Option[BSONObjectID]
+                     )
 
 object Paperboard {
 
-  implicit val paperboardFormat = Json.format[Paperboard]
+  implicit val paperboardFormat: OFormat[Paperboard] = Json.format[Paperboard]
 
 }

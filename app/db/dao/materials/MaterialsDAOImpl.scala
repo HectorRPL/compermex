@@ -1,7 +1,7 @@
 package db.dao.materials
 
 import javax.inject.Inject
-import models.material.{MaterialColor, MaterialStrengths, MaterialType, Paperboard}
+import models.material.{Color, Strengths, Type, Paperboard}
 import play.api.libs.json.Json
 import play.modules.reactivemongo.ReactiveMongoApi
 import reactivemongo.api.{Cursor, ReadPreference}
@@ -23,27 +23,27 @@ class MaterialsDAOImpl @Inject()(
   def materColors: Future[JSONCollection] =
     reactiveMongoApi.database.map(_.collection("materialsColors"))
 
-  def allTypes(): Future[Seq[MaterialType]] = {
+  def allTypes(): Future[Seq[Type]] = {
     val query = Json.obj()
     materTypes.flatMap(_.find(query)
-      .cursor[MaterialType](ReadPreference.primary)
-      .collect[Seq](100, Cursor.FailOnError[Seq[MaterialType]]())
+      .cursor[Type](ReadPreference.primary)
+      .collect[Seq](100, Cursor.FailOnError[Seq[Type]]())
     )
   }
 
-  def allCollors(): Future[Seq[MaterialColor]] = {
+  def allCollors(): Future[Seq[Color]] = {
     val query = Json.obj()
     materColors.flatMap(_.find(query)
-      .cursor[MaterialColor](ReadPreference.primary)
-      .collect[Seq](10, Cursor.FailOnError[Seq[MaterialColor]]())
+      .cursor[Color](ReadPreference.primary)
+      .collect[Seq](10, Cursor.FailOnError[Seq[Color]]())
     )
   }
 
-  def allStrengths(): Future[Seq[MaterialStrengths]] = {
+  def allStrengths(): Future[Seq[Strengths]] = {
     val query = Json.obj()
     materStrength.flatMap(_.find(query)
-      .cursor[MaterialStrengths](ReadPreference.primary)
-      .collect[Seq](10, Cursor.FailOnError[Seq[MaterialStrengths]]())
+      .cursor[Strengths](ReadPreference.primary)
+      .collect[Seq](10, Cursor.FailOnError[Seq[Strengths]]())
     )
   }
 }

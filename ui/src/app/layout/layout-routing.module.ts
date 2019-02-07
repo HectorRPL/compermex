@@ -51,6 +51,11 @@ const routes: Routes = [
         path: 'quality',
         loadChildren: './quality/quality.module#QualityModule',
         data: {preload: false}
+      },
+      {
+        path: 'budget',
+        loadChildren: './budget/budget.module#BudgetModule',
+        data: {preload: false}
       }
     ]
   }

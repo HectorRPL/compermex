@@ -37,13 +37,8 @@ class BoxesController @Inject()(
         width = formData.width,
         high = formData.high,
         paperboardId = formData.paperboardId,
-        variationPositive = formData.variationPositive,
-        variationNegative = formData.variationNegative,
-        sellerPrice = formData.sellerPrice,
-        observations = formData.observations,
-        boxTypeId = formData.boxTypeId,
-        quality = formData.quality,
-        plane = formData.plane
+        compexPrice = formData.sellerPrice,
+        boxTypeId = formData.boxTypeId
       )
 
       boxesService.save(box).map { box =>

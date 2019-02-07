@@ -5,24 +5,24 @@ import reactivemongo.bson.BSONObjectID
 import reactivemongo.play.json._
 
 
-case class MaterialType(
+case class Type(
                   _id: Option[BSONObjectID],
                   code: Int,
                   description: String
                   )
 
-object MaterialType {
+object Type {
 
-  implicit object BoxTypeReaders extends Reads[MaterialType]{
+  implicit object BoxTypeReaders extends Reads[Type]{
 
-    def reads(json: JsValue): JsResult[MaterialType] = json match {
+    def reads(json: JsValue): JsResult[Type] = json match {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
         val code = (obj \ "code").as[Int]
         val description = (obj \ "description").as[String]
 
 
-        JsSuccess(MaterialType(_id, code, description))
+        JsSuccess(Type(_id, code, description))
 
       } catch {
         case cause: Throwable => JsError(cause.getMessage)
@@ -32,8 +32,8 @@ object MaterialType {
     }
   }
 
-  implicit object MaterialTypeWriter extends OWrites[MaterialType] {
-    def writes(materialType: MaterialType): JsObject = Json.obj(
+  implicit object MaterialTypeWriter extends OWrites[Type] {
+    def writes(materialType: Type): JsObject = Json.obj(
       "_id" -> materialType._id,
       "code" -> materialType.code,
       "description" -> materialType.description

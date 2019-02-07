@@ -12,6 +12,7 @@ import myservices.sales.SalesService
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
+import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -56,7 +57,7 @@ class OrdersController @Inject()(
               case (paperboard) => {
                 val purchase = PurchaseOrder(
                   _id = None,
-                  supplierId = paperboard.get.supplierId,
+                  supplierId = BSONObjectID.generate(),
                   employeId = formData.employeId,
                   saleOrderId = sale._id.get,
                   paperboardId = paperboard.get._id.get,
