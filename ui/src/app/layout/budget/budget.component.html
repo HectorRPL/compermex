@@ -1,0 +1,113 @@
+<br>
+<div class="card">
+  <div class="card-header">
+    Cotización
+  </div>
+  <div class="card-body">
+    <form novalidate
+          autocomplete="off"
+          [formGroup]="budgetForm">
+      <!--MEDIDAS DE LA CAJA-->
+      <div class="form row">
+        <div class="form-group col-sm-3">
+          <app-paperboards-search
+            (sendStatusForm)="recipePaperboardsSearchStatusForm($event)">
+          </app-paperboards-search>
+        </div>
+        <div class="form-group col-sm-2">
+          <label for="quantityId">Cantidad</label>
+          <input type="number"
+                 class="form-control form-control-sm"
+                 id="quantityId"
+                 placeholder="Largo"
+                 [ngClass]="{'is-invalid': quantity.invalid && (quantity.dirty || quantity.touched)}"
+                 formControlName="quantity">
+          <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
+            <div class="text-danger small" *ngIf="quantity.errors.required">Requerido.</div>
+          </div>
+        </div>
+        <!--LARGO / LONG-->
+        <div class="form-group col-sm-1">
+          <label for="largeId">Largo</label>
+          <input type="number"
+                 class="form-control form-control-sm"
+                 id="largeId"
+                 placeholder="Largo"
+                 [ngClass]="{'is-invalid': large.invalid && (large.dirty || large.touched)}"
+                 formControlName="large">
+          <div *ngIf="large.invalid && (large.dirty || large.touched)">
+            <div class="text-danger small" *ngIf="large.errors.required">Requerido.</div>
+          </div>
+        </div>
+        <!--ANCHO / WIDTH-->
+        <div class="form-group col-sm-1">
+          <label for="widthId">Ancho</label>
+          <input type="number"
+                 class="form-control form-control-sm"
+                 id="widthId"
+                 placeholder="Ancho"
+                 [ngClass]="{'is-invalid': width.invalid && (width.dirty || width.touched)}"
+                 formControlName="width">
+          <div *ngIf="width.invalid && (width.dirty || width.touched)">
+            <div class="text-danger small" *ngIf="width.errors.required">Requerido.</div>
+          </div>
+        </div>
+        <!--ALTO / high-->
+        <div class="form-group col-sm-1">
+          <label for="highId">Alto</label>
+          <input type="number"
+                 class="form-control form-control-sm"
+                 id="highId"
+                 placeholder="Alto"
+                 [ngClass]="{'is-invalid': high.invalid && (high.dirty || high.touched)}"
+                 formControlName="high">
+          <div *ngIf="high.invalid && (high.dirty || high.touched)">
+            <div class="text-danger small" *ngIf="high.errors.required">Requerido.</div>
+          </div>
+        </div>
+        <!--TIPO: boxTypeId-->
+        <div class="form-group col-sm-2">
+          <label for="boxTypeId">Tipo de caja</label>
+          <select class="form-control custom-select custom-select-sm"
+                  id="boxTypeId"
+                  [ngClass]="{'is-invalid': boxTypeId.invalid && (boxTypeId.dirty || boxTypeId.touched)}"
+                  formControlName="boxTypeId"
+                  (change)="filterForeCasts($event.target)">
+            <option *ngFor="let boxType of $boxesTypes | async" [value]="boxType._id.$oid">
+              {{boxType.description}}
+            </option>
+          </select>
+          <div *ngIf="boxTypeId.invalid && (boxTypeId.dirty || boxTypeId.touched)">
+            <div class="text-danger small" *ngIf="boxTypeId.errors.required">Requerido.</div>
+          </div>
+        </div>
+        <div class="form-group col-sm-2">
+          <br>
+          <button type="button"
+                  class="btn btn-primary"
+                  (click)="createBudget()">
+            Cotizar
+          </button>
+        </div>
+      </div>
+      <div class="form row">
+        <div class="form-group col-sm-2">
+          <label for="boxTypeId">Área Lamina: 1231231</label>
+        </div>
+        <div class="form-group col-sm-2">
+          <label for="boxTypeId">P. Copamex: 1231231</label>
+        </div>
+        <div class="form-group col-sm-2">
+          <label for="boxTypeId">P. Minímo: 1231231</label>
+        </div>
+        <div class="form-group col-sm-2">
+          <label for="boxTypeId">P. Maquila: 1231231</label>
+        </div>
+        <div class="form-group col-sm-2">
+          <label for="boxTypeId">P. Venta: 1231231</label>
+        </div>
+      </div>
+    </form>
+    <router-outlet></router-outlet>
+  </div>
+</div>
