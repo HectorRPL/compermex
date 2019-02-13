@@ -26,7 +26,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-mailer-guice" % "6.0.1",
   "com.enragedginger" %% "akka-quartz-scheduler" % "1.6.1-akka-2.5.x",
   "com.iheart" %% "ficus" % "1.4.3",
-  "joda-time" % "joda-time" % "2.7"
+  "joda-time" % "joda-time" % "2.7",
+  "net.objecthunter" % "exp4j" % "0.4.8"
 )
 libraryDependencies += ws
 libraryDependencies += ehcache
