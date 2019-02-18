@@ -18,33 +18,67 @@ class MaterialsController @Inject()(
     with I18nSupport {
 
   def listColors() = Action.async {
-    materialsService.getAllColor().map { colors =>
+    val pag = Pagination(50, 0)
+    val query = Json.obj()
+    val sort = Json.obj()
+
+    materialsService.getAllColors(query, sort, pag).map { colors =>
+      Ok(Json.toJson(colors))
+    }
+  }
+
+  def searchColors(name: String) = Action.async {
+    val query = Json.obj(
+      "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
+    val sort = Json.obj("description" -> -1)
+    val pag = Pagination(20, 0)
+
+    materialsService.getAllColors(query, sort, pag).map { colors =>
       Ok(Json.toJson(colors))
     }
   }
 
   def listTypes() = Action.async {
-    materialsService.getAllTypes().map { types =>
+    val pag = Pagination(50, 0)
+    val query = Json.obj()
+    val sort = Json.obj()
+
+    materialsService.getAllTypes(query, sort, pag).map { types =>
+      Ok(Json.toJson(types))
+    }
+  }
+
+  def searchTypes(name: String) = Action.async {
+    val query = Json.obj(
+      "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
+    val sort = Json.obj("description" -> -1)
+    val pag = Pagination(20, 0)
+
+    materialsService.getAllTypes(query, sort, pag).map { types =>
       Ok(Json.toJson(types))
     }
   }
 
   def listStrengths() = Action.async {
-    materialsService.getAllStrengths().map { strengths =>
+    val pag = Pagination(50, 0)
+    val query = Json.obj()
+    val sort = Json.obj()
+
+    materialsService.getAllStrengths(query, sort, pag).map { strengths =>
       Ok(Json.toJson(strengths))
     }
   }
 
-  def paperboars(name: String) = Action.async {
+  def searchStrengths(name: String) = Action.async {
     val query = Json.obj(
-      "description" -> Json.obj("$regex" -> name))
+      "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
     val sort = Json.obj("description" -> -1)
     val pag = Pagination(20, 0)
-    paperboardsService.getAll(query, sort, pag).map { paperBoards =>
-      Ok(Json.toJson(paperBoards))
+
+    materialsService.getAllStrengths(query, sort, pag).map { strengths =>
+      Ok(Json.toJson(strengths))
     }
   }
-
 
   /*def save() = Action.async() {implicit request =>
     request.body.validate[Address].map { data =>

@@ -20,8 +20,8 @@ class PaperboardsServiceImpl @Inject()(
     paperboardsDAO.getList(query, sort, pag)
   }
 
-  def save(employe: Paperboard): Future[Paperboard] = {
-    paperboardsDAO.save(employe)
+  def save(paperboard: Paperboard): Future[Paperboard] = {
+    paperboardsDAO.save(paperboard)
   }
 
   def getOne(_id: BSONObjectID): Future[Option[Paperboard]] = {

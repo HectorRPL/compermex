@@ -4,7 +4,11 @@ export class Paperboard {
   _id: ObjectId;
   code: number;
   description: string;
-  materialColorId?: ObjectId;
-  materialTypeId?: ObjectId;
-  materialStrengthId?: ObjectId;
+  colorId?: ObjectId;
+  strengthId?: ObjectId;
+  typeId?: ObjectId;
+
+  constructor () {
+    this.code = 0;
+  }
 }

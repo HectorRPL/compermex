@@ -6,10 +6,10 @@ import reactivemongo.play.json._
 
 
 case class Color(
-                    _id: Option[BSONObjectID],
-                    code: Int,
-                    description: String
-                    )
+                _id: Option[BSONObjectID],
+                code: Int,
+                description: String
+                )
 
 object Color {
 
@@ -21,7 +21,6 @@ object Color {
         val code = (obj \ "code").as[Int]
         val description = (obj \ "description").as[String]
 
-
         JsSuccess(Color(_id, code, description))
 
       } catch {
@@ -32,11 +31,11 @@ object Color {
     }
   }
 
-  implicit object MaterialColorWriter extends OWrites[Color] {
-    def writes(materialColor: Color): JsObject = Json.obj(
-      "_id" -> materialColor._id,
-      "code" -> materialColor.code,
-      "description" -> materialColor.description
+  implicit object ColorWriter extends OWrites[Color] {
+    def writes(color: Color): JsObject = Json.obj(
+      "_id" -> color._id,
+      "code" -> color.code,
+      "description" -> color.description
     )
   }
 

@@ -12,7 +12,7 @@ trait PaperboardsService {
   def getAll(query: JsObject, sort: JsObject,
              pag: Pagination): Future[Seq[Paperboard]]
 
-  def save(employe: Paperboard): Future[Paperboard]
+  def save(paperboard: Paperboard): Future[Paperboard]
 
   def getOne(_id: BSONObjectID): Future[Option[Paperboard]]
 

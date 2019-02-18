@@ -26,10 +26,14 @@ GET     /employees/search/:name     controllers.employees.EmployeesController.se
 GET     /employe/user/:userId       controllers.employees.EmployeesController.employeeByUser(userId: String)
 
 # ROUTES FOR MATERIALS
-GET     /materials/colors           controllers.materials.MaterialsController.listColors
-GET     /materials/types            controllers.materials.MaterialsController.listTypes
-GET     /materials/strengths        controllers.materials.MaterialsController.listStrengths
-GET     /paperboards/search/:name   controllers.materials.MaterialsController.paperboars(name: String)
+GET     /materials/colors                   controllers.materials.MaterialsController.listColors
+GET     /materials/colors/search/:name      controllers.materials.MaterialsController.searchColors(name: String)
+GET     /materials/types                    controllers.materials.MaterialsController.listTypes
+GET     /materials/types/search/:name       controllers.materials.MaterialsController.searchTypes(name: String)
+GET     /materials/strengths                controllers.materials.MaterialsController.listStrengths
+GET     /materials/strengths/search/:name   controllers.materials.MaterialsController.searchStrengths(name: String)
+GET     /paperboards/search/:name           controllers.materials.PaperboardController.paperboars(name: String)
+POST    /add/paperboard                     controllers.materials.PaperboardController.save
 
 # ROUTES FOR CLIENTS
 GET     /customers                controllers.clients.ClientsController.list

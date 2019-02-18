@@ -24,7 +24,7 @@ import myservices.clients.{ClientsService, ClientsServiceImpl}
 import myservices.companies.{CompaniesService, CompaniesServiceImpl}
 import myservices.employees.{EmployeesService, EmployeesServiceImpl}
 import myservices.fiscalData.{FiscalDataService, FiscalDataServiceImpl}
-import myservices.materials.{MaterialsService, MatrerialsServiceImpl, PaperboardsService, PaperboardsServiceImpl}
+import myservices.materials.{MaterialsService, MaterialsServiceImpl, PaperboardsService, PaperboardsServiceImpl}
 import myservices.purchases.{PurchasesService, PurchasesServiceImpl}
 import myservices.sales.{SalesService, SalesServiceImpl}
 import myservices.suppliers.{SuppliersInfoService, SuppliersInfoServiceImpl, SuppliersService, SuppliersServiceImpl}
@@ -62,7 +62,7 @@ class BaseModule extends AbstractModule with ScalaModule {
     bind[ZipCodesDAO].to[ZipCodesDAOImpl]
 
     //DI for Materials
-    bind[MaterialsService].to[MatrerialsServiceImpl]
+    bind[MaterialsService].to[MaterialsServiceImpl]
     bind[MaterialsDAO].to[MaterialsDAOImpl]
 
     //DI for Clients

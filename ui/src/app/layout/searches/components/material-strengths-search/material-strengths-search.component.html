@@ -1,0 +1,29 @@
+<form novalidate
+      autocomplete="off"
+      [formGroup]="parentFormGroup">
+  <div class="form-group auto-complete">
+    <label for="searchStrengthId">Resistencia</label>
+    <div class="input-group">
+      <input id="searchStrengthId" type="text" class="form-control form-control-sm" placeholder="Buscar"
+             [ngClass]="{'is-invalid': _strength.invalid && (_strength.dirty || _strength.touched)}"
+             [(ngModel)]="model"
+             [ngbTypeahead]="search"
+             [resultFormatter]="resFormatter"
+             [inputFormatter]="inFormatter"
+             (selectItem)="selectedItem($event)"
+             (blur)="fn_blur();"
+             formControlName="strength">
+      <div class="input-group-append">
+        <button type="button" class="btn btn-outline-secondary btn-sm" ngbTooltip="Nuevo"
+                [routerLink]="['/layout/materials/add']">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+    <div class="small searching" *ngIf="searching">Buscando...</div>
+    <div class="text-danger small notFound" *ngIf="searchFailed">No encontrado.</div>
+    <div *ngIf="_strength.invalid && (_strength.dirty || _strength.touched)">
+      <div class="text-danger small" *ngIf="_strength.errors.required">Requerido.</div>
+    </div>
+  </div>
+</form>

@@ -6,6 +6,7 @@ import {ListMaterialsComponent} from './views/list-materials/list-materials.comp
 import {ListMaterialSelectedComponent} from './components/list-material-selected/list-material-selected.component';
 import {MaterialsFormComponent} from './components/materials-form/materials-form.component';
 import {AddMaterialMasterComponent} from "./views/add-material-master/add-material-master.component";
+import {AddMaterialPaperboardComponent} from "./views/add-material-paperboard/add-material-paperboard.component";
 
 
 const routes: Routes = [
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'addMaterial',
         component: AddMaterialMasterComponent
+      },
+      {
+        path: 'addMaterialPaperboard',
+        component: AddMaterialPaperboardComponent
       }
     ]
   }

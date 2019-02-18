@@ -9,6 +9,9 @@ import {CompanySearchComponent} from './components/company-search/company-search
 import {EmployeessSearchComponent} from './components/employeess-search/employeess-search.component';
 import {PaperboardsSearchComponent} from './components/paperboards-search/paperboards-search.component';
 import {BoxesSearchComponent} from './components/boxes-search/boxes-search.component';
+import { MaterialColorsSearchComponent } from './components/material-colors-search/material-colors-search.component';
+import { MaterialStrengthsSearchComponent } from './components/material-strengths-search/material-strengths-search.component';
+import { MaterialTypesSearchComponent } from './components/material-types-search/material-types-search.component';
 
 @NgModule({
   imports: [
@@ -24,7 +27,10 @@ import {BoxesSearchComponent} from './components/boxes-search/boxes-search.compo
     CompanySearchComponent,
     EmployeessSearchComponent,
     PaperboardsSearchComponent,
-    BoxesSearchComponent
+    BoxesSearchComponent,
+    MaterialColorsSearchComponent,
+    MaterialStrengthsSearchComponent,
+    MaterialTypesSearchComponent
   ],
   exports: [
     SuppliersSearchComponent,
@@ -32,7 +38,10 @@ import {BoxesSearchComponent} from './components/boxes-search/boxes-search.compo
     CompanySearchComponent,
     EmployeessSearchComponent,
     PaperboardsSearchComponent,
-    BoxesSearchComponent
+    BoxesSearchComponent,
+    MaterialColorsSearchComponent,
+    MaterialStrengthsSearchComponent,
+    MaterialTypesSearchComponent
   ]
 })
 export class SearchesModule {

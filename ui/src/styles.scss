@@ -4,3 +4,20 @@
 select {
   cursor: pointer;
 }
+
+/* Buttons */
+.btn-action {
+  min-width: 120px;
+}
+
+/* Auto-complete */
+.auto-complete {
+  margin: 0px;
+}
+  .auto-complete .dropdown-menu {
+    width: 100%;
+  }
+    .auto-complete .searching,
+    .auto-complete .notFound {
+      position: absolute;
+    }
