@@ -26,14 +26,14 @@ GET     /employees/search/:name     controllers.employees.EmployeesController.se
 GET     /employe/user/:userId       controllers.employees.EmployeesController.employeeByUser(userId: String)
 
 # ROUTES FOR MATERIALS
-GET     /materials/colors                   controllers.materials.MaterialsController.listColors
-GET     /materials/colors/search/:name      controllers.materials.MaterialsController.searchColors(name: String)
-GET     /materials/types                    controllers.materials.MaterialsController.listTypes
-GET     /materials/types/search/:name       controllers.materials.MaterialsController.searchTypes(name: String)
-GET     /materials/strengths                controllers.materials.MaterialsController.listStrengths
-GET     /materials/strengths/search/:name   controllers.materials.MaterialsController.searchStrengths(name: String)
-GET     /paperboards/search/:name           controllers.materials.PaperboardController.paperboars(name: String)
-POST    /add/paperboard                     controllers.materials.PaperboardController.save
+GET     /materials/colors             controllers.materials.MaterialsController.listColors
+GET     /materials/colors/search      controllers.materials.MaterialsController.searchColors(name: Option[String])
+GET     /materials/types              controllers.materials.MaterialsController.listTypes
+GET     /materials/types/search       controllers.materials.MaterialsController.searchTypes(name: Option[String])
+GET     /materials/strengths          controllers.materials.MaterialsController.listStrengths
+GET     /materials/strengths/search   controllers.materials.MaterialsController.searchStrengths(name: Option[String])
+GET     /paperboards/search           controllers.materials.PaperboardController.paperboars(name: Option[String])
+POST    /add/paperboard               controllers.materials.PaperboardController.save
 
 # ROUTES FOR CLIENTS
 GET     /customers                controllers.clients.ClientsController.list
@@ -47,7 +47,6 @@ GET     /companies/search/:name  controllers.companies.CompaniesController.searc
 
 #ROUTES FOR BOXES
 GET    /boxes/types             controllers.boxes.BoxesController.listBoxesTypes
-POST   /add/box                 controllers.boxes.BoxesController.save
 GET    /boxes/search/:name      controllers.boxes.BoxesController.search(name: String)
 
 #ROUTES FOR ORDER

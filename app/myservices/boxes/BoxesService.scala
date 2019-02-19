@@ -20,6 +20,4 @@ trait BoxesService {
 
   def getOneBox(_id: BSONObjectID): Future[Option[Box]]
 
-
-
 }

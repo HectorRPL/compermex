@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Paperboard} from "../../../../models/paperboard/paperboard.model";
 import {PaperboardService} from "../../../../services/paperboard/paperboard.service";
 import {Alert} from "../../../../models/alerts/alert.model";
+import {MessagesService} from "../../../../services/message/messages.service";
 
 @Component({
   selector: 'app-add-material-paperboard',
@@ -11,11 +12,10 @@ import {Alert} from "../../../../models/alerts/alert.model";
 export class AddMaterialPaperboardComponent implements OnInit {
 
   public paperboard: Paperboard;
-  public alerts: Alert[];
 
-  constructor(private paperboardService: PaperboardService) {
+  constructor(private paperboardService: PaperboardService,
+              private messagesService: MessagesService) {
     this.paperboard = new Paperboard();
-    this.alerts = [];
   }
 
   ngOnInit() {
@@ -27,9 +27,8 @@ export class AddMaterialPaperboardComponent implements OnInit {
 
       if (result !== null) {
         this.paperboard = result;
-        this.alerts.push(new Alert('success', 'Los cambios han sido guardados correctamente. ID: ' + this.paperboard._id.$oid));
-      } else {
-        this.alerts.push(new Alert('danger', 'No es posible guardar cambios'));
+        this.messagesService.add(new Alert('success',
+          'Los cambios han sido guardados correctamente. ID: ' + this.paperboard._id.$oid, ''));
       }
     });
   }

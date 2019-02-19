@@ -54,15 +54,15 @@
         </div>
         <!--ALTO / high-->
         <div class="form-group col-sm-1">
-          <label for="highId">Alto</label>
+          <label for="depthId">Profundidad</label>
           <input type="number"
                  class="form-control form-control-sm"
-                 id="highId"
+                 id="depthId"
                  placeholder="Alto"
-                 [ngClass]="{'is-invalid': high.invalid && (high.dirty || high.touched)}"
-                 formControlName="high">
-          <div *ngIf="high.invalid && (high.dirty || high.touched)">
-            <div class="text-danger small" *ngIf="high.errors.required">Requerido.</div>
+                 [ngClass]="{'is-invalid': depth.invalid && (depth.dirty || depth.touched)}"
+                 formControlName="depth">
+          <div *ngIf="depth.invalid && (depth.dirty || depth.touched)">
+            <div class="text-danger small" *ngIf="depth.errors.required">Requerido.</div>
           </div>
         </div>
         <!--TIPO: boxTypeId-->
@@ -71,9 +71,8 @@
           <select class="form-control custom-select custom-select-sm"
                   id="boxTypeId"
                   [ngClass]="{'is-invalid': boxTypeId.invalid && (boxTypeId.dirty || boxTypeId.touched)}"
-                  formControlName="boxTypeId"
-                  (change)="filterForeCasts($event.target)">
-            <option *ngFor="let boxType of $boxesTypes | async" [value]="boxType._id.$oid">
+                  formControlName="boxTypeId">
+            <option *ngFor="let boxType of $boxesTypes | async" [value]="boxType.code">
               {{boxType.description}}
             </option>
           </select>
@@ -90,24 +89,78 @@
           </button>
         </div>
       </div>
-      <div class="form row">
+      <div class="form row" *ngIf="showAll">
         <div class="form-group col-sm-2">
-          <label for="boxTypeId">Área Lamina: 1231231</label>
+          <label for="boxTypeId">Área Lamina: {{areaLamina}}</label>
         </div>
         <div class="form-group col-sm-2">
-          <label for="boxTypeId">P. Copamex: 1231231</label>
+          <label for="boxTypeId">P. Copamex: {{pcomparmex | currency}}</label>
         </div>
         <div class="form-group col-sm-2">
-          <label for="boxTypeId">P. Minímo: 1231231</label>
+          <label for="boxTypeId">P. Minímo: {{pMininmo | currency}}</label>
         </div>
         <div class="form-group col-sm-2">
-          <label for="boxTypeId">P. Maquila: 1231231</label>
+          <label for="boxTypeId">P. Maquila: {{pMaquila | currency}}</label>
         </div>
         <div class="form-group col-sm-2">
-          <label for="boxTypeId">P. Venta: 1231231</label>
+          <label for="boxTypeId">P. Venta: {{pVenta | currency}}</label>
         </div>
       </div>
     </form>
-    <router-outlet></router-outlet>
+    <div class="form row" *ngIf="showAll">
+      <div class="form-group col-sm-6">
+        <p class="text-primary">Bancadas Proveedores</p>
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Largo</th>
+            <th scope="col">Alto</th>
+            <th scope="col">Min m2</th>
+            <th scope="col">Costo Millar</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let p of bancadasProvee; index as i">
+            <th scope="row">
+              <input type="radio" value="" name="proveedorId">
+            </th>
+            <td>{{ p.nombre }}</td>
+            <td>Min: {{ p.lMin | number }} Max: {{p.lMax | number }}</td>
+            <td>Min: {{ p.aMin | number }} Max: {{p.aMax | number }}</td>
+            <td>{{ p.minM2 | number }}</td>
+            <td>
+              {{p.costMillar | currency}}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="form-group col-sm-6">
+        <p class="text-primary">Bancadas Maquinas</p>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Maquina</th>
+            <th scope="col">Minimo</th>
+            <th scope="col">Maximo</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let maq of bancadasMaq; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+              {{ maq.nombre }}
+            </td>
+            <td>{{ maq.min | number }}</td>
+            <td>{{ maq.max | number }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

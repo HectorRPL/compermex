@@ -36,4 +36,7 @@ class BoxesTypesDAOImpl @Inject()(
     Future.successful(doc)
   }
 
+  def getOne(query: JsObject): Future[Option[BoxType]] = {
+    collection.flatMap(_.find(query).one[BoxType])
+  }
 }

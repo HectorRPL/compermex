@@ -2,18 +2,20 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MessagesService} from './services/message/messages.service';
 import {HttpErrorHandlerService} from './services/http-error-handler.service';
 import {HttpClientModule} from '@angular/common/http';
 import {httpInterceptorProviders} from './http-interceptors';
-import {CookieModule} from 'ngx-cookie';
+import {CookieBackendService, CookieModule, CookieService} from 'ngx-cookie';
 import {Ng2UiAuthModule, StorageType} from 'ng2-ui-auth';
+import {NgbAlertModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { AlertasComponent } from './components/alertas/alertas.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertasComponent
   ],
   imports: [
     HttpClientModule,
@@ -29,6 +31,7 @@ import {Ng2UiAuthModule, StorageType} from 'ng2-ui-auth';
     }),
     BrowserModule,
     AppRoutingModule,
+    NgbAlertModule,
     NgbModule.forRoot()
   ],
   providers: [

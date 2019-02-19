@@ -1,6 +1,5 @@
 package controllers.boxes
 
-import forms.BoxesForm
 import javax.inject.Inject
 import models.Pagination
 import models.box.Box
@@ -26,30 +25,6 @@ class BoxesController @Inject()(
       Ok(Json.toJson(boxes))
     }
 
-  }
-
-  def save() = Action.async(parse.json) { implicit request =>
-    request.body.validate[BoxesForm].map { formData =>
-      val box = Box(
-        _id = None,
-        code = formData.code,
-        large = formData.large,
-        width = formData.width,
-        high = formData.high,
-        paperboardId = formData.paperboardId,
-        compexPrice = formData.sellerPrice,
-        boxTypeId = formData.boxTypeId
-      )
-
-      boxesService.save(box).map { box =>
-        Ok(Json.toJson(box))
-      }
-    }.recoverTotal {
-      case error =>{
-        print(error)
-        Future.successful(BadRequest(Json.obj("message" -> Messages("invalid.data"))))
-      }
-    }
   }
 
   def listBoxesTypes() = Action.async {

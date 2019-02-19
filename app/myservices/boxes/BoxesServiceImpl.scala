@@ -42,4 +42,5 @@ class BoxesServiceImpl  @Inject()(
   def getOneBox(_id: BSONObjectID): Future[Option[Box]] = {
     boxesDAO.getOne(_id)
   }
+
 }

@@ -41,11 +41,6 @@
               </div>
             </div>
           </div>
-          <div class="row mt-3" *ngIf="alerts.length > 0">
-            <div class="col-12" *ngFor="let alert of alerts">
-              <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
-            </div>
-          </div>
         </div>
       </div>
     </div>

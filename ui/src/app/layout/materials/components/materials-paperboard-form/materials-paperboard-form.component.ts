@@ -14,7 +14,6 @@ import {Alert} from "../../../../models/alerts/alert.model";
 export class MaterialsPaperboardFormComponent implements OnInit {
 
   @Input() public paperboard: Paperboard;
-  @Input() public alerts: Alert[];
 
   @Output() private saveOrUpdate = new EventEmitter();
 
@@ -62,7 +61,6 @@ export class MaterialsPaperboardFormComponent implements OnInit {
 
   fn_reset(): void {
     this.paperboardForm.reset();
-    this.alerts.pop();
   }
 
   fn_saveOrUpdate() {
@@ -75,11 +73,4 @@ export class MaterialsPaperboardFormComponent implements OnInit {
     this.saveOrUpdate.emit(this.paperboard);
   }
 
-  /**
-   * Alerts
-   * @param {Alert} alert
-   */
-  close(alert: Alert) {
-    this.alerts.splice(this.alerts.indexOf(alert), 1);
-  }
 }

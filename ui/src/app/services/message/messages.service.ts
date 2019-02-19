@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
+import {Alert} from '../../models/alerts/alert.model';
+
 
 @Injectable()
 export class MessagesService {
 
-  messages: string[] = [];
-  constructor() { }
-
-  add(message: string) {
-    this.messages.push(message);
+  public alerts: Alert[];
+  constructor() {
+    this.alerts = [];
   }
 
-  clear() {
-    this.messages = [];
+  add(alert: Alert) {
+    this.alerts.push(alert);
   }
+
+  close(alert: Alert) {
+    this.alerts.splice(this.alerts.indexOf(alert), 1);
+  }
+
+  clear(){
+    this.alerts = [];
+  }
+
+
 }
