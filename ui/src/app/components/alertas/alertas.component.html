@@ -1,0 +1,6 @@
+<p class="bn-alert" *ngFor="let alert of messageServ.alerts">
+  <ngb-alert [type]="alert.type"
+             (close)="close(alert)">
+    <span class="text-alert">{{ alert.message }}</span>
+  </ngb-alert>
+</p>
