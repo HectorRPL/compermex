@@ -3,7 +3,7 @@ package controllers.materials
 import javax.inject.Inject
 import models.Pagination
 import models.material.Paperboard
-import myservices.materials.{PaperboardsService}
+import myservices.materials.PaperboardsService
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
 import play.api.mvc.{AbstractController, ControllerComponents}
@@ -17,13 +17,13 @@ class PaperboardController @Inject()(
   extends AbstractController(cc)
     with I18nSupport {
 
-  def paperboars(name: Option[String]) = Action.async { // TODO: Mover a PaperboardController
+  def paperboars(name: Option[String], curPage: Int, pageSize: Int) = Action.async { // TODO: Mover a PaperboardController
     val query = Json.obj(
       "description" -> Json.obj("$regex" -> name))
 
     val sort = Json.obj("description" -> -1)
-    val pag = Pagination(20, 0)
-    paperboardsService.getAll(query, sort, pag).map { paperBoards =>
+    val pag = Pagination.fromPages(curPage, pageSize)
+    paperboardsService.getAll(query, sort, pag.get).map { paperBoards =>
       Ok(Json.toJson(paperBoards))
     }
   }
