@@ -49,6 +49,8 @@ class MaterialsController @Inject()(
   }
 
   def searchTypes(name: Option[String]) = Action.async {
+
+
     val query = Json.obj(
       "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
     val sort = Json.obj("description" -> -1)

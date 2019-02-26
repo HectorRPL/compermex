@@ -6,11 +6,12 @@ case class Pagination(
                 )
 
 object Pagination {
-  def fromPages(curPage: Int, pageSize: Int): Option[Pagination] = {
+
+  def fromPages(curPage: Int, pageSize: Int): Pagination = {
     val limit = pageSize
     val skip = (curPage - 1) * pageSize
 
-    Some(new Pagination(limit, skip))
+    new Pagination(limit, skip)
   }
 
 }

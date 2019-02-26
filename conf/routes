@@ -32,7 +32,7 @@ GET     /materials/types              controllers.materials.MaterialsController.
 GET     /materials/types/search       controllers.materials.MaterialsController.searchTypes(name: Option[String])
 GET     /materials/strengths          controllers.materials.MaterialsController.listStrengths
 GET     /materials/strengths/search   controllers.materials.MaterialsController.searchStrengths(name: Option[String])
-GET     /paperboards/search           controllers.materials.PaperboardController.paperboars(name: Option[String], curPage: Int ?=1, pageSize: Int ?=50)
+GET     /paperboards/search           controllers.materials.PaperboardController.paperboars(name: Option[String], curPage: Int ?=1, pageSize: Int ?=5)
 POST    /add/paperboard               controllers.materials.PaperboardController.save
 
 # ROUTES FOR CLIENTS
