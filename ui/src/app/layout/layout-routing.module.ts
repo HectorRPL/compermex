@@ -33,8 +33,8 @@ const routes: Routes = [
         data: {preload: false}
       },
       {
-        path: 'cardboards',
-        loadChildren: './cardboards/cardboards.module#CardboardsModule',
+        path: 'paperboard',
+        loadChildren: './paperboard/paperboard.module#PaperboardModule',
         data: {preload: false}
       },
       {

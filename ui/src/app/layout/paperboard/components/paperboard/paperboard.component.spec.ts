@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardboardsSearchComponent } from './cardboards-search.component';
+import { PaperboardComponent } from './paperboard.component';
 
-describe('CardboardsSearchComponent', () => {
-  let component: CardboardsSearchComponent;
-  let fixture: ComponentFixture<CardboardsSearchComponent>;
+describe('PaperboardComponent', () => {
+  let component: PaperboardComponent;
+  let fixture: ComponentFixture<PaperboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardboardsSearchComponent ]
+      declarations: [ PaperboardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CardboardsSearchComponent);
+    fixture = TestBed.createComponent(PaperboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

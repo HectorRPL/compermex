@@ -5,7 +5,6 @@ import {LayoutRoutingModule} from './layout-routing.module';
 import {LayoutComponent} from './layout.component';
 import {SupplierService} from '../services/suppliers/supplier.service';
 import {CompanyService} from '../services/company/company.service';
-import {CardboardService} from '../services/cardboard/cardboard.service';
 import {FooterComponent} from './components/footer/footer.component';
 import {TopNavbarComponent} from './components/topnavbar/topnavbar.component';
 import {NavigationComponent} from './components/navigation/navigation.component';
@@ -35,7 +34,6 @@ import {ColoniesService} from '../services/colonies/colonies.service';
   providers: [
     SupplierService,
     CompanyService,
-    CardboardService,
     UserService,
     ColoniesService
   ]
