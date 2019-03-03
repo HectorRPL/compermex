@@ -5,6 +5,7 @@ import {Paperboard} from '../../models/paperboard/paperboard.model';
 import {Pagination} from '../../models/components/table/pagination.model';
 import {HttpClient} from '@angular/common/http';
 import {catchError, debounceTime, delay, switchMap, tap} from 'rxjs/internal/operators';
+import {PaginationConstant} from '../../constants/pagination.constants';
 
 @Injectable()
 export class PaperboardPageService {
@@ -17,11 +18,9 @@ export class PaperboardPageService {
   private _result$ = new BehaviorSubject<Paperboard[]>([]);
   private _total$ = new BehaviorSubject<number>(0);
 
-  private INIT_PAGE = 1;
-
   private _pagination: Pagination = {
-    page: this.INIT_PAGE,
-    pageSize: 10,
+    page: PaginationConstant.INIT_PAGE,
+    pageSize: PaginationConstant.PAGE_SIZE,
     searchTerm: ''
   };
 
@@ -87,11 +86,11 @@ export class PaperboardPageService {
 
   set page(page: number) { this._set({page}); }
   set pageSize(pageSize: number) {
-    this._pagination.page = this.INIT_PAGE;
+    this._pagination.page = PaginationConstant.INIT_PAGE;
     this._set({pageSize});
   }
   set searchTerm(searchTerm: string) {
-    this._pagination.page = this.INIT_PAGE;
+    this._pagination.page = PaginationConstant.INIT_PAGE;
     this._set({searchTerm});
   }
 
