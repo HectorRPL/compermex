@@ -1,6 +1,30 @@
-<p class="bn-alert" *ngFor="let alert of messageServ.alerts">
-  <ngb-alert [type]="alert.type"
-             (close)="close(alert)">
-    <span class="text-alert">{{ alert.message }}</span>
-  </ngb-alert>
-</p>
+<div class="bn-alert">
+  <div *ngFor="let alert of messageService.alerts">
+    <ngb-alert *ngIf="!staticAlertClosed" [type]="alert.type" (close)="messageService.onClosed(alert)">
+      <div class="row">
+        <div class="col-sm-12">
+          <i class="{{alert.icon}}"></i> <strong class="ml-2">{{alert.title}}</strong>
+        </div>
+        <div class="col-sm-12 text-alert">
+          {{ alert.msg }}
+        </div>
+      </div>
+    </ngb-alert>
+  </div>
+</div>
+<style>
+  .bn-alert {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 1051; /* On 4: jDialog */
+    max-width: 350px;
+  }
+  .bn-alert .alert {
+    box-shadow: 0px 0px 10px silver;
+  }
+  .text-alert {
+    font-size: 0.8rem;
+    padding-right: 0px;
+  }
+</style>

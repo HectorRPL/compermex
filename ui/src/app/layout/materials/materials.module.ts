@@ -13,7 +13,6 @@ import {MaterialsMastersMasterFormComponent} from './components/materials-master
 import {AddMaterialMasterComponent} from './views/add-material-master/add-material-master.component';
 import {SearchesModule} from '../searches/searches.module';
 import { MaterialsPaperboardFormComponent } from './components/materials-paperboard-form/materials-paperboard-form.component';
-import { AddMaterialPaperboardComponent } from './views/add-material-paperboard/add-material-paperboard.component';
 
 @NgModule({
   imports: [
@@ -33,8 +32,7 @@ import { AddMaterialPaperboardComponent } from './views/add-material-paperboard/
     ListMaterialSelectedComponent,
     MaterialsMastersMasterFormComponent,
     AddMaterialMasterComponent,
-    MaterialsPaperboardFormComponent,
-    AddMaterialPaperboardComponent
+    MaterialsPaperboardFormComponent
   ]
 })
 export class MaterialsModule {

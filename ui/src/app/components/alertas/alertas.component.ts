@@ -9,13 +9,8 @@ import {Alert} from "../../models/alerts/alert.model";
 })
 export class AlertasComponent implements OnInit {
 
-  constructor(public messageServ: MessagesService) { }
+  constructor(public messageService: MessagesService) { }
 
   ngOnInit() {
   }
-
-  close(alert: Alert){
-    this.messageServ.close(alert);
-  }
-
 }

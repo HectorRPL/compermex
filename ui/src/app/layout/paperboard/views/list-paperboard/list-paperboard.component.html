@@ -9,8 +9,14 @@
         </div>
       </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-4">
       <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+      <div>
+        <button type="button" class="btn btn-primary btn-sm btn-action"
+                [routerLink]="['/layout/paperboard/add']"> Nuevo </button>
+      </div>
     </div>
   </div>
   <table class="table table-striped">
@@ -41,9 +47,9 @@
     <div>
       Resultados:
       <select class="custom-select custom-select-sm" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-        <option [ngValue]="25"> 25 </option>
-        <option [ngValue]="50"> 50 </option>
-        <option [ngValue]="100"> 100 </option>
+        <option [ngValue]="15"> 15 </option>
+        <option [ngValue]="30"> 30 </option>
+        <option [ngValue]="45"> 45 </option>
       </select>
     </div>
   </div>

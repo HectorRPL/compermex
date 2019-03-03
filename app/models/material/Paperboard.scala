@@ -8,7 +8,7 @@ import reactivemongo.play.json._
 case class Paperboard(
                        _id: Option[BSONObjectID],
                        code: Int,
-                       description: String,
+                       description: Option[String],
                        typeId: Option[BSONObjectID],
                        strengthId: Option[BSONObjectID],
                        colorId: Option[BSONObjectID]

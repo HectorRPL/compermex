@@ -27,7 +27,7 @@ class MaterialsController @Inject()(
     }
   }
 
-  def searchColors(name: Option[String]) = Action.async {
+  def searchColors(name: String) = Action.async {
     val query = Json.obj(
       "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
     val sort = Json.obj("description" -> -1)
@@ -48,7 +48,7 @@ class MaterialsController @Inject()(
     }
   }
 
-  def searchTypes(name: Option[String]) = Action.async {
+  def searchTypes(name: String) = Action.async {
     val query = Json.obj(
       "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
     val sort = Json.obj("description" -> -1)
@@ -69,7 +69,7 @@ class MaterialsController @Inject()(
     }
   }
 
-  def searchStrengths(name: Option[String]) = Action.async {
+  def searchStrengths(name: String) = Action.async {
     val query = Json.obj(
       "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
 

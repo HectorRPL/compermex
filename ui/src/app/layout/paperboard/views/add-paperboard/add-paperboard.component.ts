@@ -27,8 +27,7 @@ export class AddPaperboardComponent implements OnInit {
 
       if (result !== null) {
         this.paperboard = result;
-        this.messagesService.add(new Alert('success',
-          'Los cambios han sido guardados correctamente. ID: ' + this.paperboard._id.$oid, ''));
+        this.messagesService.success('Los cambios han sido guardados correctamente. ID: ' + this.paperboard._id.$oid);
       }
     });
   }
