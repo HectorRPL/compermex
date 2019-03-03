@@ -12,6 +12,8 @@ trait PaperboardsService {
   def getAll(query: JsObject, sort: JsObject,
              pag: Pagination): Future[Seq[Paperboard]]
 
+  def count(query: JsObject): Future[Int]
+
   def save(paperboard: Paperboard): Future[Paperboard]
 
   def getOne(_id: BSONObjectID): Future[Option[Paperboard]]

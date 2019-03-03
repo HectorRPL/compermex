@@ -5,9 +5,7 @@ import {Paperboard} from "../../models/paperboard/paperboard.model";
 import {Observable} from "rxjs/Rx";
 import {catchError} from "rxjs/internal/operators";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PaperboardService {
 
   private handleError: HandleError;

@@ -20,6 +20,10 @@ class PaperboardsServiceImpl @Inject()(
     paperboardsDAO.getList(query, sort, pag)
   }
 
+  def count(query: JsObject): Future[Int] = {
+    paperboardsDAO.count(query)
+  }
+
   def save(paperboard: Paperboard): Future[Paperboard] = {
     paperboardsDAO.save(paperboard)
   }

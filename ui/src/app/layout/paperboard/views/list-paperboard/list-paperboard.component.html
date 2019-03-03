@@ -1,0 +1,51 @@
+<form autocomplete="off">
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <div class="input-group input-group-sm mb-3">
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
+            name="searchTerm" placeholder="Buscar" [(ngModel)]="service.searchTerm">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-search"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Descripción</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let paperboard of paperboards$ | async; let i = index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{paperboard.description}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="total$ | async"
+      [(page)]="service.page"
+      [pageSize]="service.pageSize"
+      [maxSize]="5"
+      [rotate]="true"
+      [boundaryLinks]="true">
+    </ngb-pagination>
+
+    <div>
+      Resultados:
+      <select class="custom-select custom-select-sm" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+        <option [ngValue]="25"> 25 </option>
+        <option [ngValue]="50"> 50 </option>
+        <option [ngValue]="100"> 100 </option>
+      </select>
+    </div>
+  </div>
+
+</form>
