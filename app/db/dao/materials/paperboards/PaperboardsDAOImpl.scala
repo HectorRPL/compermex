@@ -15,7 +15,7 @@ import scala.concurrent.Future
 
 class PaperboardsDAOImpl @Inject()(
                                     val reactiveMongoApi: ReactiveMongoApi
-                                  )extends PaperboardsDAO {
+                                  ) extends PaperboardsDAO {
 
   def collection: Future[JSONCollection] =
     reactiveMongoApi.database.map(_.collection("paperboards"))
@@ -29,6 +29,10 @@ class PaperboardsDAOImpl @Inject()(
       .cursor[Paperboard](ReadPreference.primary)
       .collect[Seq](pag.limit, Cursor.FailOnError[Seq[Paperboard]]())
     )
+  }
+
+  def count(query: JsObject): Future[Int] = {
+    collection.flatMap(_.count(Some(query)))
   }
 
   def getOne(_id: BSONObjectID): Future[Option[Paperboard]] = {

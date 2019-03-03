@@ -35,7 +35,7 @@ export class PaperboardPageService {
         // this.ngxService.startLoader('loader-01');
       }),
       debounceTime(400),
-      switchMap(() => this.fn_paginator()),
+      switchMap(() => this.fn_search()),
       delay(0),
       tap(() => {
         this._loading$.next(false);
@@ -43,16 +43,38 @@ export class PaperboardPageService {
       })
     ).subscribe(response => {
       this._result$.next(response);
-      this._total$.next(100);
+    });
+
+    this._search$.pipe(
+      tap(() => {
+        this._loading$.next(true);
+        // this.ngxService.startLoader('loader-01');
+      }),
+      debounceTime(400),
+      switchMap(() => this.fn_count()),
+      delay(0),
+      tap(() => {
+        this._loading$.next(false);
+        // this.ngxService.stopLoader('loader-01');
+      })
+    ).subscribe(response => {
+      this._total$.next(response);
     });
 
     this._search$.next();
   }
 
-  private fn_paginator(): Observable<Paperboard[]> {
+  private fn_search(): Observable<Paperboard[]> {
     return this.http.get<Paperboard[]>(`/paperboards/search?name=${this._pagination.searchTerm}&curPage=${this._pagination.page}&pageSize=${this._pagination.pageSize}`)
       .pipe(
-        catchError(this.handleError('search', []))
+        catchError(this.handleError('fn_search', []))
+      );
+  }
+
+  private fn_count(): Observable<number> {
+    return this.http.get<number>(`/paperboards/count?name=${this._pagination.searchTerm}`)
+      .pipe(
+        catchError(this.handleError('fn_count', 0))
       );
   }
 

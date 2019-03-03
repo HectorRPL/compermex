@@ -8,7 +8,7 @@ import {PaperboardPageService} from '../../../../services/paperboard/paperboard-
   templateUrl: './list-paperboard.component.html',
   styleUrls: ['./list-paperboard.component.css']
 })
-export class ListPaperboardComponent implements OnInit {
+export class ListPaperboardComponent {
 
   paperboards$: Observable<Paperboard[]>;
   total$: Observable<number>;
