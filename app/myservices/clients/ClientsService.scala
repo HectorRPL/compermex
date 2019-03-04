@@ -13,4 +13,5 @@ trait ClientsService {
 
   def save(client: Client): Future[Client]
 
+
 }

@@ -19,4 +19,6 @@ trait ClientsDAO {
   def remove(_id: BSONObjectID): Future[Unit]
 
   def update(query: JsObject, data: JsObject): Future[Unit]
+
+  def count(query: JsObject):Future[Int]
 }

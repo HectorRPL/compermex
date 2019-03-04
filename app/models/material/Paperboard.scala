@@ -11,7 +11,10 @@ case class Paperboard(
                        description: Option[String],
                        typeId: Option[BSONObjectID],
                        strengthId: Option[BSONObjectID],
-                       colorId: Option[BSONObjectID]
+                       colorId: Option[BSONObjectID],
+                       color: Option[Color],
+                       strength: Option[Strengths],
+                       typeMaterial: Option[Type],
                      )
 
 object Paperboard {

@@ -9,11 +9,12 @@ import reactivemongo.api.{Cursor, ReadPreference}
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import reactivemongo.play.json._
 import reactivemongo.play.json.collection.JSONCollection
+import reactivemongo.play.json.collection.JSONBatchCommands.AggregationFramework.{Lookup, Match, UnwindField}
 
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 
 class PaperboardsDAOImpl @Inject()(
+                                    implicit ec: ExecutionContext,
                                     val reactiveMongoApi: ReactiveMongoApi
                                   ) extends PaperboardsDAO {
 
@@ -23,12 +24,19 @@ class PaperboardsDAOImpl @Inject()(
   def getList(query: JsObject, sort: JsObject,
               pag: Pagination): Future[Seq[Paperboard]] = {
 
-    collection.flatMap(_.find(query)
-      .skip(pag.skip)
-      .sort(sort)
-      .cursor[Paperboard](ReadPreference.primary)
-      .collect[Seq](pag.limit, Cursor.FailOnError[Seq[Paperboard]]())
-    )
+    collection.flatMap(_.aggregatorContext[Paperboard](
+      Match(query),
+      List(Lookup("colors", "colorId", "_id", "color"),
+        Lookup("strengths", "strengthId", "_id", "strength"),
+        Lookup("types", "typeId", "_id", "typeMaterial"),
+        UnwindField("color"),
+        UnwindField("strength"),
+        UnwindField("typeMaterial")
+      )
+    ).prepared.cursor
+      .collect[Seq](pag.limit, Cursor
+      .FailOnError[Seq[Paperboard]]()))
+
   }
 
   def count(query: JsObject): Future[Int] = {
@@ -49,4 +57,5 @@ class PaperboardsDAOImpl @Inject()(
   def remove(_id: BSONObjectID): Future[Unit] = ???
 
   def update(query: JsObject, data: JsObject): Future[Unit] = ???
+
 }

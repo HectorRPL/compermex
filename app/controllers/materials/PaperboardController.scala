@@ -17,18 +17,24 @@ class PaperboardController @Inject()(
   extends AbstractController(cc)
     with I18nSupport {
 
-  def paperboars(name: Option[String], curPage: Int, pageSize: Int) = Action.async {
-    val regex =  name match {
-      case None => Json.obj("$regex" -> "")
-      case _ => Json.obj("$regex" -> name)
-    }
-    val query = Json.obj("description" -> regex)
-    val sort = Json.obj("description" -> -1)
+  def paperboars(name: String, curPage: Int, pageSize: Int) = Action.async {
+    val query = Json.obj(
+      "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
 
+    val sort = Json.obj("description" -> -1)
     val pag = Pagination.fromPages(curPage, pageSize)
 
     paperboardsService.getAll(query, sort, pag).map { paperBoards =>
       Ok(Json.toJson(paperBoards))
+    }
+  }
+
+  def count(name: String) = Action.async {
+    val query = Json.obj(
+      "description" -> Json.obj("$regex" -> name, "$options" -> "i" ))
+
+    paperboardsService.count(query).map { result =>
+      Ok(Json.toJson(result))
     }
   }
 

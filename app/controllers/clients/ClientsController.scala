@@ -48,4 +48,5 @@ class ClientsController  @Inject()(
       Ok(Json.toJson(clients))
     }
   }
+
 }
