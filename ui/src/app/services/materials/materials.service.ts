@@ -22,28 +22,28 @@ export class MaterialsService {
   }
 
   searchMaterials(name: String): Observable<Material[]> {
-    return this.http.get<Material[]>(`/materials/search/${name}`)
+    return this.http.get<Material[]>(`/materials/search?name=${name}`)
       .pipe(
         catchError(this.handleError('searchMaterials', []))
       );
   }
 
   searchColors(name: String): Observable<Color[]> {
-    return this.http.get<Color[]>(`/materials/colors/search/${name}`)
+    return this.http.get<Color[]>(`/materials/colors/search?name=${name}`)
       .pipe(
         catchError(this.handleError('searchColors', []))
       );
   }
 
   searchStrengths(name: String): Observable<Strength[]> {
-    return this.http.get<Strength[]>(`/materials/strengths/search/${name}`)
+    return this.http.get<Strength[]>(`/materials/strengths/search?name=${name}`)
       .pipe(
         catchError(this.handleError('searchStrengths', []))
       );
   }
 
   searchTypes(name: String): Observable<Type[]> {
-    return this.http.get<Type[]>(`/materials/types/search/${name}`)
+    return this.http.get<Type[]>(`/materials/types/search?name=${name}`)
       .pipe(
         catchError(this.handleError('searchTypes', []))
       );

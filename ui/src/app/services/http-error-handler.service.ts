@@ -43,8 +43,7 @@ export class HttpErrorHandlerService {
 
       // TODO: better job of transforming error for user consumption
 
-      this.messagesServ.add(new Alert('dange',
-        `${serviceName}: ${operation} failed: ${message}`, ''));
+      this.messagesServ.danger(`${serviceName}: ${operation} failed: ${message}`);
 
       // Let the app keep running by returning a safe result.
       return of( result );

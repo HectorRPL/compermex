@@ -1,11 +1,17 @@
 export class Alert {
+  title: string;
+  msg: string;
   type: string;
-  message: string;
-  icon?: string;
+  icon: string;
 
-  constructor(type: string, message: string, icon: string) {
+  staticAlertClosed: boolean;
+
+  constructor(title: string, msg: string, type: string, icon: string) {
+    this.title = title;
+    this.msg = msg;
     this.type = type;
-    this.message = message;
     this.icon = icon;
+
+    this.staticAlertClosed = false;
   }
 }

@@ -2,42 +2,42 @@
   <div class="form row">
     <div class="col-sm-12 my-3">
       <div class="card">
-        <div class="card-header"> Crear cartón </div>
+        <div class="card-header">
+          Crear cartón: <label class="font-weight-bold mb-0">{{description}}</label>
+        </div>
         <div class="card-body">
           <div class="row">
-            <div class="form-group col-md-12">
-              <label for="descriptionId">Descripción</label>
-              <input id="descriptionId" class="form-control form-control-sm" type="text" placeholder="Ingrese"
-                     [ngClass]="{'is-invalid': description.invalid && (description.dirty || description.touched)}"
-                     formControlName="description" />
-              <div *ngIf="description.invalid && (description.dirty || description.touched)">
-                <div class="text-danger small" *ngIf="description.errors.required">Requerido</div>
-              </div>
-            </div>
-            <div class="form-group col-sm-4 col-md-4">
-              <app-material-colors-search
-                [parentFormGroup]="paperboardForm">
-              </app-material-colors-search>
-            </div>
             <div class="form-group col-sm-4 col-md-4">
               <app-material-strengths-search
-                [parentFormGroup]="paperboardForm">
+                [parentFormGroup]="paperboardForm"
+                (update)="fn_updateStrength($event);">
               </app-material-strengths-search>
             </div>
             <div class="form-group col-sm-4 col-md-4">
               <app-material-types-search
-                [parentFormGroup]="paperboardForm">
+                [parentFormGroup]="paperboardForm"
+                (update)="fn_updateType($event);">
               </app-material-types-search>
+            </div>
+            <div class="form-group col-sm-4 col-md-4">
+              <app-material-colors-search
+                [parentFormGroup]="paperboardForm"
+                (update)="fn_updateColor($event);">
+              </app-material-colors-search>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="d-flex justify-content-end">
+              <div class="d-flex justify-content-between">
                 <button type="submit" class="btn btn-default btn-sm btn-action mr-1"
-                        (click)="fn_reset();"> Limpiar </button>
-                <button type="submit" class="btn btn-primary btn-sm btn-action"
-                        [disabled]="paperboardForm.invalid"
-                        (click)="fn_saveOrUpdate();"> Guardar </button>
+                        [routerLink]="['/layout/paperboard/list']"> Regresar </button>
+                <div class="d-flex justify-content-end">
+                  <button type="submit" class="btn btn-default btn-sm btn-action mr-1"
+                          (click)="fn_reset();"> Limpiar </button>
+                  <button type="submit" class="btn btn-primary btn-sm btn-action"
+                          [disabled]="paperboardForm.invalid"
+                          (click)="fn_saveOrUpdate();"> Guardar </button>
+                </div>
               </div>
             </div>
           </div>
