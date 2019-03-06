@@ -1,8 +1,12 @@
 @import "assets/styles/style";
 
-// OBLIGATIO HASTA EN OTROS PROYECETOS
 select {
   cursor: pointer;
+}
+
+/* Controls */
+.control-action {
+  min-width: 100px;
 }
 
 /* Buttons */
