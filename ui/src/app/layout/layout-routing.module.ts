@@ -28,6 +28,11 @@ const routes: Routes = [
         data: {preload: false}
       },
       {
+        path: 'factor',
+        loadChildren: './factor/factor.module#FactorModule',
+        data: {preload: false}
+      },
+      {
         path: 'employees',
         loadChildren: './employees/employees.module#EmployeesModule',
         data: {preload: false}

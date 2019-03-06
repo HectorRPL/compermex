@@ -89,6 +89,16 @@
           </li>
         </ul>
       </li>
+      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+        <a href="#"><i class="fas fa-box-open"></i>
+          <span class="nav-label">Factores</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span> </a>
+        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/factor/list']">Lista</a>
+          </li>
+        </ul>
+      </li>
       <!-- TODO => Esta navegación se tiene que repensar
       <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-file-invoice-dollar"></i>

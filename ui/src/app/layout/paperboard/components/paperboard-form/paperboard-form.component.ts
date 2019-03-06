@@ -19,7 +19,7 @@ export class PaperboardFormComponent implements OnInit {
 
   public paperboardForm: FormGroup;
 
-  public description: String;
+  public description: string;
   public _strength: Strength;
   public _type: Type;
   public _color: Color;

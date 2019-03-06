@@ -64,12 +64,12 @@ export class FactorPageService {
   }
 
   private fn_search(): Observable<Factor[]> {
-    const params: HttpParams = new HttpParams();
-    params.set('name', this._pagination.searchTerm);
-    params.set('curPage', this._pagination.page);
-    params.set('pageSize', this._pagination.pageSize);
+    const params: HttpParams = new HttpParams()
+      .set('name', this._pagination.searchTerm)
+      .set('curPage', this._pagination.page)
+      .set('pageSize', this._pagination.pageSize);
 
-    return this.http.get<Factor[]>('/paperboards/search', {params})
+    return this.http.get<Factor[]>('/factor/search', {params})
       .pipe(
         catchError(this.handleError('fn_search', []))
       );
@@ -79,7 +79,7 @@ export class FactorPageService {
     const params: HttpParams = new HttpParams();
     params.set('name', this._pagination.searchTerm);
 
-    return this.http.get<number>('/paperboards/count', {params})
+    return this.http.get<number>('/factor/count', {params})
       .pipe(
         catchError(this.handleError('fn_count', 0))
       );
