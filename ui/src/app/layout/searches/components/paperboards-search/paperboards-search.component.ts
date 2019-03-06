@@ -5,6 +5,8 @@ import {of} from 'rxjs/observable/of';
 import {CardboardsService} from "../../../../services/cardboards/cardboards.service";
 import {Paperboard} from "../../../../models/paperboard/paperboard.model";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {PaperboardService} from '../../../../services/paperboard/paperboard.service';
+import {HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'app-paperboards-search',
@@ -19,7 +21,7 @@ export class PaperboardsSearchComponent {
   searching = false;
   searchFailed = false;
 
-  constructor(private cardboardsService: CardboardsService,
+  constructor(private paperboardServ: PaperboardService,
               private formBuilder: FormBuilder) {
 
   }
@@ -46,12 +48,13 @@ export class PaperboardsSearchComponent {
       distinctUntilChanged(),
       tap(() => this.searching = true),
       switchMap(term =>
-        this.cardboardsService.searchPaperboard(term.toUpperCase()).pipe(
-          tap(() => this.searchFailed = false),
-          catchError(() => {
-            this.searchFailed = true;
-            return of([]);
-          }))
+        this.paperboardServ.get(this.buildHttParams(term))
+          .pipe(
+            tap(() => this.searchFailed = false),
+            catchError(() => {
+              this.searchFailed = true;
+              return of([]);
+            }))
       ),
       tap(() => this.searching = false)
     );
@@ -76,6 +79,11 @@ export class PaperboardsSearchComponent {
       this.sendStatusForm.emit(value);
 
     }
+  }
+
+  buildHttParams(term: string) {
+    return new HttpParams()
+    .set('name', term);
   }
 
 }

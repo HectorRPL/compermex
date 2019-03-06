@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import {HandleError, HttpErrorHandlerService} from "../http-error-handler.service";
-import {HttpClient} from "@angular/common/http";
-import {Paperboard} from "../../models/paperboard/paperboard.model";
-import {Observable} from "rxjs/Rx";
-import {catchError} from "rxjs/internal/operators";
+import {Injectable} from '@angular/core';
+import {HandleError, HttpErrorHandlerService} from '../http-error-handler.service';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Paperboard} from '../../models/paperboard/paperboard.model';
+import {Observable} from 'rxjs/Rx';
+import {catchError} from 'rxjs/internal/operators';
 
 @Injectable()
 export class PaperboardService {
@@ -19,6 +19,14 @@ export class PaperboardService {
     return this.http.post<Paperboard>('/add/paperboard', paperboard)
       .pipe(
         catchError(this.handleError('add', null))
+      );
+  }
+
+  get(params?: HttpParams): Observable<Paperboard[]> {
+    console.log(params);
+    return this.http.get<Paperboard[]>('/paperboards/search', {params})
+      .pipe(
+        catchError(this.handleError('getPaperboards', []))
       );
   }
 }

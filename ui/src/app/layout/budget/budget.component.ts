@@ -21,6 +21,7 @@ export class BudgetComponent implements OnInit {
   public showAll: boolean;
   public bancadasProvee: any[];
   public bancadasMaq: any[];
+  public  selectBoxType: BoxType;
 
 
 
@@ -169,6 +170,11 @@ export class BudgetComponent implements OnInit {
     const m1 = ((large + width) *2) + 6.5;
     const m2 = (width + depth + 3.2);
     return m1*m2
+  }
+
+  f1(event){
+    console.log(this.selectBoxType);
+    console.log(event);
   }
 
 
