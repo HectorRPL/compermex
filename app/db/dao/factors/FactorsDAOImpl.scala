@@ -1,13 +1,14 @@
 package db.dao.factors
 
 import javax.inject.Inject
-
 import models.Pagination
 import models.factor.Factor
 import play.api.libs.json.JsObject
 import play.modules.reactivemongo.ReactiveMongoApi
+import reactivemongo.api.Cursor
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import reactivemongo.play.json.collection.JSONCollection
+import reactivemongo.play.json.collection.JSONBatchCommands.AggregationFramework.{Lookup, Match, UnwindField, Skip, Limit}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -19,7 +20,24 @@ class FactorsDAOImpl @Inject()(
     reactiveMongoApi.database.map(_.collection("factors"))
 
   def getList(query: JsObject, sort: JsObject,
-              pag: Pagination): Future[Seq[Factor]] = ???
+              pag: Pagination): Future[Seq[Factor]] = {
+
+    collection.flatMap(_.aggregatorContext[Factor](
+      Match(query),
+      List(
+        Skip(pag.skip), // <-- skip some states if offset > 0
+        Limit(pag.limit),
+        Lookup("boxesTypes", "boxTypeId", "_id", "boxType"),
+        Lookup("strengths", "strengthId", "_id", "strength"),
+        Lookup("types", "typeId", "_id", "typeMaterial"),
+        UnwindField("boxType"),
+        UnwindField("strength"),
+        UnwindField("typeMaterial")
+      )
+    ).prepared.cursor
+      .collect[Seq](pag.limit, Cursor.FailOnError[Seq[Factor]]()))
+
+  }
 
   def count(query: JsObject): Future[Int] = {
     collection.flatMap(_.count(Some(query)))
