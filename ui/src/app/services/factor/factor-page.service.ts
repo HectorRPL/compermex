@@ -66,8 +66,8 @@ export class FactorPageService {
   private fn_search(): Observable<Factor[]> {
     const params: HttpParams = new HttpParams()
       .set('name', this._pagination.searchTerm)
-      .set('curPage', this._pagination.page)
-      .set('pageSize', this._pagination.pageSize);
+      .set('curPage', String(this._pagination.page))
+      .set('pageSize', String(this._pagination.pageSize));
 
     return this.http.get<Factor[]>('/factor/search', {params})
       .pipe(
