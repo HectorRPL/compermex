@@ -3,14 +3,14 @@
     <div class="col-sm-12 my-3">
       <div class="card">
         <div class="card-header">
-          Lista de cartones
+          Lista de factores
         </div>
         <div class="card-body">
           <div class="row mt-3">
             <div class="col-md-6">
               <div class="input-group input-group-sm mb-3">
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
-                    name="searchTerm" placeholder="Buscar" [(ngModel)]="service.searchTerm">
+                       name="searchTerm" placeholder="Buscar" [(ngModel)]="service.searchTerm">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-search"></i></span>
                 </div>
@@ -22,7 +22,7 @@
             <div class="col-md-4 d-flex justify-content-end">
               <div>
                 <button type="button" class="btn btn-primary btn-sm btn-action"
-                        [routerLink]="['/layout/paperboard/add']"> Nuevo </button>
+                        [routerLink]="['/layout/factor/add']"> Nuevo </button>
               </div>
             </div>
           </div>
@@ -30,13 +30,13 @@
             <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Descripción</th>
+              <th scope="col">Factor 1</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let paperboard of paperboards$ | async; let i = index">
+            <tr *ngFor="let factor of factors$ | async; let i = index">
               <th scope="row">{{i + 1}}</th>
-              <td>{{paperboard.description}}</td>
+              <td>{{factor.factor1}}</td>
             </tr>
             </tbody>
           </table>

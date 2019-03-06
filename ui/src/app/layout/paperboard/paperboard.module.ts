@@ -2,9 +2,9 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CustomersRoutingModule} from './paperboard-routing.module';
-import { AddPaperboardComponent } from './views/add-paperboard/add-paperboard.component';
-import { ListPaperboardComponent } from './views/list-paperboard/list-paperboard.component';
+import {PaperboardsRoutingModule} from './paperboard-routing.module';
+import {AddPaperboardComponent} from './views/add-paperboard/add-paperboard.component';
+import {ListPaperboardComponent}  from './views/list-paperboard/list-paperboard.component';
 import {SearchesModule} from "../searches/searches.module";
 import {PaperboardComponent} from "./components/paperboard/paperboard.component";
 import {PaperboardFormComponent} from "./components/paperboard-form/paperboard-form.component";
@@ -15,7 +15,7 @@ import {PaperboardPageService} from '../../services/paperboard/paperboard-page.s
   imports: [
     CommonModule,
     NgbModule,
-    CustomersRoutingModule,
+    PaperboardsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     SearchesModule

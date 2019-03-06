@@ -5,7 +5,7 @@ import {MessagesService} from "../../../../services/message/messages.service";
 import {Alert} from "../../../../models/alerts/alert.model";
 
 @Component({
-  selector: 'app-add-cardboard',
+  selector: 'app-add-paperboard',
   templateUrl: './add-paperboard.component.html',
   styleUrls: ['./add-paperboard.component.css']
 })

@@ -4,7 +4,7 @@ import {Paperboard} from '../../../../models/paperboard/paperboard.model';
 import {PaperboardPageService} from '../../../../services/paperboard/paperboard-page.service';
 
 @Component({
-  selector: 'app-list-cardboards',
+  selector: 'app-list-paperboard',
   templateUrl: './list-paperboard.component.html',
   styleUrls: ['./list-paperboard.component.css']
 })

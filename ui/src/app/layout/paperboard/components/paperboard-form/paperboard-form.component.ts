@@ -19,7 +19,7 @@ export class PaperboardFormComponent implements OnInit {
 
   public paperboardForm: FormGroup;
 
-  public description: String;
+  public description: string;
   public _strength: Strength;
   public _type: Type;
   public _color: Color;
@@ -76,10 +76,10 @@ export class PaperboardFormComponent implements OnInit {
   private updateDescription(): void {
     this.description = '';
     if (this._strength) {
-      this.description += this._strength.description + ' - ';
+      this.description += this._strength.description + ' ';
     }
     if (this._type) {
-      this.description += this._type.description + ' - ';
+      this.description += this._type.description + ' ';
     }
     if (this._color) {
       this.description += this._color.description;
@@ -92,6 +92,7 @@ export class PaperboardFormComponent implements OnInit {
   }
 
   fn_saveOrUpdate() {
+    this.paperboard.description = this.description;
     this.paperboard.strengthId = this.paperboardForm.value.strength._id;
     this.paperboard.typeId = this.paperboardForm.value.type._id;
     this.paperboard.colorId = this.paperboardForm.value.color._id;

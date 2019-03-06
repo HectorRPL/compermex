@@ -1,25 +1,24 @@
 package models.factor
 
-import play.api.libs.json.{Json, OFormat}
+import models.box.BoxType
+import models.material.{Strengths, Type}
+
+import play.api.libs.json._
 import reactivemongo.bson.BSONObjectID
 import reactivemongo.play.json._
 
 case class Factor (
-                  _id: Option[BSONObjectID],
-                  factor1: Double,
-                  factor2: Double,
-                  factor3: Double,
-                  minPrice:Double,
-                  ray: Double,
-                  gra: Double,
-                  pegman: Double,
-                  imp: Double,
-                  peg: Double,
-                  tro: Double,
-                  emb: Double,
+                    _id: Option[BSONObjectID],
+                    factor1: Double,
+                    factor2: Double,
+                    factor3: Double,
+                    strengthId: Option[BSONObjectID],
+                    boxTypeId: Option[BSONObjectID],
+                    typeId: Option[BSONObjectID],
+                    strength: Option[Strengths],
+                    boxType: Option[BoxType],
+                    typeMaterial: Option[Type]
                   )
 object Factor {
-
   implicit val factorFormat: OFormat[Factor] = Json.format[Factor]
-
 }
