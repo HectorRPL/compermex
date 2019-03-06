@@ -20,10 +20,25 @@ class FactorController @Inject()(
 
   def factors(name: String, curPage: Int, pageSize: Int) = Action.async {
 
-    val query = Json.obj(
-      "factor1" -> Json.obj("$regex" -> name, "$options" -> "i" ))
+    val query = Json.obj("$or" ->
+      Json.arr(
+        Json.obj(
+          "typeMaterial.description" ->
+            Json.obj(
+              "$regex" -> name,
+              "$options" -> "i"
+            )
+        ),
+        Json.obj("boxType.description" ->
+          Json.obj(
+            "$regex" -> name,
+            "$options" -> "i"
+          )
+        )
+      )
+    )
 
-    val sort = Json.obj("description" -> -1)
+    val sort = Json.obj("type.description" -> -1)
     val pag = Pagination.fromPages(curPage, pageSize)
 
     factorsService.getAll(query, sort, pag).map { factor =>
@@ -33,7 +48,7 @@ class FactorController @Inject()(
 
   def count(name: String) = Action.async {
     val query = Json.obj(
-      "factor1" -> Json.obj("$regex" -> name, "$options" -> "i" ))
+      "factor1" -> Json.obj("$regex" -> name, "$options" -> "i"))
 
     factorsService.count(query).map { result =>
       Ok(Json.toJson(result))

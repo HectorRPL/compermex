@@ -62,5 +62,8 @@ GET     /area/:areaId       controllers.areas.AreasController.one(areaId: reacti
 #ROUTES FOR ZIPCODES
 GET     /colonies/:code         controllers.zipCodes.ZipCodesController.colonies(code: String)
 
+#ROUTES FOR FACTORS
+GET /factors               controllers.factors.FactorController.factors(name: String ?= "", curPage: Int ?= 1, pageSize: Int ?= 50)
+
 # Serve static assets under public directory
 GET     /*file                  controllers.FrontendController.assetOrDefault(file)

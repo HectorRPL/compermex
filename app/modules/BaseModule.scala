@@ -9,6 +9,7 @@ import db.dao.boxes.{BoxesDAO, BoxesDAOImpl}
 import db.dao.clients.{ClientsDAO, ClientsDAOImpl}
 import db.dao.companies.{CompaniesDAO, CompaniesDAOImpl}
 import db.dao.employees.{EmployeesDAO, EmployeesDAOImpl}
+import db.dao.factors.{FactorsDAO, FactorsDAOImpl}
 import db.dao.fiscalData.{FiscalDataDAO, FiscalDataDAOImpl}
 import db.dao.materials.paperboards.{PaperboardsDAO, PaperboardsDAOImpl}
 import db.dao.materials.{MaterialsDAO, MaterialsDAOImpl}
@@ -23,6 +24,7 @@ import myservices.boxes.{BoxesService, BoxesServiceImpl}
 import myservices.clients.{ClientsService, ClientsServiceImpl}
 import myservices.companies.{CompaniesService, CompaniesServiceImpl}
 import myservices.employees.{EmployeesService, EmployeesServiceImpl}
+import myservices.factors.{FactorsService, FactorsServiceImpl}
 import myservices.fiscalData.{FiscalDataService, FiscalDataServiceImpl}
 import myservices.materials.{MaterialsService, MaterialsServiceImpl, PaperboardsService, PaperboardsServiceImpl}
 import myservices.purchases.{PurchasesService, PurchasesServiceImpl}
@@ -96,5 +98,9 @@ class BaseModule extends AbstractModule with ScalaModule {
     //DI for Fiscal Data
     bind[FiscalDataService].to[FiscalDataServiceImpl]
     bind[FiscalDataDAO].to[FiscalDataDAOImpl]
+
+    //DI For factors
+    bind[FactorsService].to[FactorsServiceImpl]
+    bind[FactorsDAO].to[FactorsDAOImpl]
   }
 }

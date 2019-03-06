@@ -8,8 +8,9 @@ import play.modules.reactivemongo.ReactiveMongoApi
 import reactivemongo.api.Cursor
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import reactivemongo.play.json._
+import reactivemongo.play.json.collection.JSONBatchCommands.AggregationFramework.{
+  Limit, Lookup, Skip, UnwindField, Match}
 import reactivemongo.play.json.collection.JSONCollection
-import reactivemongo.play.json.collection.JSONBatchCommands.AggregationFramework.{Lookup, Match, UnwindField, Skip, Limit}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -19,18 +20,18 @@ class FactorsDAOImpl @Inject()(
                               ) extends FactorsDAO {
   def collection: Future[JSONCollection] =
     reactiveMongoApi.database.map(_.collection("factors"))
-
   def getList(query: JsObject, sort: JsObject,
               pag: Pagination): Future[Seq[Factor]] = {
+
+    println(query)
+
     collection.flatMap(_.aggregatorContext[Factor](
-      Lookup("strengths", "strengthId", "_id", "strength"),
+      Lookup("types", "typeId", "_id", "typeMaterial"),
       List(
+        Lookup("boxesTypes", "boxTypeId", "_id", "boxType"),
         Skip(pag.skip), // <-- skip some states if offset > 0
         Limit(pag.limit),
-        Lookup("boxesTypes", "boxTypeId", "_id", "boxType"),
-        Lookup("types", "typeId", "_id", "typeMaterial"),
         UnwindField("boxType"),
-        UnwindField("strength"),
         UnwindField("typeMaterial"),
         Match(
           query
