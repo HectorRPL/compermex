@@ -18,7 +18,6 @@ class BudgetController  @Inject()(
     request.body.validate[BudgetForm].map { formData =>
 
 
-
     }.recoverTotal {
       case error =>{
         Future.successful(BadRequest(Json.obj("message" -> Messages("invalid.data"))))
