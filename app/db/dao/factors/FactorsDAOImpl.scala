@@ -7,6 +7,7 @@ import play.api.libs.json.JsObject
 import play.modules.reactivemongo.ReactiveMongoApi
 import reactivemongo.api.Cursor
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
+import reactivemongo.play.json._
 import reactivemongo.play.json.collection.JSONCollection
 import reactivemongo.play.json.collection.JSONBatchCommands.AggregationFramework.{Lookup, Match, UnwindField, Skip, Limit}
 

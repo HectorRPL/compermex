@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HandleError, HttpErrorHandlerService} from '../http-error-handler.service';
 import {BehaviorSubject, Observable, Subject} from 'rxjs/Rx';
 import {Factor} from '../../models/factor/factor.model';
@@ -66,10 +66,10 @@ export class FactorPageService {
   private fn_search(): Observable<Factor[]> {
     const params: HttpParams = new HttpParams();
     params.set('name', this._pagination.searchTerm);
-    params.set('curPage', String(this._pagination.page));
-    params.set('pageSize', String(this._pagination.pageSize));
+    params.set('curPage', this._pagination.page);
+    params.set('pageSize', this._pagination.pageSize);
 
-    return this.http.get<Factor[]>('/paperboards/search', params)
+    return this.http.get<Factor[]>('/paperboards/search', {params})
       .pipe(
         catchError(this.handleError('fn_search', []))
       );
@@ -79,24 +79,45 @@ export class FactorPageService {
     const params: HttpParams = new HttpParams();
     params.set('name', this._pagination.searchTerm);
 
-    return this.http.get<number>('/paperboards/count', params)
+    return this.http.get<number>('/paperboards/count', {params})
       .pipe(
         catchError(this.handleError('fn_count', 0))
       );
   }
 
-  get result$() { return this._result$.asObservable(); }
-  get total$() { return this._total$.asObservable(); }
-  get loading$() { return this._loading$.asObservable(); }
-  get page() { return this._pagination.page; }
-  get pageSize() { return this._pagination.pageSize; }
-  get searchTerm() { return this._pagination.searchTerm; }
+  get result$() {
+    return this._result$.asObservable();
+  }
 
-  set page(page: number) { this._set({page}); }
+  get total$() {
+    return this._total$.asObservable();
+  }
+
+  get loading$() {
+    return this._loading$.asObservable();
+  }
+
+  get page() {
+    return this._pagination.page;
+  }
+
+  get pageSize() {
+    return this._pagination.pageSize;
+  }
+
+  get searchTerm() {
+    return this._pagination.searchTerm;
+  }
+
+  set page(page: number) {
+    this._set({page});
+  }
+
   set pageSize(pageSize: number) {
     this._pagination.page = PaginationConstant.INIT_PAGE;
     this._set({pageSize});
   }
+
   set searchTerm(searchTerm: string) {
     this._pagination.page = PaginationConstant.INIT_PAGE;
     this._set({searchTerm});

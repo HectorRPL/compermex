@@ -2,8 +2,10 @@ package models.factor
 
 import models.box.BoxType
 import models.material.{Strengths, Type}
-import play.api.libs.json.{Json, OFormat}
+
+import play.api.libs.json._
 import reactivemongo.bson.BSONObjectID
+import reactivemongo.play.json._
 
 case class Factor (
                     _id: Option[BSONObjectID],
