@@ -19,6 +19,7 @@ class FactorController @Inject()(
     with I18nSupport {
 
   def factors(name: String, curPage: Int, pageSize: Int) = Action.async {
+
     val query = Json.obj(
       "factor1" -> Json.obj("$regex" -> name, "$options" -> "i" ))
 

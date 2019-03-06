@@ -202,3 +202,32 @@ This software is licensed under the MIT license
 [anuradha-profile]: https://github.com/sanuradhag
 
 sudo service mongod start
+##
+db.getCollection('factors').aggregate([
+    { "$lookup": {
+        "localField": "typeId",
+        "from": "types",
+        "foreignField": "_id",
+        "as": "type"
+        }
+    },
+    { "$lookup": {
+        "localField": "boxTypeId",
+        "from": "boxesTypes",
+        "foreignField": "_id",
+        "as": "boxType"
+        }
+    },    
+    {"$unwind": "$type"},
+    {"$unwind": "$boxType"},
+    {"$match": { "$or":[
+        {
+            "type.description": {"$regex": "CORRUGADO SENCILLO"}
+            },
+            {
+               "boxType.description": {"$regex": "CORRUGADO SENCILLO"} 
+                }
+        ]
+    } }
+    
+])
