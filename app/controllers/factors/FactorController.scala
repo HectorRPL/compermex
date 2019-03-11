@@ -54,7 +54,7 @@ class FactorController @Inject()(
     Json.obj("$or" ->
       Json.arr(
         Json.obj(
-          "typeMaterial.description" ->
+          "materialType.description" ->
             Json.obj(
               "$regex" -> name,
               "$options" -> "i"
