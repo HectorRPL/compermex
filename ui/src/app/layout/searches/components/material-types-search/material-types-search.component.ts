@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Type} from "../../../../models/material/type.model";
+import {MaterialType} from "../../../../models/material/type.model";
 import {FormControl} from "@angular/forms";
 import {MaterialsService} from "../../../../services/materials/materials.service";
 import {Observable} from "rxjs/Rx";
@@ -13,7 +13,7 @@ import {of} from "rxjs/index";
 })
 export class MaterialTypesSearchComponent implements OnInit {
 
-  @Input() public type: Type;
+  @Input() public type: MaterialType;
   @Input() public parentFormGroup: FormControl;
 
   @Output() public update = new EventEmitter();
@@ -23,7 +23,7 @@ export class MaterialTypesSearchComponent implements OnInit {
   public searchFailed = false;
 
   constructor(private materialsService: MaterialsService) {
-    this.type = new Type();
+    this.type = new MaterialType();
   }
 
   ngOnInit() {
@@ -50,8 +50,8 @@ export class MaterialTypesSearchComponent implements OnInit {
       tap(() => this.searching = false)
     );
 
-  resFormatter = (x: Type) => x.description;
-  inFormatter = (result: Type) => result.description;
+  resFormatter = (x: MaterialType) => x.description;
+  inFormatter = (result: MaterialType) => result.description;
 
   selectedItem(event) {
     console.log('Selected item: ', event);

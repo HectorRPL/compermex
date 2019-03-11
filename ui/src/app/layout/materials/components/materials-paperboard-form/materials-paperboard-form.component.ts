@@ -1,10 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Color} from "../../../../models/material/color.model";
-import {Strength} from "../../../../models/material/strengths.model";
-import {Type} from "../../../../models/material/type.model";
 import {Paperboard} from "../../../../models/paperboard/paperboard.model";
-import {Alert} from "../../../../models/alerts/alert.model";
 
 @Component({
   selector: 'app-materials-paperboard-form',

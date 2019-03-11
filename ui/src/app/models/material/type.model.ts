@@ -1,6 +1,6 @@
 import {ObjectId} from "../object-id.model";
 
-export class Type {
+export class MaterialType {
   _id: ObjectId;
   code: number;
   description: string;

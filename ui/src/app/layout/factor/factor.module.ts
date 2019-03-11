@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SearchesModule} from '../searches/searches.module';
 import {FactorService} from '../../services/factor/factor.service';
 import {FactorPageService} from '../../services/factor/factor-page.service';
+import {SelectorsModule} from '../components/selectors/selectors.module';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {FactorPageService} from '../../services/factor/factor-page.service';
     FactorsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SearchesModule
+    SearchesModule,
+    SelectorsModule
   ],
   declarations: [
     FactorComponent,

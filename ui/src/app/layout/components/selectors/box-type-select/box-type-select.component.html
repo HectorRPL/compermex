@@ -1,0 +1,19 @@
+<form novalidate
+      autocomplete="off"
+      [formGroup]="parentFormGroup">
+  <div class="form-group">
+    <label for="boxTypeId">Tipo de caja</label>
+    <select class="form-control custom-select custom-select-sm"
+            id="boxTypeId"
+            [ngClass]="{'is-invalid': _boxType.invalid && (_boxType.dirty || _boxType.touched)}"
+            formControlName="boxType">
+      <option value="">Seleccionar</option>
+      <option *ngFor="let bt of $boxesTypes | async" [ngValue]="bt">
+        {{bt.description}}
+      </option>
+    </select>
+    <div *ngIf="_boxType.invalid && (_boxType.dirty || _boxType.touched)">
+      <div class="text-danger small" *ngIf="_boxType.errors.required">Requerido.</div>
+    </div>
+  </div>
+</form>

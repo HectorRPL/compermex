@@ -1,10 +1,9 @@
-
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Paperboard} from "../../../../models/paperboard/paperboard.model";
 import {Strength} from '../../../../models/material/strengths.model';
 import {Color} from '../../../../models/material/color.model';
-import {Type} from '../../../../models/material/type.model';
+import {MaterialType} from '../../../../models/material/type.model';
 
 @Component({
   selector: 'app-paperboard-form',
@@ -21,7 +20,7 @@ export class PaperboardFormComponent implements OnInit {
 
   public description: string;
   public _strength: Strength;
-  public _type: Type;
+  public _type: MaterialType;
   public _color: Color;
 
   constructor(private formBuilder: FormBuilder) {}
@@ -63,7 +62,7 @@ export class PaperboardFormComponent implements OnInit {
     this.updateDescription();
   }
 
-  fn_updateType(type: Type): void {
+  fn_updateType(type: MaterialType): void {
     this._type = type;
     this.updateDescription();
   }

@@ -7,7 +7,7 @@ import {Material} from '../../layout/materials/models/material.model';
 import {MaterialsMaster} from "../../layout/materials/models/materials-master.model";
 import {Color} from "../../models/material/color.model";
 import {Strength} from "../../models/material/strengths.model";
-import {Type} from "../../models/material/type.model";
+import {MaterialType} from "../../models/material/type.model";
 
 @Injectable({
   providedIn: 'root'
@@ -42,8 +42,8 @@ export class MaterialsService {
       );
   }
 
-  searchTypes(name: String): Observable<Type[]> {
-    return this.http.get<Type[]>(`/materials/types/search?name=${name}`)
+  searchTypes(name: String): Observable<MaterialType[]> {
+    return this.http.get<MaterialType[]>(`/materials/types/search?name=${name}`)
       .pipe(
         catchError(this.handleError('searchTypes', []))
       );

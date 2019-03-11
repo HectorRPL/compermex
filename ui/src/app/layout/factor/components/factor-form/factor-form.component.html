@@ -1,3 +1,62 @@
-<p>
-  factor-form works!
-</p>
+<form novalidate autocomplete="off" [formGroup]="factorForm">
+  <div class="form row">
+    <div class="col-sm-12 my-3">
+      <div class="card">
+        <div class="card-header">
+          Nuevo factor
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-sm-6 col-md-4">
+              <label for="factor1Id">Factor 1</label>
+              <input id="factor1Id" type="text" class="form-control form-control-sm" placeholder="Ingresar"
+                     formControlName="factor1">
+            </div>
+            <div class="form-group col-sm-6 col-md-4">
+              <label for="factor2Id">Factor 2</label>
+              <input id="factor2Id" type="text" class="form-control form-control-sm" placeholder="Ingresar"
+                     formControlName="factor2">
+            </div>
+            <div class="form-group col-sm-6 col-md-4">
+              <label for="factor3Id">Factor 3</label>
+              <input id="factor3Id" type="text" class="form-control form-control-sm" placeholder="Ingresar"
+                     formControlName="factor3">
+            </div>
+            <div class="form-group col-sm-6 col-md-4">
+              <app-box-type-select
+                [parentFormGroup]="factorForm">
+              </app-box-type-select>
+            </div>
+            <div class="form-group col-sm-6 col-md-4">
+              <app-material-types-search
+                [parentFormGroup]="factorForm"
+                (update)="fn_updateType($event);">
+              </app-material-types-search>
+            </div>
+            <div class="form-group col-sm-6 col-md-4">
+              <app-material-strengths-search
+                [parentFormGroup]="factorForm"
+                (update)="fn_updateStrength($event);">
+              </app-material-strengths-search>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-default btn-sm btn-action mr-1"
+                        [routerLink]="['/layout/factor/list']"> Regresar </button>
+                <div class="d-flex justify-content-end">
+                  <button type="submit" class="btn btn-default btn-sm btn-action mr-1"
+                          (click)="fn_reset();"> Limpiar </button>
+                  <button type="submit" class="btn btn-primary btn-sm btn-action"
+                          [disabled]="factorForm.invalid"
+                          (click)="fn_saveOrUpdate();"> Guardar </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

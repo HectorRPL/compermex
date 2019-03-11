@@ -69,17 +69,17 @@ export class FactorPageService {
       .set('curPage', String(this._pagination.page))
       .set('pageSize', String(this._pagination.pageSize));
 
-    return this.http.get<Factor[]>('/factor/search', {params})
+    return this.http.get<Factor[]>('/factors/search', {params})
       .pipe(
         catchError(this.handleError('fn_search', []))
       );
   }
 
   private fn_count(): Observable<number> {
-    const params: HttpParams = new HttpParams();
-    params.set('name', this._pagination.searchTerm);
+    const params: HttpParams = new HttpParams()
+      .set('name', this._pagination.searchTerm);
 
-    return this.http.get<number>('/factor/count', {params})
+    return this.http.get<number>('/factors/count', {params})
       .pipe(
         catchError(this.handleError('fn_count', 0))
       );
