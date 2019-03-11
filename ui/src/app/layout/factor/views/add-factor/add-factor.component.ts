@@ -25,7 +25,7 @@ export class AddFactorComponent implements OnInit {
       console.log('Entity response: ', result);
 
       if (result !== null) {
-        this.messagesService.success('Los cambios han sido guardados correctamente. ID: ' + this.factor._id.$oid);
+        this.messagesService.success('Los cambios han sido guardados correctamente. ID: ' + result._id.$oid);
 
         this.factor = new Factor();
       }
