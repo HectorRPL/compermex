@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Factor} from '../../../../models/factor/factor.model';
 import {MessagesService} from '../../../../services/message/messages.service';
 import {FactorService} from '../../../../services/factor/factor.service';
+import {FactorPageService} from '../../../../services/factor/factor-page.service';
 
 @Component({
   selector: 'app-add-factor',
@@ -13,6 +14,7 @@ export class AddFactorComponent implements OnInit {
   public factor: Factor;
 
   constructor(private factorService: FactorService,
+              private factorPageService: FactorPageService,
               private messagesService: MessagesService) {
     this.factor = new Factor();
   }
@@ -26,8 +28,7 @@ export class AddFactorComponent implements OnInit {
 
       if (result !== null) {
         this.messagesService.success('Los cambios han sido guardados correctamente. ID: ' + result._id.$oid);
-
-        this.factor = new Factor();
+        this.factorPageService.fn_refresh();
       }
     });
   }

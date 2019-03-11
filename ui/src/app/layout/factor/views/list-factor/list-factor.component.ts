@@ -13,7 +13,7 @@ export class ListFactorComponent {
   factors$: Observable<Factor[]>;
   total$: Observable<number>;
 
-  constructor(public service: FactorPageService) {
+  constructor(private service: FactorPageService) {
     this.factors$ = service.result$;
     this.total$ = service.total$;
   }
