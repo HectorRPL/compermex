@@ -9,7 +9,7 @@ import reactivemongo.api.Cursor
 import reactivemongo.bson.{BSONDocument, BSONObjectID}
 import reactivemongo.play.json._
 import reactivemongo.play.json.collection.JSONBatchCommands.AggregationFramework.{
-  Limit, Lookup, Skip, UnwindField, Match}
+  Limit, Lookup, Skip, UnwindField, Match, Sort, Ascending, Descending}
 import reactivemongo.play.json.collection.JSONCollection
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -29,21 +29,24 @@ class FactorsDAOImpl @Inject()(
       List(
         Lookup("boxesTypes", "boxTypeId", "_id", "boxType"),
         Lookup("strengths", "strengthId", "_id", "strength"),
-        Skip(pag.skip),
-        Limit(pag.limit),
         UnwindField("boxType"),
         UnwindField("materialType"),
         UnwindField("strength"),
         Match(
           query
-        )
+        ),
+        Skip(pag.skip),
+        Limit(pag.limit),
+        Sort(Descending("_id"))
       )
     ).prepared.cursor
-      .collect[Seq](pag.limit, Cursor.FailOnError[Seq[Factor]]()))
+      .collect[Seq](-1, Cursor.FailOnError[Seq[Factor]]()))
 
   }
 
   def count(query: JsObject): Future[Int] = {
+    println(query)
+
     collection.flatMap(_.count(Some(query)))
   }
 
