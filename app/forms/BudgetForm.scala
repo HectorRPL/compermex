@@ -11,7 +11,9 @@ case class BudgetForm(
                        width: Double,
                        deep: Double,
                        boxTypeId: BSONObjectID,
-                       paperboardId: BSONObjectID
+                       paperboardId: BSONObjectID,
+                       strengthId: BSONObjectID,
+                       typeId: BSONObjectID
                      )
 
 object BudgetForm {

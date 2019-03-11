@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {BoxesService} from "../../services/boxes/boxes.service";
 import {Observable} from "rxjs";
 import {BoxType} from "../../models/box/box-type";
+import {Paperboard} from "../../models/paperboard/paperboard.model";
 
 @Component({
   selector: 'app-budget',
@@ -21,7 +22,8 @@ export class BudgetComponent implements OnInit {
   public showAll: boolean;
   public bancadasProvee: any[];
   public bancadasMaq: any[];
-  public  selectBoxType: BoxType;
+  public selectBoxType: BoxType;
+  public paperboard: Paperboard;
 
 
 
@@ -107,6 +109,12 @@ export class BudgetComponent implements OnInit {
       'paperboardId': new FormControl('', [
         Validators.required
       ]),
+      'typeId': new FormControl([
+        Validators.required
+      ]),
+      'strengthId': new FormControl([
+        Validators.required
+      ]),
       'boxTypeId': new FormControl('', [
         Validators.required
       ]),
@@ -153,6 +161,7 @@ export class BudgetComponent implements OnInit {
   createBudget(){
     const formModel = this.budgetForm.value;
 
+
     this.areaLamina = this.calcularArea(formModel.large, formModel.width, formModel.depth);
     this.showAll = true;
     this.pcomparmex = this.areaLamina * 1.43955;
@@ -172,9 +181,17 @@ export class BudgetComponent implements OnInit {
     return m1*m2
   }
 
-  f1(event){
-    console.log(this.selectBoxType);
-    console.log(event);
+  selectBox(event){
+    this.budgetForm.patchValue({'boxTypeId': this.selectBoxType._id});
+    console.log(this.budgetForm);
+  }
+
+  setPaperBoard(paperBoard: Paperboard){
+
+    this.paperboard = this.paperboard;
+    this.budgetForm.patchValue({'strengthId': this.paperboard.strengthId});
+    this.budgetForm.patchValue({'typeId': this.paperboard.typeId});
+    this.budgetForm.patchValue({'paperboardId': this.paperboard._id});
   }
 
 

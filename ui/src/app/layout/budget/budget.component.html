@@ -11,7 +11,7 @@
       <div class="form row">
         <div class="form-group col-sm-3">
           <app-paperboards-search
-            (sendStatusForm)="recipePaperboardsSearchStatusForm($event)">
+            (sendStatusForm)="setPaperBoard($event)">
           </app-paperboards-search>
         </div>
         <div class="form-group col-sm-2">
@@ -73,7 +73,7 @@
                   [ngClass]="{'is-invalid': boxTypeId.invalid && (boxTypeId.dirty || boxTypeId.touched)}"
                   formControlName="boxTypeId"
           [(ngModel)]="selectBoxType"
-          (change)="f1($event)">
+          (change)="selectBox($event)">
             <option *ngFor="let boxType of $boxesTypes | async" [ngValue]="boxType">
               {{boxType.description}}
             </option>
