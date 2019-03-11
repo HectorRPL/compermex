@@ -30,23 +30,23 @@
             <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Factor 1</th>
-              <th scope="col">Factor 2</th>
-              <th scope="col">Factor 3</th>
               <th scope="col">Tipo de caja</th>
               <th scope="col">Tipo de cartón</th>
               <th scope="col">Resistencia</th>
+              <th scope="col">Factor 1</th>
+              <th scope="col">Factor 2</th>
+              <th scope="col">Factor 3</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let factor of factors$ | async; let i = index">
               <th scope="row">{{i + 1}}</th>
+              <td>{{factor.boxType.description}}</td>
+              <td>{{factor.strength.description}}</td>
+              <td>{{factor.materialType.description}}</td>
               <td>{{factor.factor1}}</td>
               <td>{{factor.factor2}}</td>
               <td>{{factor.factor3}}</td>
-              <td>{{factor.boxType.description}}</td>
-              <td>{{factor.strengthId}}</td>
-              <td>{{factor.typeId}}</td>
             </tr>
             </tbody>
           </table>

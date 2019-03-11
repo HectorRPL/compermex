@@ -16,7 +16,7 @@ export class FactorService {
   }
 
   add(factor: Factor): Observable<Factor> {
-    return this.http.post<Factor>('/add/factor', factor)
+    return this.http.post<Factor>('/factors', factor)
       .pipe(
         catchError(this.handleError('add', null))
       );

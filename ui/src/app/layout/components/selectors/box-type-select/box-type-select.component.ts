@@ -29,4 +29,8 @@ export class BoxTypeSelectComponent implements OnInit {
   get _boxType() {
     return this.parentFormGroup.get('boxType');
   }
+
+  fn_update(boxType: BoxType): void {
+    this.update.emit(this.boxType);
+  }
 }

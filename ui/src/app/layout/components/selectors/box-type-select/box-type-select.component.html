@@ -6,6 +6,7 @@
     <select class="form-control custom-select custom-select-sm"
             id="boxTypeId"
             [ngClass]="{'is-invalid': _boxType.invalid && (_boxType.dirty || _boxType.touched)}"
+            (change)="fn_update($event);"
             formControlName="boxType">
       <option value="">Seleccionar</option>
       <option *ngFor="let bt of $boxesTypes | async" [ngValue]="bt">

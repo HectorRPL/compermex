@@ -44,4 +44,17 @@ export class FactorFormComponent implements OnInit {
     });
     console.log(this.factorForm);
   }
+
+  fn_saveOrUpdate() {
+    console.log(this.factorForm)
+    this.factor.factor1 = this.factorForm.value.factor1;
+    this.factor.factor2 = this.factorForm.value.factor2;
+    this.factor.factor3 = this.factorForm.value.factor3;
+    this.factor.boxTypeId = this.factorForm.value.boxType._id;
+    this.factor.typeId = this.factorForm.value.type._id;
+    this.factor.strengthId = this.factorForm.value.strength._id;
+    console.log('[VARIABLE] factor: ', this.factor);
+
+    this.saveOrUpdate.emit(this.factor);
+  }
 }
