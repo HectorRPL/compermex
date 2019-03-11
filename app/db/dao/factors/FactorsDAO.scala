@@ -14,7 +14,7 @@ trait FactorsDAO {
 
   def count(query: JsObject): Future[Int]
 
-  def getOne(_id: BSONObjectID): Future[Option[Factor]]
+  def getOne(query: JsObject): Future[Option[Factor]]
 
   def save(paperboard: Factor): Future[Factor]
 

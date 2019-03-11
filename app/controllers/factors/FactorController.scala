@@ -65,6 +65,12 @@ class FactorController @Inject()(
             "$regex" -> name,
             "$options" -> "i"
           )
+        ),
+        Json.obj("strength.description" ->
+          Json.obj(
+            "$regex" -> name,
+            "$options" -> "i"
+          )
         )
       )
     )

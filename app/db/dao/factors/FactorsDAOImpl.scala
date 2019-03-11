@@ -20,19 +20,20 @@ class FactorsDAOImpl @Inject()(
                               ) extends FactorsDAO {
   def collection: Future[JSONCollection] =
     reactiveMongoApi.database.map(_.collection("factors"))
+
   def getList(query: JsObject, sort: JsObject,
               pag: Pagination): Future[Seq[Factor]] = {
 
-    println(query)
-
     collection.flatMap(_.aggregatorContext[Factor](
-      Lookup("types", "typeId", "_id", "typeMaterial"),
+      Lookup("types", "typeId", "_id", "materialType"),
       List(
         Lookup("boxesTypes", "boxTypeId", "_id", "boxType"),
-        Skip(pag.skip), // <-- skip some states if offset > 0
+        Lookup("strengths", "strengthId", "_id", "strength"),
+        Skip(pag.skip),
         Limit(pag.limit),
         UnwindField("boxType"),
-        UnwindField("typeMaterial"),
+        UnwindField("materialType"),
+        UnwindField("strength"),
         Match(
           query
         )
@@ -46,8 +47,7 @@ class FactorsDAOImpl @Inject()(
     collection.flatMap(_.count(Some(query)))
   }
 
-  def getOne(_id: BSONObjectID): Future[Option[Factor]] = {
-    val query = BSONDocument("_id" -> _id)
+  def getOne(query: JsObject): Future[Option[Factor]] = {
     collection.flatMap(_.find(query).one[Factor])
   }
 

@@ -17,7 +17,7 @@ case class Factor (
                     typeId: Option[BSONObjectID],
                     strength: Option[Strengths],
                     boxType: Option[BoxType],
-                    typeMaterial: Option[Type]
+                    materialType: Option[Type]
                   )
 object Factor {
   implicit val factorFormat: OFormat[Factor] = Json.format[Factor]
