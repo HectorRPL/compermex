@@ -64,7 +64,8 @@ GET     /colonies/:code         controllers.zipCodes.ZipCodesController.colonies
 
 #ROUTES FOR FACTORS
 GET /factors/search controllers.factors.FactorController.factors(name: String ?= "", curPage: Int ?= 1, pageSize: Int ?= 50)
-GET /factors/count  controllers.factors.FactorController.count(name: String ?= "")
+GET /factors/search controllers.factors.FactorController.factors(name: String ?= "", curPage: Int ?= 1, pageSize: Int ?= 50)
+POST /factors  controllers.factors.FactorController.save()
 
 # Serve static assets under public directory
 GET     /*file                  controllers.FrontendController.assetOrDefault(file)
