@@ -161,15 +161,6 @@ export class BudgetComponent implements OnInit {
   createBudget(){
     const formModel = this.budgetForm.value;
 
-
-    this.areaLamina = this.calcularArea(formModel.large, formModel.width, formModel.depth);
-    this.showAll = true;
-    this.pcomparmex = this.areaLamina * 1.43955;
-    this.pMininmo = this.areaLamina * 1.43955 * 1.55;
-    this.pMaquila = this.pcomparmex + 608;
-    this.pVenta = this.areaLamina * 1.43955 * 1.55;
-
-
   }
 
 

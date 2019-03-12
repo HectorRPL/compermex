@@ -6,7 +6,7 @@ import reactivemongo.play.json._
 
 case class BoxType (
                      _id: Option[BSONObjectID],
-                     code: Int,
+                     code: String,
                      description: String,
                      formula: String
                    )
@@ -18,7 +18,7 @@ object BoxType {
     def reads(json: JsValue): JsResult[BoxType] = json match {
       case obj: JsObject => try {
         val _id = (obj \ "_id").asOpt[BSONObjectID]
-        val code = (obj \ "code").as[Int]
+        val code = (obj \ "code").as[String]
         val description = (obj \ "description").as[String]
         val formula = (obj \ "formula").as[String]
 
