@@ -203,31 +203,4 @@ This software is licensed under the MIT license
 
 sudo service mongod start
 ##
-db.getCollection('factors').aggregate([
-    { "$lookup": {
-        "localField": "typeId",
-        "from": "types",
-        "foreignField": "_id",
-        "as": "type"
-        }
-    },
-    { "$lookup": {
-        "localField": "boxTypeId",
-        "from": "boxesTypes",
-        "foreignField": "_id",
-        "as": "boxType"
-        }
-    },    
-    {"$unwind": "$type"},
-    {"$unwind": "$boxType"},
-    {"$match": { "$or":[
-        {
-            "type.description": {"$regex": "CORRUGADO SENCILLO"}
-            },
-            {
-               "boxType.description": {"$regex": "CORRUGADO SENCILLO"} 
-                }
-        ]
-    } }
-    
-])
+mongodump --db compermex --host ds125673.mlab.com --port 25673 --username compermex --password "compermex01" --out /media/jvltmtz/archivos/Documents/compermex/nuevaDB/backup/13_03_19
