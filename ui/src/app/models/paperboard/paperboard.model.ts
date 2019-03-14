@@ -8,7 +8,4 @@ export class Paperboard {
   strengthId?: ObjectId;
   typeId?: ObjectId;
 
-  constructor () {
-    this.code = 0;
-  }
 }

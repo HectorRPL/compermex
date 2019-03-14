@@ -4,8 +4,8 @@ import javax.inject.Inject
 import db.dao.factors.FactorsDAO
 import models.Pagination
 import models.factor.Factor
-import play.api.libs.json.{JsObject, Json}
-import reactivemongo.bson.BSONObjectID
+import play.api.libs.json.{JsObject, JsString, Json}
+import reactivemongo.bson.{BSONDocument, BSONObjectID}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -35,12 +35,13 @@ class FactorsServiceImpl @Inject()(
              typeId: BSONObjectID,
              strengthId: BSONObjectID): Future[Option[Factor]] = {
 
-    val query = Json.obj(
-      "boxTypeId" -> Json.obj("$oid" -> boxTypeId.stringify),
-      "typeId" -> Json.obj("$oid" -> typeId.stringify),
-      "strengthId" -> Json.obj("$oid" -> strengthId.stringify)
-    )
 
+    val query = BSONDocument(
+      BSONDocument("boxTypeId" -> boxTypeId),
+      BSONDocument("typeId" -> typeId),
+      BSONDocument("strengthId" -> strengthId)
+    )
+    println(query)
     factorsDAO.getOne(query)
   }
 }

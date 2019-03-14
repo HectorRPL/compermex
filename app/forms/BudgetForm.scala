@@ -9,7 +9,7 @@ case class BudgetForm(
                        quantity: Int,
                        large: Double,
                        width: Double,
-                       deep: Double,
+                       depth: Double,
                        boxTypeId: BSONObjectID,
                        paperboardId: BSONObjectID,
                        strengthId: BSONObjectID,

@@ -17,7 +17,7 @@ class BudgetController  @Inject()(
   extends AbstractController(cc)
     with I18nSupport {
 
-  def create() = Action.async(parse.json) {implicit request =>
+  def save() = Action.async(parse.json) {implicit request =>
     request.body.validate[BudgetForm].map { data =>
 
       val f = factorsService.getOne(data.boxTypeId, data.typeId, data.strengthId)

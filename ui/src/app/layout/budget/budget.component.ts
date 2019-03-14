@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {BoxesService} from "../../services/boxes/boxes.service";
-import {Observable} from "rxjs";
-import {BoxType} from "../../models/box/box-type";
-import {Paperboard} from "../../models/paperboard/paperboard.model";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {BoxesService} from '../../services/boxes/boxes.service';
+import {Observable} from 'rxjs';
+import {BoxType} from '../../models/box/box-type';
+import {Paperboard} from '../../models/paperboard/paperboard.model';
+import {BudgetFrm} from "../../models/budget/budget";
+import {BudgetService} from "../../services/budget/budget.service";
 
 @Component({
   selector: 'app-budget',
@@ -23,77 +25,78 @@ export class BudgetComponent implements OnInit {
   public bancadasProvee: any[];
   public bancadasMaq: any[];
   public selectBoxType: BoxType;
-  public paperboard: Paperboard;
-
+  public selectPaperboard: Paperboard;
 
 
   constructor(private formBuilder: FormBuilder,
-              private boxesService: BoxesService) {
+              private boxesService: BoxesService,
+              private budgetService: BudgetService) {
     this.areaLamina = 0;
     this.pcomparmex = 0;
     this.pMininmo = 0;
     this.pMaquila = 0;
     this.pVenta = 0;
     this.showAll = false;
+    this.selectPaperboard = new Paperboard();
     this.bancadasProvee = [{
-      nombre: "CARTONES Y CORRUGADOS INDUSTRIALES",
+      nombre: 'CARTONES Y CORRUGADOS INDUSTRIALES',
       costMillar: 7920,
       lMin: 60,
-      lMax:300,
+      lMax: 300,
       aMin: 20,
       aMax: 197,
       minM2: 50
     },
       {
-        nombre: "CARTRO SAPI",
+        nombre: 'CARTRO SAPI',
         costMillar: 8990,
         lMin: 50,
-        lMax:500,
+        lMax: 500,
         aMin: 28,
         aMax: 247,
         minM2: 400
       },
       {
-        nombre: "BIOPAPEL",
+        nombre: 'BIOPAPEL',
         costMillar: 8990,
         lMin: 70,
-        lMax:350,
+        lMax: 350,
         aMin: 30,
         aMax: 240,
         minM2: 1000
       }];
-    this.bancadasMaq =[{
-      nombre: "FLEXO",
+    this.bancadasMaq = [{
+      nombre: 'FLEXO',
       min: 38,
-      max:80
+      max: 80
     },
       {
-        nombre: "IMPRESORA 1",
+        nombre: 'IMPRESORA 1',
         min: 50,
         max: 113
       },
       {
-        nombre: "IMPRESORA 2",
+        nombre: 'IMPRESORA 2',
         min: 24,
         max: 66
       },
       {
-        nombre: "PEGADORA 1",
+        nombre: 'PEGADORA 1',
         min: 35,
         max: 73
       },
       {
-        nombre: "SUAJE",
+        nombre: 'SUAJE',
         min: 38,
         max: 53
       },
       {
-        nombre: "SUAJE SIN FIN",
+        nombre: 'SUAJE SIN FIN',
         min: 0,
         max: 0
       },
       {
-        nombre: "RAYADURA",
+        nombre: 'RAYADURA',
         min: 98,
         max: 77
       }]
@@ -104,9 +107,10 @@ export class BudgetComponent implements OnInit {
     this.getTypes();
   }
 
-  initBudgetForm(){
+  initBudgetForm() {
     this.budgetForm = this.formBuilder.group({
-      'paperboardId': new FormControl('', [
+
+      'paperboardId': new FormControl( [
         Validators.required
       ]),
       'typeId': new FormControl([
@@ -134,8 +138,20 @@ export class BudgetComponent implements OnInit {
 
   }
 
+  get paperboardId() {
+    return this.budgetForm.get('paperboardId');
+  }
+
   get boxTypeId() {
     return this.budgetForm.get('boxTypeId');
+  }
+
+  get strengthId(){
+    return this.budgetForm.get('strengthId');
+  }
+
+  get typeId(){
+    return this.budgetForm.get('typeId');
   }
 
   get width() {
@@ -154,36 +170,44 @@ export class BudgetComponent implements OnInit {
     return this.budgetForm.get('quantity');
   }
 
-  getTypes() {
-    this.$boxesTypes = this.boxesService.getTypes();
+
+  createBudget() {
+    console.log(this.budgetForm.value);
+
+    this.budgetService.compute(this.budgetForm.value).subscribe({
+      next: (result) => {
+        console.log(result);
+      },
+      complete: () => {
+
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+
   }
 
-  createBudget(){
-    const formModel = this.budgetForm.value;
 
-  }
-
-
-  calcularArea(large: number, width:number, depth:number){
-
-
-    const m1 = ((large + width) *2) + 6.5;
-    const m2 = (width + depth + 3.2);
-    return m1*m2
-  }
-
-  selectBox(event){
+  selectBox(event) {
     this.budgetForm.patchValue({'boxTypeId': this.selectBoxType._id});
     console.log(this.budgetForm);
   }
 
-  setPaperBoard(paperBoard: Paperboard){
-
-    this.paperboard = this.paperboard;
-    this.budgetForm.patchValue({'strengthId': this.paperboard.strengthId});
-    this.budgetForm.patchValue({'typeId': this.paperboard.typeId});
-    this.budgetForm.patchValue({'paperboardId': this.paperboard._id});
+  setPaperBoard(paperboard: any) {
+    const selectPaper = paperboard.response.item;
+    console.log(selectPaper);
+    console.log(selectPaper._id);
+    this.budgetForm.patchValue({'paperboardId': selectPaper._id});
+    this.budgetForm.patchValue({'strengthId': selectPaper.strengthId});
+    this.budgetForm.patchValue({'typeId': selectPaper.typeId});
   }
+
+
+  getTypes() {
+    this.$boxesTypes = this.boxesService.getTypes();
+  }
+
 
 
 }

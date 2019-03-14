@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SearchesModule} from '../searches/searches.module';
 import {PaperboardService} from '../../services/paperboard/paperboard.service';
+import {BudgetService} from "../../services/budget/budget.service";
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {PaperboardService} from '../../services/paperboard/paperboard.service';
     BudgetComponent
   ],
   providers: [
-    PaperboardService
+    PaperboardService,
+    BudgetService
   ]
 })
 export class BudgetModule { }

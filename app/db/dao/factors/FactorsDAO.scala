@@ -3,7 +3,7 @@ package db.dao.factors
 import models.Pagination
 import models.factor.Factor
 import play.api.libs.json.JsObject
-import reactivemongo.bson.BSONObjectID
+import reactivemongo.bson.{BSONDocument, BSONObjectID}
 
 import scala.concurrent.Future
 
@@ -14,7 +14,7 @@ trait FactorsDAO {
 
   def count(query: JsObject): Future[Int]
 
-  def getOne(query: JsObject): Future[Option[Factor]]
+  def getOne(query: BSONDocument): Future[Option[Factor]]
 
   def save(paperboard: Factor): Future[Factor]
 

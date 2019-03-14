@@ -67,5 +67,8 @@ GET  /factors/search controllers.factors.FactorController.factors(name: String ?
 GET  /factors/count controllers.factors.FactorController.count(name: String ?= "")
 POST /factors  controllers.factors.FactorController.save()
 
+#ROUTES FOR BUDGET
+POST /budget controllers.budget.BudgetController.save()
+
 # Serve static assets under public directory
 GET     /*file                  controllers.FrontendController.assetOrDefault(file)
