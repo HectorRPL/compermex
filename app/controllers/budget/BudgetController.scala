@@ -3,6 +3,7 @@ package controllers.budget
 import forms.BudgetForm
 import javax.inject.Inject
 import models.factor.Factor
+import myservices.budget.BudgetService
 import myservices.factors.FactorsService
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json.Json
@@ -12,7 +13,8 @@ import scala.concurrent.{ExecutionContext, Future}
 
 class BudgetController  @Inject()(
                                    cc: ControllerComponents,
-                                   factorsService: FactorsService
+                                   factorsService: FactorsService,
+                                   budgetService: BudgetService
                                  )(implicit ec: ExecutionContext)
   extends AbstractController(cc)
     with I18nSupport {
@@ -21,7 +23,7 @@ class BudgetController  @Inject()(
     request.body.validate[BudgetForm].map { data =>
 
       val f = factorsService.getOne(data.boxTypeId, data.typeId, data.strengthId)
-
+      budgetService.computeArea(data)
       f.map{ fact =>
         Ok(Json.toJson(fact))
       }

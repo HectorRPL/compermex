@@ -27,7 +27,7 @@ class FactorsServiceImpl @Inject()(
   }
 
   def getOne(_id: BSONObjectID): Future[Option[Factor]] = {
-    val query = Json.obj("_id" -> Json.obj("$oid" -> _id.stringify))
+    val query = BSONDocument( BSONDocument("_id" -> _id))
     factorsDAO.getOne(query)
   }
 

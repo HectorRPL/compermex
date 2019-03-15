@@ -1,13 +1,13 @@
 package myservices.budget
 
+import forms.BudgetForm
 import reactivemongo.bson.BSONObjectID
 
 import scala.concurrent.Future
 
 trait BudgetService {
 
-  def computeArea(boxTypeId: BSONObjectID, large: Double,
-                  width: Double, deep: Double): Future[Double]
+  def computeArea(budgetForm: BudgetForm): Future[Option[Double]]
 
   def getPrices(totalArea: Double, factorId: BSONObjectID, cantidad: Int): Future[Seq[Double]]
 

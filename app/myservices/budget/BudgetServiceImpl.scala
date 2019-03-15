@@ -1,35 +1,50 @@
 package myservices.budget
 
+import com.mohiva.play.silhouette.impl.exceptions.IdentityNotFoundException
 import db.dao.boxes.types.BoxesTypesDAO
+import forms.BudgetForm
 import javax.inject.Inject
+import models.formula.Formula
+import myservices.formula.FormulaService
 import net.objecthunter.exp4j.ExpressionBuilder
 import play.api.libs.json.Json
-import reactivemongo.bson.BSONObjectID
+import reactivemongo.bson.{BSONDocument, BSONObjectID}
 
 import scala.concurrent.{ExecutionContext, Future}
 
 
 class BudgetServiceImpl @Inject()(
                                    implicit ec: ExecutionContext,
-                                   boxesTypesDAO: BoxesTypesDAO
+                                   boxesTypesDAO: BoxesTypesDAO,
+                                   formulaService: FormulaService
                                  ) extends BudgetService {
 
-  def computeArea(boxTypeId: BSONObjectID, large: Double,
-                  width: Double, deep: Double): Future[Double] = {
 
-    val query = Json.obj("_id" -> boxTypeId.toString())
-    boxesTypesDAO.getOne(query).map {
-      case Some(boxType) =>
-        val e = new ExpressionBuilder(boxType.formula)
+  def computeArea(budgetForm: BudgetForm): Future[Option[Double]] = {
+
+    getFormula(budgetForm.boxTypeId, budgetForm.typeId)
+      .map {
+        case Some(formula) => println(formula)
+
+        /*val e = new ExpressionBuilder(formula.formula)
           .variables("L", "W", "D").build()
-          .setVariable("L", large)
-          .setVariable("W", width)
-          .setVariable("D", deep)
+          .setVariable("L", budgetForm.large)
+          .setVariable("W", budgetForm.width)
+          .setVariable("D", budgetForm.depth)
 
-        e.evaluate()
+        e.evaluate()*/
+        Some(budgetForm.depth * budgetForm.large)
+      }
+  }
 
-    }
+  def getFormula(boxTypeId: BSONObjectID,
+                 typeId: BSONObjectID): Future[Option[Formula]] = {
 
+    val query = BSONDocument(
+      BSONDocument("boxTypeId" -> boxTypeId),
+      BSONDocument("typeId" -> typeId)
+    )
+    formulaService.getOne(query)
   }
 
   def getPrices(totalArea: Double, factorId: BSONObjectID, cantidad: Int): Future[Seq[Double]] = ???

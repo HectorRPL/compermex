@@ -18,6 +18,7 @@ trait FactorsService {
 
   def getOne(_id: BSONObjectID): Future[Option[Factor]]
 
-  def getOne(boxTypeId: BSONObjectID, typeId: BSONObjectID, strengthId: BSONObjectID): Future[Option[Factor]]
+  def getOne(boxTypeId: BSONObjectID, typeId: BSONObjectID,
+             strengthId: BSONObjectID): Future[Option[Factor]]
 
 }

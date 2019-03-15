@@ -11,6 +11,7 @@ import db.dao.companies.{CompaniesDAO, CompaniesDAOImpl}
 import db.dao.employees.{EmployeesDAO, EmployeesDAOImpl}
 import db.dao.factors.{FactorsDAO, FactorsDAOImpl}
 import db.dao.fiscalData.{FiscalDataDAO, FiscalDataDAOImpl}
+import db.dao.formulas.{FormulaDAO, FormulaDAOImpl}
 import db.dao.materials.paperboards.{PaperboardsDAO, PaperboardsDAOImpl}
 import db.dao.materials.{MaterialsDAO, MaterialsDAOImpl}
 import db.dao.purchases.{PurchasesOrdersDAO, PurchasesOrdersDAOImpl}
@@ -21,11 +22,13 @@ import db.dao.zipCodes.{ZipCodesDAO, ZipCodesDAOImpl}
 import myservices.addresses.{AddressesService, AddressesServiceImpl}
 import myservices.areas.{AreasService, AreasServiceImpl}
 import myservices.boxes.{BoxesService, BoxesServiceImpl}
+import myservices.budget.{BudgetService, BudgetServiceImpl}
 import myservices.clients.{ClientsService, ClientsServiceImpl}
 import myservices.companies.{CompaniesService, CompaniesServiceImpl}
 import myservices.employees.{EmployeesService, EmployeesServiceImpl}
 import myservices.factors.{FactorsService, FactorsServiceImpl}
 import myservices.fiscalData.{FiscalDataService, FiscalDataServiceImpl}
+import myservices.formula.{FormulaService, FormulaServiceImpl}
 import myservices.materials.{MaterialsService, MaterialsServiceImpl, PaperboardsService, PaperboardsServiceImpl}
 import myservices.purchases.{PurchasesService, PurchasesServiceImpl}
 import myservices.sales.{SalesService, SalesServiceImpl}
@@ -102,5 +105,13 @@ class BaseModule extends AbstractModule with ScalaModule {
     //DI For factors
     bind[FactorsService].to[FactorsServiceImpl]
     bind[FactorsDAO].to[FactorsDAOImpl]
+
+    // DI For Budget
+    bind[BudgetService].to[BudgetServiceImpl]
+
+    // DI For Fromulas
+    bind[FormulaDAO].to[FormulaDAOImpl]
+    bind[FormulaService].to[FormulaServiceImpl]
+
   }
 }

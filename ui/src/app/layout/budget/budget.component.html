@@ -73,9 +73,8 @@
                   id="boxTypeId"
                   [ngClass]="{'is-invalid': boxTypeId.invalid && (boxTypeId.dirty || boxTypeId.touched)}"
                   formControlName="boxTypeId"
-          [(ngModel)]="selectBoxType"
           (change)="selectBox($event)">
-            <option *ngFor="let boxType of $boxesTypes | async" [ngValue]="boxType">
+            <option *ngFor="let boxType of $boxesTypes | async" [ngValue]="boxType._id">
               {{boxType.description}}
             </option>
           </select>

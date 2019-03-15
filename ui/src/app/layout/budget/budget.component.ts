@@ -188,12 +188,6 @@ export class BudgetComponent implements OnInit {
 
   }
 
-
-  selectBox(event) {
-    this.budgetForm.patchValue({'boxTypeId': this.selectBoxType._id});
-    console.log(this.budgetForm);
-  }
-
   setPaperBoard(paperboard: any) {
     const selectPaper = paperboard.response.item;
     console.log(selectPaper);
