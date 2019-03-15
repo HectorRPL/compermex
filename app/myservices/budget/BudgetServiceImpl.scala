@@ -1,6 +1,7 @@
 package myservices.budget
 
-import com.mohiva.play.silhouette.impl.exceptions.IdentityNotFoundException
+import java.util.concurrent.Executors
+
 import db.dao.boxes.types.BoxesTypesDAO
 import forms.BudgetForm
 import javax.inject.Inject
@@ -24,16 +25,20 @@ class BudgetServiceImpl @Inject()(
 
     getFormula(budgetForm.boxTypeId, budgetForm.typeId)
       .map {
-        case Some(formula) => println(formula)
+        case Some(formula) => {
 
-        /*val e = new ExpressionBuilder(formula.formula)
-          .variables("L", "W", "D").build()
-          .setVariable("L", budgetForm.large)
-          .setVariable("W", budgetForm.width)
-          .setVariable("D", budgetForm.depth)
+          println(formula.formula)
+          val e = new ExpressionBuilder(formula.formula)
+            .variables("L", "W", "D").build()
+            .setVariable("L", budgetForm.large)
+            .setVariable("W", budgetForm.width)
+            .setVariable("D", budgetForm.depth)
 
-        e.evaluate()*/
-        Some(budgetForm.depth * budgetForm.large)
+          println(e.evaluate())
+
+          Some(e.evaluate())
+
+        }
       }
   }
 

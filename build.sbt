@@ -9,6 +9,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava).settings(
 resolvers += Resolver.jcenterRepo
 
 resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
+resolvers ++= Seq("moma" at "https://github.com/prassee/moma/raw/master/snapshots/me/prassee/exp4s_2.11/0.0.4")
 
 scalaVersion := "2.12.6"
 
@@ -28,6 +29,7 @@ libraryDependencies ++= Seq(
   "com.iheart" %% "ficus" % "1.4.3",
   "joda-time" % "joda-time" % "2.7",
   "net.objecthunter" % "exp4j" % "0.4.8"
+
 )
 libraryDependencies += ws
 libraryDependencies += ehcache

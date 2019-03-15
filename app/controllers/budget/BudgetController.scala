@@ -23,7 +23,7 @@ class BudgetController  @Inject()(
     request.body.validate[BudgetForm].map { data =>
 
       val f = factorsService.getOne(data.boxTypeId, data.typeId, data.strengthId)
-      budgetService.computeArea(data)
+      val x = budgetService.computeArea(data)
       f.map{ fact =>
         Ok(Json.toJson(fact))
       }
