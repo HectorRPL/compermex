@@ -20,21 +20,40 @@
           IN+
         </div>
       </li>
-        <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
-          <a href="#"><i class="fas fa-users"></i>
-            <span class="nav-label">Empleados</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="fas fa-angle-right"></span></a>
-          <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
-            <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
-              <a [routerLink]="['/layout/employees/list']">Lista</a>
-            </li>
-            <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
-              <a [routerLink]="['/layout/employees/add']">Agregar</a>
-            </li>
-          </ul>
-        </li>
 
-      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
+        <a href="#"><i class="fas fa-users"></i>
+          <span class="nav-label">Ordenes enta</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span></a>
+        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/sales/list']">Lista</a>
+          </li>
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/sales/add']">Agregar</a>
+          </li>
+        </ul>
+      </li>
+
+
+      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
+        <a href="#"><i class="fas fa-users"></i>
+          <span class="nav-label">Empleados</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="fas fa-angle-right"></span></a>
+        <ul class="nav nav-second-level collapse" [ngClass]="{in: activeRoute('dashboards')}">
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/employees/list']">Lista</a>
+          </li>
+          <li class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboard1')}">
+            <a [routerLink]="['/layout/employees/add']">Agregar</a>
+          </li>
+        </ul>
+      </li>
+
+      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-building"></i>
           <span class="nav-label">Proveedores</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>
@@ -47,7 +66,8 @@
           </li>
         </ul>
       </li>
-      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-th"></i>
           <span class="nav-label">Clientes</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>
@@ -60,7 +80,8 @@
           </li>
         </ul>
       </li>
-      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-file-invoice-dollar"></i>
           <span class="nav-label">Órdenes</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>
@@ -73,7 +94,8 @@
           </li>
         </ul>
       </li>
-      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-box-open"></i>
           <span class="nav-label">Materiales</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>
@@ -89,7 +111,8 @@
           </li>
         </ul>
       </li>
-      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+      <li [hidden]="area.description != 'administrador'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-box-open"></i>
           <span class="nav-label">Factores</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>
@@ -114,7 +137,8 @@
         </ul>
       </li>
       -->
-      <li [hidden]="area.description != 'recepcion'" class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+      <li [hidden]="area.description != 'recepcion'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-redo"></i>
           <span class="nav-label">Recepción</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>
@@ -124,7 +148,8 @@
           </li>
         </ul>
       </li>
-      <li [hidden]="area.description != 'produccion'" class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+      <li [hidden]="area.description != 'produccion'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-cogs"></i>
           <span class="nav-label">Producción</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span> </a>
@@ -134,7 +159,8 @@
           </li>
         </ul>
       </li>
-      <li [hidden]="area.description != 'calidad'"  class="side-bar-by-hector" [ngClass]="{active: activeRoute('dashboards')}">
+      <li [hidden]="area.description != 'calidad'" class="side-bar-by-hector"
+          [ngClass]="{active: activeRoute('dashboards')}">
         <a href="#"><i class="fas fa-clipboard-check"></i>
           <span class="nav-label">Calidad</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span class="fas fa-angle-right"></span>

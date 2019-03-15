@@ -38,6 +38,11 @@ const routes: Routes = [
         data: {preload: false}
       },
       {
+        path: 'sales',
+        loadChildren: './sales-orders/sales-orders.module#SalesOrdersModule',
+        data: {preload: false}
+      },
+      {
         path: 'paperboard',
         loadChildren: './paperboard/paperboard.module#PaperboardModule',
         data: {preload: false}
