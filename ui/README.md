@@ -98,6 +98,14 @@ CREACION DEL MODULO: reception
 `ng generate component layout/reception/components/modalReceivePaperboard`
 `ng generate component layout/reception/components/receivePaperboardForm`
 
+CREACION DE UN MODULO: ORDER SALES
+`ng generate module layout/salesOrders`
+`ng generate service services/sales-orders/salesOrders`
+`ng generate component layout/sales-orders/components/salesOrders`
+`ng generate component layout/sales-orders/components/salesOrdersForm`
+`ng generate component layout/sales-orders/views/listSalesOrders`
+`ng generate component layout/sales-orders/views/addSalesOrders`
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
