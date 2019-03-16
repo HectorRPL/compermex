@@ -1,6 +1,6 @@
 package myservices.budget
 
-import java.util.concurrent.Executors
+import java.util.concurrent.{Executors, ThreadPoolExecutor}
 
 import db.dao.boxes.types.BoxesTypesDAO
 import forms.BudgetForm
@@ -21,24 +21,20 @@ class BudgetServiceImpl @Inject()(
                                  ) extends BudgetService {
 
 
-  def computeArea(budgetForm: BudgetForm): Future[Option[Double]] = {
+  def computeArea(budgetForm: BudgetForm): Future[Unit] = {
 
     getFormula(budgetForm.boxTypeId, budgetForm.typeId)
       .map {
         case Some(formula) => {
-
           println(formula.formula)
-          val e = new ExpressionBuilder(formula.formula)
-            .variables("L", "W", "D").build()
-            .setVariable("L", budgetForm.large)
-            .setVariable("W", budgetForm.width)
-            .setVariable("D", budgetForm.depth)
-
-          println(e.evaluate())
-
-          Some(e.evaluate())
-
+          Future[Option[Double]] = Future {
+            evaluateFormula(formula.formula, budgetForm.large,
+              budgetForm.width, budgetForm.depth)
+          }.map{ area =>
+            println(area)
+          }
         }
+        case None => print("asdasdasdasdasdasdad")
       }
   }
 
@@ -50,6 +46,19 @@ class BudgetServiceImpl @Inject()(
       BSONDocument("typeId" -> typeId)
     )
     formulaService.getOne(query)
+  }
+
+  def evaluateFormula(formula: String, large: Double,
+                      width: Double, depth: Double): Option[Double] = {
+
+    val area = new ExpressionBuilder(formula)
+      .variables("L", "W", "D").build()
+      .setVariable("L", large)
+      .setVariable("W", width)
+      .setVariable("D", depth)
+      .evaluate()
+    println("area", area)
+    Some(area)
   }
 
   def getPrices(totalArea: Double, factorId: BSONObjectID, cantidad: Int): Future[Seq[Double]] = ???

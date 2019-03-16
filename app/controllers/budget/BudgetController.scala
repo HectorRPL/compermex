@@ -22,8 +22,11 @@ class BudgetController  @Inject()(
   def save() = Action.async(parse.json) {implicit request =>
     request.body.validate[BudgetForm].map { data =>
 
+      budgetService.computeArea(data).map{ result =>
+        println("asdasdasdasd", result)
+      }
       val f = factorsService.getOne(data.boxTypeId, data.typeId, data.strengthId)
-      val x = budgetService.computeArea(data)
+
       f.map{ fact =>
         Ok(Json.toJson(fact))
       }
